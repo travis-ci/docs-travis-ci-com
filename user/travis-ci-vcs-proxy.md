@@ -184,7 +184,7 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 
 ## I want to build with Travis CI
 
-Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started).
+Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started/).
 
 The general workflow is summarized in the following picture:
 
