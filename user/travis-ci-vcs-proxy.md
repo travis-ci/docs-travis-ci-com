@@ -14,10 +14,10 @@ To use Travis CI with Travis CI Version Control System VCS) Proxy for builds ove
 
 Integration supported by TCI VCS Proxy
 
-| Repository type     | Supported integration  | Authorization engine                                    |
-| ------------------- | ---------------------- | ------------------------------------------------------- |
-| Perforce Helix Core | Streams mainline and dev depots only | Ticket-based authorization only           |
-| SVN                 | Apache SVN server only | svn+ssh (implies SSH keys used) + optionally use realms |
+| Repository type     | Supported integration                | Authorization engine                                    |
+| ------------------- | ------------------------------------ | ------------------------------------------------------- |
+| Perforce Helix Core | Streams mainline and dev depots only | Ticket-based authorization only                         |
+| SVN                 | Apache SVN server only               | svn+ssh (implies SSH keys used) + optionally use realms |
 
 ## Prerequisites
 
@@ -40,9 +40,9 @@ You will go through following major steps in configuration
   * Add Travis Ci VCS Proxy listener token to the Assembla Cloud P4 or SVN repository settings.
   * For Assembla Cloud P4 repository: optionally configure a group with long login timeout (to prevent builds not running due to expired P4 tickets/tokens). 
 
-> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate connection layer for P4 and SVN servers, as it is meant to connect also self-hosted P4 or SVN servers.
+> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate connection layer for P4 and SVN servers, as it is meant to connect also self-hosted P4 or SVN servers.
  
-* Travis Ci VCS Proxy
+* Travis CI VCS Proxy
   * Add an organization.
   * Add at least one repository in the organization, using details acquired from Assembla.
   * Note down Travis CI VCS Proxy listener tokens, needed for Assembla Cloud P4 or SVN repositories to report commits. That will, in the end, trigger Travis CI builds.
@@ -182,5 +182,10 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 
 > As of the closed Beta launch, we recommend using individual listener tokens for each Assembla Cloud P4 repository. Meanwhile, we are working on improving the handling of shared TCI Proxy Organization-level listener tokens for your convenience.
 
+## I want to build with Travis CI
+
+Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started).
+
+The general workflow is summarized in the following picture:
 
 ![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
