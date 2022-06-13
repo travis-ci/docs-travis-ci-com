@@ -101,13 +101,13 @@ Please note down the minimum required connection details for your collaborators.
 As stated above you need to make sure your credentials/connection data is correct, so when you ser your final `P4CONFIG` file should look like this: 
 
 ```bash
-P4PORT=ssl:perforce.assembla.app:xxxx # (port number will be under the "instructions" tab in Assembla)
+P4PORT=ssl:perforce.assembla.app:xxxx # (The port number will be under the "instructions" tab in Assembla)
 P4PASSWD= # This will be set later.
 P4USER=MontanaMendy # As an example. 
 P4CHARSET=utf8
 P4CLIENT=testspace_j # This is your local client name, choose anything.
 ```
-You can access your P4 environment variables by running in your command line `cat ~/.p4enviro` and if you want to edit your environment variables run `vim ~/.p4enviro` in your command line or use and IDE/Text Editor of your choice.
+You can access your P4 environment variables by running in your command line `cat ~/.p4enviro` and if you want to edit your environment variables run `vim ~/.p4enviro` in your command line or use an IDE or text editor of your choice.
 
 ## Inviting collaborators to TCI VCS Proxy Organization
 
