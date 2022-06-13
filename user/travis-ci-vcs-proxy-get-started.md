@@ -28,6 +28,7 @@ For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-v
 #### Steps to geting started
 
 1. Open the received link to Travis CI and select the *Sign up with TCI Proxy* option.
+When you do it for the first time, a Travis CI VCS Proxy page will pop-up with an `Authorize` button present. Pressing the button will tell Travis CI VCS Proxy that Travis CI is authorized to obtain organizations, repositories, commit notifications and user emails (for build status notifications, shall you enable these) from Travis CI VCS Proxy. After first authorization it will occur automatically if you log into Travis CI Beta application in the same browser (and site data is not removed).
 
 2. Accept the Travis CI´s Authorization email. 
 > *Please note:* The Beta Travis CI application with support for Travis CI VCS Proxy and regular application are both working in the same Production environment (so once the beta is closed, you can preserve all set up if you wish to). Thus Travis CI Authorization email link may lead you to the main *app.travis-ci.com*. In such case please return to the Travis CI beta application url. You can find it in the Travis CI VCS Proxy welcome e-mail.
