@@ -11,8 +11,8 @@ This document describes steps necessary for database migration from existing Tra
 The TCIE 3.x runs over Postgresql v11 and features a bit different database schema, synchronized with Travis CI Hosted solution. Since TCIE 3.x is deployed as Kubernetes cluster, PostgreSQL is now one of the pods (TCIE 2.x had every dependency embedded in one large Docker image).
 
 The main schema differences are:
-* databases for *logs* and *main* are now separated
-* the *_configs* schema in new *main* database is a bit different and thus this part will be not migrated during the following process; that means for builds done before the migration the users won't have the `.travis.yml` contents relevant to these builds available in the web User Interface
+* In TCIE 3 databases for *logs* and *main* are now separated
+* the *_configs* schema in new TCIE 3 *main* database is a bit different from the one in TCIE 2.2 and thus this part will be not migrated during the following process; that means for builds done before the migration the users won't have the `.travis.yml` contents relevant to these builds available in the web User Interface
 
 ## Preparing to the Migration
 
@@ -70,11 +70,25 @@ As a result, you should have both database files available for further processin
 
 ### Alter the Database Dumps
 
-Perform replacement of DB owner identifiers in the database dumps: 
+
+Assuming you have used Travis CI Enterprsie 2.2 internal datbase (one delivered with the 2.2 release in master image) please perform replacement of DB owner identifiers in the database dumps: 
+
 ```bash
 sed -i '' 's/Owner: travis/Owner: postgres/g' TCI_E_2_0_db_schema_dump_main_tables_platform_docker_20200324.sql
 sed -i '' 's/OWNER TO travis/OWNER TO postgres/g' TCI_E_2_0_db_schema_dump_main_tables_platform_docker_20200324.sql 
 ```
+
+**PLEASE NOTE**: 
+1. Please reconfirm existing database owner name directly via PSQL query or command line tool. If required, unify/change it to a single user using psql tooling/queries before any further operation is executed.
+1. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to continue so: you do not have to perform above step. Just use the database owner credentials from Travis CI Enterprise 2.2 in Travis Ci Enterprsie 3.x configuration.
+2. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to cease to do so and use database delivered as a pod in Travis CI Enterprsie 3.3, in above bash commands change following fragments
+
+`Owner: travis` to `Owner: {your external tcie 2.2 database owner}`
+
+`OWNER TO travis` to  `OWNER TO {your external tcie 2.2 database owner}`
+
+
+
 ### Make the Altered Dumps Available
 
 Make your dump files available under any `http` address visible for your target Enterprise 3.0 cluster. This serves the purpose of TCIE 3.x installer to be able to download them and migrate the data automatically.

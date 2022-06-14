@@ -28,12 +28,18 @@ For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-v
 #### Steps to geting started
 
 1. Open the received link to Travis CI and select the *Sign up with TCI Proxy* option.
+When you do it for the first time, a Travis CI VCS Proxy page will pop-up with an `Authorize` button present. Pressing the button will tell Travis CI VCS Proxy that Travis CI is authorized to obtain organizations, repositories, commit notifications and user emails (for build status notifications, shall you enable these) from Travis CI VCS Proxy. After first authorization it will occur automatically if you log into Travis CI Beta application in the same browser (and site data is not removed).
 
-2. Accept the Travis CI´s Authorization email.
+2. Accept the Travis CI´s Authorization email. 
+> *Please note:* The Beta Travis CI application with support for Travis CI VCS Proxy and regular application are both working in the same Production environment (so once the beta is closed, you can preserve all set up if you wish to). Thus Travis CI Authorization email link may lead you to the main *app.travis-ci.com*. In such case please return to the Travis CI beta application url. You can find it in the Travis CI VCS Proxy welcome e-mail.
 
-3. On the top right of the Travis Dashboard, click on your profile picture and select the *Settings* option. Next, click on the ‘Sync account’ button on the left menu and toggle the repositories you want to use with Travis CI.
+3. On the top right of the Travis Dashboard, click on your profile picture and select the *Settings* option. Next, click on the ‘Sync account’ button on the left menu and toggle the repositories you want to use with Travis CI. 
+> *Please note:* If the synchronization operation doesn't refresh your Travis CI screen automatically within 1 minute, please refresh your browser window manually (Ctrl/Cmd + F5).
 
-4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+4. Please select a Trial Plan or wait for us to assign special Beta Plan to your account and/or organization(s). In Travis CI each individual User account and each Organization entity must have a separate plans assigned.
+> *Please note:* If assigning a plan doesn't remove automatically the insufficient user license/lack of credits error message in your Travis CI Beta application screen, please refresh your browser window manually (Ctrl/Cmd + F5).
+
+5. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
 The following example specifies a Ruby project built with Ruby 2.2 and the latest versions of JRuby.
 
@@ -47,7 +53,7 @@ The following example specifies a Ruby project built with Ruby 2.2 and the lates
 
 The defaults for Ruby projects are a `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase), and `rake` to build the project.
 
-5. Add the `.travis.yml` file to repository, commit to the repository to trigger a Travis CI build:
+6. Add the `.travis.yml` file to repository, commit to the repository to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 

@@ -152,7 +152,7 @@ github_oauth_access_rights: |
 git_repository_settings_forks_general: |
   > Repository security settings for forked repositories on Git are available starting March 1st, 2022.
   
-  For Git repositories, you may manage per repository how the [environment variables](/user/environment-variables/) and the custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build triggered as an effect of filing a Pull Request from a forked repository. Two settings are available specifically for this purpose, allowing you to customize your security vs. collaboration setup.
+  For Git repositories, you may manage per repository how the [environment variables](/user/environment-variables/) and the [custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build triggered as an effect of filing a Pull Request from a forked repository. Two settings are available specifically for this purpose, allowing you to customize your security vs. collaboration setup.
 
   **base repository** - a Git repository, which is forked by someone else
   **fork** or **forked repository** - any Git repository forked from the **base repository**

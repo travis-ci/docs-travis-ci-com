@@ -124,7 +124,7 @@ a recent development version of [CPython](https://github.com/python/cpython) bui
 From Python 3.5 and later, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev`,
-`3.7-dev`, `3.8-dev` or `3.9-dev`.
+`3.7-dev`, `3.8-dev`, `3.9-dev`, `3.10-dev` or `3.11-dev`
 
 ## Default Build Script
 
