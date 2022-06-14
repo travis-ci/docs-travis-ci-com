@@ -13,7 +13,8 @@ layout: en
 
 ### Closed Beta users
 
-After receiving our sign-up confirmation email, Travis CI Staff creates your Travis CI (TCI) Version Control System (VCS) Proxy account. Once the account is created, you will receive an automatic email message asking for TCI Proxy sign-up confirmation. Next, follow the link and on-screen instructions to set up your 2FA for TCI VCS Proxy.
+After receiving our sign-up confirmation email, our staff will create your Travis CI (TCI) Version Control System (VCS) Proxy account. Once the account is created, you will receive an automatic email message asking for TCI Proxy sign-up confirmation. Next, follow the link and on-screen instructions to set up your 2FA for TCI VCS Proxy.
+
 After you sign up to Travis CI using Travis CI VCS Proxy, we will review the account and assign you a Beta Plan in Travis CI. You may use standard Trial Plan until the Beta Plan is assigned. 
 
 #### Prerequisites
