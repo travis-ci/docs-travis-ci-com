@@ -246,12 +246,8 @@ You'll want to make sure your repository is showing up on Travis CI VCS Proxy, i
 
 <img width="1298" alt="Screen Shot 2022-06-14 at 11 10 35 PM" src="https://user-images.githubusercontent.com/20936398/173755224-e22a9177-d64c-42f1-aeb7-fc4c0739bc10.png">
 
-## Screenshot for a view of the flow
-
-<img width="547" alt="Screen Shot 2022-06-14 at 7 41 05 PM" src="https://user-images.githubusercontent.com/20936398/173725247-b64111ab-30ef-461c-b248-203c4f6249f2.png">
-
 Check back on Assembla and see if your files are there, it should look like this:
 
 <img width="846" alt="Screen Shot 2022-06-14 at 11 06 40 PM" src="https://user-images.githubusercontent.com/20936398/173754520-ba44a32e-bd5b-4845-9a73-ade01f485e0d.png">
 
-You'll see that I pushed successfully, with my Assembla username. You can see the `.travis.yml` I pushed to Assembla that will ultimately be built running on Perforce.
+You'll see that I pushed successfully, with my Assembla username. You can see the `.travis.yml` I pushed to Assembla that will ultimately be built running on Perforce, and you're set.
