@@ -190,3 +190,68 @@ Once the Travis CI VCS Proxy configuration is ready for at least one organizatio
 The general workflow is summarized in the following picture:
 
 ![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
+
+## Assembla/Perforce CLI usage
+
+This is how you get around the CLI for Assembla, specifically when you want to push something to your Assembla repository from the CLI, the Perforce Graphical Version is not the most intuitive, and I just prefer the CLI. 
+
+## Usage
+
+Make a directory entitled `p4-test` and then have another directory called `main`. In the `main` directory, make a `.travis.yml` file with the following directions:
+
+```yaml
+   dist: focal
+   language: ruby
+   rvm:
+    - 2.2
+    - jruby
+```
+
+Here's some sample environment variables: 
+
+```bash
+P4PORT=ssl:p4-us.assembla.com:xxxx # Your port number. 
+P4HOST=YOURHOST
+P4CLIENT=client # Can be called whatever. 
+P4USER=MontanaMendy
+P4CONFIG=.p4config
+```
+In `P4CLIENT` put what your workspace name is (can be anything), then run the following: 
+
+```bash
+p4 client -S //depot/main -o | p4 client -i
+```
+
+The above command will save your `P4CLIENT` setting and then set it, so when you `reconcile` the proper files get pushed to Assembla. Then make sure you go back to your environment variables to make sure they haven't changed: 
+
+```bash
+ vim ~/.p4enviro
+ ```
+ 
+Then make sure your `p4 info` matches to your environment variables, then run: 
+
+```bash
+p4 reconcile
+```
+
+Then push up your files that are in your `p4-test` repo: 
+
+```bash
+p4 submit -d "import"
+```
+
+## VCS Proxy 
+
+You'll want to make sure your repository is showing up on Travis CI VCS Proxy, it should look like this if you were successful:
+
+<img width="1298" alt="Screen Shot 2022-06-14 at 11 10 35 PM" src="https://user-images.githubusercontent.com/20936398/173755224-e22a9177-d64c-42f1-aeb7-fc4c0739bc10.png">
+
+## Screenshot for a view of the flow
+
+<img width="547" alt="Screen Shot 2022-06-14 at 7 41 05 PM" src="https://user-images.githubusercontent.com/20936398/173725247-b64111ab-30ef-461c-b248-203c4f6249f2.png">
+
+Check back on Assembla and see if your files are there, it should look like this:
+
+<img width="846" alt="Screen Shot 2022-06-14 at 11 06 40 PM" src="https://user-images.githubusercontent.com/20936398/173754520-ba44a32e-bd5b-4845-9a73-ade01f485e0d.png">
+
+You'll see that I pushed successfully, with my Assembla username. You can see the `.travis.yml` I pushed to Assembla that will ultimately be built running on Perforce.
