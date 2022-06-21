@@ -31,6 +31,8 @@ You will need:
 4. Google Authenticator application to configure 2-Factor Authentication (2FA) within TCI Proxy.
 5. You will receive an email with subsequent instructions.
 
+If you are on Windows when working with Perforce repository, you may want to check [Windows section](/user/travis-ci-vcs-proxy#windows) below in the *P4 CLI Usage* chapter.
+
 ## Setting up repositories and organization TCI Proxy
 
 You will go through following major steps in configuration
@@ -183,25 +185,16 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 
 > As of the closed Beta launch, we recommend using individual listener tokens for each Assembla Cloud P4 repository. Meanwhile, we are working on improving the handling of shared TCI Proxy Organization-level listener tokens for your convenience.
 
-## I want to build with Travis CI
+## P4 CLI Usage
 
-Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started/).
+### Usage 
 
-The general workflow is summarized in the following picture:
-
-![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
-
-## Assembla/Perforce CLI usage
-
-This is how you get around the CLI for Assembla, specifically when you want to push something to your Assembla repository from the CLI, the Perforce Graphical Version is not the most intuitive, and I just prefer the CLI. 
-
-## Usage
+Below example uses [Assembla Cloud](https://get.assembla.com/perforce/) P4 repository.
 
 Make a directory entitled `p4-test` and then have another directory called `main`. In the `main` directory, make a `.travis.yml` file with the following directions:
 
 ```yaml
-   dist: focal
-   language: ruby
+language: ruby
    rvm:
     - 2.2
     - jruby
@@ -210,10 +203,11 @@ Make a directory entitled `p4-test` and then have another directory called `main
 Here's some sample environment variables: 
 
 ```bash
-P4PORT=ssl:p4-us.assembla.com:xxxx # Your port number. 
-P4HOST=YOURHOST
-P4CLIENT=client # Can be called whatever. 
+P4PORT=ssl:p4-us.assembla.com:30920
+P4HOST=travis-ci-ext/Travis-CI-P4-and-SVN-demo-space.8
+P4CLIENT=montana6
 P4USER=MontanaMendy
+P4_ssl:p4-us.assembla.com:30920_CHARSET=auto
 P4CONFIG=.p4config
 ```
 In `P4CLIENT` put what your workspace name is (can be anything), then run the following: 
@@ -234,13 +228,19 @@ Then make sure your `p4 info` matches to your environment variables, then run:
 p4 reconcile
 ```
 
-Then push up your files that are in your `p4-test` repo: 
+Then push up your files: 
 
 ```bash
 p4 submit -d "import"
 ```
 
-## VCS Proxy 
+### Windows
+
+If you're using Windows to push changes into Perforce Helix Core repository in Assembla, please check also:
+[https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v](https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v).
+
+
+### VCS Proxy 
 
 You'll want to make sure your repository is showing up on Travis CI VCS Proxy, it should look like this if you were successful:
 
@@ -250,4 +250,18 @@ Check back on Assembla and see if your files are there, it should look like this
 
 <img width="846" alt="Screen Shot 2022-06-14 at 11 06 40 PM" src="https://user-images.githubusercontent.com/20936398/173754520-ba44a32e-bd5b-4845-9a73-ade01f485e0d.png">
 
-You'll see that I pushed successfully, with my Assembla username. You can see the `.travis.yml` I pushed to Assembla that will ultimately be built running on Perforce, and you're set.
+After you pushed successfully, with your Assembla username, you can see my `.travis.yml` in Assembla. That will ultimately trigger a build in Travis CI Beta App on Perforce sources: 
+
+<img width="661" alt="Screen Shot 2022-06-14 at 11 08 20 PM" src="https://user-images.githubusercontent.com/20936398/173754690-cc112ee0-1ca0-486e-84d8-252eb59acad6.png">
+
+### More on Assembla Cloud Perforce 
+
+You may find more of the useful information in [Assembla articles on working with Perforce Helix Core](https://articles.assembla.com/en/collections/33902-using-perforce). 
+
+## I want to build with Travis CI
+
+Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started/).
+
+The general workflow is summarized in the following picture:
+
+![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)

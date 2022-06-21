@@ -22,6 +22,7 @@ After you sign up to Travis CI using Travis CI VCS Proxy, we will review the acc
 To get started with Travis CI VCS Proxy, first, you will need:
 
 1. An organization with at least one repository assigned in TCI VCS Proxy. 
+
 2. To configure the repository with the appropriate credentials in TCI VCS Proxy, in particular tokens.
 
 For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-vcs-proxy/).
@@ -59,7 +60,7 @@ The following example specifies a Ruby project built with Ruby 2.2 and the lates
 
 The defaults for Ruby projects are a `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase), and `rake` to build the project.
 
-6. Add the `.travis.yml` file to repository, commit to the repository to trigger a Travis CI build:
+7. Add the `.travis.yml` file to repository, commit to the repository to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
