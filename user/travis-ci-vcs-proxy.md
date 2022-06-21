@@ -185,7 +185,9 @@ Such constraints may be beneficial for Assembla spaces with multiple P4 reposito
 
 ## P4 CLI Usage
 
-## Usage
+### Usage 
+
+Below example uses [Assembla Cloud](https://get.assembla.com/perforce/) P4 repository.
 
 Make a directory entitled `p4-test` and then have another directory called `main`. In the `main` directory, make a `.travis.yml` file with the following directions:
 
@@ -230,7 +232,13 @@ Then push up your files:
 p4 submit -d "import"
 ```
 
-## VCS Proxy 
+### Windows
+
+If you're using Windows to push changes into Perforce Helix Core repository in Assembla, please check also:
+[https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v](https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v).
+
+
+### VCS Proxy 
 
 You'll want to make sure your repository is showing up on Travis CI VCS Proxy, it should look like this if you were successful:
 
@@ -240,10 +248,13 @@ Check back on Assembla and see if your files are there, it should look like this
 
 <img width="846" alt="Screen Shot 2022-06-14 at 11 06 40 PM" src="https://user-images.githubusercontent.com/20936398/173754520-ba44a32e-bd5b-4845-9a73-ade01f485e0d.png">
 
-You'll see that I pushed successfully, with my Assembla username. You can see my the `.travis.yml` I pushed to Assembla, and ultimately to run on Perforce: 
+After you pushed successfully, with your Assembla username, you can see my `.travis.yml` in Assembla. That will ultimately trigger a build in Travis CI Beta App on Perforce sources: 
 
 <img width="661" alt="Screen Shot 2022-06-14 at 11 08 20 PM" src="https://user-images.githubusercontent.com/20936398/173754690-cc112ee0-1ca0-486e-84d8-252eb59acad6.png">
 
+### More on Assembla Cloud Perforce 
+
+You may find more of the useful information in [Assembla articles on working with Perforce Helix Core](https://articles.assembla.com/en/collections/33902-using-perforce). 
 
 ## I want to build with Travis CI
 
@@ -253,7 +264,4 @@ The general workflow is summarized in the following picture:
 
 ![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
 
-## Windows
 
-If you're running on Windows:
-[https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v](https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v).
