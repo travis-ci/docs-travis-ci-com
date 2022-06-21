@@ -265,5 +265,3 @@ Once the Travis CI VCS Proxy configuration is ready for at least one organizatio
 The general workflow is summarized in the following picture:
 
 ![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
-
-

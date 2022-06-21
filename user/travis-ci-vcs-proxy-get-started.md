@@ -22,7 +22,8 @@ After you sign up to Travis CI using Travis CI VCS Proxy, we will review the acc
 To get started with Travis CI VCS Proxy, first, you will need:
 
 1. An organization with at least one repository assigned in TCI VCS Proxy. 
-2. To configure the repository with the appropriate credentials in TCI VCS Proxy, in particular tokens. 
+
+2. To configure the repository with the appropriate credentials in TCI VCS Proxy, in particular tokens.
 
 For more information read the [Setting up Travis CI VCS Proxy](/user/travis-ci-vcs-proxy/).
 
@@ -49,6 +50,7 @@ When you do it for the first time, a Travis CI VCS Proxy page will pop-up with a
 The following example specifies a Ruby project built with Ruby 2.2 and the latest versions of JRuby.
 
 ```yaml
+   dist: focal
    language: ruby
    rvm:
     - 2.2
@@ -67,10 +69,26 @@ The defaults for Ruby projects are a `bundle install` to [install dependencies](
 Perforce depot/repository may be very heavy, so downloading it fully for build (e.g., terabytes of data) is often unwanted, as the source code to be built/tested is only a fraction of the whole depot size. To download it partially, a Travis CI user must define a specific subpath, which is later downloaded by the Travis CI build job. Such subpaths may be defined by using the `perforce_test_path` tag within a `.travis.yml` file. If the property is not provided, the default behavior is downloading the whole depot/repository. See the example below for reference.
 
    ```yaml
+   dist: focal
    language: ruby
    rvm:
     - 2.2
     - jruby
-  perforce_test_path: /your/subpath/within/repository/which/will/be/downloaded
+   perforce_test_path: /your/subpath/within/repository/which/will/be/downloaded
+   ```
+   {: data-file=".travis.yml"}
+
+
+Perforce and SVN builds during Closed Beta are **available only for Linux Ubuntu, Bionic Beaver and Focal Fossa** build environments. In order to use these, following tags must be used in the `.travis.yml`:
+
+   ```yaml
+   dist: bionic
+   ```
+   {: data-file=".travis.yml"}
+
+or
+
+   ```yaml
+   dist: focal
    ```
    {: data-file=".travis.yml"}
