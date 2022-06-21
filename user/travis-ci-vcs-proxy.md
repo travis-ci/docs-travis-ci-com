@@ -31,6 +31,8 @@ You will need:
 4. Google Authenticator application to configure 2-Factor Authentication (2FA) within TCI Proxy.
 5. You will receive an email with subsequent instructions.
 
+If you are on Windows when working with Perforce repository, you may want to check [Windows section](/user/travis-ci-vcs-proxy#windows) below in the *P4 CLI Usage* chapter.
+
 ## Setting up repositories and organization TCI Proxy
 
 You will go through following major steps in configuration
