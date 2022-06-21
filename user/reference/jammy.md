@@ -47,7 +47,6 @@ If you depend on these repositories in your build, you can use the following `so
 | google-chrome-stable | `deb http://dl.google.com/linux/chrome/deb/ stable main`              |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `deb https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/4.4 multiverse`         |
 | pollinate            | `ppa:pollinate/ppa`          |
 | redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
@@ -171,7 +170,6 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | `3.6.9`        |
 | mysql      | `8.0.29`       |
 | redis      | `6.0.6`        |
 | postgresql | `14.3`         |
