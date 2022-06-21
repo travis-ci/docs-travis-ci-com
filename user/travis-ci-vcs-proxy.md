@@ -75,16 +75,18 @@ The next step is to add a repository to your Organization. Use the `Add Reposito
 
 1. In **Assembla**:
     1. First, navigate to your selected SVN Repository, and select the `Source` option.
-    2. On the right-hand menu, use the `Checkout` option, select 'SSH' and note down both the `REPO_NAME` and the `svn+ssh://` link. You will need these in TCI VS Proxy.
-    3. Navigate to your SVN Repository `Settings` option, and select the `Deploy SSH keys` option - add here the key you intend to use with TCI VCS Proxy and Travis CI (or copy an already added one if you wish to).
+    2. On the right-hand menu, use the `Checkout` option, **select 'SSH'** and note down both the `REPO_NAME` and the `svn+ssh://` link. You will need these in TCI VS Proxy.
+    3. Navigate to your SVN Repository `Settings` option, and select the `Deploy SSH keys` option - add here the **public** key you intend to use with TCI VCS Proxy and Travis CI (or copy an already added one if you wish to). Please refer to [Assembla - using SVN+SSH protocol](https://articles.assembla.com/en/articles/1137042-using-svn-ssh-protocol) for more details.
+        - **Please note**: for the integration with Travis CI VCS Proxy you will need a key with no passphrase generated, e.g. via `ssh-keygen -t rsa -f test_key_with_no_passphrase -N ""` due to Travis CI VCS Proxy conciously not wanting to store your SSH key passwords for automated connection
+        - **Please note**: When pasting a public SSH Key in Assembla Repository settings, make sure it has write access rights in order to make the integration work.
     4. Next, navigate to your SVN Repository `Settings` option, and select `Travis VCS Proxy integration` - enter the same listener token previously defined in your TCI VCS Proxy Organization.
 2. In **TCI VCS Proxy** (from the `Add Repository` view):
     1. First, select TCI VCS Proxy Organization.
     2. In the `Name` field - paste the REPO_NAME copied from Assembla.
-    3. In the `URL` field - paste the svn+ssh url copied from Assembla.
+    3. In the `URL` field - paste the **svn+ssh://** url copied from Assembla.
     4. `SVN REALM` - in the case of Assembla, leave the field empty.
     5. `USERNAME` - provide your Assembla user name.
-    6. `SSH KEY` - paste the selected SSH key in the 'Deploy SSH Keys' setting for an Assembla SVN repository.
+    6. `SSH KEY` - paste the selected private SSH key in the 'Deploy SSH Keys' setting for an Assembla SVN repository.
     7. Click the 'Add Repository' button to complete the configuration.
 
 The first user adding an SVN repository to TCI VCS Proxy organization becomes an ‘admin’ for this repository. Therefore, we recommend Assembla Space owners to perform this action in TCI VCS Proxy.
