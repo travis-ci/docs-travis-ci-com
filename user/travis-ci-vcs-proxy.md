@@ -190,3 +190,8 @@ Once the Travis CI VCS Proxy configuration is ready for at least one organizatio
 The general workflow is summarized in the following picture:
 
 ![P4 SVN TCI drawing](/user/images/P4_SVN_TCI_drawing.png)
+
+## Windows
+
+If you're running on Windows:
+[https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v](https://articles.assembla.com/en/articles/998589-get-started-with-perforce-using-p4v).
