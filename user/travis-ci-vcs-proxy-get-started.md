@@ -79,7 +79,7 @@ Perforce depot/repository may be very heavy, so downloading it fully for build (
    {: data-file=".travis.yml"}
 
 
-Perforce and SVN builds during Closed Beta are **available only for Linux Ubuntu, Bionic Beaver and Focal Fossa** build environments. In order to use these, following tags must be used in the `.travis.yml`:
+Perforce and SVN builds during Closed Beta are **available only for Linux Ubuntu, Bionic Beaver and Focal Fossa** and standard amd64 CPU architecture build environments. In order to use these, following tags must be used in the `.travis.yml`:
 
    ```yaml
    dist: bionic
