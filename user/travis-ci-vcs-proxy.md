@@ -5,15 +5,15 @@ layout: en
 
 <blockquote class="beta">
   <p>
-    This section documents the new TCI VCS Proxy option that is currently in closed beta.
+    This section documents the new TCI VCS Proxy (Travis CI Version Control System Proxy) option that is currently in closed beta.
   </p>
 </blockquote>
 
 ## Travis CI VCS Proxy
 
-Travis CI Version Control System (VCS) Proxy is a connector between Apache SVN or Perforce Helix Core server and Travis CI. It serves the purpose to allow SVN and Perforce users to utilize Travis CI as a build and testing tool.
+Travis CI Version Control System Proxy is a connector between Apache SVN or Perforce Helix Core server and Travis CI. It serves the purpose to allow SVN and Perforce users to utilize Travis CI as a build and testing tool.
 
-To use Travis CI with Travis CI Version Control System (VCS) Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI VCS Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
+To use Travis CI with Travis CI VCS Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI VCS Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
 
 
 Integration supported by TCI VCS Proxy
@@ -32,7 +32,7 @@ You will need:
    - To generate the access token for the P4 repository, access the P4 repository via the Command Line Tool which you can grab [here](https://www.perforce.com/products/helix-core-apps/command-line-client).
 2. If you host your own P4/SVN server: the server must be reachable via a public network (Internet) w/o VPN connection. In addition, you need admin rights at the server to deploy post-commit hook scripts that send notifications on commits to TCI VCS Proxy. Please verify the `Supported integration` and `Authorization engine` that TCI VCS Proxy integration supports (see table above). Please sign up for closed beta and contact Beta Support email address for more details.
 3. Sign-up for closed beta.
-4. Google Authenticator application to configure 2-Factor Authentication (2FA) within TCI Proxy.
+4. Google Authenticator application to configure 2-Factor Authentication (2FA) within TCI VCS Proxy.
 5. You will receive an email with subsequent instructions.
 
 If you are on Windows when working with Perforce repository, you may want to check [Windows section](/user/travis-ci-vcs-proxy#windows) below in the *P4 CLI Usage* chapter.
