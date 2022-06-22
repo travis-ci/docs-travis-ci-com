@@ -10,7 +10,11 @@ layout: en
 </blockquote>
 
 ## Travis CI VCS Proxy
-To use Travis CI with Travis CI Version Control System VCS) Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
+
+Travis CI Version Control System (VCS) Proxy is a connector between Apache SVN or Perforce Helix Core server and Travis CI. It serves the purpose to allow SVN and Perforce users to utilize Travis CI as a build and testing tool.
+
+To use Travis CI with Travis CI Version Control System (VCS) Proxy for builds over Perforce Helix Core (P4) and Apache SVN (SVN) repositories, you will need to configure TCI VCS Proxy first. This separate configuration step is required to support both Assembla-based P4/SVN repositories and P4/SVN servers fully managed by you.
+
 
 Integration supported by TCI VCS Proxy
 
@@ -144,11 +148,11 @@ To invite a collaborator, use the `Invite user` button. The invited collaborator
 
 During the closed Beta, a TCI VCS Proxy account is automatically created for the invited collaborator. Invited users should follow the instructions from the email to complete the account configuration process.
 
-> As of the Beta version, once an invited user signs-up, TCI VCS Proxy doesn’t present a list of repositories that invited user can access straight after the first login. For security reasons, each user will need to re-add the repositories to their accounts through the `Add repository` steps and provide the required credentials.
+> As of the Beta version, once an invited user signs in, TCI VCS Proxy doesn’t present a list of repositories that invited user can access straight after the first login for security reasons.
 
-Once a collaborator signs in to TCI VCS Proxy and sets their 2FA, they can navigate to the `Repositories` screen. First, every user needs to `Add Repository` as explained in the [Add repository to the Organization](#add-repository-to-the-organization) section.
+Once a collaborator signs in to TCI VCS Proxy and sets their 2FA, they can navigate to the `Repositories` screen. First, every user needs to `Add Repository` as explained in the [Add repository to the Organization](#add-repository-to-the-organization) section. During that process collaborator must provide individual access credentials to the repository. Only after that step is completed, the Repository will appear in the list of repositories.
 
-Please note that a TCI VCS Proxy user is re-adding a Repository already linked to their account to the TCI VCS Proxy organization. If an invited, non-admin collaborator tries to add a completely new repository to the existing TCI VCS Proxy organization the action will fail with an error.
+Please note that a TCI VCS Proxy user invited to the organization is actually re-adding a Repository already linked the TCI VCS Proxy organization. If an invited, non-admin (in terms of TCI VCS Proxy Organization role) collaborator tries to add a completely new repository to the existing TCI VCS Proxy organization the action will fail with an error.
 
 > As inconvenient as it may seem, this forces every user to provide correct access credentials to the repository. This process is a one-time action for each repository and aims to protect an individual´s token/ssh keys from being shared unconsciously with other TCI Proxy Users. We prefer a more secure approach to accessing your source code and are curious about your feedback on the subject.
 
