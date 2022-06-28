@@ -104,7 +104,7 @@ python:
   - "3.8"
   # PyPy versions
   - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
-  - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
+  - "pypy3"  # currently Python 3.6.9,  PyPy 7.1.1-beta0
 # command to install dependencies
 install:
   - pip install -r requirements.txt
