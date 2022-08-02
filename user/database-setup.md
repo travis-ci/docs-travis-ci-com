@@ -55,9 +55,9 @@ and a blank password.
 > `root` user does.
 
 
-|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic |
-|:------|:---------------|:--------------|:--------------|:--------------|
-|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         |
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic | Ubuntu Focal  | Ubuntu Jammy  |
+|:------|:---------------|:--------------|:--------------|:--------------|:--------------|:--------------|
+|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         | 8.0.x         | 8.0.x         |
 
 You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 

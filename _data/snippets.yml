@@ -30,6 +30,8 @@ all_note: |
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
+  >  * [Focal](/user/reference/focal/)
+  >  * [Jammy](/user/reference/jammy/)
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
@@ -40,6 +42,8 @@ unix_note: |
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
+  >  * [Focal](/user/reference/focal/)
+  >  * [Jammy](/user/reference/jammy/)
   >  * [macOS](/user/reference/osx/)
   >  * [FreeBSD](/user/reference/freebsd/)
 linux_note: |
@@ -49,6 +53,8 @@ linux_note: |
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
+  >  * [Focal](/user/reference/focal/)
+  >  * [Jammy](/user/reference/jammy/)
 linux_windows_note: |
   > For Language versions and other build-environment specific
   > information visit our reference pages:
@@ -56,6 +62,8 @@ linux_windows_note: |
   >  * [Trusty](/user/reference/trusty/)
   >  * [Xenial](/user/reference/xenial/)
   >  * [Bionic](/user/reference/bionic/)
+  >  * [Focal](/user/reference/focal/)
+  >  * [Jammy](/user/reference/jammy/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
 concurrent_jobs: |
