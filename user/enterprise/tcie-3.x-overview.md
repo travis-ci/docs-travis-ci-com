@@ -10,9 +10,8 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
 * High feature parity between Travis CI Enterprise 3.x and travis-ci.com, including (but not only):
   * Updated User Interface: user profile settings and repository specific settings, incl. environmental variables, custom SSH keys for repository access and security settings
   * Updated User Interface notifications and build/build job information
-  * Updated build configuration service, including ability to [import shared build configuration](/user/build-config-imports) to your .travis.yml, even from other repositories
+  * Updated build configuration service, including ability to [import shared build configuration](/user/build-config-imports) to your .travis.yml, even from other repositories (which may come in handy when structuring complex build definitions or e.g. importing secrets shared accross repositories)
   * [Build configuration validator](/user/build-config-validation) hinting you on what may be wrong with .travis.yml for your builds 
-  * [Support for importing build config parts into the main .travis.yml](/user/build-config-imports), which may come in handy when structuring complex build definitions or e.g. importing secrets shared accross repositories
   * Multiple integrations with Version Control systems: 
     * GitHub Cloud
     * GitHub Enterprise Server
