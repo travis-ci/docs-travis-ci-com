@@ -84,7 +84,7 @@ The next step is to add a repository to your Organization. Use the `Add Reposito
         - **Please note**: for the integration with Travis CI VCS Proxy you will need a key with no passphrase generated, e.g. via `ssh-keygen -t rsa -f test_key_with_no_passphrase -N ""` due to Travis CI VCS Proxy conciously not wanting to store your SSH key passwords for automated connection
         - **Please note**: When pasting a public SSH Key in Assembla Repository settings, make sure it has 'write access' checked in order to make the integration with TCI VCS Proxy work. This is current Assembla requirement for authorizing the connection. Neither Travis CI VCS Proxy nor Travis CI requires write access to your repositories - only read access is needed to set up Travis CI VCS Proxy and trigger builds in Travis CI.
     4. Next, navigate to your SVN Repository `Settings` option, and select `Travis VCS Proxy integration` - enter the same listener token previously defined in your TCI VCS Proxy Organization.
-2. In **TCI VCS Proxy** (from the `Add Repository` view):
+2. In **TCI VCS Proxy** (from the `Add Repository` view, `Checkout` -> `SSH` ):
     1. First, select TCI VCS Proxy Organization.
     2. In the `Name` field - paste the REPO_NAME copied from Assembla.
     3. In the `URL` field - paste the **svn+ssh://** url copied from Assembla.
