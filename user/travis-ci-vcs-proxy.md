@@ -183,7 +183,7 @@ Upon synchronizing of TCI VCS Proxy organization with Travis CI, a `member` beco
 | SVN             | first user adding repository to TCI VCS Proxy organization | all subsequent users adding repository (write-access can commit and trigger a build) | N/A |
 
 
-The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, only commits performed by the TCI VCS Proxy users with correct P4/SVn credentials may trigger automatic builds in the Travis CI.
+The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, as of now, **only commits performed by the TCI VCS Proxy users with correct P4/SVN credentials may trigger automatic builds in the Travis CI**.
 
 ## TCI VCS Proxy listener tokens
 
