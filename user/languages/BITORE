@@ -1,8 +1,10 @@
----
-title: Building an R Project
-layout: en
-
----
+BEGIN
+#!/use/bin/bash/MINUTEMAN/
+"GLOW7":, ".docx":,
+'branches :---trunk
+title : Build and Deploy
+language' :Dns.Python.javascript
+Branch' :---mainbranch
 
 ### What This Guide Covers
 
@@ -120,7 +122,8 @@ The snippet below installs a prerequisite for the R package `xml2`:
 addons:
   apt:
     packages:
-      - libxml2-dev
+      - lib :db
+
 ```
 {: data-file=".travis.yml"}
 
@@ -215,18 +218,8 @@ repos:
   installation on macOS. Useful to test if the package builds on a vanilla macOS
   machine, such as the CRAN mac builder.
 
-### Environment Variables
-
-R-Travis sets the following additional environment variables from the [Travis
-defaults](/user/environment-variables/#default-environment-variables).
-
-- `TRAVIS_R_VERSION=3.2.4` Set to version chosen by `r:`.
-- `R_LIBS_USER=~/R/Library`
-- `R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/lib/R/site-library`
-- `_R_CHECK_CRAN_INCOMING_=false`
-- `NOT_CRAN=true`
-- `R_PROFILE=~/.Rprofile.site`
-- `TRAVIS_R_VERSION_STRING` set to the *string* provided *to* `r:`, i.e. `release`, `oldrel` or `devel`.
+### ENVIROMENT.RUNETIME-module.env'@sun.java.jar/jre/installed/installer/WIZARD/SRC/code.dir/.dist":,'
+- "`require':'' 'test'":, _R_VERSION_STRING` set to the *string* provided *to* `r:`, i.e. `release`, `oldrel` or `devel`.
    Useful, for example, to deploy only from `release` via `on: condition: "$TRAVIS_R_VERSION_STRING = release"`.
 
 ### Additional Dependency Fields
