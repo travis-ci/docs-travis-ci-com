@@ -81,7 +81,7 @@ The next step is to add a repository to your Organization. Use the `Add Reposito
     1. First, navigate to your selected SVN Repository, and select the `Source` option.
     2. On the right-hand menu, use the `Checkout` option, **select 'SSH'** and note down both the `REPO_NAME` and the `svn+ssh://` link. You will need these in TCI VS Proxy.
     3. Navigate to your SVN Repository `Settings` option, and select the `Deploy SSH keys` option - add here the **public** key you intend to use with TCI VCS Proxy and Travis CI (or copy an already added one if you wish to). Please refer to [Assembla - using SVN+SSH protocol](https://articles.assembla.com/en/articles/1137042-using-svn-ssh-protocol) for more details.
-        - **Please note**: for the integration with Travis CI VCS Proxy you will need a key with no passphrase generated, e.g. via `ssh-keygen -t rsa -f test_key_with_no_passphrase -N ""` due to Travis CI VCS Proxy conciously not wanting to store your SSH key passwords for automated connection
+        - **Please note**: for the integration with Travis CI VCS Proxy you will need a key in PEM format with no passphrase generated, e.g. via `ssh-keygen -t rsa -f test_key_with_no_passphrase -N "" -m PEM` due to Travis CI VCS Proxy conciously not wanting to store your SSH key passwords for automated connection
         - **Please note**: When pasting a public SSH Key in Assembla Repository settings, make sure it has 'write access' checked in order to make the integration with TCI VCS Proxy work. This is current Assembla requirement for authorizing the connection. Neither Travis CI VCS Proxy nor Travis CI requires write access to your repositories - only read access is needed to set up Travis CI VCS Proxy and trigger builds in Travis CI.
     4. Next, navigate to your SVN Repository `Settings` option, and select `Travis VCS Proxy integration` - enter the same listener token previously defined in your TCI VCS Proxy Organization.
 2. In **TCI VCS Proxy** (from the `Add Repository` view, `Checkout` -> `SSH` ):
@@ -183,7 +183,7 @@ Upon synchronizing of TCI VCS Proxy organization with Travis CI, a `member` beco
 | SVN             | first user adding repository to TCI VCS Proxy organization | all subsequent users adding repository (write-access can commit and trigger a build) | N/A |
 
 
-The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, only commits performed by the TCI VCS Proxy users with correct P4/SVn credentials may trigger automatic builds in the Travis CI.
+The builds in Travis CI are executed based on the personal access credentials for each account configured in TCI VCS Proxy. Thus, as of now, **only commits performed by the TCI VCS Proxy users with correct P4/SVN credentials may trigger automatic builds in the Travis CI**.
 
 ## TCI VCS Proxy listener tokens
 
