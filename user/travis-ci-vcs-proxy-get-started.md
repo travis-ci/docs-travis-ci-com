@@ -64,6 +64,19 @@ The defaults for Ruby projects are a `bundle install` to [install dependencies](
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file. As of now, only commits performed by the TCI VCS Proxy users with correct P4/SVN credentials may trigger automatic builds in the Travis CI.
 
+You must create `.travis.yml` file in specific path in the repository, depending on whether you use SVN or Perforce Helix Core (Perforce). 
+
+In case of SVN: 
+
+Travis CI watches the **/trunk/.travis.yml** by default.
+Whenever configured to build from branch, e.g. branch named **abc**, Travis CI watches **/branches/abc/.travis.yml**
+
+In case of Perforce:
+
+Travis CI watches the **/depotname/main/.travis.yml** by default, so if depot name is e.g. **depot** - Travis CI expects **/depot/main/.travis.yml**.
+Respectively, if a separate stream (e.g. **abc**) is created within depot (e.g. **depot**) and build is configured to build from specific stream, Travis CI expects **/depot/abc/.travis.yml** to be present in order to trigger the build upon submitting changes.
+
+ 
  **IMPORTANT**
 
 Perforce depot/repository may be very heavy, so downloading it fully for build (e.g., terabytes of data) is often unwanted, as the source code to be built/tested is only a fraction of the whole depot size. To download it partially, a Travis CI user must define a specific subpath, which is later downloaded by the Travis CI build job. Such subpaths may be defined by using the `perforce_test_path` tag within a `.travis.yml` file. If the property is not provided, the default behavior is downloading the whole depot/repository. See the example below for reference.
