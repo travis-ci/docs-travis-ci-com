@@ -218,6 +218,23 @@ import:
 ```
 {: data-file=".travis.yml"}
 
+This mode first merges your `.travis.yml` contents into the `one.yml` file (i.e., items in the .travis.yml file “win”, if the merge mode deep_merge would be used and will overwrite keys on respective levels in `one.yml`).
+
+Respectively:
+
+```yaml
+import:
+  - source: one.yml
+  mode: deep_merge # deep merge
+  - source: two.yml
+  mode: deep_merge # deep merge
+```
+{: data-file=".travis.yml"}
+
+This mode first merges your `.travis.yml` contents into the `one.yml` file (overwriting, if required, sections in `one.yml` with content from `.travis.yml`). The results are merged into the `two.yml` file (again, items in the result of the previous merge win over what’s in this one, as the `deep_merge` mode is specified here).
+
+The reasoning behind this is that in many cases when you import something to your `.travis.yml’ file, you want to be able to overwrite or customize that imported configuration with config in your `.travis.yml` file.
+
 ### Merge
 
 The merge mode `merge` performs a shallow merge.
@@ -239,4 +256,19 @@ When triggering a build through the Travis API or the web UI, the order of ascen
 - Config from the API build request payload, if given
 - Imported configs from the API build request payload, if given, in the order listed (following a depth-first search pattern in case those imported configs import other configs)
 - Config from `.travis.yml`
-- Imported configs from `.travis.yml`, in the order listed (following a depth-first search pattern in case those imported configs import other configs)
+- Imported configs from `.travis.yml`, in the order listed (following a depth-first search pattern in case those imported configs import other configs).
+
+## FAQ
+
+### Can I import a shared build config at a specific job level?
+
+No. The parsed YAML trees must be merged. Thus, the `import` keyword is accepted only at the root level. If it suits your scenario, you can specify your job template in, e.g., `job.yml` and import it into your `.travis.yml` with the `mode: deep_merge`, adding in the `.travis,yml` specifics to be overridden in the imported template. 
+
+### Is it possible to create and use anchors via the shared configs mechanism?
+
+Unfortunately, it’s not supported. 
+As much as we encourage [using YAML as a build configuration language](/user/build-config-yaml), anchors and aliases, referring to these anchors must be defined and used within a single `.yml` file and will be expanded before any *import* action (merging parse trees) occurs. For the same reason, attempts to assign an anchor within `.travis.yml` to an *imported* key will not work — both `.travis.yml` and `imported.yml` must be parsed before the merge action can occur.
+
+See also  *native-api* concise [explanation in the Community Forum](https://travis-ci.community/t/imported-anchors-not-working/10035/2)
+
+
