@@ -44,7 +44,7 @@ Pull requests sent from forked repositories do not have access to encrypted vari
 
 {{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
 
-If you have the settings regarding sharing secrets with forks dsiabled and your build relies on encrypted variables to run, for instance to run Selenium tests with 
+If you have the settings regarding sharing secrets with forks disabled and your build relies on encrypted variables to run, for instance to run Selenium tests with 
 [BrowserStack](https://www.browserstack.com) or [Sauce Labs](https://saucelabs.com/), your build 
 needs to take this into account. You won't be able to run these tests for pull requests from external contributors.
 
