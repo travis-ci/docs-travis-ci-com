@@ -22,7 +22,8 @@ to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
 |:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
-| **[Deploy Key](#deploy-key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
+| **[Deploy Key](#deploy-key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |[facebook-ios-sdk-7c5e9565b94d5e9cab1f617a342f038e204cedf0.zip](https://github.com/travis-ci/docs-travis-ci-com/files/9596002/facebook-ios-sdk-7c5e9565b94d5e9cab1f617a342f038e204cedf0.zip)
+
 | **[User Key](#user-key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
 | **[Password](#password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
 | **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
