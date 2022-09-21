@@ -206,12 +206,12 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 The following services and databases are preinstalled but but do not run by default.
 To use one in your build, add it to the services key in your `travis.yml` :
 
-| service    | version        |
-|:-----------|:---------------|
-| mongodb-org| `4.4.16`       |
-| mysql      | `8.0.21`       |
-| redis      | `6.0.6`        |
-| postgresql | `12.2`         |
+| service     | version        |
+|:------------|:---------------|
+| mongodb-org | `4.4.16`       |
+| mysql       | `8.0.21`       |
+| redis       | `6.0.6`        |
+| postgresql  | `12.2`         |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
