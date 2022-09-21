@@ -208,7 +208,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | `3.6.9`        |
+| mongodb-org| `4.4.16`       |
 | mysql      | `8.0.21`       |
 | redis      | `6.0.6`        |
 | postgresql | `12.2`         |
