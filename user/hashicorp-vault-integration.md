@@ -4,6 +4,8 @@ layout: en
 
 ---
 
+Hashicorp Vault is a Key Management System (KMS), which allows to self-manage the set of secrets (credentials), configuration items and access to these.
+
 Travis CI may obtain secrets needed during the build, test, or deployment stages of your Travis CI builds from your Hashicorp Vault instance instead of storing them with Travis CI.
 
 This may be useful if your organization leans towards having complete access control to the secrets or wants to conveniently manage secrets necessary in the CI/CD pipeline in one Key Management System (KMS).
