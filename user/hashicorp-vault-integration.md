@@ -79,9 +79,9 @@ vault:
 
 script:
 #assuming that under /ns1/project_id/secret_key_a a secret with key ‘message’ is present
-  - echo $SECRET_KEY_A_MESSAGE ```
-`{: data-file=".travis.yml"}
+  - echo $SECRET_KEY_A_MESSAGE 
 ```
+{: data-file=".travis.yml"}
 
  #### As a part of one of many jobs:
 
