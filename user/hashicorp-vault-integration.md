@@ -65,7 +65,7 @@ See usage examples  below:
 
 #### Single `.travis.yml` file 
 
-```
+```yaml
 os: linux
 dist: focal
 
@@ -82,9 +82,10 @@ script:
   - echo $SECRET_KEY_A_MESSAGE ```
 `{: data-file=".travis.yml"}
 ```
+
  #### As a part of one of many jobs:
 
-```
+```yaml
 os: linux
 dist: focal
 
@@ -104,20 +105,19 @@ jobs:
         - echo $SECRET_KEY_A_KEYNAME
 
 ```
-`{: data-file=".travis.yml"}
+{: data-file=".travis.yml"}
 
 #### Imported shared build configuration
 
-
-```
+```yaml
 vault:
   token: 
     secure: "Your encrypted token goes here."
   api_url: https://your-vault-api.endpoint
 ```
-`{: data-file=".vault-secret.yml"}
+{: data-file=".vault-secret.yml"}
 
-```
+```yaml
 import:
   - source: vault-secrets.yml  
     mode: deep_merge_prepend #deep_merge for overwriting the values in vault-secrets.yml 
@@ -142,7 +142,7 @@ jobs:
       script:
         - echo $SECRET_KEY_B_SOMEKEY
 ```
-`{: data-file=".travis.yml"}
+{: data-file=".travis.yml"}
 
 
 Please note: imported content is available for your whole build (`.travis.yml`) unless it’s overridden explicitly by some of the jobs in your `travis.yml`. The YAML anchors cannot be imported and used in the main `.travis.yml` - read more about it on the [Importing Shared Build Configuration]((https://docs.travis-ci.com/user/build-config-imports) page.
@@ -163,7 +163,7 @@ Not at the moment. In the future, we plan to allow it to be shared with a forked
 
 There’s built-in support for KV API in order to be able to support older installations. However, it has not been extensively tested. Use at your discretion and risk:
 
-```
+```yaml
 vault:
   api_url: url
   token:
@@ -172,4 +172,4 @@ vault:
     - kv_api_ver: kv1 #optional, kv1 or kv2, default is kv2, single value
     - project_id2/secret_key
 ```
-`{: data-file=".travis.yml"}
+{: data-file=".travis.yml"}
