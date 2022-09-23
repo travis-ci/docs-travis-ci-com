@@ -181,7 +181,7 @@ by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
-  - DOCKER_COMPOSE_VERSION=v1.4.2
+  - DOCKER_COMPOSE_VERSION=v2.11.1
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
