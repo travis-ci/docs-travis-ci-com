@@ -15,23 +15,23 @@ This may be useful if your organization leans towards having complete access con
 You will need:
 
 * An URL for Hashicorp Vault instance with enabled KV engine and supporting KV2 API (see our [Hashicorp Vault  documentation](https://www.vaultproject.io/api-docs)).
-  * The Hashicorp Vault instance API must accept incoming requests from a public network; see our [IP Addresses page](https://docs.travis-ci.com/user/ip-addresses/) for information on what exactly must be allowed and a couple of recommendations on configuring the network rules.
+  * The Hashicorp Vault instance API must accept incoming requests from a public network; see our [IP Addresses page](user/ip-addresses/) for information on what exactly must be allowed and a couple of recommendations on configuring the network rules.
 * A path to the required secrets in Hashicorp Vault.
 * A token; [obtained after logging into Hashicorp Vault](https://www.vaultproject.io/docs/concepts/auth#tokens) via API/or via Hashicorp Vault CLI (keep it secret!).
   * Before trusting Travis CI with the token, we recommend reviewing the Hashicorp Vault account access to the set of secrets; a best practice is to limit it to projects needed for the build/test/deployment tasks you want Travis CI to perform. Please consider a dedicated account in Hashicorp Vault with access to a limited set of  CI/CD related secrets.
 * Encrypt token with Travis CI for further usage
-  * Please use travis-cli to [encrypt the secret](https://docs.travis-ci.com/user/encryption-keys/) and use the encrypted string in your `.travis.yml` file; in the initial release, we have consciously limited this to be the only way to provide an access token to your KMS
+  * Please use travis-cli to [encrypt the secret](user/encryption-keys/) and use the encrypted string in your `.travis.yml` file; in the initial release, we have consciously limited this to be the only way to provide an access token to your KMS
 
 ## How does the integration work?
 
 The integration is based on communication with Hashicorp Vault API. The only secret stored in Travis CI will be the access token (in encrypted form).
 
-> If you are using a dedicated Hashicorp Vault account and a secret is to be shared among multiple repositories, we suggest considering managing the Hashicorp Vault access token by storing it in one repository in your organization and [import it to other repositories build configurations](https://docs.travis-ci.com/user/build-config-imports). Thus you may manage the Hashicorp Vault access token centrally. However, please mind that imported shared configurations will be available for all jobs in the build matrix.
+> If you are using a dedicated Hashicorp Vault account and a secret is to be shared among multiple repositories, we suggest considering managing the Hashicorp Vault access token by storing it in one repository in your organization and [import it to other repositories build configurations](user/build-config-imports). Thus you may manage the Hashicorp Vault access token centrally. However, please mind that imported shared configurations will be available for all jobs in the build matrix.
 
 First, define a simple set of items in the `.travis.yml` for your repository. Then, once Travis CI processes the build request, the following steps occur:
 * First, the access token is decrypted for the duration of the build.
 * At the start of a specific build job, secrets defined in the `.travis.yml` are downloaded into the specific build job and are censored for the build job log (in order to not expose these accidentally).
-  * Secrets will be present for the duration of the specific build job, limiting the time these can be used. Therefore, please consider obtaining secrets from Hashicorp Vault and processing them in as few build jobs in the [job matrix](https://docs.travis-ci.com/user/build-matrix/#explicitly-including-jobs) as possible,  on an as-needed basis.
+  * Secrets will be present for the duration of the specific build job, limiting the time these can be used. Therefore, please consider obtaining secrets from Hashicorp Vault and processing them in as few build jobs in the [job matrix](user/build-matrix/#explicitly-including-jobs) as possible,  on an as-needed basis.
   * Secrets are obtained from the ‘secrets’ node in the Hashicorp Vault.
   * Only defined secrets are obtained; if no secret paths are defined, nothing is acquired from the Vault instance.
 * Hashicorp Vault secrets in the KV engine do come as key-value pairs. The secret key is turned into an environmental variable name within the Travis CI build job; the secret value is the value of the environment variable.
@@ -145,7 +145,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 
-Please note: imported content is available for your whole build (`.travis.yml`) unless it’s overridden explicitly by some of the jobs in your `travis.yml`. The YAML anchors cannot be imported and used in the main `.travis.yml` - read more about it on the [Importing Shared Build Configuration]((https://docs.travis-ci.com/user/build-config-imports) page.
+Please note: imported content is available for your whole build (`.travis.yml`) unless it’s overridden explicitly by some of the jobs in your `travis.yml`. The YAML anchors cannot be imported and used in the main `.travis.yml` - read more about it on the [Importing Shared Build Configuration](user/build-config-imports) page.
 
 ## FAQ
 
