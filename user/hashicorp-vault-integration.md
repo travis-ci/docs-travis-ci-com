@@ -26,7 +26,7 @@ You will need:
 
 The integration is based on communication with Hashicorp Vault API. The only secret stored in Travis CI will be the access token (in encrypted form).
 
-> If you are using a dedicated Hashicorp Vault account and a secret is to be shared among multiple repositories, we suggest considering managing the Hashicorp Vault access token by storing it in one repository in your organization and [import it to other repositories build configurations](/user/build-config-imports). Thus you may manage the Hashicorp Vault access token centrally. However, please mind that imported shared configurations will be available for all jobs in the build matrix.
+> If you are using a dedicated Hashicorp Vault account and a secret is to be shared among multiple repositories, we suggest considering managing the Hashicorp Vault access token by storing it in one repository in your organization and [import it to other repositories build configurations](/user/build-config-imports/). Thus you may manage the Hashicorp Vault access token centrally. However, please mind that imported shared configurations will be available for all jobs in the build matrix.
 
 First, define a simple set of items in the `.travis.yml` for your repository. Then, once Travis CI processes the build request, the following steps occur:
 * First, the access token is decrypted for the duration of the build.
@@ -147,7 +147,7 @@ jobs:
 {: data-file=".travis.yml"}
 
 
-Please note: imported content is available for your whole build (`.travis.yml`) unless it’s overridden explicitly by some of the jobs in your `travis.yml`. The YAML anchors cannot be imported and used in the main `.travis.yml` - read more about it on the [Importing Shared Build Configuration](/user/build-config-imports) page.
+Please note: imported content is available for your whole build (`.travis.yml`) unless it’s overridden explicitly by some of the jobs in your `travis.yml`. The YAML anchors cannot be imported and used in the main `.travis.yml` - read more about it on the [Importing Shared Build Configuration](/user/build-config-imports/) page.
 
 ## FAQ
 
