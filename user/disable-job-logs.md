@@ -1,5 +1,5 @@
 ---
-title: Disable Job Logs
+title: Disable Job Logs Availability
 layout: en
 
 ---
