@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-## Disable build job logs
+## Disable build job logs availability
 To increase security, repository owners have the option to have control over the availability of public Travis CI build job logs. For example, users can choose to disable access to old job logs and prevent security or confidential details from leaking into the log’s historical data.  
 
 You can choose to enable or limit access using the following security settings. 
