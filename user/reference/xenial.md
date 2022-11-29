@@ -212,8 +212,8 @@ To use one in your build, add it to the services key in your `.travis.yml` :
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 
-IMPORTANT: Since Xenial LTS is officaly EOL, postgre apt packages are no more available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
-Currently Xenial is using apt-archive.postgresql.org, unfortunately it lacks ARM and S390x arch packages.
+* IMPORTANT: Since Xenial LTS is officaly EOL, postgre apt packages are no more available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
+* Currently Xenial is using apt-archive.postgresql.org, unfortunately it lacks ARM and S390x arch packages.
 
 ## Other Ubuntu Linux Build Environments
 
