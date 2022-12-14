@@ -53,6 +53,8 @@ script:
 {: data-file=".travis.yml"}
 
 
+Please mind, that new `keys` tag and at least one uploaded key identifier are required, if you want to use the key within a build job (or whole build, depending on how you structure the build definition in `.travis.yml`). If the key identifier is not provided or doesn't match any of the uploaded keys, no key will become available during the  build job or build runtime.
+
 ### Using a key stored in Hashicorp Vault and obtained to Travis CI build job
 
 *Cosign* relies on the following standard Hashicorp Vault environment variables being set within the build job environment:
@@ -82,9 +84,9 @@ Whenever in doubt, please consult the [Cosign KMS Support documentation page](ht
 
 As much as the feature is meant to help you prove the source of the file or image via signature, please at all times consider following aspects of ensuring security of the key used for signing the files or images during the CI/CD process.
 
-The key used for signing uploaded to Travis CI under a personal account or organization account can be used under every repository owned by this entity. The key downloaded from Hashicorp Vault to a specific build job or build can be used, respectively, within a build job or every build job of this build.
+The key used for signing uploaded to Travis CI under a personal account or organization account can be used under every repository owned by this entity (assuming proper tag and key identifier are present in the respective repository `.travis.yml`). The key downloaded from Hashicorp Vault to a specific build job or build can be used, respectively, within a specific build job or every build job of a build.
 
-Therefore please carefully review repository settings in Travis CI for repositories belonging to the account and assess the risk of  the key being exposed, e.g. via malicious pull request from a fork or accidental debug message. We’d recommend paying attention whether the repository is public (which makes the job logs public by default), if the pull requests from forks are allowed, are the repository SSH keys shared and who may access the job logs. Please mind that job logs, especially public, can be used to expose the secret via a malicious or accidental debug message in the pull request or commit that triggers a build in Travis CI. 
+Therefore please carefully review repository settings in Travis CI for repositories belonging to the account and assess the risk of the key used for signing being exposed, e.g. via malicious pull request from a fork or accidental debug message. We’d recommend paying attention whether the repository is public (which makes the job logs public by default), if the pull requests from forks are allowed, are the repository SSH keys shared and who may access the job logs. Please mind that job logs, especially public, can be used to expose the secret via a malicious or accidental debug message in the pull request or commit that triggers a build in Travis CI. 
 
 We recommend considering following security measures:
  * using separate key just for purpose of file/image signing
@@ -94,4 +96,4 @@ We recommend considering following security measures:
  * [limiting access to repository job logs](/user/disable-job-logs/) in individual repository settings
  * if using Hashicorp Vault KMS as a source of the key used for signing: always encrypt secrets needed to connect to Vault in the respective Repository Settings or the .travis.yml file
 
-Travis CI will attempt to obfuscate secrets in the job logs, yet sicne there are many ways to print them in the output there’s no guarantee all vulnerable data will be spotted and masked. Since Travis is a cloud CI/CD system, please be wary of associated risks and ways to minimize these. Please read also [Best Practices in Securing Your Data](/user/best-practices-security).
+Travis CI will attempt to obfuscate secrets in the job logs, yet since there are many ways to print them in the output there’s no guarantee all vulnerable data will be spotted and masked. Since Travis is a cloud CI/CD system, please be wary of associated risks and ways to minimize these. Please read also [Best Practices in Securing Your Data](/user/best-practices-security).
