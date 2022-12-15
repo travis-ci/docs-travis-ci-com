@@ -14,7 +14,7 @@ You will be able to sign container images or any other artifacts (blobs) which a
 Before getting started, make sure you have: 
 
 * A key available within a Travis CI build job. 
-* Cosign pre-installed in the Linux build environments (this is maintained bny Travis CI).
+* Cosign pre-installed in the Linux build environments (this is maintained by Travis CI).
 
 ### Option 1: Upload Key directly to Travis CI
 
@@ -93,6 +93,7 @@ We recommend considering following security measures:
  * using separate key just for purpose of file/image signing
  * using private repository to trigger builds, during which the files are signed, if possible
  * reviewing who has push/write access to such repository
+ * reviewing Repository Settings, particularly the [Security Settings -> Share SSH key with forks](user/web-ui#share-ssh-keys-with-forks) setting
  * excluding a build, which signs the release to a separate account/organization (if possible and viable) with limited list of collaborators
  * [limiting access to repository job logs](/user/disable-job-logs/) in individual repository settings
  * if using Hashicorp Vault KMS as a source of the key used for signing: always encrypt secrets needed to connect to Vault in the respective Repository Settings or the .travis.yml file
