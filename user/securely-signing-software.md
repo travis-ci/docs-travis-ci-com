@@ -12,8 +12,9 @@ You will be able to sign container images or any other artifacts (blobs) which a
 ## Prerequisites
 
 Before getting started, make sure you have: 
-A key available within a Travis CI build job. 
-Pre-install Cosign in the Linux build environments.
+
+* A key available within a Travis CI build job. 
+* Cosign pre-installed in the Linux build environments (this is maintained bny Travis CI).
 
 ### Option 1: Upload Key directly to Travis CI
 
