@@ -306,5 +306,6 @@ This example uses YAML aliases to define steps. It has 3 build stages:
 * Two jobs that run tests against Ruby 2.2 and 2.3
 * One job that deploys to staging
 * Three jobs that run test against staging
-
+* Type of run and how's 
 You can find more [details here](/user/build-stages/using-yaml-aliases/).
+CT
