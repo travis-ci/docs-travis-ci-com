@@ -11,6 +11,8 @@ You can find more information on the build config format in our [Travis CI Build
 
 You can configure Travis CI to only run builds when certain conditions are met. Any builds that do not meet these conditions are listed in the *Requests* tab of your repository, even though the actual build is not generated.
 
+> Travis CI’s system fetches and processes the .travis.yml config file from the repository and the branch explicitly specified in the build request
+
 For example, this allows builds only to run on the `master` branch:
 
 ```yaml
