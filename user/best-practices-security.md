@@ -85,7 +85,7 @@ Review who and why should have access to the build job logs and set the appropri
 ### Review the settings for builds triggered from forked Git repositories
 Review the [Travis CI Repository Settings](/user/pull-requests#pull-requests-and-security-restrictions) and adjust what should be shared with forks. This is meant for a collaboration pattern when a forked repository can file a Pull Request to the base repository, thus triggering a CI/CD build job with automated build and tests as a part of the Pull Request validation and approval process. Assess the risks and adjust settings to your scenario.
 
-### Run builds requiring secrets in private repositories.
+### Run builds requiring secrets in private repositories
 If this is a viable option, consider running builds requiring the usage of secrets as a CI/CD for private repositories with a carefully reviewed collaborator list. Combined with the above options, it should decrease the risk of secret exposition in the build job log.
 
 
