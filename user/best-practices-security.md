@@ -46,26 +46,7 @@ Preventing commands from displaying any output is one way to avoid accidentally 
 git push url-with-secret >/dev/null 2>&1
 ```
 
-## If you think that you might have exposed secure information
-
-As an initial step, it’s possible to delete logs containing any secure information by clicking the *Remove log* button on the build log page of Travis CI.
-
-![remove log button](/images/remove-log.png "remove log button")
-
-If you discover a leak in one of your build logs it’s essential that you revoke the leaked token or environment variable, and update any build scripts or commands that caused the leak.
-
-### Alternative methods of deleting logs
-
-Instead of deleting build logs manually, you can do so using the [Travis CI CLI](https://github.com/travis-ci/travis.rb#logs) or the  [API](https://developer.travis-ci.com/resource/log#delete).
-
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the [open source API](https://developer.travis-ci.org/resource/log#delete) instead.
-
-## Rotate tokens and secrets periodically
-Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in your [Developer Settings](https://github.com/settings/developers) on the GitHub site. Please regularly rotate credentials for other third-party services as well.
-
-## How to prevent secrets from being exposed in the build job logs
-
-While using Travis CI, you may want to consider the following means to decrease the risk of exposing secrets in the build job logs:
+While using Travis CI, you may want to consider the additional means to decrease the risk of exposing secrets in the build job logs:
 
 ### Always use encrypted secrets
 Travis CI offers the ability to either [encrypt your secret](/user/encryption-keys/) with the Travis-CLI (command line interface tool) or define the secret in the [Travis CI Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings). 
@@ -88,6 +69,23 @@ Review the [Travis CI Repository Settings](/user/pull-requests#pull-requests-and
 ### Run builds requiring secrets in private repositories
 If this is a viable option, consider running builds requiring the usage of secrets as a CI/CD for private repositories with a carefully reviewed collaborator list. Combined with the above options, it should decrease the risk of secret exposition in the build job log.
 
+
+## If you think that you might have exposed secure information
+
+As an initial step, it’s possible to delete logs containing any secure information by clicking the *Remove log* button on the build log page of Travis CI.
+
+![remove log button](/images/remove-log.png "remove log button")
+
+If you discover a leak in one of your build logs it’s essential that you revoke the leaked token or environment variable, and update any build scripts or commands that caused the leak.
+
+### Alternative methods of deleting logs
+
+Instead of deleting build logs manually, you can do so using the [Travis CI CLI](https://github.com/travis-ci/travis.rb#logs) or the  [API](https://developer.travis-ci.com/resource/log#delete).
+
+> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the [open source API](https://developer.travis-ci.org/resource/log#delete) instead.
+
+## Rotate tokens and secrets periodically
+Rotate your tokens and secrets regularly. GitHub OAuth tokens can be found in your [Developer Settings](https://github.com/settings/developers) on the GitHub site. Please regularly rotate credentials for other third-party services as well.
 
 ## More information
 The suggestions in this document reflect general recommendations that the Travis CI team and community encourage everyone to follow. However, suggestions here are not exhaustive, and you should use your best judgement to determine security processes for your project. If you have any questions about security at Travis CI or suspect you may have found a vulnerability, please contact us at <security@travis-ci.com>.
