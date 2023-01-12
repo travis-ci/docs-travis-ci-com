@@ -176,11 +176,9 @@ git_repository_settings_forks_general: |
   
   For Git repositories, you may manage per repository how the [environment variables](/user/environment-variables/) and the [custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build triggered as an effect of filing a Pull Request from a forked repository. Two settings are available specifically for this purpose, allowing you to customize your security vs. collaboration setup.
 
-  **base repository** - a Git repository, which is forked by someone else
-  
-  **fork** or **forked repository** - any Git repository forked from the **base repository**
-  
-  **PR** - Pull Request (e.g. in GitHub, BitBucket, GitLab) or Merge Request (in Assembla)
+   * **base repository** - a Git repository, which is forked by someone else  
+   * **fork** or **forked repository** - any Git repository forked from the **base repository**
+   * **PR** - Pull Request (e.g. in GitHub, BitBucket, GitLab) or Merge Request (in Assembla)
 
   > Please note: Repositories activated in [Travis CI](https://app.travis-ci.com ) before **March 1st, 2022** will have the `Share encrypted environment variables with forks (PRs) ` setting set to OFF. Please verify your collaboration model if necessary (especially for public repositories). The `Share SSH keys with forks (PRs)` will be set to ON for private repositories not to break too many collaboration setups.
   Repository settings will be set by default to OFF for any repository activated in [Travis CI](https://app.travis-ci.com) after **March 1st, 2022**. For repositories activated in Travis CI after **March 1st, 2022**, you may want to consider changing the default settings depending on your collaboration model.
