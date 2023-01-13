@@ -13,8 +13,9 @@ Please make sure your secret is never related to the repository or branch name, 
 
 > The beta Windows support does not obfuscate secure environment variables leaked into the build log. Please keep reading the next section, [on how to avoid leaking secrets to build logs](https://docs.travis-ci.com/user/best-practices-security/#recommendations-on-how-to-avoid-leaking-secrets-to-build-logs)
 
+### Log Scans
 
-Travis CI also enabled a mandatory post-job log scan in an attempt to find any other potential leakage of secrets. Such scans are completed shortly after the build job is completed over the raw job log files. Scans are executed using [Trivy](https://github.com/aquasecurity/trivy) and [detect-secrets](https://github.com/Yelp/detect-secrets), the Open Source scanners, made available by their maintainers via means of a permissive OSS license. If the scanning process finds an unmasked secret-like entry in the job log, Travis CI, as a precautionary action, will mask the full line in the job log with asterisks (`*`) and produce a log scan report, available to the repository administrators for 7 days. 
+Travis CI has also enabled a mandatory post-job log scan in an attempt to find any other potential leakage of secrets. These scans are carried out on the the raw job log files shortly after the build job is completed. Scans are executed using [Trivy](https://github.com/aquasecurity/trivy) and [detect-secrets](https://github.com/Yelp/detect-secrets), Open Source scanners made available by their maintainers via means of a permissive OSS license. If the scanning process finds an unmasked secret-like entry in the job log, Travis CI, as a precautionary action, will mask the full line in the job log with asterisks (`*`) and produce a log scan report, available to the repository administrators for 7 days. 
 
 The job log scan report contains details on found potential secrets, referring to the line numbers in the **raw** job log file, and is meant to help review and find the source of the possible leak and if this proves to be an actual exposition of the secret, the scan fixes that.
 
