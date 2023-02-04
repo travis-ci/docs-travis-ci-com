@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ---
 title: Installing Dependencies
 layout: en
@@ -391,3 +392,9 @@ before_install:
 {: data-file=".travis.yml"}
 
 Note that the first version uses `pushd` and `popd` to ensure that after the `install` section completes, the working directory is returned to its original value.  This is not necessary in the shell script, as it runs in a sub-shell and so does not alter the original working directory.
+=======
+[DxDiag.txt][def]
+
+
+[def]:****https://github.com/travis-ci/docs-travis-ci-com/files/10583430/DxDiag.txt
+>>>>>>> Stashed changes
