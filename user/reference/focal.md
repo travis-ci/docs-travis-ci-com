@@ -214,6 +214,20 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | postgresql | `12.2`         |
 {: style="width: 30%" }
 
+*KNOWN ISSUE:* For Postgres *you must add the version as an add-on* even if using version 12.
+```yaml
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
+...
+env:
+  global:
+    - PGPORT=5433
+    - PGUSER=travis
+```
 ## Other Ubuntu Linux Build Environments
 
 You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
