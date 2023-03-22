@@ -72,6 +72,20 @@ concurrent_jobs: |
 
   - if your build depends on an external resource and might run into a race
     condition with concurrent jobs.
+enabling_access_jobs_logs: | 
+  This setting allows you to increase security by preventing access to old job logs older than 360 days. Or, in the case of a necessity, users can explicitly enable access to public and private old job log repositories.  
+
+  The following are the available configurations:
+  * If this setting is ON, it enables access to build job logs older than 365 days. 
+  * If this setting is OFF, access to build job logs older than 365 days is unavailable via UI or API calls. 
+limiting_access_jobs_logs: |  
+  Similarly, this setting allows you to restrict access to build job logs for any user without write/push access rights to the repository. Limit job log visibility to only those that needed it. Enable this setting and ensure job logs are only available to users with respective read or write access to the individual repository.
+
+  The following are the available configurations:
+  * If this setting is ON, it allows access to build job logs only for users with write/push permissions to this repository. Limits access to build job logs via UI and API. 
+  * If this setting is OFF, users with read access to the repository can access the build job logs. 
+
+  Please note that the '*Limiting access to build job logs*' repository setting applies only to users with ‘write/push’ permissions.  
 auto_cancellation: |
   If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds that are in the **queued** state and are not yet running.
 cron_jobs: |
@@ -162,9 +176,9 @@ git_repository_settings_forks_general: |
   
   For Git repositories, you may manage per repository how the [environment variables](/user/environment-variables/) and the [custom SSH keys](/user/private-dependencies/#user-key) will be handled in Travis CI when a build triggered as an effect of filing a Pull Request from a forked repository. Two settings are available specifically for this purpose, allowing you to customize your security vs. collaboration setup.
 
-  **base repository** - a Git repository, which is forked by someone else
-  **fork** or **forked repository** - any Git repository forked from the **base repository**
-  **PR** - Pull Request (e.g. in GitHub, BitBucket, GitLab) or Merge Request (in Assembla).
+   * **base repository** - a Git repository, which is forked by someone else  
+   * **fork** or **forked repository** - any Git repository forked from the **base repository**
+   * **PR** - Pull Request (e.g. in GitHub, BitBucket, GitLab) or Merge Request (in Assembla)
 
   > Please note: Repositories activated in [Travis CI](https://app.travis-ci.com ) before **March 1st, 2022** will have the `Share encrypted environment variables with forks (PRs) ` setting set to OFF. Please verify your collaboration model if necessary (especially for public repositories). The `Share SSH keys with forks (PRs)` will be set to ON for private repositories not to break too many collaboration setups.
   Repository settings will be set by default to OFF for any repository activated in [Travis CI](https://app.travis-ci.com) after **March 1st, 2022**. For repositories activated in Travis CI after **March 1st, 2022**, you may want to consider changing the default settings depending on your collaboration model.
