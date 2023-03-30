@@ -50,7 +50,7 @@ jobs:                             # existing functionality
   include:                        # existing functionality
     - os: linux
       dist: focal
-      name: 'SBOM generation example job'
+      name: "SBOM generation example job"
       addons:
          sbom                    # new node
          <other existing addons>
