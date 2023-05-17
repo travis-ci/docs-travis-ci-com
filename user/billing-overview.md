@@ -302,6 +302,39 @@ VM size property impacts the cost of build minutes/credits usage in the followin
 > If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need in both cases 20 credits per every started build minutes (2 x 10 credits).
 
 
+## GPU VM Instance Sizes and Credit Cost for GPU builds
+
+Travis CI allows users to trigger GPU builds and configure both credit costs for GPU build minutes and concurrency-based plans.
+
+GPU builds allow you to choose the instance size the build will run on (for the 'full vm' build job). X-large instance sizes deliver more resources (vCPU and RAM) for your build jobs. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+
+```yaml
+vm:
+ size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key 
+```
+
+Instance sizes do not apply to Windows, and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.  
+
+To use instance sizes:
+
+* you need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use. 
+* you need to add the tags mentioned above to your `.travis.yml.`
+* you need a Linux operating system 
+
+GPU VM size property impacts the cost of build minutes/credits usage in the following way:
+
+| GPU VM size              | Credits per<br />started build minute |
+|:--------------------:|:-------------------------------------:|
+| T4 medium       | 230 |
+| V100 x-large      | 890 |
+
+
+> GPU Support is only available for: 
+> * arch: amd64 
+> * os: Linux
+> * dist: [focal] # jammy still under fixing, to be added later, xenial EOL, bionic will go EOL in April 2023.
+
+
 ## Getting Help
 
 If you have any questions or issues with the new VCS, please see our [Billing FAQ](/user/billing-faq) or email [support@travis-ci.com](mailto:support@travis-ci.com) for help.
