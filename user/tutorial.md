@@ -1,14 +1,14 @@
 ---
-title: Travis CI Tutorial
-layout: en
+title: Tutoriel Travis CI.
+layout: fr
 redirect_from:
   - /user/getting-started/
 ---
 
-This is a very short guide to using Travis CI with your cloud platform hosted code repository.
-If you're new to continuous integration or would like some more information on
-what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
-instead.
+Il s'agit d'un guide très court pour utiliser Travis CI avec le référentiel de code 
+hébergé sur votre plate-forme cloud. Si vous débutez dans l'intégration continue ou 
+si vous souhaitez plus d'informations sur ce que fait Travis CI, commencez par
+[Core Concepts for Beginners](/user/for-beginners) plutôt.
 
 ## Prerequisites
 
