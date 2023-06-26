@@ -69,7 +69,7 @@ jobs for every database to test against and also to split up the tests by
 concern. One set runs tests only for the railties, another one for actionpack,
 actionmailer, activesupport and a whole bunch of sets run the activerecord
 tests against multiple databases. See their [.travis.yml
-file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
+file](https://github.com/rails/rails/blob/c667a725f14c6351caa9b365616f5742d4b88cf0/.travis.yml) for more examples.
 
 ## Parallelizing your Build on One Virtual Machine
 
