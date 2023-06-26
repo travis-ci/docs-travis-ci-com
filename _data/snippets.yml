@@ -35,6 +35,7 @@ all_note: |
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
+  >  * [RHEL](/user/reference/rhel/)
 unix_note: |
   > For Language versions and other build-environment specific
   > information visit our reference pages:
@@ -46,6 +47,7 @@ unix_note: |
   >  * [Jammy](/user/reference/jammy/)
   >  * [macOS](/user/reference/osx/)
   >  * [FreeBSD](/user/reference/freebsd/)
+  >  * [RHEL](/user/reference/rhel/)
 linux_note: |
   > For Language versions and other build-environment specific
   > information visit our reference pages:
@@ -66,6 +68,7 @@ linux_windows_note: |
   >  * [Jammy](/user/reference/jammy/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
+  >  * [RHEL](/user/reference/rhel/)
 concurrent_jobs: |
   The maximum number of concurrent jobs depends on the total system load, but
   one situation in which you might want to set a particular limit is:
