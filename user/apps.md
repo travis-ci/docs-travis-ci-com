@@ -489,3 +489,6 @@ By Sankarsan Kampa
 
 ## Go
 - [go-travis](https://github.com/shuheiktgw/go-travis) by Shuhei Kitagawa
+
+## Java
+- [travis-java-client](https://github.com/kaygisiz/travis-java-client) by Caner Kaygisiz
