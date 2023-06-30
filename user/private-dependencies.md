@@ -51,7 +51,7 @@ You can add SSH keys to user accounts on GitHub. Most users have probably alread
 
 This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
-### Repository settings - forks
+### Repository settings - forks ###
 
 {{ site.data.snippets.git_repository_settings_forks_general }}
 
