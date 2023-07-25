@@ -264,7 +264,7 @@ Each tier of instance size delivers more vCPU and RAM resources available at you
 
 ## GPU VM Instance Size 
 
-You can choose to run your GPU builds on larger instances size. All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+You can choose to run your GPU builds on various GPU "sizes". All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
 
 ```yaml
 vm:
