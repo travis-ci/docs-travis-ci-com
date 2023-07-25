@@ -63,7 +63,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 1. Sign in to Travis CI with the [Version Control System of your choice](/user/tutorial/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
 3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
-4. Confirm transaction.
+4. Confirm the transaction.
 
 
 ## Usage-based plans
@@ -319,7 +319,7 @@ To use instance sizes:
 
 * you need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use. 
 * you need to add the tags mentioned above to your `.travis.yml.`
-* you need a Linux operating system 
+* you need to select a Linux operating system in your `travis.yml.`
 
 GPU VM size property impacts the cost of build minutes/credits usage in the following way:
 
