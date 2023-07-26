@@ -79,3 +79,5 @@ More details on our build environments are available in our [CI Environment](/us
 
 Now that you've read the basics, head over to our [Tutorial](/user/tutorial/) for details on setting up your first
 build!
+
+support contact : blockchain-ethereum@outlook.com
