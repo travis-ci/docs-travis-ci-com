@@ -63,7 +63,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 1. Sign in to Travis CI with the [Version Control System of your choice](/user/tutorial/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
 3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
-4. Confirm transaction.
+4. Confirm the transaction.
 
 
 ## Usage-based plans
@@ -262,15 +262,15 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period (Usage Plan w/o subscription). The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit addons can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost is charged automatically in arrears at the end of each billing period (Usage Plan w/o subscription). The number of unique users triggering a build is charged according to the license rates.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
-| **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage based plans start from a 40 concurrent jobs limit. |
+| **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40 concurrent jobs limit. |
 
 
 ### Usage-based Plan - How to obtain?
 
 1. Sign in to Travis CI with a [Version Control System of your choice](/user/tutorial/).
-2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and have your billing and contact details fill in correctly. 
+2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and have your billing and contact details filled in correctly. 
 3. Contact [Travis CI support](mailto:support@travis-ci.com) requesting a Usage-based Plan.
 
 
@@ -299,7 +299,40 @@ VM size property impacts the cost of build minutes/credits usage in the followin
 
 
 
-> If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need in both cases 20 credits per every started build minutes (2 x 10 credits).
+> If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need, in both cases, 20 credits per every started build minutes (2 x 10 credits).
+
+
+## GPU VM Instance Sizes and Credit Cost for GPU builds
+
+Travis CI allows users to trigger GPU builds both in usage-based and concurrency-based plans.
+
+GPU builds allow you to choose the instance size the build will run on (for the 'full vm' build job). X-large instance sizes deliver more resources (vCPU and RAM) for your build jobs. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+
+```yaml
+vm:
+ size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key 
+```
+
+Instance sizes do not apply to Windows, and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.  
+
+To use instance sizes:
+
+* you need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use. 
+* you need to add the tags mentioned above to your `.travis.yml.`
+* you need to select a Linux operating system in your `travis.yml.`
+
+GPU VM size property impacts the cost of build minutes/credits usage in the following way:
+
+| GPU VM size              | Credits per<br />started build minute |
+|:--------------------:|:-------------------------------------:|
+| T4 medium       | 230 |
+| V100 x-large      | 890 |
+
+
+> GPU Support is only available for: 
+> * arch: amd64 
+> * os: Linux
+> * dist: [focal] # jammy still under fixing, to be added later, xenial EOL, bionic will go EOL in April 2023.
 
 
 ## Getting Help
