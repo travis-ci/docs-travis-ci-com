@@ -1,7 +1,7 @@
 ---
 title: Private Dependencies GitHub
 layout: en
-
+samuel
 ---
 
 *Some of the features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
