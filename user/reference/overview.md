@@ -17,13 +17,13 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availaibility).
+Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availaibility)
 
 #### Full VM
 
 This is sudo enabled, full virtual machine per build, that runs Linux
 
-* Slow spin-up (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container).
+* Slow spin-up (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container)
 * It has a fixed amount of vCPUs and RAM assigned.
 
 #### LXD container
