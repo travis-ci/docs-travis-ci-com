@@ -53,6 +53,8 @@ To start using Travis CI, make sure you have:
 
 {{ site.data.snippets.github_oauth_access_rights }}
 
+Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopess).
+
 ## To get started with Travis CI using Bitbucket
 
 <blockquote class="beta">
@@ -88,6 +90,10 @@ To start using Travis CI, make sure you have:
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
 6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
+
+#### Travis CI access rights to BitBucket
+
+Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes).
 
 ## To get started with Travis CI using GitLab
 
@@ -125,6 +131,10 @@ To start using Travis CI, make sure you have:
 
 6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
+#### Travis CI access rights to GitLab
+
+Read more about it: [GitLab permissions used by Travis CI](/user/gl-oauth-scopes).
+
 ## To get started with Travis CI using Assembla
 
 <blockquote class="beta">
@@ -161,7 +171,7 @@ To start using Travis CI, make sure you have:
         1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
         2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
     3. P4 (Perforce Helix Core) Repository
-        1. in the `/<depotname>/main/` (default is `/depotn/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
+        1. in the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
         2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
 
 6. Commit and push/submit to trigger a Travis CI build:
@@ -170,7 +180,9 @@ To start using Travis CI, make sure you have:
 
 7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
-Read more about: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/).
+#### Travis CI access rights to Assembla
+
+Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes).
 
 ## Switching accounts
 
