@@ -14,7 +14,7 @@ instead.
 
 To start using Travis CI, make sure you have:
 
- * A [GitHub](https://github.com/) or [Bitbucket](https://bitbucket.org/) or [GitLab](https://about.gitlab.com/) or [Assembla](https://www.assembla.com/) account.
+ * A [GitHub](https://github.com/) or [Assembla](https://www.assembla.com/) or [Bitbucket](https://bitbucket.org/) or [GitLab](https://about.gitlab.com/) account.
  * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/) or [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html) or [GitLab](https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm) or [Assembla](https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls).
 
 ## To get started with Travis CI using GitHub
@@ -54,6 +54,55 @@ To start using Travis CI, make sure you have:
 {{ site.data.snippets.github_oauth_access_rights }}
 
 Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopess).
+
+## To get started with Travis CI using Assembla
+
+<blockquote class="beta">
+  <p>
+    This section documents the new Assembla option that is currently in beta.
+  </p>
+</blockquote>
+
+1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with Assembla*](https://app.travis-ci.com/signin).
+
+2. Accept the Authorization of Travis CI. You'll be redirected to Assembla.
+
+3. Click on your profile picture in the top right of your Travis Dashboard, click *Settings*, and toggle the repositories you want to use with Travis CI.
+
+4. Create a `.travis.yml` in your repository to tell Travis CI what to do.
+
+   The following example specifies a Ruby project that should
+   be built with Ruby 2.2 and the latest versions of JRuby.
+
+   ```yaml
+   language: ruby
+   rvm:
+    - 2.2
+    - jruby
+   ```
+   {: data-file=".travis.yml"}
+
+   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
+   and `rake` to build the project.
+
+5. Add the `.travis.yml` file to a specific location in your repository
+    1. Git Repository, in the root of the repository (`main` and branches). 
+    2. SVN Repository, 
+        1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
+        2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
+    3. P4 (Perforce Helix Core) Repository
+        1. in the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
+        2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
+
+6. Commit and push/submit to trigger a Travis CI build:
+
+   > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
+
+7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
+
+#### Travis CI access rights to Assembla
+
+Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes).
 
 ## To get started with Travis CI using Bitbucket
 
@@ -135,55 +184,6 @@ Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-sco
 
 Read more about it: [GitLab permissions used by Travis CI](/user/gl-oauth-scopes).
 
-## To get started with Travis CI using Assembla
-
-<blockquote class="beta">
-  <p>
-    This section documents the new Assembla option that is currently in beta.
-  </p>
-</blockquote>
-
-1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with Assembla*](https://app.travis-ci.com/signin).
-
-2. Accept the Authorization of Travis CI. You'll be redirected to Assembla.
-
-3. Click on your profile picture in the top right of your Travis Dashboard, click *Settings*, and toggle the repositories you want to use with Travis CI.
-
-4. Create a `.travis.yml` in your repository to tell Travis CI what to do.
-
-   The following example specifies a Ruby project that should
-   be built with Ruby 2.2 and the latest versions of JRuby.
-
-   ```yaml
-   language: ruby
-   rvm:
-    - 2.2
-    - jruby
-   ```
-   {: data-file=".travis.yml"}
-
-   The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
-   and `rake` to build the project.
-
-5. Add the `.travis.yml` file to a specific location in your repository
-    1. Git Repository, in the root of the repository (`main` and branches). 
-    2. SVN Repository, 
-        1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
-        2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
-    3. P4 (Perforce Helix Core) Repository
-        1. in the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
-        2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
-
-6. Commit and push/submit to trigger a Travis CI build:
-
-   > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
-
-7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
-
-#### Travis CI access rights to Assembla
-
-Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes).
-
 ## Switching accounts
 
 You can easily switch between your cloud platform provider accounts:
@@ -255,6 +255,7 @@ Travis CI isn't just for running tests, there are many other things you can do w
 Read more about
 
 * [customizing your build](/user/customizing-the-build)
+* [shared build configuration imports](/user/build-config-imports)
 * [security best practices](/user/best-practices-security/)
 * [build stages](/user/build-stages/)
 * [build matrixes](/user/customizing-the-build/#build-matrix)
