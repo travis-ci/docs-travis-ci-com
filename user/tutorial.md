@@ -86,11 +86,11 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
    and `rake` to build the project.
 
 5. Add the `.travis.yml` file to a specific location in your repository
-    1. Git Repository, in the root of the repository (`main` and branches). 
-    2. SVN Repository, 
+    1. Git Repository: in the root of the repository (`main` and branches). 
+    2. SVN Repository: 
         1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
         2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
-    3. P4 (Perforce Helix Core) Repository
+    3. P4 (Perforce Helix Core) Repository:
         1. in the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
         2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
 
