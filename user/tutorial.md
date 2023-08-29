@@ -100,6 +100,22 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
 
 7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
+ **IMPORTANT**
+
+Perforce depot/repository may be very heavy, so downloading it fully for build (e.g., terabytes of data) is often unwanted, as the source code to be built/tested is only a fraction of the whole depot size. To download it partially, a Travis CI user must define a specific subpath, which is later downloaded by the Travis CI build job. Such subpaths may be defined by using the `perforce_test_path` tag within a `.travis.yml` file. If the property is not provided, the default behavior is downloading the whole depot/repository. See the example below for reference.
+
+   ```yaml
+   dist: focal
+   language: ruby
+   rvm:
+    - 2.2
+    - jruby
+   perforce_test_path: /your/subpath/within/repository/which/will/be/downloaded
+   ```
+   {: data-file=".travis.yml"}
+
+Perforce and SVN builds are currently **available only for Linux Ubuntu** and standard amd64 CPU architecture build environments, starting from Bionic Beaver Ubuntu distribution.
+
 #### Travis CI access rights to Assembla
 
 Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes).
