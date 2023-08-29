@@ -139,7 +139,7 @@ To start using Travis CI, make sure you have:
 
 3. Click on your profile picture in the top right of your Travis Dashboard, click *Settings*, and toggle the repositories you want to use with Travis CI.
 
-4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
+4. Create a `.travis.yml` in your repository to tell Travis CI what to do.
 
    The following example specifies a Ruby project that should
    be built with Ruby 2.2 and the latest versions of JRuby.
@@ -155,17 +155,28 @@ To start using Travis CI, make sure you have:
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
+5. Add the `.travis.yml` file to a specific location in your repository
+    1. Git Repository, in the root of the repository (`main` and branches). 
+    2. SVN Repository, 
+        1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
+        2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
+    3. P4 (Perforce Helix Core) Repository
+        1. in the `/<depotname>/main/` (default is `/depotn/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
+        2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
+
+6. Commit and push/submit to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+
+Read more about: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/).
 
 ## Switching accounts
 
 You can easily switch between your cloud platform provider accounts:
 
-1. Click on your account icon in the top right corner on [Travis-ci.com](https://travis-ci.com).
+1. Click on your account icon in the top right corner on [Travis-ci.com](https://app.travis-ci.com).
 
 2. Select the desired account and have fun using Travis CI.
 
