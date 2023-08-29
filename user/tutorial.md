@@ -19,7 +19,7 @@ To start using Travis CI, make sure you have:
 
 ## To get started with Travis CI using GitHub
 
-1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with GitHub*](https://travis-ci.com/signin).
+1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with GitHub*](https://app.travis-ci.com/signin).
 
 2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. For any doubts on the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
 
@@ -47,7 +47,7 @@ To start using Travis CI, make sure you have:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
 #### Travis CI GitHub OAuth App access rights
 
@@ -61,7 +61,7 @@ To start using Travis CI, make sure you have:
   </p>
 </blockquote>
 
-1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with Bitbucket*](https://travis-ci.com/signin).
+1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with Bitbucket*](https://app.travis-ci.com/signin).
 
 2. Accept the Authorization of Travis CI. You'll be redirected to Bitbucket.
 
@@ -87,7 +87,7 @@ To start using Travis CI, make sure you have:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
 ## To get started with Travis CI using GitLab
 
@@ -97,7 +97,7 @@ To start using Travis CI, make sure you have:
   </p>
 </blockquote>
 
-1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with GitLab*](https://travis-ci.com/signin).
+1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with GitLab*](https://app.travis-ci.com/signin).
 
 2. Accept the Authorization of Travis CI. You'll be redirected to GitLab.
 
@@ -123,7 +123,7 @@ To start using Travis CI, make sure you have:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+6. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
 ## To get started with Travis CI using Assembla
 
@@ -133,7 +133,7 @@ To start using Travis CI, make sure you have:
   </p>
 </blockquote>
 
-1. Go to [Travis-ci.com](https://travis-ci.com) and [*Sign up with Assembla*](https://travis-ci.com/signin).
+1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with Assembla*](https://app.travis-ci.com/signin).
 
 2. Accept the Authorization of Travis CI. You'll be redirected to Assembla.
 
@@ -168,7 +168,7 @@ To start using Travis CI, make sure you have:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
-7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://travis-ci.com/auth) and selecting your repository.
+7. Check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command by visiting [Travis CI](https://app.travis-ci.com) and selecting your repository.
 
 Read more about: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/).
 
