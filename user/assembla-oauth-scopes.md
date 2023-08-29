@@ -55,3 +55,30 @@ Likewise, existing webhook subscriptions for a repo's issue tracker can be retri
 All that is required is the webhook scope.
 
 However, to create a webhook for issue:created, the client will need to have both the webhook as well as issue scope.
+
+## Version Control System specific information
+
+Aside from Git Repository integration, Travis CI supports following VCS (Version Control System) integartions with Assembla:
+
+| Repository type     | Supported integration                | Authorization engine                                    |
+| ------------------- | ------------------------------------ | ------------------------------------------------------- |
+| Perforce Helix Core | Streams mainline and dev depots only | Ticket-based authorization only                         |
+| SVN                 | Apache SVN server only               | svn+ssh (implies SSH keys used) + optionally use realms |
+
+### SVN
+
+When enabling Assembla SVN Repository in Travis CI, the 'write access' SSH deploy key with title 'travis-ci.com' is 
+added to the Assembla SVN Repository Settings. This is current Assembla requirement for authorizing the connection. 
+Travis CI does not require write access to your repositories - only read access is needed to set up the connection and 
+trigger builds in Travis CI. 
+The svn+ssh protcol is used to obtain SVN repository copy into the ephemerical build job environment for the time 
+needed to execute build instructions.
+
+### Perforce Helix Core (P4)
+
+When enabling Assembla P4 Repository in Travis CI, special access group is created for this P4 repository in Assembla. 
+You can see it in the respective 'P4 Admin' section for enabled P4 repository. It will be named 'TravisCIAccessGroup-<guid>'
+and login timeout for the group will be set so the ticket based authorization does not expire until repository is disabled 
+in Travis CI. The group will contain the Assembla user enabling repository in Travis CI.
+This is required for Travis CI build job to communicate with Assembla P4 and obtain copy of source code to the ephemerical
+build job environment for the time needed to execute build instructions.
