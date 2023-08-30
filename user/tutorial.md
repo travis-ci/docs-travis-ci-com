@@ -5,7 +5,7 @@ redirect_from:
   - /user/getting-started/
 ---
 
-This is a very short guide to using Travis CI with your cloud platform hosted code repository.
+This is a short guide to using Travis CI with your cloud platform-hosted code repository.
 If you're new to continuous integration or would like some more information on
 what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
 instead.
@@ -21,11 +21,11 @@ To start using Travis CI, make sure you have:
 
 1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with GitHub*](https://app.travis-ci.com/signin).
 
-2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. For any doubts on the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
+2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. For any doubts about the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
 
-3. Click on your profile picture in the top right of your Travis Dashboard, click Settings and then the green *Activate* button, and select the repositories you want to use with Travis CI.
+3. Click on your profile picture in the top right of your Travis Dashboard, click Settings, and then the green *Activate* button, and select the repositories you want to use with Travis CI.
 
-> Or you click the *Activate all repositories using GitHub Apps* button on the getting started page to just activate all your repos
+> Or click the *Activate all repositories using GitHub Apps* button on the Getting Started page to activate all your repos.
 
 4. Add a `.travis.yml` file to your repository to tell Travis CI what to do.
 
@@ -43,7 +43,7 @@ To start using Travis CI, make sure you have:
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
+5. Add the `.travis.yml` file to git, commit, and push to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
@@ -85,14 +85,14 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to a specific location in your repository
+5. Add the `.travis.yml` file to a specific location in your repository:
     1. Git Repository: in the root of the repository (`main` and branches). 
     2. SVN Repository: 
-        1. in the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`
-        2. in the `/branches/<branch name>/` (e.g.`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to specific branch
+        1. In the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`.
+        2. In the `/branches/<branch name>/` (e.g.,`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to a specific branch.
     3. P4 (Perforce Helix Core) Repository:
-        1. in the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`
-        2. in the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g. `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to specific stream
+        1. In the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`.
+        2. In the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g., `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to a specific stream.
 
 6. Commit and push/submit to trigger a Travis CI build:
 
@@ -102,7 +102,7 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
 
  **IMPORTANT**
 
-Perforce depot/repository may be very heavy, so downloading it fully for build (e.g., terabytes of data) is often unwanted, as the source code to be built/tested is only a fraction of the whole depot size. To download it partially, a Travis CI user must define a specific subpath, which is later downloaded by the Travis CI build job. Such subpaths may be defined by using the `perforce_test_path` tag within a `.travis.yml` file. If the property is not provided, the default behavior is downloading the whole depot/repository. See the example below for reference.
+Perforce depot/repository may be very heavy, so downloading it fully for build (e.g., terabytes of data) is often unwanted, as the source code to be built/tested is only a fraction of the whole depot size. To download it partially, a Travis CI user must define a specific subpath, which is later downloaded by the Travis CI build job. Such subpaths may be defined using the `perforce_test_path` tag within a `.travis.yml` file. If the property is not provided, the default behavior is downloading the whole depot/repository. See the example below for reference.
 
    ```yaml
    dist: focal
@@ -150,7 +150,7 @@ Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oaut
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
+5. Add the `.travis.yml` file to git, commit, and push to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
@@ -160,7 +160,7 @@ Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oaut
 
 Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes).
 
-## To get started with Travis CI using GitLab
+## Get started with Travis CI using GitLab
 
 <blockquote class="beta">
   <p>
@@ -190,7 +190,7 @@ Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-sco
    The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
    and `rake` to build the project.
 
-5. Add the `.travis.yml` file to git, commit and push to trigger a Travis CI build:
+5. Add the `.travis.yml` file to git, commit, and push to trigger a Travis CI build:
 
    > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 
@@ -259,7 +259,7 @@ Travis CI supports many [programming languages](/user/languages/).
 
 ## More than running tests
 
-Travis CI isn't just for running tests, there are many other things you can do with your code:
+Travis CI isn't just for running tests. There are many other things you can do with your code:
 
 * deploy to [GitHub pages](/user/deployment/pages/)
 * run apps on [Heroku](/user/deployment/heroku/)
@@ -268,7 +268,7 @@ Travis CI isn't just for running tests, there are many other things you can do w
 
 ## Further Reading
 
-Read more about
+Read more about:
 
 * [customizing your build](/user/customizing-the-build)
 * [shared build configuration imports](/user/build-config-imports)
