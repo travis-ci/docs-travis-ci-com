@@ -11,14 +11,14 @@ Please refer to the [SonarCloud documentation](https://sonarcloud.io/documentati
 
 ## Requirements
 
-If a Java JRE/JDK is present within the build environment, it has to be at least Java 11 or higher.
+If a Java JRE/JDK is present within the build environment, it has to be at least Java 17.
 
-The default Travis dist
+Java 11 is set as default within build environments, Add:
 ```yaml
-dist: xenial
+jdk: openjdk17
 ```
 {: data-file=".travis.yml"}
-includes Java 11 by default.
+to use Java 17 JRE/JDK as default.
 
 ## Inspecting code with the SonarQube Scanner
 
