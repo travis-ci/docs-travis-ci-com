@@ -204,8 +204,6 @@ For Android projects, `env` and `jdk` can be given as arrays to construct a buil
 
 The `dist: trusty` build environment is the only supported build environment for Android but if you would like to build on newer build environments e.g. `dist: jammy`, you can exercise your access to the Travis CI build environments and install required packages and tools. An example .travis.yml config can be reviewed below:
 
-> Sleep values may need adjusting depending on the specific build environment
-
 ```yaml
 os: linux
 language: java
@@ -238,7 +236,7 @@ install:
  - sudo chmod -R 777 /dev/kvm
  # Start emulator in background and wait for it to start
  - adb kill-server && adb start-server &
- - sleep 15
+ - sleep 15 # sleep values may require adjusting depending on the specific build environment
  - emulator @my_android_33 -no-audio -no-window &
  - sleep 60
 
