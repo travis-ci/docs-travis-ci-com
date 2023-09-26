@@ -23,7 +23,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    ```bash
    body='{
    "request": {
-   "branch":"master"
+   "branch":"master",
    "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
    }}'
 
