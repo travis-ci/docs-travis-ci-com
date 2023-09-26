@@ -161,7 +161,7 @@ Trigger Travis CI builds using the API on your Travis CI Enterprise instance by 
    The build uses the `.travis.yml` file in the master branch, but you can add to
    or override configuration, or change the commit message. Overriding any section
    (like `script` or `env`) overrides the full section, the contents of the
-   `.travis.yml` file is *not* merged with the values contained in the request.
+   `.travis.yml` file present in the repository is *not* merged with the values contained in the request.
 
 
 ## Customizing the commit message
