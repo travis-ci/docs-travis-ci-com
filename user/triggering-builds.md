@@ -4,6 +4,8 @@ title: Triggering builds with API V3
 layout: en
 ---
 
+## Travis CI Hosted Solution (app.travis-ci.com)
+
 Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
 1. Get an API token from your Travis CI [settings page](https://app.travis-ci.com/account/preferences). You'll need the token to authenticate most of these API requests.
@@ -12,7 +14,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    to get your API token:
 
    ```
-   travis login --com
+   travis login --com --github-token YOUR_GITHUB_TOKEN
    travis token --com
    ```
 
@@ -23,7 +25,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    ```bash
    body='{
    "request": {
-   "branch":"master"
+   "branch":"master",
    "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
    }}'
 
@@ -116,6 +118,51 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    about what endpoints are available and what you can do with them.
 
 {{ site.data.snippets.ghlimit }}
+
+## Travis CI Enterprise
+
+Trigger Travis CI builds using the API on your Travis CI Enterprise instance by sending a POST request to `/repo/{slug|id}/requests`:
+
+1. Get an API token from your Travis CI Enterprise at https://PLATFORM_URL/account/preferences. You'll need the token to authenticate most of these API requests.
+
+   You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#travis-ci-and-travis-ci-enterprise)
+   to get your API token:
+
+   ```
+   travis login -X --github-token YOUR_GITHUB_TOKEN
+   travis token -X
+   ```
+
+2. Send a request to the API. This example shell script sends a POST request to
+   `/repo/travis-ci/tcie-demo/requests` to trigger a build of a specific 
+   commit (omit `sha` for most recent) of the master branch of the `travis-ci/tcie-demo` repository:
+
+   ```bash
+   body='{
+   "request": {
+   "branch":"master",
+   "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
+   }}'
+
+   curl -s -X POST \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json" \
+      -H "Travis-API-Version: 3" \
+      -H "Authorization: token xxxxxx" \
+      -d "$body" \
+      https://PLATFORM_URL/api/repo/travis-ci%2Ftcie-demo/requests
+   ```
+
+   > The %2F in the request URL is required so that the owner and repository
+     name in the repository slug are interpreted as a single URL segment.
+   > The `PLATFORM_URL` is the endpoint where your Travis CI Enterprise instance is reachable.
+
+
+   The build uses the `.travis.yml` file in the master branch, but you can add to
+   or override configuration, or change the commit message. Overriding any section
+   (like `script` or `env`) overrides the full section, the contents of the
+   `.travis.yml` file present in the repository is *not* merged with the values contained in the request.
+
 
 ## Customizing the commit message
 

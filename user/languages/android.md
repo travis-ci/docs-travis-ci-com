@@ -16,6 +16,8 @@ Android builds are not available on the macOS environment.
 
 ### Overview
 
+> Android builds are officially supported only on our Trusty Build environment at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
+
 Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
 
 By setting
@@ -27,8 +29,6 @@ dist: trusty
 {: data-file=".travis.yml"}
 
 in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html) 25.2.3.
-
-> Android builds are only supported on our Trusty image at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
 
 Here is an example `.travis.yml` for an Android project:
 
@@ -199,6 +199,52 @@ As for any JVM language, it is also possible to [test against multiple JDKs](/us
 ## Build Matrix
 
 For Android projects, `env` and `jdk` can be given as arrays to construct a build matrix.
+
+## Building Android projects on new build environments
+
+The `dist: trusty` build environment is the only supported build environment for Android but if you would like to build on newer build environments e.g. `dist: jammy`, you can exercise your access to the Travis CI build environments and install required packages and tools. An example .travis.yml config can be reviewed below:
+
+```yaml
+os: linux
+language: java
+jdk: openjdk17
+
+env:
+ global:
+  - ANDROID_HOME=$HOME/travis-tools/android
+  - ANDROID_SDK_ROOT=$HOME/travis-tools/android
+
+before_install:
+ # PREPARE FOR ANDROID SDK SETUP
+ - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+ - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+ - unzip -q commandlinetools.zip && cd cmdline-tools
+ - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
+ 
+ # SETUP PATH(s)
+ - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+ - export PATH=$ANDROID_HOME/emulator/:$PATH
+ - export PATH=$ANDROID_HOME/platform-tools/:$PATH
+
+install:
+ # INSTALL REQUIRED ANDROID SDK TOOLS
+ - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" "emulator" "system-images;android-33;google_apis;x86_64"
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ # CREATE AVD
+ - echo "no" | avdmanager --verbose create avd --force --name "my_android_33" --package "system-images;android-33;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
+ - sudo chmod -R 777 /dev/kvm
+ # Start emulator in background and wait for it to start
+ - adb kill-server && adb start-server &
+ - sleep 15 # sleep values may require adjusting depending on the specific build environment
+ - emulator @my_android_33 -no-audio -no-window &
+ - sleep 60
+
+script:
+ - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+ - adb devices
+ - .....
+```
 
 ## Examples
 
