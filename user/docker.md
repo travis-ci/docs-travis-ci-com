@@ -199,8 +199,9 @@ updating it in the `before_install` step of your `.travis.yml`:
 **Updating from download.docker.com**
 ```yaml
 before_install:
+  - sudo systemctl stop docker.service && sudo systemctl stop docker.socket
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - yes | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```
