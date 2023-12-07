@@ -198,8 +198,6 @@ By ThoughtWorks Inc.
 - [app store](https://itunes.apple.com/us/app/ccmenu/id603117688)
 - [tutorial](/user/cc-menu/)
 
-![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
-
 ## Linux
 
 ### BuildNotify
