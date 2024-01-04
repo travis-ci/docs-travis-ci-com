@@ -15,7 +15,7 @@ instead.
 To start using Travis CI, make sure you have:
 
  * A [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/) or [GitLab](https://about.gitlab.com/) account.
- * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/), [Assembla](https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls), [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html) or [GitLab](https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm).
+ * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/), [Assembla](https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls), [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html), or [GitLab](https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm).
 
 ## To get started with Travis CI using GitHub
 
