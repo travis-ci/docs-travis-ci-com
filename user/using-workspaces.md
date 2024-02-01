@@ -93,7 +93,7 @@ In this example:
 A more explicit example below:
 
 
-```
+```yaml
 jobs:
   include:
     - stage: Build and Test
