@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
+Travis CI integrates with [BrowserStack](https://www.browserstack.com/?utm_source=travis&utm_medium=partnered), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
 
@@ -15,17 +15,17 @@ and BrowserStack servers. Local Testing also has support for firewalls, proxies 
 Once the secure connection is setup, all URLs work out of the box, including your webserver, local folders, as well as
 URLs with HTTPS.
 
-[local-testing]: https://www.browserstack.com/local-testing
+[local-testing]: https://www.browserstack.com/local-testing/?utm_source=travis&utm_medium=partnered
 
-[local-binary]: https://www.browserstack.com/local-testing#command-line
+[local-binary]: https://www.browserstack.com/local-testing#command-line/?utm_source=travis&utm_medium=partnered
 
-[open-source-browserstack]: https://www.browserstack.com/pricing
+[open-source-browserstack]: https://www.browserstack.com/open-source/?utm_source=travis&utm_medium=partnered
 
-[account-settings]: https://www.browserstack.com/accounts/settings
+[account-settings]: https://www.browserstack.com/accounts/settings/?utm_source=travis&utm_medium=partnered
 
 [encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
 
-[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
+[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby/?utm_source=travis&utm_medium=partnered
 
 [travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
 
