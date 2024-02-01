@@ -24,15 +24,15 @@ There's a new menu called "Workspaces UI Settings", where specific configuration
 
 ![TCIE Workspaces Settings](/images/tcie-3.x-workspaces-config.png)
 
-> *Please note:*
+> **Please note**
 > 
 > Workspaces are meant for short-lived artifacts.
 >
 > It is recommended to:
 > 
-> * use separate file bucket than the one used for cache, both for security and maintenance reasons
-> * have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended is 3 hours (maximum default time of a single job running uninterrupted under certain allowance configurations)
-> * make sure your infrastructure hosting build image instances has connectivity to the file bucket configured for workspaces
+> - use separate file bucket than the one used for cache, both for security and maintenance reasons
+> - have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended is 3 hours, which equals default max time of a single job running uninterrupted under certain conditions
+> - make sure your infrastructure hosting build image instances has connectivity to the file bucket configured for workspaces
 
 ### Workspaces usage
 
