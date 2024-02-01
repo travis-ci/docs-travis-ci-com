@@ -262,6 +262,27 @@ Each tier of instance size delivers more vCPU and RAM resources available at you
 | 2x-large  | 16          | ~64         | requires credits to use; may be limited to certain Plans|
 
 
+## GPU VM Instance Size 
+
+You can choose to run your GPU builds on various GPU "sizes". All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+
+```yaml
+vm:
+ size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key 
+```
+{: data-file=".travis.yml"}
+
+Available instance sizes can be selected for the following build jobs:
+* OS is Linux
+* CPU architecture is amd64
+
+Please note that the usage of GPU VM instance sizes requires available credits in the user's account. Read more in our [billing overview](/user/billing-overview/).
+
+| Size      | vCPU     | HDD Memory GB  | Memory Type |  RAM | GPU |  Comment                                                           |
+|:------------------:|:------------:|:-----------:|:------------------:|:----------:|:---------------------------:|:-------------------------:|
+| gpu-medium  | 8   | ~300   | 16 GB GDDR6  | 30GB  | n1-standard-8 + NVIDIA T4  |  Requires credits to use           |
+| gpu-xlarge  |  8    | ~300   | 16 GB HBM2  | 30GB |  n1-standard-8 + NVIDIA V100   |  Requires credits to use     |
+
 
 ## Deprecated Virtualization Environments
 
