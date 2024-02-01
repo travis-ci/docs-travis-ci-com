@@ -25,7 +25,9 @@ There's a new menu called "Workspaces UI Settings", where specific configuration
 ![TCIE Workspaces Settings](/images/tcie-3.x-workspaces-config.png)
 
 > *Please note:*
+> 
 > Workspaces are meant for short-lived artifacts.
+>
 > It is recommended to:
 > 
 > * use separate file bucket than the one used for cache, both for security and maintenance reasons
@@ -35,3 +37,5 @@ There's a new menu called "Workspaces UI Settings", where specific configuration
 ### Workspaces usage
 
 Please see [our documentation](/user/using-workspaces) for end-user facing usage instructions for Workspaces.
+
+Please read also [about build stages](/user/build-stages/) in order to create streamlined set of jobs, which can be used e.g. for pre-building a short lived artifact in first steps of build pipeline. 
