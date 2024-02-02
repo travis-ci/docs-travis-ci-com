@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-This page contains operations manual level information about Workspaces and Cache in Trravis CI Enterprise.
+This page contains operations manual level information about Workspaces and Cache in Travis CI Enterprise.
 
 ## Cache vs Workspaces
 
@@ -19,7 +19,7 @@ Both features are technically specifically configured file buckets, accessed dur
 
 ### Workspaces configuration
 
-Workspaces are configured much like Cache - in the Travis CI Enterprsie platform admin application. The configuration is technically propagated to travis-build service during runtime.
+Workspaces are configured much like Cache - in the Travis CI Enterprise platform admin application. The configuration is technically propagated to travis-build service during runtime.
 
 There's a new menu called "Workspaces UI Settings", where specific configuration items must be provided in order to enable feature for the end users.
 
@@ -32,7 +32,7 @@ There's a new menu called "Workspaces UI Settings", where specific configuration
 > It is recommended to:
 > 
 > - use separate file bucket than the one used for cache, both for security and maintenance reasons
-> - have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended is 3 hours, which equals default max time of a single job running uninterrupted under certain conditions
+> - have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended time is 3 hours, which equals default max time of a single job running uninterrupted under certain conditions
 > - make sure your infrastructure hosting build image instances has connectivity to the file bucket configured for workspaces
 
 ### Workspaces usage
