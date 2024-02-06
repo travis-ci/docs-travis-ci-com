@@ -24,7 +24,7 @@ WORKDIR /app
 COPY Gemfile      /app
 COPY Gemfile.lock /app
 
-RUN gem install bundler
+RUN gem install bundler:2.4.22
 RUN bundler install --verbose --retry=3
 RUN gem install --user-install executable-hooks
 

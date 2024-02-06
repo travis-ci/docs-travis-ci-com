@@ -231,9 +231,14 @@ import:
 ```
 {: data-file=".travis.yml"}
 
-This mode first merges your `.travis.yml` contents into the `one.yml` file (overwriting, if required, sections in `one.yml` with content from `.travis.yml`). The results are merged into the `two.yml` file (again, items in the result of the previous merge win over what’s in this one, as the `deep_merge` mode is specified here).
+This mode first merges your `.travis.yml` contents into the `one.yml` file (overwriting, 
+if required, sections in `one.yml` with content from `.travis.yml`). The results are 
+merged into the `two.yml` file (again, items in the result of the previous merge win 
+over what’s in this one, as the `deep_merge` mode is specified here).
 
-The reasoning behind this is that in many cases when you import something to your `.travis.yml’ file, you want to be able to overwrite or customize that imported configuration with config in your `.travis.yml` file.
+The reasoning behind this is that in many cases when you import something to your 
+`.travis.yml` file, you want to be able to overwrite or customize that imported 
+configuration with config in your `.travis.yml` file.
 
 ### Merge
 
