@@ -34,7 +34,7 @@ new to Travis CI please read our [Tutorial](/user/tutorial/) and
 
 By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
-and includes the following language tools `cargo`, `rustc`, and `rustup`.
+and includes the following language tools: `cargo`, `rustc`, and `rustup`.
 
 [profiles]: https://github.com/rust-lang/rustup/blob/master/doc/src/concepts/profiles.md
 
@@ -72,7 +72,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-This will runs your tests against all three channels, but any breakage in
+This will run your tests against all three channels, but any breakage in
 `nightly` will not fail the rest of build.
 
 ## Dependency Management
