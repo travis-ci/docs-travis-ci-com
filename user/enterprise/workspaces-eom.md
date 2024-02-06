@@ -12,7 +12,8 @@ Cache, aka Build Cache, is configured file bucket which serves a purpose as a ca
 **Cache is meant for items used in different builds**.
 
 Workspaces, aka Build Workspaces, is a kind of cache, but with specific goal in mind: serves a purpose to share artifacts/files between **jobs within the same build**. The main use case is 
-when a binary or library (or other dependency) requires rebuilding before any other build job within build may progress. Workspaces are introduced in Travis CI Enterprise after [version 3.0.53](https://enterprise-changelog.travis-ci.com/release-3-0-53-283095).
+when a binary or library (or other dependency) requires rebuilding before any other build job within build may progress. Workspaces are introduced in Travis CI Enterprise starting from 
+[version 3.0.53](https://enterprise-changelog.travis-ci.com/release-3-0-53-283095).
 
 Both features are technically specifically configured file buckets, accessed during a running build.
 
