@@ -211,7 +211,7 @@ To use one in your build, add it to the services key in your `travis.yml` :
 | mongodb    | `3.6.9`        |
 | mysql      | `8.0.21`       |
 | redis      | `6.0.6`        |
-| postgresql | `12.2`         |
+| postgresql | `13.13`         |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
