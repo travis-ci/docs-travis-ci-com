@@ -64,7 +64,7 @@ The `generic` image contains everything from `minimal`, and also the usual datab
 * [php](/user/reference/trusty/#php-images)
 * [ruby](/user/reference/trusty/#ruby-images)
 
-For specific details of what is on the image consult the [build update](/user/build-environment-updates/2017-12-12/#2017-12-12).
+For specific details of what is on the image see [the pages for specific images](https://docs.travis-ci.com/user/reference/overview/).
 
 
 ## Aliases
