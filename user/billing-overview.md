@@ -46,19 +46,19 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
 >
-> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://app.travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g. 25k credits. Now the build can be executed, and a pre-defined amount of [credits will be charged for each build minute of macOS build job](/user/billing-overview/#usage---credits).
+> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://app.travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g., 25k credits. Now the build can be executed, and a pre-defined amount of [credits will be charged for each build minute of macOS build job](/user/billing-overview/#usage---credits).
 
 
 ### Concurrency based Plan - Summary
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | The subscription is charged automatically in advance at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased at any time and only used when you need them. The charge is applied immediately upon transaction. The subscription price doesn't depend on the number of unique users running builds.|
+| **Payment**                     | The subscription is charged automatically in advance at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased anytime and only used when you need them. The charge is applied immediately upon transaction. The subscription price doesn't depend on the number of unique users running builds.|
 | **Private/Public repositories** | You can build over both private and public repositories with a paid subscription. |
 | **Build job limits**            | As per Plan |
 
 
-### Concurrency Plan - How to obtain?
+### Concurrency Plan - How to obtain it?
 
 1. Sign in to Travis CI with the [Version Control System of your choice](/user/tutorial/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
@@ -104,8 +104,9 @@ The new user is immediately granted the subscription´s credits to continue buil
 The number of users is counted based on the number of builds triggered; each individual who triggers a build within a month counts as a user. For any monthly plan selected, the first three users cost 25K credits, and each additional user to trigger a build within that month costs an additional 25K credits. Triggering builds are only possible if a user has a positive credit balance. To get more credits, users can enable the [Auto-refill feature](/user/billing-autorefill/) or change to a higher [credits plan](https://app.travis-ci.com/account/plan). If the user has credits after the plan´s renewal, these carry over to the new subscription. For more information about your plan and validity dates, see the [Plan page](https://app.travis-ci.com/account/plan).
 
 #### Canceling my Monthly Subscription
+Users can cancel their current subscription anytime they like; simply use the Cancel Subscription button on the [Plan page](https://app.travis-ci.com/account/plan). Press the Cancel button to notify support of your desire to cancel your plan, and the Travis Support team will contact you soon with details regarding your cancellation.
 
-Users can choose to cancel their current subscription anytime they like; simply use the Cancel Subscription button located on the [Plan page](https://app.travis-ci.com/account/plan). Upon cancellation, Travis CI stops charging the monthly fee, and users have one extra month to use the remaining credits; otherwise, any remaining credits are lost. Users cannot purchase any new credits unless they rejoin a monthly or annual subscription. Users have one year after canceling the subscription to view or save build data; after one year of cancellation, build data is removed from Travis CI.
+Once users request cancellation, the remaining credits will be retained until the cancellation is confirmed. Your plan remains active until the end of the current billing cycle. Starting from the Cancellation Date, which can be found here: [Plan page](https://app.travis-ci.com/account/plan), users cannot purchase new credits unless rejoining a monthly or annual subscription. Users have one year after canceling the subscription to view or save build data; after one year of cancellation, build data is removed from Travis CI.
 
 ### Annual Plans
 
@@ -130,7 +131,7 @@ Users interested in Annual plans can select an annual plan on the [Plan page](ht
 
 #### Plan Usage
 
-The number of users is counted based on the number of builds triggered; each individual who triggers a build within a month counts as a user. Each month the unique user count is reset. The first three users cost 25K credits, and each additional user to start a build within that month costs an additional 25K credits. Triggering builds are only possible if a user has a positive credit balance. Users can enable the [Auto-refill option](/user/billing-autorefill/) or change to a higher [credits plan](https://app.travis-ci.com/account/plan) to get more credits. Otherwise, your Annual plan renews automatically when the 12 month elapses. If the user has credits after the plan renewal, these carry over to the new subscription. For more information about your plan and validity dates, see the [Plan page](https://app.travis-ci.com/account/plan).
+The number of users is counted based on the number of builds triggered; each individual who triggers a build within a month counts as a user. Each month the unique user count is reset. The first three users cost 25K credits, and each additional user to start a build within that month costs an additional 25K credits. Triggering builds are only possible if a user has a positive credit balance. Users can enable the [Auto-refill option](/user/billing-autorefill/) or change to a higher [credits plan](https://app.travis-ci.com/account/plan) to get more credits. Otherwise, your Annual plan renews automatically when the 12-month elapses. If the user has credits after the plan renewal, these carry over to the new subscription. For more information about your plan and validity dates, see the [Plan page](https://app.travis-ci.com/account/plan).
 
 ##### What if I ran out of credits before my contract elapses?
 
@@ -140,9 +141,10 @@ Then, increase their annual credit amount by subscribing to a higher credit plan
 
 #### Canceling my Annual Subscription
 
-Users on an Annual Plan must explicitly cancel their yearly subscription; otherwise, the plan renews automatically whenever the current cycle ends. To cancel your existing subscription, simply use the Cancel Subscription button located at the [Plan page](https://app.travis-ci.com/account/plan).
+Users on an Annual Plan must explicitly cancel their yearly subscription; otherwise, the plan renews automatically whenever the current cycle ends. Simply cancel your subscription using the Cancel Subscription button on the [Plan page](https://app.travis-ci.com/account/plan).
 
-Upon cancellation, users have the remaining time of the contract plus one extra month to use the remaining credits; otherwise, any remaining credits expire. Users cannot purchase any new credits unless they rejoin a monthly or annual subscription. Users have one year after canceling the subscription to view or save build data; after one year of cancellation, build data is removed from Travis CI. 
+Upon cancellation, users have the remaining time of the contract plus one extra month to use the remaining credits; otherwise, any remaining credits expire. Users cannot purchase new credits unless rejoining a monthly or annual subscription. Users have one year after canceling the subscription to view or save build data; after one year of cancellation, build data is removed from Travis CI. 
+ 
 
 ### Changing Plans
 
@@ -236,7 +238,7 @@ Please note: Currently, if the system decides that the build could cause your ne
 
 Credits can be used to build both private and public repositories. 
 
-On occasion, an allotment of OSS Only credits may be granted by Travis CI. These credits may be used only for builds over public repositories and are meant for open source support.
+On occasion, an allotment of OSS Only credits may be granted by Travis CI. These credits may be used only for builds over public repositories and are meant for open-source support.
 The OSS credits may be assigned as a one-time pool or renewable pool, subject to a case-by-case assessment of Travis CI staff.
 
 The OSS credits are a separate pool of credits from regular credits, with separate credits balance tracking.
@@ -244,7 +246,7 @@ The OSS credits are a separate pool of credits from regular credits, with separa
 
 #### Free Plan Credits
 
-Each new user that subscribes to the Free Trial Plan is automatically granted 10K credits to use over a 30 day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features. 
+Each new user who subscribes to the Free Trial Plan is automatically granted 10K credits to use over a 30 day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features. 
 
 
 
