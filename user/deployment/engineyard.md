@@ -1,6 +1,7 @@
 ---
 title: Engine Yard Deployment
 layout: en
+deploy: v1
 
 ---
 

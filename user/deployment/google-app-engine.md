@@ -1,13 +1,14 @@
 ---
 title: Google App Engine Deployment
 layout: en
+deploy: v1
 
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
 
 For a minimal configuration, add the following to your `.travis.yml`:
-  
+
 ```yaml
 deploy:
   provider: gae

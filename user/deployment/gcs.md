@@ -1,6 +1,7 @@
 ---
 title: Google Cloud Storage (GCS) Deployment
 layout: en
+deploy: v1
 
 ---
 

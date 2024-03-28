@@ -68,7 +68,7 @@ script can be called within the Deploy stage.  For instance, continuing with
 the above example, the Deploy stage would include:
 
 ```yaml
-matrix:
+jobs:
   include:
   - stage: deploy
     if: attribute=value

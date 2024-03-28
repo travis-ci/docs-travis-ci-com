@@ -106,6 +106,10 @@ to construct a build matrix.
 
 The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Perl](https://config.travis-ci.com/ref/language/perl) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [leto/math--primality](https://github.com/leto/math--primality/blob/master/.travis.yml)

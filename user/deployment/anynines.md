@@ -1,6 +1,7 @@
 ---
 title: anynines Deployment
 layout: en
+deploy: v1
 
 ---
 

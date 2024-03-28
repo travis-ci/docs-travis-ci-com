@@ -1,6 +1,7 @@
 ---
 title: AWS CodeDeploy
 layout: en
+deploy: v1
 
 ---
 
@@ -104,6 +105,8 @@ deploy:
 {: data-file=".travis.yml"}
 
 Please note that `region` should match the instance region on which codedeploy is configured.
+
+Also note that GitHub deployments target a specific commit, and any unversioned files will not be deployed. If you need to add unversioned files to your deployment, use an S3 deployment instead.
 
 ## Waiting for Deployments
 

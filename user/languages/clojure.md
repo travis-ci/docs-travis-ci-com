@@ -10,7 +10,7 @@ layout: en
 
 | Clojure                                     | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#dependency-management) | `project.clj`                             |
+| [Default `install`](#dependency-management) | `lein deps`                             |
 | [Default `script`](#default-build-script)   | `lein test`                               |
 | [Matrix keys](#build-matrix)                | `env`, `lein`, `jdk`                      |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
@@ -141,6 +141,10 @@ before_install:
   - lein1 bootstrap
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Clojure](https://config.travis-ci.com/ref/language/clojure) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 Task chaining requires using the `do` task:
 

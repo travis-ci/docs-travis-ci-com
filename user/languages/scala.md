@@ -44,10 +44,10 @@ To specify Scala versions in your build:
 ```yaml
 language: scala
 scala:
-   - 2.9.3
-   - 2.10.6
-   - 2.11.11
-   - 2.12.2
+  - 2.9.3
+  - 2.10.6
+  - 2.11.11
+  - 2.12.2
 ```
 {: data-file=".travis.yml"}
 
@@ -132,6 +132,10 @@ The version of Scala a job is using is available as:
 ```
 TRAVIS_SCALA_VERSION
 ```
+
+## Build Config Reference
+
+You can find more information on the build config format for [Scala](https://config.travis-ci.com/ref/language/scala) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 

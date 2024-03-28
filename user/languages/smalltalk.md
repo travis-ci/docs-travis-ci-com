@@ -70,3 +70,7 @@ SmalltalkCISpec {
 ## Configuration
 
 This documentation is just a minimal example and not as exhaustive as [SmalltalkCI's `README.md`](https://github.com/hpi-swa/smalltalkCI#templates).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Smalltalk](https://config.travis-ci.com/ref/language/smalltalk) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

@@ -40,11 +40,8 @@ Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) r
 ```yaml
 language: erlang
 otp_release:
-  - 18.2.1
-  - 18.1
-  - 18.0
-  - 17.5
-  - R16B03
+  - "23.0.2"
+  - "22.3.4"
 ```
 {: data-file=".travis.yml"}
 
@@ -93,6 +90,22 @@ The version of OTP release a job is using is available as:
 TRAVIS_OTP_RELEASE
 ```
 
+{% if site.data.language-details.erlang-versions.size > 0 %}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Erlang](https://config.travis-ci.com/ref/language/erlang) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## OTP/Release versions
+
+These archives are available for on-demand installation.
+
+{: #erlang-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.erlang-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
 ## Examples
 
 - [elixir](https://github.com/elixir-lang/elixir/blob/master/.travis.yml)
@@ -103,3 +116,20 @@ TRAVIS_OTP_RELEASE
 
 - [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 - [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
+
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
+<script>
+var tf = new TableFilter(document.querySelector('#erlang-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
