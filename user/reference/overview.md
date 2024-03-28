@@ -17,7 +17,7 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availaibility).
+Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availability).
 
 #### Full VM
 
