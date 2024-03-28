@@ -30,10 +30,10 @@ Travis CI Linux build images do utilize default open ports as follows:
 
 53 for dns, 
 22 for ssh, 
-323 for ntp  
+323 for ntp,  
 68 for dhcp
 
-On top of that, some of the services pre-installed in the build image or installed during execution of the build job execution as dependencies (e.g. database engine or docker) may occupy additrrional ports. 
+On top of that, some of the services pre-installed in the build image or installed during execution of the build job execution as dependencies (e.g. database engine or docker) may occupy additional ports. 
 Travis CI build image configuratione doesn't override such defaults.
 
 If in any case during a build job you run into a situation a port you want to use is occupied/not available, please re-run the build using 
