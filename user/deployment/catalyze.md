@@ -1,12 +1,13 @@
 ---
 title: Catalyze Deployment
 layout: en
+deploy: v1
 
 ---
 
 
 
-Travis CI can automatically deploy to [Catalyze](https://www.catalye.io/) after
+Travis CI can automatically deploy to [Catalyze](https://www.catalyze.io/) after
 a successful build.
 
 Before configuring your `.travis.yml` you need to:

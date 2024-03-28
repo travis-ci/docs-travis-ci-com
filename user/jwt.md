@@ -9,7 +9,7 @@ layout: en
 >  [discontinued on April 17, 2018](https://blog.travis-ci.com/2018-01-23-jwt-addon-is-deprecated).
 
 Integration between Travis-CI and third-party services like Sauce Labs relies
-on [encrypted variables](http://docs.travis-ci.com/user/environment-variables/#Encrypted-Variables)
+on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
 which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
 so builds of pull requests do not have access to third party integrations.
@@ -74,7 +74,7 @@ transmit your secret information without worrying that it is leaked.
 
 ### Troubleshooting
 
-1. Check if the third-party service is [supported](#List-of-Third-Party-Services-Integrated-with-the-JWT-Addon)
+1. Check if the third-party service is [supported](#list-of-third-party-services-integrated-with-the-jwt-addon)
 2. Contact the third-party support and provide them with the encrypted token (echo the key in your test script), and link to the Travis job.
 
 ## Third-Party Service Integration
@@ -141,7 +141,7 @@ def authenticate(user, access_key):
     """
     user: db object representing user retrieved based on username from HTTP BASIC AUTH
     access_key: access key or JWT token signed using access key (shared secret)
-    returns True when authenication validation passed, otherwise False
+    returns True when authentication validation passed, otherwise False
     """
     # primary auth method
     if user['access_key'] == access_key:

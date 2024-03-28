@@ -4,22 +4,24 @@ layout: en_enterprise
 
 ---
 
+> Please note that support for Trusty build environment is discontinued for Travis CI Enterprise. This is a **legacy** document left for reference.
+
 ## System Setup
 
 **Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started.
 
 **Worker Requirements**:
 
-We recommend using AWS's `c4.2xlarge` as the instance type with at least 40gb of disk space. Port 22 must be open for SSH during installation and operation.
+We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB of disk space. If you're using AWS, this will be their c4.2xlarge instance type. Also, you'll want to run Ubuntu 16.04 or later. Port 22 must be open for SSH during installation and operation.
 
-In addition, _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
+> _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
 
 ## Installation with Travis CI Enterprise 2.2+
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
+curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -35,18 +37,18 @@ The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/
 
 ### Enabling the Trusty Beta Feature Flag
 
-1. SSH into the platform machine
-2. Run `travis console`
+1. SSH into the platform machine.
+2. Run `travis console`.
 3. Then run `Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_for_all(:multi_os)`
-4. Type in `exit` to leave the console
-5. Disconnect from the Travis Enterprise platform machine
+4. Type in `exit` to leave the console.
+5. Disconnect from the Travis Enterprise platform machine.
 
 ### Installation (Travis CI Enterprise 2.1.9+)
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
 ```
-curl -sSL -o /tmp/installer.sh https://enterprise.travis-ci.com/install/worker
+curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
 
 sudo bash /tmp/installer.sh \
 --travis_enterprise_host="[travis.yourhost.com]" \
@@ -57,13 +59,13 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 ### Running builds on Trusty on Travis CI Enterprise 2.1.9+
 
-To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will routed to the default (Precise) build environments instead.
+To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will be routed to the default (Precise) build environments instead.
 
 ## Restarting `travis-worker`
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
-`sudo service travis-worker restart` 
+`sudo service travis-worker restart`
 
 Worker configuration changes are applied on start.
 

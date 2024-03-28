@@ -1,6 +1,7 @@
 ---
 title: Boxfuse Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -24,7 +25,7 @@ travis encrypt --add deploy.user
 travis encrypt --add deploy.secret
 ```
 
-Alternatively you can pass in your credentails using Travis CI [encrypted environment variables](/user/environment-variables/#Encrypted-Variables) called `BOXFUSE_USER` and `BOXFUSE_SECRET`. You can define these variables either using the Travis CI command line client or directly in the Travis CI repository settings UI.
+Alternatively you can pass in your credentials using Travis CI [encrypted environment variables](/user/environment-variables/#encrypting-environment-variables) called `BOXFUSE_USER` and `BOXFUSE_SECRET`. You can define these variables either using the Travis CI command line client or directly in the Travis CI repository settings UI.
 
 Finally you can also fully configure Boxfuse by placing a `boxfuse.conf` file in the root of your repository. More info about configuration in the [Boxfuse Command-line Client documentation](https://boxfuse.com/docs/commandline/).
 

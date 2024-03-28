@@ -10,9 +10,9 @@ layout: en
 
 | C                                           | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `./configure && make && make test`        |
-| [Matrix keys](#Build-Matrix)                | `env`, `compiler`                         |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `./configure && make && make test`        |
+| [Matrix keys](#build-matrix)                | `env`, `compiler`                         |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -24,10 +24,10 @@ language: c
 
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
+projects. Please make sure to read our [Tutorial](/user/tutorial/)
 and [general build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C Projects
@@ -57,29 +57,6 @@ install: make get-deps
 
 See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build command is:
-
-```bash
-./configure && make && make test
-```
-
-Projects that find this sufficient can use a very minimalistic `.travis.yml` file:
-
-```yaml
-language: c
-```
-{: data-file=".travis.yml"}
-
-You can change the build script as described in the [build
-configuration](/user/customizing-the-build/) guide:
-
-```yaml
-script: scons
-```
-{: data-file=".travis.yml"}
-
 ## Choosing compilers to test against
 
 You can test projects against either GCC or Clang, or both. To do so, specify
@@ -101,15 +78,10 @@ compiler:
 {: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build
-matrix. For each row, Travis CI C builder will export the `CC` env variable to
+matrix. For each row, Travis CI C builder will export the `CC` and `CC_FOR_BUILD` env variables to
 point to either `gcc` or `clang`.
 
-On OS X, `gcc` is an alias for `clang`. Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.
-
-## Build Matrix
-
-For C projects, `env` and `compiler` can be given as arrays
-to construct a build matrix.
+On macOS, `gcc` is an alias for `clang`. Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
 ## OpenMP projects
 
@@ -129,3 +101,7 @@ before_install:
 {: data-file=".travis.yml"}
 
 {% include c11-cpp11-and-beyond-and-toolchains.md %}
+
+## Build Config Reference
+
+You can find more information on the build config format for [C](https://config.travis-ci.com/ref/language/c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

@@ -1,6 +1,7 @@
 ---
 title: anynines Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -24,7 +25,7 @@ Open up your newly created `.travis.yml` and add `edge: true` to enable the depl
 
 So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running
 
-```
+```yaml
  deploy:
    edge: true
    provider: anynines
@@ -32,7 +33,9 @@ So you want to write your own `.travis.yml`, fine.  Here is the minimum required
    password: secretpassword
    organization: myorganization
    space: staging
+   app_name: My app name                # (optional)
 ```
+{: data-file=".travis.yml"}
 
 ***Make sure that you encrypt your password before pushing your updated .travis.yml to GitHub.***
 

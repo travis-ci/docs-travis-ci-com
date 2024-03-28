@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to Smalltalk
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
+[Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
@@ -23,7 +23,6 @@ An example `.travis.yml` :
 
 ```yaml
 language: smalltalk
-sudo: false
 
 # Select operating system(s)
 os:
@@ -71,3 +70,7 @@ SmalltalkCISpec {
 ## Configuration
 
 This documentation is just a minimal example and not as exhaustive as [SmalltalkCI's `README.md`](https://github.com/hpi-swa/smalltalkCI#templates).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Smalltalk](https://config.travis-ci.com/ref/language/smalltalk) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
