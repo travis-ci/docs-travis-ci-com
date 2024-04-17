@@ -25,7 +25,7 @@ language: matlab
 </aside>
 
 {: .warning}
-> MATLAB builds are no longer supported. MATLAB releases newer than R2024a are not available for use.
+> MATLAB builds are not currently supported. MATLAB releases newer than R2024a are not available for use.
 
 This guide covers build environment and configuration topics specific to
 [MATLAB&reg;](https://www.mathworks.com/products/matlab.html) and [Simulink&reg;](https://www.mathworks.com/products/simulink.html) projects. Please make sure to read our
