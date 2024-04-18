@@ -30,7 +30,7 @@ This guide covers build environment and configuration topics specific to
 [general build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
-> Builds using the MATLAB language are no longer supported. MATLAB releases beyond R2024a are not available for use. MATLAB builds are available only for public projects in Linux&reg; environments.
+> MATLAB builds are no longer supported and are available only for public projects in Linux&reg; environments. MATLAB releases beyond R2024a are not available for use.
 
 
 ## Specify MATLAB Releases and Run Tests
