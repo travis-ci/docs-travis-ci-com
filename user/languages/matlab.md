@@ -14,7 +14,6 @@ layout: en
 | [Default `install`](#dependency-management) | N/A                                       |
 | [Default `script`](#default-build-script)   | `matlab -batch "results = runtests('IncludeSubfolders',true); assertSuccess(results);" `               |
 | [Matrix keys](#build-matrix)                | `matlab`, `env`                                       |
-| Support                                     | [MathWorks](mailto:continuous-integration@mathworks.com) |
 
 Minimal example:
 
@@ -25,19 +24,14 @@ language: matlab
 
 </aside>
 
-
 This guide covers build environment and configuration topics specific to
 [MATLAB&reg;](https://www.mathworks.com/products/matlab.html) and [Simulink&reg;](https://www.mathworks.com/products/simulink.html) projects. Please make sure to read our
 [Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
-> Currently, MATLAB builds are available only for public projects in Linux&reg; environments.
+> MATLAB builds are no longer supported and are available only for public projects in Linux&reg; environments. MATLAB releases beyond R2024a are not available for use.
 
-
-### Community-Supported Language
-
-The MATLAB language is maintained by MathWorks&reg;. If you have any questions or suggestions, please contact MathWorks at [continuous-integration@mathworks.com](mailto:continuous-integration@mathworks.com).
 
 ## Specify MATLAB Releases and Run Tests
 
