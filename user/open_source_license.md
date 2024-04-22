@@ -1,12 +1,12 @@
 ---
-title: Licensing information
+title: Licensing Information
 layout: en
 
 ---
 
-Travis CI relies on multiple Open Source modules and frameworks. The respective licensing information is available in Travis CI [public repositories](https://github.com/travis-ci). Travis CI public source code is usually licensed with MIT License.
+Travis CI relies on multiple Open-Source modules and frameworks. The respective licensing information is available in Travis CI [public repositories](https://github.com/travis-ci). Travis CI public source code is usually licensed under the MIT License.
 
-The Travis CI [web application](https://app.travis-ci.com), running in your browsers (which may satisfy 'distributing Software' according to legal assesment), relies on EmberJS framework. Particular EmberJS framework version used by Travis CI is licensed as follows:
+The Travis CI [web application](https://app.travis-ci.com), running in your browsers (which may satisfy 'distributing Software' according to the legal assessment), relies on the EmberJS framework. Particular EmberJS framework version used by Travis CI is licensed as follows:
 
 # EmberJS MIT License
 
