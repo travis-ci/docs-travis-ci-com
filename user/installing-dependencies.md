@@ -323,6 +323,26 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
+## Installing Packages on RHEL
+
+To install packages that are not included in the default RHEL environment use `yum` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - su -m root -c 'yum install -y curl'
+```
+{: data-file=".travis.yml"}
+
+For convenience, you can use the `yum` addon in your `.travis.yml`. For example, to install go and curl:
+
+```yaml
+addons: 
+ pkg: 
+  - go 
+  - curl
+```
+{: data-file=".travis.yml"}
+
 ## Installing Dependencies on Multiple Operating Systems
 
 If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
