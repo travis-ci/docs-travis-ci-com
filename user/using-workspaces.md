@@ -1,5 +1,5 @@
 ---
-title: Using Workspaces (Beta)
+title: Using Workspaces
 layout: en
 ---
 
