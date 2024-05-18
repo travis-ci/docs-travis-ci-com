@@ -19,16 +19,16 @@ gem 'rubocop', group: :test
 
 # All of this is for Slate / middleman
 
-gem "middleman", '~> 3.0'
+gem "middleman", "~> 4.3", ">= 4.3.7"
 
 # For syntax highlighting
-gem "middleman-syntax"
+gem "middleman-syntax", ">= 3.3.0"
 
 # Plugin for middleman to generate GitHub pages
 gem 'middleman-gh-pages'
 
 # Live-reloading plugin
-gem "middleman-livereload"
+gem "middleman-livereload", ">= 3.4.7"
 
 # Needed for Slate / middleman
 gem 'redcarpet'
