@@ -630,3 +630,13 @@ This creates only one job,  _Peanut Butter and Bread_ under the stage named _Bre
 ## **Node**: Script execution before dependency installation causes build failures
 
 When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency.
+
+## **Node**: NPM/YARN throw ***Error: connect ENETUNREACH*** or build hangs in the install phase i.e. `npm install` or `yarn install` for NodeJs versions 16+ on LXD images (ppc64le, arm64 and s390x)
+
+This seems to be a known bug and the details can be reviewed at https://github.com/npm/cli/issues/4163. Add the following to resolve the issue:
+
+``` yaml
+env:
+  global:
+    - NODE_OPTIONS="--dns-result-order=ipv4first"
+```

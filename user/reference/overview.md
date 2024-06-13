@@ -17,7 +17,7 @@ Each build runs in one of the following virtual environments.
 
 ### Linux
 
-Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availaibility).
+Travis CI supports two virtualization types for Linux builds: ‘full VM’ and ‘LXD’. On top of that, Linux builds can be run on [multiple CPU architectures](/user/multi-cpu-architectures/#multi-cpu-availability).
 
 #### Full VM
 
@@ -215,7 +215,7 @@ sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
 
 would result in an error.
 
-Also have a look at the [Github issue relevant to the topic](https://github.com/lxc/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/lxc/lxd/blob/master/lxd/apparmor/apparmor.go) for more details.
+Also have a look at the [Github issue relevant to the topic](https://github.com/canonical/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/canonical/lxd/blob/main/lxd/apparmor/apparmor.go) for more details.
 
 #### System Calls Interception
 
@@ -223,7 +223,7 @@ If you run into a message like:
 
 > System doesn't support syscall interception
 
-It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/lxc/lxd/blob/master/doc/syscall-interception.md)). 
+It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/canonical/lxd/blob/main/doc/syscall-interception.md)). 
 
 ### Linux: Hugepages Support from within LXD Container
 
@@ -231,7 +231,6 @@ As of now, Travis CI is not configured to allow hugepages within unprivileged co
 
 The unprivileged containers access to hugepages is added by the great Linux and LXD teams. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
 * [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
-* [LXD configuration](https://linuxcontainers.org/lxd/docs/master/instances#hugepage-limits-via-limitshugepagessize)
 
 
 ## VM Instance Size 

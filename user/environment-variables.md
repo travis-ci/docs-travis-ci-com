@@ -195,7 +195,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 - `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
-- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
+- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. PLEASE NOTE: This is not the same as *Custom Commit Message*.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_COMPILER`: Indicates the compiler used by the current job (e.g., `clang`, `gcc`).

@@ -7,9 +7,13 @@ permalink: /user/multi-cpu-architectures/
 > This is a beta stage of this feature and we are [eager to hear back from you](https://travis-ci.community/c/environments/multi-cpu-arch), both for `Arm`-based and `IBM`-based feedback. The definition keys used in the `.travis.yml` file may be further adapted on short notice.
 {: .beta}
 
-> `IBM Power` and `IBM Z`-based building is only available for Open Source repositories (at travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period.
+> `IBM Power` and `IBM Z`-based building is available for Open Source repositories (at travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period.
 >
-> An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in a build run on standard, `AMD`-based infrastructure. For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
+> An attempt to run `IBM Power` and `IBM Z`-based builds for a private repository will result in
+> * a build run on standard, `AMD`-based infrastructure for `IBM-Z`
+> * a build run on `PPC64LE` infrastructure, but under normal system conditions (incl. any charges if applicable) for `IBM Power`
+> 
+> For any commercial queries with regards to multi-arch builds before they are available, please [contact us](mailto:support@travis-ci.com).
 >
 > `Arm`-based building on `Arm64` CPU  is only available for Open Source repositories (at travis-ci.com). While available to all Open Source repositories, the concurrency available for multiple CPU arch-based jobs is limited during the beta period. 
 >
