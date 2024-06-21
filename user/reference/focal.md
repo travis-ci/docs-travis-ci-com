@@ -32,10 +32,9 @@ dist: focal
 addons:
   apt:
     sources:
-      - sourceline: 'ppa:chris-lea/redis-server'
+      - sourceline: 'git-core/ppa'
     packages:
-    - redis-tools
-    - redis-server
+    - git-ppa
 ```
 {: data-file=".travis.yml"}
 
@@ -49,8 +48,6 @@ If you depend on these repositories in your build, you can use the following `so
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
 | mongodb              | `deb https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/4.4 multiverse`         |
-| pollinate            | `ppa:pollinate/ppa`          |
-| redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
 
 ### Services disabled by default
@@ -78,9 +75,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.28.0` |
+| git     | `2.45.2` |
 | git-lfs | `2.9.2`  |
-| hg      | `5.3`    |
+| hg      | `6.5.2`    |
 | svn     | `1.13.0` |
 {: style="width: 30%" }
 
@@ -88,13 +85,13 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| clang      | `7.0.0`  |
-| llvm       | `10.0.0` |
-| cmake      | `3.16.8` |
-| gcc        | `9.3.0`  |
+| clang      | `16.0.0`  |
+| llvm       | `18.0.0` |
+| cmake      | `3.29.0` |
+| gcc        | `9.4.0`  |
 | ccache     | `3.7.7`  |
-| shellcheck | `0.7.0`  |
-| shfmt      | `2.6.3`  |
+| shellcheck | `0.10.0`  |
+| shfmt      | `3.8.0`  |
 {: style="width: 30%" }
 
 To use the IBM Advance Toolchain v14 compilers under `ppc64le` architecture in Focal LXD image, use the following paths in your `.travis.yml`:
@@ -137,32 +134,33 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 ### Docker
 
-* Docker `19.03.8` is installed.
-* docker-compose `1.25.1` is also available.
+* Docker `26.1.4` is installed.
+* docker-compose `2.27.1` is also available.
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.5.7`, `2.5.8`, `2.6.5`, `2.6.6`, `2.7.0` and `2.7.1`.
-* The default ruby is `2.7.1`.
+* Pre-installed Rubies: `2.5.9`, `2.7.6` and `3.3.0`.
+* The default ruby is `3.3.0`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python version is: `3.6` or higher as `2.7` has been sunsetted.
-* Python `3.6.10` will be used by default when no language version is explicitly set.
+* Supported Python version is: `3.7` or higher as `2.7` has been sunsetted.
+* Python `3.7.17` will be used by default when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version  |
 | :----- | :------- |
-| `3.6`  | `3.6.10` |
+| `3.6`  | `3.7.17` |
+| `3.8`  | `3.8.18` |
+| `3.9`  | `3.9.18` |
+| `3.12`  | `3.12.0` |
 {: style="width: 30%" }
-
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions such as `PyPy3.6 v7.3.1`.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is `0.35.3`.
-* The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.9`, `8.17.0`, `10.16.0`, `10.22.0`, `12.7.0` and `12.18.3`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is `0.39.7`.
+* The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.17.0`, `10.24.1`, `12.22.12`, `14.21.3`, `16.15`, `16.20.2`, `18.20.3` and `20.14.0`.
 
 ## Go support
 
@@ -172,7 +170,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk10`, and `openjdk11` on x86, default is `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, and `openjdk11` on x86, default is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -180,15 +178,15 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 
 | package | version |
 |:--------|:--------|
-| gradle  | `5.1.1` |
-| maven   | `3.6.3` |
-| groovy  | `2.4.5` |
+| gradle  | `8.3` |
+| maven   | `3.9.4` |
+| groovy  | `3.0.17` |
 {: style="width: 30%" }
 
 ## Perl support
 
-* Default version on Focal is `5.30.0`
-* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.30` and `5.32` can be installed by using the `perl:`-key.
+* Default version on Focal is `5.32.0`
+* Supported versions `5.32` and `5.33` can be installed by using the `perl:`-key.
 * `TAP::Harness` v3.42 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
@@ -208,10 +206,10 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | `3.6.9`        |
-| mysql      | `8.0.21`       |
-| redis      | `6.0.6`        |
-| postgresql | `13.13`         |
+| mongodb    | `4.4.29`        |
+| mysql      | `8.0.37`       |
+| redis      | `7.2.5`        |
+| postgresql | `13.15`         |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
