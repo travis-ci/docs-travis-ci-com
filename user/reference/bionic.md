@@ -43,15 +43,14 @@ If you depend on these repositories in your build, you can use the following `so
 
 | package              | source                       |
 |:---------------------|:-----------------------------|
-| couchdb              | `https://apache.bintray.com/couchdb-deb`         |
-| docker               | `docker-bionic`              |
+| couchdb              | `https://couchdb.apache.org/repo/`         |
+| docker               | `docker`              |
 | google-chrome-stable | `google-chrome`              |
 | git-lfs              | `github-git-lfs-bionic`      |
 | git-ppa              | `ppa:git-core/ppa`           |
 | haskell              | `ppa:hvr/ghc`                |
-| mongodb              | `mongodb-4.0-bionic`         |
+| mongodb              | `mongodb-4.4-bionic`         |
 | pollinate            | `ppa:pollinate/ppa`          |
-| redis                | `ppa:chris-lea/redis-server` |
 {: style="width: 80%" }
 
 ### Services disabled by default
@@ -79,20 +78,20 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.27.0` |
-| git-lfs | `2.11.0` |
-| hg      | `4.8`    |
+| git     | `2.43.0` |
+| git-lfs | `2.3.4`  |
+| hg      | `5.3`    |
 | svn     | `1.9.7`  |
 {: style="width: 30%" }
 
 ### Compilers and Build toolchain
 
-* clang and llvm 7
-* cmake 3.12.4
+* clang and llvm 16
+* cmake 3.26.3
 * gcc 7.5.0
 * ccache 3.4.1
-* shellcheck 0.7.0
-* shfmt 2.6.3
+* shellcheck 0.10.0
+* shfmt 3.8.0
 
 To use the IBM Advance Toolchain v14 compilers under `ppc64le` architecture in Focal LXD image, use the following paths in your `.travis.yml`:
 
@@ -134,25 +133,27 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 ### Docker
 
-* Docker 18.06.0-ce is installed
-* docker-compose 1.23.1.
+* Docker 24.0.2 is installed
+* docker-compose 2.18.1
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.9`, `2.5.3`, `2.5.7`, `2.6.5` and `2.7.0`.
-* The default ruby is `2.6.5`.
+* Pre-installed Rubies: `2.5.9`, `2.7.6` and `3.3.0`.
+* The default ruby is `3.3.0`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.6` or higher.
-* Python `2.7.17` will be used when no language version is explicitly set.
+* Supported Python versions: `3.6` or higher.
+* Python `3.12.0` will be used when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version  |
 | :----- | :------- |
-| 2.7    | 2.7.17   |
-| 3.6    | 3.6.9    |
+| 3.6    | 3.6.15   |
+| 3.7    | 3.7.17   |
+| 3.8    | 3.8.18   |
+| 3.12    | 3.12.0  |
 {: style="width: 30%" }
 
 If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent versions.
@@ -160,17 +161,17 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 ## JavaScript and Node.js support
 
 * For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.10.48.
-* The following NodeJS versions are preinstalled: `13.3.0`, `12.18.1`, `12.13.1`, `11.15.0`, `10.21.0`, `10.16.0`, and `8.17.0`.
+* The following NodeJS versions are preinstalled: `20.14.0`, `18.20.3`, `16.20.2`, `16.15.1`, `16.15`, `12.22.12`, `10.24.1`, `8.17.0`, `6.17.1` and `4.9.1`.
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`
+* Pre-installed Go: `1.18.1`
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
+* Pre-installed JVMs: `openjdk8`, `openjdk9`, `opnejdk10` and `openjdk11` on x86, default
 is `openjdk11`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
@@ -179,15 +180,15 @@ is `openjdk11`.
 
 | package | version |
 |:--------|:--------|
-| gradle  | 5.1.1   |
-| maven   | 3.6.3   |
-| groovy  | 2.4.5   |
+| gradle  | 8.3     |
+| maven   | 3.9.4   |
+| groovy  | 4.0.15  |
 {: style="width: 30%" }
 
 ## Perl support
 
-* Default version on Xenial is `5.26.1`
-* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.30` and `5.32` can be installed by using the `perl:`-key.
+* Default version on Bionic is `5.33`
+* Supported versions `5.32` and `5.33` can be installed by using the `perl:`-key.
 * `TAP::Harness` v3.38 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
@@ -227,9 +228,9 @@ To use one in your build, add it to the services key in your `travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | 4.19           |
-| mysql      | 5.7.30         |
-| redis      | 6.0.5          |
+| mongodb    | 4.4.29         |
+| mysql      | 5.7.42         |
+| redis      | 7.2.5          |
 | postgresql | 9.3 9.4 9.5 9.6 10 11 |
 {: style="width: 30%" }
 
