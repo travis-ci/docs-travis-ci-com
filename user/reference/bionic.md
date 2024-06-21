@@ -3,6 +3,8 @@ title: The Ubuntu 18.04 Build Environment
 layout: en
 ---
 
+> Bionic LTS Standard is EOL by Canonical, try updating to a newer image. It will be in use in Travis CI for some time more, but it's time to consider migration of your builds to a newer build environment image.
+
 ## What This Guide Covers
 
 This guide provides an overview of the packages, tools and settings available in the Bionic environment.
