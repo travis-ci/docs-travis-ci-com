@@ -1,6 +1,7 @@
 ---
 title: Azure Web App Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -66,7 +67,7 @@ As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ### Running commands before and after deploy

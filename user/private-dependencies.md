@@ -1,11 +1,10 @@
 ---
-title: Private Dependencies
+title: Private Dependencies GitHub
 layout: en
 
 ---
 
-*Some of the features described here are currently **only available for private
-*repositories on [travis-ci.com](https://travis-ci.com)**.*
+*Some of the features described here are currently **only available for private repositories on [travis-ci.com](https://travis-ci.com)**.*
 
 When testing a private repository, you might need to pull in other private
 repositories as dependencies via [git
@@ -14,7 +13,7 @@ or a dependency management tool like [Bundler](http://bundler.io/) or
 [Composer](https://getcomposer.org/).
 
 Git submodules must be cloned early on in the build process, and so must use
-either the [Deploy Key](#Deploy-Key) or [User Key](#User-Key) method.
+either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on GitHub, there are four different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
@@ -23,10 +22,10 @@ to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
 |:------------------------------|:---------|:----------------------|:-----------------------------|:------------------------------------|
-| **[Deploy Key](#Deploy-Key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
-| **[User Key](#User-Key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
-| **[Password](#Password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
-| **[API token](#API-Token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
+| **[Deploy Key](#deploy-key)** | SSH      | `git@github.com/…`    | single repository            | used by default for main repository |
+| **[User Key](#user-key)**     | SSH      | `git@github.com/…`    | all repos user has access to | **recommended** for dependencies    |
+| **[Password](#password)**     | HTTPS    | `https://…`           | all repos user has access to | password can be encrypted           |
+| **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
@@ -34,7 +33,7 @@ of repositories, and make sure that access is read only.
 
 ## Deploy Key
 
-GitHub allows to set up SSH keys for a repository. These deploy keys have some great advantages:
+GitHub allows you to set up SSH keys for a repository. These deploy keys have some great advantages:
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
@@ -42,7 +41,7 @@ GitHub allows to set up SSH keys for a repository. These deploy keys have some g
 
 However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#User-Key) instead.
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#user-key) instead.
 
 ## User Key
 
@@ -52,9 +51,17 @@ You can add SSH keys to user accounts on GitHub. Most users have probably alread
 
 This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
+### Repository settings - forks
+
+{{ site.data.snippets.git_repository_settings_forks_general }}
+
+{{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
+
+> Please Note: In the [travis-ci.com](https://app.travis-ci.com), secrets may also be stored in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
+
 ### Using an existing key
 
-[ ![Adding an SSH key via the web interface.](/images/settings-ssh-key.png) ](/images/settings-ssh-key.png){:.small}{:.right}
+[ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}
 
 Assumptions:
 
@@ -217,15 +224,15 @@ gem 'lib2', github: "myorg/lib2"
 > update --init recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
 > submodules, update the credentials and add an explicit step to update the submodules:
-
+>
 > ```yaml
 > git:
->   submodules:
->     false
+>   submodules: false
 > before_install:
 >   - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
+> {: data-file=".travis.yml"}
 
 ## API Token
 
@@ -234,9 +241,9 @@ Assumptions:
 - The repository you are running the builds for is called "myorg/main" and depends on "myorg/lib1" and "myorg/lib2".
 - You know the credentials for a user account that has at least read access to all three repositories.
 
-This approach works just like the [password](#Password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
+This approach works just like the [password](#password) approach outlined above, except instead of the username/password pair, you use a GitHub API token.
 
-Under the GitHub account settings for the user you want to use, navigate to [Applications](https://github.com/settings/applications) and generate a "personal access tokens". Make sure the token has the "repo" scope.
+Under the GitHub account settings for the user you want to use, navigate to [Settings > Developer settings](https://github.com/settings/developers), and then generate a "Personal access tokens". Make sure the token has the "repo" scope.
 
 Your `~/.netrc` should look like this:
 
@@ -280,18 +287,20 @@ gem 'lib2', github: "myorg/lib2"
 ```
 
 > In case of private git submodules, be aware that the `git submodule
-> update --init recursive` command runs before the `~/.netrc` credentials
+> update --init --recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
 > submodules, update the credentials and add an explicit step to update the submodules:
 >
 > ```yaml
 > git:
->   submodules:
->     false
+>   submodules: false
 > before_install:
->   - echo -e "\n\nmachine github.com\n  $CI_TOKEN\n" >~/.netrc
+>   - echo -e "\n\nmachine github.com\n login $CI_USER_TOKEN\n" >~/.netrc
 >   - git submodule update --init --recursive
 > ```
+> {: data-file=".travis.yml"}
+
+> The `.netrc` file is deleted for security reasons right after having cloned the repository of which the build and its submodules are executed!
 
 ## Dedicated User Account
 

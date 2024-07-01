@@ -1,6 +1,7 @@
 ---
 title: Scalingo deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -11,15 +12,15 @@ Travis CI can automatically deploy your application to
 
 Chose one of two ways to connect to your Scalingo account:
 
-* Using a [username and password](/user/deployment/scalingo/#Connecting-using-a-username-and-password).
-* Using an [api key](/user/deployment/scalingo/#Connecting-using-an-api-key).
+* Using a [username and password](/user/deployment/scalingo/#connecting-using-a-username-and-password).
+* Using an [api key](/user/deployment/scalingo/#connecting-using-an-api-key).
 
 <!-- I'm not 100% sure if you need to connect to scalingo manually using the cli
 tool the first time -->
 
 ## Connecting using a username and password
 
-Add your Scalingo username and your [encrypted](/user/encryption-keys/#Usage)
+Add your Scalingo username and your [encrypted](/user/encryption-keys/#usage)
 Scalingo password to your `.travis.yml`:
 
 ```yaml
@@ -33,7 +34,7 @@ deploy:
 
 ## Connecting using an api key
 
-Add your [encrypted](/user/encryption-keys/#Usage)
+Add your [encrypted](/user/encryption-keys/#usage)
 Scalingo `api_key` to your `.travis.yml`:
 
 ```yaml

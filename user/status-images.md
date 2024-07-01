@@ -8,7 +8,7 @@ You can embed status images (also known as badges or icons) that show the
 status of your build into your README or website.
 
 For example, this badge shows the build status of the `travis-web` repository:
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web)
+[![Build Status](https://app.travis-ci.com/travis-ci/travis-web.svg?branch=master)](https://app.travis-ci.com/travis-ci/travis-web)
 
 The URLs for status images are shown on your Travis CI Repository page:
 
@@ -23,8 +23,7 @@ The URLs for status images are shown on your Travis CI Repository page:
 
 Build status images for public repositories are publicly available on Travis CI.
 
-Build status images for [private repositories](https://travis-ci.com) include
-a security token.
+Build status images for private repositories include a security token.
 
 ![Screenshot of private repository badge](/images/status_image_private.jpg)
 
@@ -35,7 +34,7 @@ not use it on a publicly available site.
 
 On the pages on Travis CI, we show the result of the most recent
 build on its default branch.
-For example, for [docs-travis-ci-com](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds),
+For example, for [docs-travis-ci-com](https://app.travis-ci.com/travis-ci/docs-travis-ci-com),
 this is the `master` branch.
 
 If the default branch does not have any branch build, the status will remain

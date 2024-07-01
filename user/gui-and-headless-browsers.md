@@ -8,7 +8,7 @@ layout: en
 
 ## What This Guide Covers
 
-This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Getting Started](/user/getting-started/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
+This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Tutorial](/user/tutorial/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
 ## Using Sauce Labs
 
@@ -26,7 +26,7 @@ addons:
 
 You can [encrypt your access key](/user/encryption-keys/), if you want to.
 
-Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#Starting-a-Web-Server) below for more information on how to do that.
+Now Sauce Labs has a way of reaching your web server, but you still need to start it up. See [Starting a Web Server](#starting-a-web-server) below for more information on how to do that.
 
 Finally, you need to configure your Selenium tests to run on Sauce Labs instead of locally. This is done using a [Remote WebDriver](https://code.google.com/p/selenium/wiki/RemoteWebDriver). The exact code depends on what tool/platform you're using, but for Python it would look like this:
 
@@ -40,7 +40,7 @@ driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="h
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
 
-This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available envionment variables](/user/reference/precise/#Environment-variables) for more ways to detect if you're running on Travis CI).
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available environment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
 
 To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
@@ -56,7 +56,21 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or OS X).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
+
+### Using `services:`
+
+> This only works on Ubuntu 16.04 (Xenial) and later on releases i.e. with `dist: xenial` or `dist: bionic`
+
+The following will start xvfb and set the right values for the `DISPLAY`
+environment variable:
+
+```yaml
+dist: xenial
+services:
+  - xvfb
+```
+{: data-file=".travis.yml"}
 
 ### Using the xvfb-run wrapper
 
@@ -66,14 +80,18 @@ less fuss:
 ```yaml
 script: xvfb-run make test
 ```
+{: data-file=".travis.yml"}
 
 To set the screen resolution:
 
 ```yaml
 script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 ```
+{: data-file=".travis.yml"}
 
 ### Using xvfb directly
+
+> This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`. For `dist: xenial`, use the `services` keyword described [above](/user/gui-and-headless-browsers/#using-services).
 
 To use `xvfb` itself, start it in the `before_script` section of your
 `.travis.yml`:
@@ -130,17 +148,17 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 </div>
 
 
-### Using the [Chrome addon](/user/chrome) in the headless mode
+## Using the [Chrome addon](/user/chrome) in the headless mode
 
-Starting with version 57 for Linux Trusty and version 59 on OS X, Google Chrome can be used in "headless"
+Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
 mode, which is suitable for driving browser-based tests using Selenium and other tools.
 
-> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on OS X builds.
+> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on macOS builds.
 
 For example, on Linux
 
 ```yaml
-dist: trusty
+dist: xenial
 addons:
   chrome: stable
 before_install:
@@ -150,7 +168,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-On OS X:
+On macOS:
 
 ```yaml
 language: objective-c
@@ -168,7 +186,7 @@ before_install:
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
-### Using the [Firefox addon](/user/firefox) in headless mode
+## Using the [Firefox addon](/user/firefox) in headless mode
 
 Starting with version 56, Firefox can be used in "headless" mode, which is
 suitable for driving browser-based tests using Selenium and other tools.
@@ -177,7 +195,8 @@ Headless mode can be enabled using the `MOZ_HEADLESS`
 
 ```yaml
 env:
-  - MOZ_HEADLESS=1
+  global:
+    - MOZ_HEADLESS=1
 addons:
   firefox: latest
 ```
@@ -220,7 +239,7 @@ If you need a web server to serve the tests, see the previous section.
 
 ### Real World Projects
 
-- [Ember.js](https://github.com/emberjs/ember.js/blob/master/.travis.yml) (starts web server programmatically)
+- [Ember.js](https://github.com/emberjs/ember-mocha/blob/master/.travis.yml) (starts web server programmatically)
 - [Sproutcore](https://github.com/sproutcore/sproutcore/blob/master/.travis.yml) (starts web server with *before_script*)
 
 ### Ruby
@@ -275,4 +294,4 @@ In that case, you should increase the browser inactivity timeout to a higher val
 browserNoActivityTimeout: 30000,
 ```
 
-For more infomation, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.
+For more information, refer to the Karma [Configuration File](https://karma-runner.github.io/1.0/config/configuration-file.html) documentation.

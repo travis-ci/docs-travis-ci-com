@@ -6,7 +6,7 @@ layout: en
 
 Our 64-bit Linux VMs include a version of Firefox.
 
-While Firefox is not pre-installed on OS X images, you can use this addon to set it up for use
+While Firefox is not pre-installed on macOS images, you can use this addon to set it up for use
 on your builds.
 
 ## Selecting a Firefox version
