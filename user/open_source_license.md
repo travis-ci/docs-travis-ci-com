@@ -161,8 +161,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 **BSD 3-Clause License**
 
-**Copyright (c) 2006, Ivan Sagalaev.</br>
-All rights reserved.**
+**Copyright (c) 2006, Ivan Sagalaev.**
+
+**All rights reserved.**
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -178,8 +179,10 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
 # Apache Licenses
 ## TypeScript Apache License 
 
-**Apache License**</br>
-**Version 2.0, January 2004**</br>
+**Apache License**
+
+**Version 2.0, January 2004**
+
 http://www.apache.org/licenses/
 
 **TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION**
