@@ -62,12 +62,36 @@ php:
 ```
 {: data-file=".travis.yml"}
 
-### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
+{% if site.data.language-details.php-versions.size > 0 %}
+### Supported PHP versions
 
-We do not support these versions on Trusty.
+The list of PHP versions available for on-demand installation can be found in
+[the table below](#php-versions).
+
+{% else %}
+### PHP 5.2(.x) - 5.3(.x) support is available on Precise only
+
+We do not support these versions on Trusty or Xenial or Bionic.
 If you need to test them, please use Precise.
 See [this page](/user/reference/trusty#php-images) for more information.
 
+### PHP 5.4(.x) - 5.5(.x) support is available on Precise and Trusty only
+
+We do not support these versions on Xenial or Bionic.
+If you need to test them, please use Precise or Trusty.
+See [this page](/user/reference/xenial#php-images) for more information.
+
+### PHP 5.6(.x) - 7.0(.x) support is available on Precise, Trusty and Xenial only
+
+We do not support these versions on Bionic.
+If you need to test them, please use Precise or Trusty or Xenial.
+See [this page](/user/reference/bionic#php-support) for more information.
+
+### PHP 7.4(.x) onwards support is available on Trusty, Xenial and Bionic only
+
+We do not support these versions on Precise.
+If you need to test them, please use Trusty, Xenial, or Bionic.
+{% endif %}
 
 ### HHVM versions are available on Trusty only
 
@@ -383,6 +407,37 @@ virtual host as usual, the important part for php-fpm is this:
 </VirtualHost>
 ```
 
+## Build Config Reference
+
+You can find more information on the build config format for [PHP](https://config.travis-ci.com/ref/language/php) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Examples
 
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
+
+{% if site.data.language-details.php-versions.size > 0 %}
+## PHP versions
+These archives are available for on-demand installation.
+
+{: #php-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.php-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
+<script>
+var tf = new TableFilter(document.querySelector('#php-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>

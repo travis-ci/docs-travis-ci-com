@@ -10,7 +10,7 @@
         (function() {
           Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
 
-      Swiftype.searchSearchFields = {
+          Swiftype.searchSearchFields = {
             "page": ["title, body, tags"]
           };
           Swiftype.autocompleteSearchFields = {
@@ -40,6 +40,8 @@
         <li><a href="/user/cron-jobs/">Cron Jobs</a></li>
         <li><a href="/user/common-build-problems/">Common Build Problems</a></li>
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
+        <li><a href="/user/build-config-imports/">Build Config Imports</a></li>
+        <li><a href="/user/build-config-validation/">Build Config Validation</a></li>
       </ul>
 
       <h3>Jobs, Builds, Matrices and Stages</h3>
@@ -53,9 +55,11 @@
       <h3>Installing Dependencies</h3>
       <ul>
         <li><a href="/user/installing-dependencies/">Installing Dependencies</a></li>
-        <li><a href="/user/private-dependencies/">Private Dependencies</a></li>
+        <li><a href="/user/private-dependencies/">Private Dependencies GitHub</a></li>
+        <li><a href="/user/private-dependencies-bb/">Private Dependencies Bitbucket</a></li>
         <li><a href="/user/database-setup/">Setting up Services and Databases</a></li>
         <li><a href="/user/caching/">Caching Dependencies</a></li>
+        <li><a href="/user/using-workspaces/">Caching Dependencies within a Build (Workspaces)</a></li>
         <li><a href="/user/ssh-known-hosts/">Adding to SSH Known Hosts</a></li>
       </ul>
 
@@ -69,8 +73,15 @@
 
       <h3>Deployments and Uploads</h3>
       <ul>
-        <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
-        {% for deployment in site.data.deployments %}
+        {% if page.deploy == 'v2' %}
+          <li class="is-overview"><a href="/user/deployment-v2/">Overview</a></li>
+          <li><a href="/user/deployment-v2/conditional">Conditional Deployments</a></li>
+          {% assign deployments = site.data.deployments_v2 %}
+        {% else %}
+          <li class="is-overview"><a href="/user/deployment/">Overview</a></li>
+          {% assign deployments = site.data.deployments %}
+        {% endif %}
+        {% for deployment in deployments %}
           <li><a href="{{deployment[1]}}">{{deployment[0]}}</a></li>
         {% endfor %}
         <li><a href="/user/uploading-artifacts/">Uploading Build Artifacts</a></li>
@@ -78,25 +89,30 @@
 
       <h3>CI Environment Reference</h3>
       <ul>
-      <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
-      <li><a href="/user/reference/precise/">Precise CI Environment Reference</a></li>
-      <li><a href="/user/reference/trusty/">Trusty CI Environment</a><li>
-      <li><a href="/user/reference/xenial/">Xenial CI Environment</a><li>
-      <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
-      <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
-      <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
-      <li><a href="/user/environment-variables/">Environment Variables</a></li>
-      <li><a href="/user/precise-to-trusty-migration-guide/">Precise to Trusty Migration Guide</a></li>
-      <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
-      <li><a href="/user/ip-addresses/">Build machines IP Addresses</a></li>
+        <li class="is-overview"><a href="/user/reference/overview/">Overview</a></li>
+        <li><a href="/user/reference/linux/">Ubuntu Linux CI Environment References</a></li>
+        <li><a href="/user/reference/osx/">macOS CI Environment Reference</a></li>
+        <li><a href="/user/reference/windows/">Windows CI Environment Reference</a></li>
+        <li><a href="/user/reference/freebsd/">FreeBSD CI Environment Reference</a></li>
+        <li><a href="/user/multi-os/">Building on Multiple Operating Systems</a></li>
+        <li><a href="/user/multi-cpu-architectures/">Building on Multiple CPU Architectures</a></li>
+        <li><a href="/user/environment-variables/">Environment Variables</a></li>
+        <li><a href="/user/build-environment-updates/">Build Environment Updates</a></li>
+        <li><a href="/user/ip-addresses/">Build Machines IP Addresses</a></li>
       </ul>
 
-      <h3>Encrypting Files and Data</h3>
+      <h3>Security and Secure Software Supply Chain</h3>
       <ul>
         <li><a href="/user/encryption-keys/">Encrypting Sensitive Data</a></li>
         <li><a href="/user/encrypting-files/">Encrypting Files</a></li>
         <li><a href="/user/github-oauth-scopes/">GitHub Permissions used by Travis CI</a></li>
+        <li><a href="/user/bb-oauth-scopes/">Bitbucket Permissions used by Travis CI</a></li>
+        <li><a href="/user/assembla-oauth-scopes/">Assembla Permissions used by Travis CI</a></li>
+        <li><a href="/user/gl-oauth-scopes/">GitLab Permissions used by Travis CI</a></li>
+        <li><a href="/user/disable-job-logs/">Disable Job Logs Availability</a></li>
         <li><a href="/user/best-practices-security/">Best Practices in Securing Your Data</a></li>
+        <li><a href="/user/securely-signing-software">Securely Signing Software</a></li>
+        <li><a href="/user/sbom">Software Bill of Materials</a></li>
       </ul>
 
       <h3>Integrations and Notifications</h3>
@@ -114,8 +130,8 @@
         <li><a href="/user/build-feeds/">Atom Feeds</a></li>
         <li><a href="/user/cc-menu/">CCMenu / CCTray Feeds</a></li>
         <li><a href="/user/integration/platformio/">Embedded Builds with PlatformIO</a></li>
+        <li><a href="/user/hashicorp-vault-integration">Hashicorp Vault</a></li>
         <li><a href="/user/apps/">3rd Party Apps, Clients and Tools</a></li>
-
       </ul>
 
       <h3>Developer Program</h3>
@@ -125,6 +141,14 @@
         <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
         <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
       </ul>
+      
+      <h3>Hosted Billing</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/billing-overview/">Overview</a></li>
+        <li><a href="/user/billing-autorefill/">Auto-refill</a></li>
+        <li><a href="/user/billing-faq/">FAQ</a></li>
+      </ul>
+
       <h3>Travis CI Enterprise</h3>
       <ul>
         <li><a href="/user/enterprise/">Enterprise Docs</a></li>
@@ -134,8 +158,9 @@
   </section>
 
   <section class="sidebar-notice">
-    <p>This documentation site is open source.
+    <p>This documentation site is Open Source.
       The <a href="https://github.com/travis-ci/docs-travis-ci-com">README in our Git repository</a> explains how to contribute.</p>
+    <p>Travis CI relies on Open Source <a href="/user/open_source_license/">licensing information</a>.</p>
   </section>
 
 </div><!-- /#sidebar -->

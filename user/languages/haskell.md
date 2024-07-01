@@ -57,6 +57,18 @@ By default Travis CI uses `cabal` to manage your project's dependencies:
 cabal install --only-dependencies --enable-tests
 ```
 
+### Specifying cabal-install verison
+
+You can specify the version of `cabal` used:
+
+```yaml
+language: haskell
+cabal: "2.4"
+ghc:
+  - "8.6.4"
+```
+{: data-file=".travis.yml"}
+
 ### Multiple Packages in Subdirectories
 
 If you have multiple packages in subdirectories (each containing a `.cabal` file,
@@ -81,3 +93,11 @@ The build matrix is then constructed such that each package is compiled with eac
 
 Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
 See [Hackage Deployment](/user/deployment/hackage/).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Haskell](https://docs.travis-ci.com/user/languages/haskell/) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## Build with Stack
+
+Check out [Travis CI on Stack](https://docs.haskellstack.org/en/stable/travis_ci/) if you want to use Stack to build your project.

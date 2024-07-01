@@ -6,6 +6,8 @@ layout: en
 
 
 
+> Please note that, due to the upcoming [Docker Rate Limit announcement](https://docs.docker.com/docker-hub/download-rate-limit/), users will be required to add their own authentication information to their build settings or build config as documented below. 
+
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
 
@@ -179,7 +181,7 @@ by adding the following `before_install` step to your `.travis.yml`:
 
 ```yaml
 env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
+  - DOCKER_COMPOSE_VERSION=v2.17.3
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -197,8 +199,9 @@ updating it in the `before_install` step of your `.travis.yml`:
 **Updating from download.docker.com**
 ```yaml
 before_install:
+  - sudo systemctl stop docker.service && sudo systemctl stop docker.socket
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - yes | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 ```

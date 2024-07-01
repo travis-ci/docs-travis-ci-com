@@ -28,14 +28,14 @@ name = "test-coverage"
 enabled = true
 ```
 
-Refer to [DeepSource's analyzer documentation](https://deepsource.io/docs/analyzers/) for instructions specific to the analyzer.
+Refer to [DeepSource's analyzer documentation](https://deepsource.io/docs/analyzer/) for instructions specific to the analyzer.
 
 ## Install CLI and push artifacts
 
 - Install deepsource CLI by executing `curl https://deepsource.io/cli | sh`
 - Report the artifact by executing `./bin/deepsource report --analyzer <ANALYZER_SHORTCODE> --key <ARTIFACT_KEY> --value-file <ARTIFACT_VALUE_FILE>`
 
-Refer to [DeepSource CLI documentation](https://deepsource.io/docs/configuration/cli.html) for detailed instructions.
+Refer to [DeepSource CLI documentation](https://deepsource.io/docs/config/cli.html) for detailed instructions.
 
 ## Example
 

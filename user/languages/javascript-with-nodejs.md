@@ -10,10 +10,12 @@ layout: en
 
 | JavaScript and Node.js                      | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#dependency-management) | `npm install`                             |
+| [Default `install`](#dependency-management) | `npm install` or `npm ci`                 |
 | [Default `script`](#default-build-script)   | `npm test`                                |
 | [Matrix keys](#build-matrix)                | `env`, `node_js`                          |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
+
+(If `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version supports it, Travis CI will use `npm ci` instead of `npm install`.)
 
 Minimal example:
 
@@ -44,7 +46,7 @@ releases in your `.travis.yml`:
 ```yaml
 language: node_js
 node_js:
-  - "7"
+  - 7
 ```
 {: data-file=".travis.yml"}
 
@@ -78,6 +80,12 @@ The default build script for projects using nodejs is:
 
 ```bash
 npm test
+```
+
+In the case where no `package.json` file is present in the root folder, the default build script is:
+
+```bash
+make test
 ```
 
 ### Yarn is supported
@@ -135,7 +143,14 @@ as specified in your lock file.
 
 #### Caching with `npm`
 
-You can cache your dependencies with
+`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
+
+```yaml
+cache:
+  npm: false
+```
+
+To explicitly cache your dependencies:
 
 ```yaml
 cache: npm
@@ -160,8 +175,10 @@ directory, we run the following command _instead of_
 `npm install`:
 
 ```bash
-yarn
+yarn --frozen-lockfile
 ```
+
+If your Yarn version does not support `--frozen-lockfile`, we run just `yarn`.
 
 Note that `yarn` requires Node.js version 4 or later.
 If the job does not meet this requirement, `npm install` is used
@@ -226,7 +243,7 @@ env:
     - EMBER_VERSION=release
     - EMBER_VERSION=beta
     - EMBER_VERSION=canary
-matrix:
+jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
@@ -320,3 +337,7 @@ addons:
       - g++-4.8
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Javascript](https://config.travis-ci.com/ref/language/node_js) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

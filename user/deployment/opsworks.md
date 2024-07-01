@@ -1,6 +1,7 @@
 ---
 title: AWS OpsWorks Deployment
 layout: en
+deploy: v1
 
 ---
 

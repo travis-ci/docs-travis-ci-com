@@ -25,7 +25,7 @@ language: dart
 </aside>
 
 This guide covers build environment and configuration topics specific to
-[Dart](https://www.dartlang.org/) projects. Please make sure to read our
+[Dart](https://dart.dev/) projects. Please make sure to read our
 [Tutorial](/user/tutorial/) and
 [general build configuration](/user/customizing-the-build/) guides first.
 
@@ -34,7 +34,7 @@ This guide covers build environment and configuration topics specific to
 Travis CI support for Dart is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:dart)
-and cc [@nex3](https://github.com/nex3) and [@a14n](https://github.com/a14n).
+and cc [@athomas](https://github.com/athomas) and [@a14n](https://github.com/a14n).
 
 ## Choosing Dart versions to test against
 
@@ -48,12 +48,16 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
+# Install the latest beta release
+- beta
 # Install the latest dev release
 - dev
 # Install a specific stable release - 1.15.0
 - "1.15.0"
-# Install a specific dev release, using a partial download URL - 1.16.0-dev.3.0
-- "dev/release/1.16.0-dev.3.0"
+# Install a specific dev release, using a partial download URL - 2.9.0-2.0.dev
+- "dev/release/2.9.0-2.0.dev"
+# Install a specific beta release, using a partial download URL - 2.9.0-2.0.beta
+- "beta/release/2.9.0-2.0.beta"
 ```
 {: data-file=".travis.yml"}
 
@@ -165,3 +169,7 @@ dart_task:
 * `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
 * `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
 * `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Dart](https://config.travis-ci.com/ref/language/dart) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

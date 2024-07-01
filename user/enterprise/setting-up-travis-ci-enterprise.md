@@ -1,14 +1,12 @@
 ---
-title: Setting up Travis CI Enterprise
+title: Setting up Travis CI Enterprise 2.x
 layout: en_enterprise
 redirect_from:
-  - /user/enterprise/installation/
-  - /user/enterprise/prerequisites/
   - /user/enterprise/install-on-xenial/
 
 ---
 
-Travis CI Enterprise works with your GitHub.com or GitHub Enterprise setup.
+> Travis CI Enterprise works with your GitHub.com or GitHub Enterprise (Enterprise Server [below version 3.4](https://docs.github.com/en/enterprise-server@3.4/admin/release-notes#deprecation-of-oauth-application-api-endpoints-and-api-authentication-using-query-parameters)) setup. Please also note the Travis CI Enterprise 2.x is EOL, so we are strongly recommending an [upgrade to Travis CI Enterprise 3.x](/user/enterprise/tcie-3.x-overview/).
 
 ## Prerequisites
 
@@ -39,7 +37,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 * [RabbitMQ](https://www.rabbitmq.com/)
 * [Postgres](https://www.postgresql.org/)
 
-You can also try services like [compose.com](https://compose.com/) if you would like these services hosted outside your organization.
+You can also try services like [compose.com](https://compose.com/), if you would like these services hosted outside your organization.
 
 ## 1. Setting up Enterprise Platform virtual machine
 
@@ -51,7 +49,7 @@ Ubuntu 16.04 LTS or later as the underlying operating system.
 
 1. *On your virtual machine management platform*, create a Travis CI Platform Security Group.
 
-    If you're setting up your AMI for the first time you need to create
+    If you're setting up your AMI for the first time, you need to create
     a Security Group. From the EC2 management console, create an entry for
     each port in the table below:
 
@@ -84,54 +82,17 @@ installation's hostname, port 8800) to complete the setup:
    1. Optionally, configure Email, Metrics and Caches.
    1. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using AWS' `c4.2xlarge` instance running Ubuntu 16.04 LTS or later as the underlying operating system.
+instance from the Platform. We recommend using instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
 
-
-1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
-
-    If you're setting up your AMI for the first time you will need to create
-    a Security Group. From the EC2 management console, create an entry for
-    each port in the table below:
-
-    | Port | Service | Description |
-    |:-----|:--------|:------------|
-    | 22   | SSH     | SSH access. |
-
-1. *On your new virtual machine*, download and run the installation script:
-
-    ```
-    $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
-    $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
-    ```
-
-### Installing workers behind a web proxy
-
-If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
-Then rerun the installation script.  
-
-If you need Docker itself to use an HTTP proxy, export it before each docker command:
-
-```
-export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
-```
-
-### Older versions of Travis CI Enterprise
-
-| Travis CI Enterprise Version | Default Worker Version                               | Alternative Worker Versions                          |
-|:-----------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
-| Enterprise 2.2+              | [Trusty (14.04)](/user/enterprise/trusty/)           | [Precise (Legacy, 12.04)](/user/enterprise/precise/) |
-| Enterprise 2.1.9+            | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | [Trusty (14.04)](/user/enterprise/trusty/)           |
-| Enterprise 2.0+              | [Precise (Legacy, 12.04)](/user/enterprise/precise/) | --                                                   |
-
-After setting up a new instance for the worker, please follow the [Trusty (14.04)](/user/enterprise/trusty/) or [Precise (Legacy, 12.04)](/user/enterprise/precise/) guides for your Travis CI Enterprise version.
+After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker).
 
 
 ## 3. Running builds!

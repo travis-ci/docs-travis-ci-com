@@ -17,7 +17,7 @@ Before following the examples in this guide, make sure you have already
 
 See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org`
+> Starting June 2021 [travis-ci.org](http://www.travis-ci.org) is disabled and therefore no longer supported.  
 
 ## Automated Encryption
 
