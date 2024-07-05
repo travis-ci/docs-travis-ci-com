@@ -234,7 +234,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_RESTARTED`:
   + set to `true` if the build is restarted.
   + set to `false` if the build has not been restarted.
-- `TRAVIS_JOB_RESTARTED_BY`: the login of the user triggering the restart.
+- `TRAVIS_JOB_RESTARTED_BY`: The login of the user triggering the restart.
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set
