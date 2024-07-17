@@ -135,7 +135,7 @@ The following tables display the new roles and permissions for repositories and 
 | admin user, push user | _Repository.Builds.Restarter_ | _repository.build.restart_ |
 | admin user, push user | _Repository.Builds.Triggerer_ | _repository.build.create_, _repository.build.cancel_ |
 | admin user, push user | _Repository.Builds.Cancel_ | _repository.build.cancel_ |
-| admin user, push user, pull user, anonymous (for public repos) | Repository.Logs.Viewer | repository.log.view |
+| admin user, push user, pull user, anonymous (for public repos) | _Repository.Logs.Viewer_ | _repository.log.view_ |
 | admin user | _Repository.Logs.Admin_ | _repository.log.delete_, _repository.log.view_ |
 | admin user, push user | _Repository.Builds.Debugger_ | _repository.build.debug_ |
 | admin user | _Repository.Cache.Editor_ | _repository.cache.delete_, _repository.cache.view_ |
@@ -144,6 +144,7 @@ The following tables display the new roles and permissions for repositories and 
 | admin user | _Repository.Admin_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_, _repository.build.create_, _repository.build.cancel_, _repository.build.restart_, _repository.log.delete_, _repository.log.view_, _repository.build.debug_, _repository.cache.delete_, _repository.cache.view_, _repository.cache.view_, _repository.scan.view_ |
 | pull user | _Repository.Reader_ | _repository.log.view_, _repository.cache.view_, _repository.build.restart_ |
 | pull user | _Repository.State.Editor_ | _repository.state.update_ |
+
 
 
 | Previous Account Roles | New Roles | Permissions |
