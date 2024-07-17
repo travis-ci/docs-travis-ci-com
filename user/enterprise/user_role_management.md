@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-_Available from Travis Enterprise 3.1_
+_Available from Travis Enterprise 3.1.0_
 
 Travis CI introduces the new User Role Management feature to increase security and functionality. This feature offers more granular access control management, adding more strict access rights management while continuing to protect vital information that may be present in the CI/CD build job logs. 
 
@@ -49,7 +49,7 @@ The following are the available fields where each user can be associated with se
 - Account Plan Viewer: Can invoice, use, and view the account plans. 
 - Can Build: Check the checkbox to authorize the selected user to build.
 
-![Member tab Image here]
+![Member Management Tab](images/enterprise_member_management_tab.png)
 
 ## User Management Tab
 
@@ -60,7 +60,7 @@ The following are the available fields where each user can be associated with se
 - Login: displays the login email for the user.
 - New Role: Shows the role or number of roles assigned to the selected user. Allows admin users to choose or change the role or roles for the selected user.
 
-![User tab Image here]
+![User Managemenet Tab](images/enterprise_user_management_tab.png)
 
 The available roles and their current permissions are shown in the table below:
 
@@ -103,11 +103,11 @@ The process for the new permission system is as follows:
 5. The new roles and permissions service creates or updates the new roles and permissions.  
 
 
-> **Note**: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are registered.  
+> [!Note]: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are registered.  
 
-> **Note**: Suspending or unsuspending a user’s repository access removes the user’s build-triggering access and assigns the respective Repository Reader role.
+> [!Note]: Suspending or unsuspending a user’s repository access removes the user’s build-triggering access and assigns the respective Repository Reader role.
 
-> **Note**: Suspending or unsuspending a user’s account access removes the user from all Admin and editing roles and allows the user to be only a Plan Viewer and Billing Viewer. 
+> [!Note]: Suspending or unsuspending a user’s account access removes the user from all Admin and editing roles and allows the user to be only a Plan Viewer and Billing Viewer. 
 
 
 When existing Travis CI users log in, the user's current membership and permissions are checked against the new permissions service to check for any role or permission modifications.   
