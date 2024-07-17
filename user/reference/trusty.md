@@ -6,7 +6,8 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
-> Trusty is EOL by Canonical, try updating to a newer image and see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
+> Trusty is EOL by Canonical, try updating to a newer image. All work in Travis CI over updates to Trusty images is ceased with end of calendar year 2024 and we consider it being deprecated.
+> You may see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide) as an interim step in update, yet please note Xenial LTS is also EOL already. More up to date image is strongly recommended.
 
 ## What This Guide Covers
 
