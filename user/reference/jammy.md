@@ -1,3 +1,4 @@
+![License](https://github.com/user-attachments/assets/4dec2425-0847-4bfc-9d3a-6f9e8f0c6a77)
 ---
 title: The Ubuntu 22.04 (Jammy Jellyfish) Build Environment
 layout: en
