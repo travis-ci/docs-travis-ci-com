@@ -29,8 +29,8 @@ Simple 'trigger build' control. Allow or prevent users with appropriate access t
 
 In the case of a fork-to-base pull request:
 
-* If this setting is ON, the encrypted environment variables will be available to the forked repository, which means that builds in the forked repository will have access to the encrypted environment variables from the base repository. This may be a less secure approach yet allows for a collaboration using forks and Pull Requests (PRs).
-* If this setting is OFF and the build relies on any encrypted environment variable, the PR from fork to base repository will fail. This secures your base repository encrypted environmental variables by putting a constraint on accessing them from forks.
+* If this setting is ON, the encrypted environment variables will be available to the forked repository, which means that builds in the forked repository will have access to the encrypted environment variables from the base repository. This may be a less secure approach, yet it allows for collaboration using forks and Pull Requests (PRs).
+* If this setting is OFF and the build relies on any encrypted environment variable, the PR from the fork to the base repository will fail. This secures your base repository encrypted environmental variables by putting a constraint on accessing them from forks.
 
 Read more: [Pull Requests and security restrictions](/user/pull-requests#pull-requests-and-security-restrictions)
 
@@ -39,9 +39,18 @@ Read more: [Pull Requests and security restrictions](/user/pull-requests#pull-re
 In the case of a fork-to-base pull request:
 
 * If this setting is ON, the custom SSH keys from the base repository will be available to the forked repository, which means that the build in the forked repository will be able to use the custom SSH keys from the base repository. Consider setting to ON if your collaboration model requires working with Pull Requests (PRs) from forked repositories or there are dependencies defined, which rely on SSH key from base repository.
-* If this setting is OFF and the build is relying on custom SSH keys i.e. for fetching some additional dependencies, it will fail with a no access error.
+* If this setting is OFF and the build is relying on custom SSH keys i.e., for fetching some additional dependencies, it will fail with a no access error.
 
 Read more: [Pull Requests and security restrictions](/user/pull-requests#pull-requests-and-security-restrictions)
+
+## API Authentication
+
+- **Token**: The field displays the encoded token.
+- **Copy Token**: Click this button to copy the generated token.
+- **View Token**: Click this button to reveal the encoded token.
+- **Regenerate**: Click this button to regenerate the token. 
+
+For more information on using our API, head to the [Travis developer](developer.travis-ci.com) site.
 
 ## Enabling access to old build jobs
 
