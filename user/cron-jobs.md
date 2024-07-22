@@ -17,7 +17,10 @@ Configure cron jobs from the "Cron Jobs" settings tab on your Travis CI page.
 
 ## Adding Cron Jobs
 
-Select the branch to run the build on, how often to run the build, and whether to run the build if there was a build in the last 24 hours, then click "Add":
+Add Cron jobs by filling out the following fields and clicking the Add button
+- **Branch** - Select the branch on which to run the build.
+- **Interval** - Select how often to run the build: `daily`, `weekly`, or `monthly`.
+- **Options** - Select between the option to `Always run` or `Do not run if there has been a build in the last 24h`.
 
 ![adding a cron job](/images/cron-adding.png "adding a cron job")
 
@@ -31,7 +34,7 @@ Please note that cron jobs will run regardless and cannot be skipped even with [
 
 ## Deleting Cron Jobs
 
-Click the small trash icon on the right hand side of the page:
+Click the small trash icon on the right-hand side of the page:
 
 ![deleting a cron job](/images/cron-deleting.png "deleting a cron job")
 
