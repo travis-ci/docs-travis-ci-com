@@ -53,7 +53,7 @@ To start using Travis CI, make sure you have:
 
 {{ site.data.snippets.github_oauth_access_rights }}
 
-Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopess).
+Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
 
 ## To get started with Travis CI using Assembla
 
@@ -86,8 +86,8 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
    and `rake` to build the project.
 
 5. Add the `.travis.yml` file to a specific location in your repository:
-    1. Git Repository: in the root of the repository (`main` and branches). 
-    2. SVN Repository: 
+    1. Git Repository: in the root of the repository (`main` and branches).
+    2. SVN Repository:
         1. In the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`.
         2. In the `/branches/<branch name>/` (e.g.,`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to a specific branch.
     3. P4 (Perforce Helix Core) Repository:
