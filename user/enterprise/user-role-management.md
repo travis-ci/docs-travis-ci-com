@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-_Available from Travis Enterprise 3.1.0_
+_Available from Travis CI Enterprise 3.1.0_
 
 Travis CI introduces the new User Role Management feature to increase security and functionality. This feature offers more granular access control management, adding more strict access rights management while continuing to protect vital information that may be present in the CI/CD build job logs. 
 
@@ -147,7 +147,7 @@ The following tables display the new roles and permissions for repositories and 
 
 
 
-| Previous Account Roles | New Roles | Permissions |
+\| Previous Account Roles | New Roles | Permissions |
 |---|---|---|
 | admin | _Account.Settings.Editor_ | _account.settings.edit_, _account.settings.create_ |
 | admin | _Account.Settings.Admin_ | _account.settings.delete_, _accounts.settings.edit_, _account.settings.create_, _account.plan.create_, _account.plan.invoices_, _account.plan.usage_, _account.billing.view_, _account.billing.update_, _account.contact.view_, _account.contact.update_ |
@@ -207,7 +207,7 @@ The following table displays GitHub organization roles.
 
 #### Bitbucket
 
-| **GitHub Role** | **Travis CI Role** |
+| **Bitbucket Role** | **Travis CI Role** |
 |-----------------|--------------------|
 | Admin           | admin user         |
 | Read            | pull user          |
