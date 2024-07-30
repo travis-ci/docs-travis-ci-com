@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#pull-requests-and-security-restrictions).**
+**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests/#pull-requests-and-security-restrictions).**
 
 
 
@@ -17,7 +17,7 @@ Before following the examples in this guide, make sure you have already
 
 See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
 
-> Starting June 2021 [travis-ci.org](http://www.travis-ci.org) is disabled and therefore no longer supported.  
+> Starting June 2021 [travis-ci.org](http://www.travis-ci.org) is disabled and therefore no longer supported.
 
 ## Automated Encryption
 

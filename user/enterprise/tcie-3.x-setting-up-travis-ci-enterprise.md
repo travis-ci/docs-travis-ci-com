@@ -147,7 +147,7 @@ In each case the TCIE Core Services will be deployed as k8s cluster. Cluster mus
    4. Optionally, configure Email, Metrics, and Caches.
    5. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) for more information.
 
 
 ### 1.1 Example TCIE 3.x installation for GCE on macOSX
@@ -260,7 +260,7 @@ http://localhost:8800
 ```
 
 If you get a "permissions" error, please
-* Make sure you have [obtained correct license](/user/enterprise/tcie-3.x-obtain-license).
+* Make sure you have [obtained correct license](/user/enterprise/tcie-3.x-obtain-license/).
 * Contact one of your sysadmins to solve the access rights error.
 
 Once you get the proper permissions, you should have a license file. You'll see where you can drag and drop this on the localhost UI, it will look like this:

@@ -113,7 +113,7 @@ script: sbt -no-colors -J-Xss2m ++$TRAVIS_SCALA_VERSION test
 ## Projects Using Gradle, Maven or Ant
 
 If your project is not configured for sbt, the build process behaves like a
-typical [Java Project](/user/languages/java).
+typical [Java Project](/user/languages/java/).
 
 ## Testing Against Multiple JDKs
 

@@ -3,7 +3,7 @@ title: Securely Signing Software
 layout: en
 ---
 
-Travis CI enables software developers to securely sign software artifacts as a part of a [build job](/user/job-lifecycle#the-build) using a [*cosign*](https://github.com/sigstore/cosign) tool and a key.
+Travis CI enables software developers to securely sign software artifacts as a part of a [build job](/user/job-lifecycle/#the-build) using a [*cosign*](https://github.com/sigstore/cosign) tool and a key.
 
 *Cosign* is a part of the [Sigstore project](https://www.sigstore.dev/), which helps to ensure the tooling required for the Secure Software Supply Chain.
 
@@ -98,4 +98,4 @@ We recommend considering following security measures:
  * [limiting access to repository job logs](/user/disable-job-logs/) in individual repository settings
  * if using Hashicorp Vault KMS as a source of the key used for signing: always encrypt secrets needed to connect to Vault in the respective Repository Settings or the .travis.yml file
 
-Travis CI will attempt to obfuscate secrets in the job logs, yet since there are many ways to print them in the output there’s no guarantee all vulnerable data will be spotted and masked. Since Travis is a cloud CI/CD system, please be wary of associated risks and ways to minimize these. Please read also [Best Practices in Securing Your Data](/user/best-practices-security).
+Travis CI will attempt to obfuscate secrets in the job logs, yet since there are many ways to print them in the output there’s no guarantee all vulnerable data will be spotted and masked. Since Travis is a cloud CI/CD system, please be wary of associated risks and ways to minimize these. Please read also [Best Practices in Securing Your Data](/user/best-practices-security/).

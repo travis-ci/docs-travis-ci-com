@@ -191,7 +191,7 @@ before_install:
 Starting with version 56, Firefox can be used in "headless" mode, which is
 suitable for driving browser-based tests using Selenium and other tools.
 Headless mode can be enabled using the `MOZ_HEADLESS`
-[environment variable](/user/environment-variables):
+[environment variable](/user/environment-variables/):
 
 ```yaml
 env:

@@ -8,7 +8,7 @@ layout: en
 
 Conditions can be used to filter out, and reject builds, stages, jobs, and
 notifications by specifying conditions in your build configuration (your
-`.travis.yml` file). See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+`.travis.yml` file). See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/)
 and [Conditional Notifications](/user/notifications/#conditional-notifications)
 for details.
 

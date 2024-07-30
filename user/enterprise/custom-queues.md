@@ -3,7 +3,7 @@ title: Enterprise Customer Worker Queues
 layout: en_enterprise
 ---
 
-Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images).
+Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images/).
 
 There are two [feature flags](#enable-queues-on-the-platform) required for custom queues. After setting these flags, you can define the configuration for your queues in the [Management Console settings](#define-custom-queues-in-the-management-console) and [allocate workers to the new queues](#define-custom-queues-settings-on-the-workers)
 

@@ -284,7 +284,7 @@ vm:
   size: [large|x-large|2x-large]
 ```
 
-Instance sizes do not apply to OSX build jobs. Our [CI Environment Overview page](/user/reference/overview#vm-instance-size) describes the available VM sizes vs. operating system and CPU architecture.
+Instance sizes do not apply to OSX build jobs. Our [CI Environment Overview page](/user/reference/overview/#vm-instance-size) describes the available VM sizes vs. operating system and CPU architecture.
 
 To use instance sizes:
 
@@ -315,7 +315,7 @@ vm:
  size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key
 ```
 
-Instance sizes do not apply to Windows, and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
+Instance sizes do not apply to Windows, and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
 
 To use instance sizes:
 
@@ -339,6 +339,6 @@ GPU VM size property impacts the cost of build minutes/credits usage in the foll
 
 ## Getting Help
 
-If you have any questions or issues with the new VCS, please see our [Billing FAQ](/user/billing-faq) or email [support@travis-ci.com](mailto:support@travis-ci.com) for help.
+If you have any questions or issues with the new VCS, please see our [Billing FAQ](/user/billing-faq/) or email [support@travis-ci.com](mailto:support@travis-ci.com) for help.
 
 We’d love to hear what you think of our new Pricing and if there’s something that you’d like to see included or improved! Let us know in the Travis CI Community Forum.

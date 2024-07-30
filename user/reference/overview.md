@@ -53,7 +53,7 @@ The table below sums up the available Ubuntu environments and virtualization typ
 | [Ubuntu Precise 12.04](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
 
 
-LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures).
+LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures/).
 
 You can select Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
 
@@ -69,7 +69,7 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
+|                      | Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Beta                                          |
@@ -138,7 +138,7 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 * If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key.
 
-> To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation).
+> To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation/).
 
 ### Partner Queue Solution
 

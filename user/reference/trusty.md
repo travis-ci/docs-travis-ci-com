@@ -335,7 +335,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#default-environment-variables) available
+variables](/user/environment-variables/#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
@@ -376,4 +376,4 @@ versions) are shown in the "Build system information" section.
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.
