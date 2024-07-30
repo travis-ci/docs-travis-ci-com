@@ -42,7 +42,7 @@ Your build is routed to this infrastructure automatically, you don't need make a
 
 ## Container-based infrastructure
 
-> Container-based infrastructure has been fully [deprecated](https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
+> Container-based infrastructure has been fully [deprecated](https://travis-ci.com/blog/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
 > Please remove any `sudo: false` keys in your `.travis.yml` file to use the fully-virtualized [Linux infrastructure](#linux-infrastructure).
 
 ## Image differences from Precise

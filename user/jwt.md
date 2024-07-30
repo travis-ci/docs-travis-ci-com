@@ -6,7 +6,7 @@ layout: en
 
 {: .warning}
 >  The JWT addon is deprecated and will be
->  [discontinued on April 17, 2018](https://blog.travis-ci.com/2018-01-23-jwt-addon-is-deprecated).
+>  [discontinued on April 17, 2018](https://travis-ci.com/blog/2018-01-23-jwt-addon-is-deprecated).
 
 Integration between Travis-CI and third-party services like Sauce Labs relies
 on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
