@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-_Available from Travis Enterprise 3.1.0_
+_Available from Travis CI Enterprise 3.1.0_
 
 Travis CI introduces the new User Role Management feature to increase security and functionality. This feature offers more granular access control management, adding more strict access rights management while continuing to protect vital information that may be present in the CI/CD build job logs. 
 
@@ -49,7 +49,7 @@ The following are the available fields where each user can be associated with se
 - Account Plan Viewer: Can invoice, use, and view the account plans. 
 - Can Build: Check the checkbox to authorize the selected user to build.
 
-![Member Management Tab](images/enterprise_member_management_tab.png)
+![Member Management Tab](/images/enterprise-member-management-tab.png)
 
 ## User Management Tab
 
@@ -60,11 +60,11 @@ The following are the available fields where each user can be associated with se
 - Login: displays the login email for the user.
 - New Role: Shows the role or number of roles assigned to the selected user. Allows admin users to choose or change the role or roles for the selected user.
 
-![User Managemenet Tab](images/enterprise_user_management_tab.png)
+![User Managemenet Tab](/images/enterprise-user-management-tab.png)
 
 The available roles and their current permissions are shown in the table below:
 
-| Role | Permissions (Technical) | Permission Description |
+| **Role** | **Permissions (Technical)** | **Permission Description** |
 |---|---|---|
 | _Repository.Settings.Editor_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_ | Can fully manage the repository settings |
 | _Repository.Settings.Viewer_ | _repository.settings.read_ | Can read the repository settings |
@@ -103,11 +103,11 @@ The process for the new permission system is as follows:
 5. The new roles and permissions service creates or updates the new roles and permissions.  
 
 
-> [!Note]: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are registered.  
+> **Note**: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are registered.  
 
-> [!Note]: Suspending or unsuspending a user’s repository access removes the user’s build-triggering access and assigns the respective Repository Reader role.
+> **Note**: Suspending or unsuspending a user’s repository access removes the user’s build-triggering access and assigns the respective Repository Reader role.
 
-> [!Note]: Suspending or unsuspending a user’s account access removes the user from all Admin and editing roles and allows the user to be only a Plan Viewer and Billing Viewer. 
+> **Note**: Suspending or unsuspending a user’s account access removes the user from all Admin and editing roles and allows the user to be only a Plan Viewer and Billing Viewer. 
 
 
 When existing Travis CI users log in, the user's current membership and permissions are checked against the new permissions service to check for any role or permission modifications.   
@@ -128,7 +128,7 @@ The following table displays the action executed for each specific modification 
 
 The following tables display the new roles and permissions for repositories and accounts. 
 
-| Previous Repository Roles | New Roles | Permissions |
+| **Previous Repository Roles** | **New Roles** | **Permissions** |
 |---|---|---|
 | admin user | _Repository.Settings.Editor_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_, _repository.settings.read_ |
 | admin user | _Repository.Settings.Viewer_ | _repository.settings.read_ |
@@ -143,11 +143,12 @@ The following tables display the new roles and permissions for repositories and 
 | push user | _Repository.Collaborator_ | _repository.build.create_, _repository.build.cancel_, _repository.build.restart_, _repository.log.delete_, _repository.log.view_, _repository.build.debug_, _repository.cache.view_ |
 | admin user | _Repository.Admin_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_, _repository.build.create_, _repository.build.cancel_, _repository.build.restart_, _repository.log.delete_, _repository.log.view_, _repository.build.debug_, _repository.cache.delete_, _repository.cache.view_, _repository.cache.view_, _repository.scan.view_ |
 | pull user | _Repository.Reader_ | _repository.log.view_, _repository.cache.view_, _repository.build.restart_ |
-| pull user | _Repository.State.Editor_ | _repository.state.update_ |
+| pull user | _Repository.State.Editor_ | _repository.state.update_ | 
+</br>
+</br>
 
 
-
-| Previous Account Roles | New Roles | Permissions |
+| **Previous Account Roles** | **New Roles** | **Permissions** |
 |---|---|---|
 | admin | _Account.Settings.Editor_ | _account.settings.edit_, _account.settings.create_ |
 | admin | _Account.Settings.Admin_ | _account.settings.delete_, _accounts.settings.edit_, _account.settings.create_, _account.plan.create_, _account.plan.invoices_, _account.plan.usage_, _account.billing.view_, _account.billing.update_, _account.contact.view_, _account.contact.update_ |
@@ -207,7 +208,7 @@ The following table displays GitHub organization roles.
 
 #### Bitbucket
 
-| **GitHub Role** | **Travis CI Role** |
+| **Bitbucket Role** | **Travis CI Role** |
 |-----------------|--------------------|
 | Admin           | admin user         |
 | Read            | pull user          |
