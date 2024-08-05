@@ -214,7 +214,7 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
-For more information, refer to [Caching](/user/caching) documentation.
+For more information, refer to [Caching](/user/caching/) documentation.
 
 ### Using shrinkwrapped git dependencies
 

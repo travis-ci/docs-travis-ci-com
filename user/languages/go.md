@@ -112,7 +112,7 @@ not specified.
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
 requires a different workaround from our [recommended way of handling private
-dependencies](/user/private-dependencies).
+dependencies](/user/private-dependencies/).
 
 When cloning via HTTPS, git uses curl under the covers, which in turn allows
 you to specify a [.netrc](http://manpages.ubuntu.com/manpages/precise/man5/netrc.5.html)

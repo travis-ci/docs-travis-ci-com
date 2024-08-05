@@ -25,7 +25,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Engineyard is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Engineyard is in **alpha**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment. Either `api_key` or `email` and `password` are required.
@@ -47,9 +47,9 @@ Use the following options to further configure the deployment. Either `api_key` 
 
 All options can be given as environment variables if prefixed with `ENGINEYARD_` or `EY_`.
 
-For example, `api_key` can be given as 
+For example, `api_key` can be given as
 
-* `ENGINEYARD_API_KEY=<api_key>` or 
+* `ENGINEYARD_API_KEY=<api_key>` or
 * `EY_API_KEY=<api_key>`
 
 {% include deploy/secrets.md name="api_key" env_name="ENGINEYARD_API_KEY" %}

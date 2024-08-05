@@ -82,7 +82,7 @@ installation's hostname, port 8800) to complete the setup:
    1. Optionally, configure Email, Metrics and Caches.
    1. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) for more information.
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
@@ -90,9 +90,9 @@ The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
-After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker).
+After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker/).
 
 
 ## 3. Running builds!

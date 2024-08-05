@@ -165,7 +165,7 @@ module Dpl
         pre_stable: 'Please see [Maturity Levels](%s) for details.'
       }
 
-      URL = '/user/deployment-v2#maturity-levels'
+      URL = '/user/deployment-v2/#maturity-levels'
 
       def to_s
         msg = "#{MSG[status] % name}."

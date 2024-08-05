@@ -15,7 +15,7 @@ stored in the file `.travis.yml` in your repository. This allows your
 configuration to be version controlled and flexible.
 
 For advanced use cases the main build configuration file `.travis.yml` can
-import other, shared config sources using the [Build Config Imports](/user/build-config-imports)
+import other, shared config sources using the [Build Config Imports](/user/build-config-imports/)
 feature.
 
 Detailed information about Travis CI's build config format can be found in our
@@ -46,7 +46,7 @@ Some common reasons why builds might hang:
 
 ## Build Lifecycle
 
-The [Build Lifecycle documentation](/user/job-lifecycle) now has its own page.
+The [Build Lifecycle documentation](/user/job-lifecycle/) now has its own page.
 {: #Build-Lifecycle}
 
 
@@ -279,7 +279,7 @@ git:
 
 Travis CI uses the `.travis.yml` file from the branch containing the Git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
 
-> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests#double-builds-on-pull-requests) when deciding to safelist or blocklist certain branches.
+> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests/#double-builds-on-pull-requests) when deciding to safelist or blocklist certain branches.
 
 ### Safelisting or Blocklisting Branches
 
@@ -579,7 +579,7 @@ jobs:
 
 #### Conditionally Allowing Jobs to Fail
 
-Allowed failures can include a [condition](/user/conditional-builds-stages-jobs#conditionally-allowing-jobs-to-fail) using the key `if`.
+Allowed failures can include a [condition](/user/conditional-builds-stages-jobs/#conditionally-allowing-jobs-to-fail) using the key `if`.
 
 For example, the following would allow the job using `rvm: 1.9.3` to fail
 only on the `master` branch:
@@ -687,7 +687,7 @@ It's also possible to use other language installation methods such as `apt-get`,
 If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script.
 The script can be a part of your repository and can easily be called from the `.travis.yml`.
 
-See [Complex Build Commands](/user/job-lifecycle#complex-build-commands) for more information on how to do this.
+See [Complex Build Commands](/user/job-lifecycle/#complex-build-commands) for more information on how to do this.
 
 ## Custom Hostnames
 
