@@ -19,7 +19,7 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
-   `/repo/travis-ci/travis-core/requests` to trigger a build of a specific 
+   `/repo/travis-ci/travis-core/requests` to trigger a build of a specific
    commit (omit `sha` for most recent) of the master branch of the `travis-ci/travis-core` repository:
 
    ```bash
@@ -134,7 +134,7 @@ Trigger Travis CI builds using the API on your Travis CI Enterprise instance by 
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
-   `/repo/travis-ci/tcie-demo/requests` to trigger a build of a specific 
+   `/repo/travis-ci/tcie-demo/requests` to trigger a build of a specific
    commit (omit `sha` for most recent) of the master branch of the `travis-ci/tcie-demo` repository:
 
    ```bash
@@ -191,7 +191,7 @@ There are the following merge modes:
 * `merge`
 * `replace`
 
-The default merge mode is `deep_merge_append` with [Build Config Validation](/user/build-config-validation)
+The default merge mode is `deep_merge_append` with [Build Config Validation](/user/build-config-validation/)
 enabled. With Build Config Validation disabled the default is `deep_merge`,
 which will be discontinued soon.
 

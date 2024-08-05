@@ -11,7 +11,7 @@ Keep reading to see how you can customize any phase in this process, via your `.
 
 ## The Build
 
-The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](/user/build-stages). Each *stage* consists of jobs run in parallel. 
+The `.travis.yml` file describes the build process. A *build* in Travis CI is a sequence of [stages](/user/build-stages/). Each *stage* consists of jobs run in parallel.
 
 ## The Job Lifecycle
 
@@ -32,7 +32,7 @@ There are three optional *deployment phases*.
 The complete sequence of phases of a job is the lifecycle. The steps are:
 
 1. OPTIONAL Install [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)
-1. OPTIONAL Install [`cache components`](/user/caching)
+1. OPTIONAL Install [`cache components`](/user/caching/)
 1. `before_install`
 1. `install`
 1. `before_script`
@@ -197,7 +197,7 @@ deploy:
 
 You can run commands before a deploy by using the `before_deploy` phase. A non-zero exit code in this phase will mark the build as **errored**.
 
-If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase. 
+If there are any steps you'd like to run after the deployment, you can use the `after_deploy` phase.
 
 > Note that `after_deploy` does not affect the status of the build.
 

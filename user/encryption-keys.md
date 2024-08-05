@@ -16,7 +16,7 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 > Please Note: In the [travis-ci.com](https://app.travis-ci.com) environment, Custom SSH keys are only available for private repositories. Read more about [custom SSH keys](/user/private-dependencies/#user-key).
 
-> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com. 
+> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com.
 
 ## Encryption scheme
 
@@ -131,8 +131,8 @@ Please note that the name of the environment variable and its value are both enc
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
 Encrypted values can be used in
-[secure environment variables in the build matrix](/user/environment-variables#defining-encrypted-variables-in-travisyml)
-and [notifications](/user/notifications).
+[secure environment variables in the build matrix](/user/environment-variables/#defining-encrypted-variables-in-travisyml)
+and [notifications](/user/notifications/).
 
 ### Note on escaping certain symbols
 

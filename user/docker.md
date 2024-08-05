@@ -6,7 +6,7 @@ layout: en
 
 
 
-> Please note that, due to the upcoming [Docker Rate Limit announcement](https://docs.docker.com/docker-hub/download-rate-limit/), users will be required to add their own authentication information to their build settings or build config as documented below. 
+> Please note that, due to the upcoming [Docker Rate Limit announcement](https://docs.docker.com/docker-hub/download-rate-limit/), users will be required to add their own authentication information to their build settings or build config as documented below.
 
 Travis CI builds can run and build Docker images, and can also push images to
 Docker repositories or other remote storage.
@@ -129,7 +129,7 @@ travis env set DOCKER_USERNAME myusername
 travis env set DOCKER_PASSWORD secretsecret
 ```
 
-Be sure to [encrypt environment variables](/user/environment-variables#encrypting-environment-variables)
+Be sure to [encrypt environment variables](/user/environment-variables/#encrypting-environment-variables)
 using the travis gem.
 
 Within your `.travis.yml` prior to attempting a `docker push` or perhaps before

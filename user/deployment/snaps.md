@@ -58,7 +58,7 @@ travis env set SNAP_TOKEN "<token>"
 ```
 
 ### Using Settings page
-Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables#defining-variables-in-repository-settings) of your repository at Travis CI.
+Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings) of your repository at Travis CI.
 
 ## Using uploaded Snap
 Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:

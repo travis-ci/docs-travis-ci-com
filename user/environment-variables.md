@@ -114,7 +114,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 2. In your repository directory:
 
-   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys#usage).
+   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys/#usage).
    * If you are using https://travis-ci.org, run:
 
        ```bash
@@ -125,7 +125,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 > Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
-The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
+The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys/).
 
 ## Defining Variables in Repository Settings
 

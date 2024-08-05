@@ -17,7 +17,7 @@ to get shell access to the virtual machine or container.
 
 Private repositories have debug mode enabled by default, and no changes need to be made.
 To limit access to debug, grant users only *read access* to the repo, and use a fork + PR workflow.
-For public repositories, we have to enable it on a repository basis.  
+For public repositories, we have to enable it on a repository basis.
 To enable debug for your public repositories, please email us at
 support@travis-ci.com and let us know which repositories you want activated.
 
@@ -98,7 +98,7 @@ This debug build will stay alive for 30 minutes.
 
 Running the `ssh` command above will drop you in on a live VM.
 
-> Jobs running in debug mode will have the `TRAVIS_DEBUG_MODE` [environment variable](https://docs.travis-ci.com/user/environment-variables#default-environment-variables) set to `true`.
+> Jobs running in debug mode will have the `TRAVIS_DEBUG_MODE` [environment variable](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables) set to `true`.
 
 ### Security considerations
 
@@ -253,7 +253,7 @@ In order to save the output, follow these steps:
 1. Notice that the window is now unresponsive to your keyboard input. You can either:
      1. cancel the debug session from the web UI (this leaves the job in "Canceled" state regardless of the result of the previous execution), or
      1. open a new window (`ctrl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
- 
+
 ### Getting out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
@@ -273,7 +273,7 @@ nvm install $TRAVIS_NODE_VERSION
 ```
 ### If the debug VM crashes when running one of the `travis_run_*` functions
 
-If your debug build crashes when running any of the specified commands, we suggest narrowing down 
+If your debug build crashes when running any of the specified commands, we suggest narrowing down
 the issue as follows:
 
 1- First establish which `travis_run_*` command is failing e.g. `travis_run_before_install` crashes the debug VM.
@@ -282,9 +282,9 @@ the issue as follows:
 
 3- Make appropriate changes to the command that crashes the debug VM.
 
-4- Check `bash` options. Another common cause of unexpected debug session termination is that at some point 
+4- Check `bash` options. Another common cause of unexpected debug session termination is that at some point
 the [errexit](https://www.tldp.org/LDP/abs/html/options.html#OPTIONSREF) option is set (set -e or set -o errexit).
- 
+
 You can confirm this with `echo $-` and check for `e` in the output:
 
 ```
@@ -294,7 +294,7 @@ $ set -e
 $ echo $-
 ehimBH
 ```
-With this option set, any command that exits with nonzero status will terminate the build (and the debug session, 
+With this option set, any command that exits with nonzero status will terminate the build (and the debug session,
 If it's running). You can clear this option with set +e; this may allow debug sessions to continue.
 
 If you have any questions or concerns, don't hesitate to contact support@travis-ci.com.
