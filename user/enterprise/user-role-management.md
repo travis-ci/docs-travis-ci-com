@@ -60,7 +60,7 @@ The following are the available fields where each user can be associated with se
 - Login: displays the login email for the user.
 - New Role: Shows the role or number of roles assigned to the selected user. Allows admin users to choose or change the role or roles for the selected user.
 
-![User Managemenet Tab](/images/enterprise-user-management-tab.png)
+![User Managemenet Tab](/images/enterprise-user-management-tab-updated.png)
 
 The available roles and their current permissions are shown in the table below:
 
