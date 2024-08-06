@@ -10,6 +10,16 @@ Travis CI introduces the new User Role Management feature to increase security a
 
 This feature allows Travis CI administrators to execute permission limits on user privileges to the minimum functionality necessary to work (on an as-needed basis) to protect particular build job logs.
 
+## Enabling user role management
+
+From the Travis CI Enterprise admin console, open the `Config` menu, expand the `Advanced Settings` menu on the left and click on the `Users Roles Management`.
+
+![Member Management menu](/images/enterprise-user-management-menu.png)
+
+To enable the setting, select on the `Enabled` option and save the settings.
+
+![Member Management option](/images/enterprise-user-management-setting.png)
+
 ## Travis CI Roles
 
 New Travis CI Users are created via the “**sign-in with…**” functionality, linking a third-party application (GitHub, Assembla, BitBucket, or GitLab) to Travis CI. See [Getting Started](/user/tutorial/#prerequisites) for more information.
