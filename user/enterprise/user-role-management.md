@@ -138,6 +138,8 @@ The following table displays the action executed for each specific modification 
 
 The following tables display the new roles and permissions for repositories and accounts. 
 
+### Roles
+
 | **Previous Repository Roles** | **New Roles** | **Permissions** |
 |---|---|---|
 | admin user | _Repository.Settings.Editor_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_, _repository.settings.read_ |
@@ -154,9 +156,9 @@ The following tables display the new roles and permissions for repositories and 
 | admin user | _Repository.Admin_ | _repository.settings.create_, _repository.settings.update_, _repository.settings.delete_, _repository.build.create_, _repository.build.cancel_, _repository.build.restart_, _repository.log.delete_, _repository.log.view_, _repository.build.debug_, _repository.cache.delete_, _repository.cache.view_, _repository.cache.view_, _repository.scan.view_ |
 | pull user | _Repository.Reader_ | _repository.log.view_, _repository.cache.view_, _repository.build.restart_ |
 | pull user | _Repository.State.Editor_ | _repository.state.update_ | 
-</br>
-</br>
 
+
+### Accounts
 
 | **Previous Account Roles** | **New Roles** | **Permissions** |
 |---|---|---|
