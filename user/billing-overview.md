@@ -5,31 +5,28 @@ permalink: /user/billing-overview/
 
 ---
 
-> Effective March 2nd, 2022, concurrency pricing is returning to the Travis CI website for 1, 2, and 5 concurrency plans.
-
-
 ## Travis CI Plan types
 
 
-Travis CI billing system consists of two types of subscriptions: Concurrent based plans and Usage-based plans.
-The variety of plans provides you with the flexibility to choose the plan that suits your needs.
+Travis CI billing system consists of two types of subscriptions: Concurrency (fixed-price) based plans and Usage-based plans.
+The variety of plans provides you with the flexibility to choose the plan that suits your needs.  
 
 
-| Billing Period | Concurrency based | Usage-based |
+| Billing Period | Concurrency based (fixed-price) | Usage-based |
 |:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on standard vm sized Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br />Paid premium VM size (credits). Contact sales for other options.<br /><br />Purchase in [Travis CI](https://app.travis-ci.com/account/plan). | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Grandfathered only. |
-|Annual      | Available, same build rules as monthly. Purchase in [Travis CI](https://app.travis-ci.com/account/plan) or contact support.  | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Contact support for high volume annual usage-based plans. |
+|Month           | Concurrent jobs limit<br />Unlimited build minutes on standard sized VMs Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br />Paid premium VM size (credits). Contact sales for other options.<br /><br />Purchase in [Travis CI](https://app.travis-ci.com/account/plan). | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits) on all VM types<br />Paid user licenses (only per unique users triggering the builds)<br /><br /> |
+|Annual      | Available, same build rules as monthly. Purchase in [Travis CI](https://app.travis-ci.com/account/plan) or contact support.  | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per unique users triggering the builds)<br /><br />Contact support for high volume annual usage-based plans. |
 
 
-For most of users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage-based plan.
+For most of users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options.
 
 ### Free Trial Plan
 
-A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a 10k trial pool of credits to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 30 days.
+A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a pool of 10k trial credits (1k Linux build minutes) to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 30 days.
 
-Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details during the selection of the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure.
+Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details during the selection of the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure. 
 
-> The  Free Plan is available only once and for new users only
+> The Free Trial Plan is available only once and for new users only
 
 
 ## Concurrency based plans
