@@ -5,7 +5,7 @@ layout: en
 
 Conditions can be used to filter out, and reject builds, stages, and jobs by
 specifying conditions in your build configuration (your `.travis.yml` file).
-See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/)
 and [Conditions](/user/conditions-v1) for details.
 
 The gem [travis-conditions](https://github.com/travis-ci/travis-conditions) comes

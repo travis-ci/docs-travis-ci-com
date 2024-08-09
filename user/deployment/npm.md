@@ -1,6 +1,7 @@
 ---
 title: npm Releasing
 layout: en
+deploy: v1
 ---
 
 Travis CI can automatically release your npm package to [npmjs.com][npmjs]
@@ -15,6 +16,10 @@ publishes to npmjs.com, however if you have a `publishConfig.registry` key in yo
 A minimal `.travis.yml` configuration for publishing to [npmjs.com][npmjs] with npm version 2+ looks like:
 
 ```yaml
+language: node_js
+node_js:
+  - "12.13"
+
 deploy:
   provider: npm
   email: "YOUR_EMAIL_ADDRESS"
@@ -104,7 +109,7 @@ deploy:
 [A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
 reported when multiple attempts are made.
 We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+[Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ## Tagging releases
 

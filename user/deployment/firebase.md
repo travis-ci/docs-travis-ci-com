@@ -1,6 +1,7 @@
 ---
 title: Firebase Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -30,7 +31,7 @@ firebase login:ci
 travis encrypt "1/AD7sdasdasdKJA824OvEFc1c89Xz2ilBlaBlaBla" --add
 # This command may generate a warning ("If you tried to pass the name of the repository as the first argument, you probably won't get the results you wanted"). You can ignore it.
 ```
-When using `travis encrypt --add` you are likely to receive `WARNING: The name of the repository is now passed to the command with the -r option` (see https://github.com/travis-ci/travis-ci/issues/7869). The token will be added to your `.travis.yml`, regardless. Inspect and move the token to the `secure:` section of your `.travis.yml` if it isn't added there. 
+When using `travis encrypt --add` you are likely to receive `WARNING: The name of the repository is now passed to the command with the -r option` (see https://github.com/travis-ci/travis-ci/issues/7869). The token will be added to your `.travis.yml`, regardless. Inspect and move the token to the `secure:` section of your `.travis.yml` if it isn't added there.
 
 Remember to [encrypt](/user/encryption-keys/#usage) the token before adding it to your `.travis.yml`
 

@@ -101,3 +101,7 @@ before_install:
 {: data-file=".travis.yml"}
 
 {% include c11-cpp11-and-beyond-and-toolchains.md %}
+
+## Build Config Reference
+
+You can find more information on the build config format for [C](https://config.travis-ci.com/ref/language/c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

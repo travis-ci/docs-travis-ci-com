@@ -6,7 +6,7 @@ layout: en
 
 {: .warning}
 >  The JWT addon is deprecated and will be
->  [discontinued on April 17, 2018](https://blog.travis-ci.com/2018-01-23-jwt-addon-is-deprecated).
+>  [discontinued on April 17, 2018](https://travis-ci.com/blog/2018-01-23-jwt-addon-is-deprecated).
 
 Integration between Travis-CI and third-party services like Sauce Labs relies
 on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
@@ -141,7 +141,7 @@ def authenticate(user, access_key):
     """
     user: db object representing user retrieved based on username from HTTP BASIC AUTH
     access_key: access key or JWT token signed using access key (shared secret)
-    returns True when authenication validation passed, otherwise False
+    returns True when authentication validation passed, otherwise False
     """
     # primary auth method
     if user['access_key'] == access_key:
