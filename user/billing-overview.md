@@ -293,8 +293,8 @@ Usage-based plans may have or may have not user-license allowance included in th
 
 > If a build is triggered, the system will check if this is a new unique user triggering build. If yes, system checks if consuming user-license exceeds user-license limit included:
 > 
-> * no - no credit charge for user-license
-> * yes - credit charge for user license will be immediately dedcuted from the available credit pool upon the build start.
+> no - no credit charge for user-license
+> yes - credit charge for user license will be immediately deducted from the available credit pool upon the build start.
 >
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
 
@@ -304,8 +304,8 @@ Usage-based plans may have or may have not user-license allowance included in th
 > 
 > If a build is triggered, the system will check if this is a new unique user triggering build. If yes, system checks if consuming user-license exceeds pool of discounted user-license limit included in the plan:
 > 
-> * no - if this is 1st user out of first 3 discounted, a charge of e.g. 25k credits is deducted upon build start. If this is 2nd or 3rd unique user within a month, no credits are deducted from credit pool.
-> * yes - full user-license credits charge is deducted from available credit pool upon build start.
+> no - if this is 1st user out of first 3 discounted, a charge of e.g. 25k credits is deducted upon build start. If this is 2nd or 3rd unique user within a month, no credits are deducted from credit pool.
+> yes - full user-license credits charge is deducted from available credit pool upon build start.
 > 
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
 
@@ -322,8 +322,8 @@ With every build started, Travis CI keeps track of how many unique users trigger
 
 > If a build is triggered, the system will check if this is a new unique user triggering build and if any potential included user-license allowance are exceeded:
 > 
-> * no - count of consumed paid user-licenses is not increased
-> * yes - count of consumed paid user-licenses is increased
+> no - count of consumed paid user-licenses is not increased
+> yes - count of consumed paid user-licenses is increased
 > 
 > Depending on whether the plan is monthly or annual, respectively, there will be direct charge to credit card at the end of month or no more new unique users will be allowed to trigger builds this month.
 > 
