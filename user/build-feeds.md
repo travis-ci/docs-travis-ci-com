@@ -34,7 +34,7 @@ the feed. The API endpoint is different too: `https://api.travis-ci.com`
 
 1. The token is the same as is used to fetch a build status image, which can be
    found on the repository page. See the related
-   [documentation](/user/cc-menu/#Using-the-CC-feed-with-repositories)
+   [documentation](/user/cc-menu/#using-the-cc-feed-with-repositories)
    for more details on how to access the token.
 
 2. Once you have the token, append it as the `token` parameter to the URL:

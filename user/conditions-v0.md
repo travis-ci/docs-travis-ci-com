@@ -9,7 +9,7 @@ layout: en
 
 Conditions can be used to filter out, and reject builds, stages, and jobs by
 specifying conditions in your build configuration (your `.travis.yml` file).
-See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs)
+See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/)
 for details.
 
 ## Specifying conditions
@@ -68,15 +68,17 @@ script can be called within the Deploy stage.  For instance, continuing with
 the above example, the Deploy stage would include:
 
 ```yaml
-- stage: deploy
-   if: attribute=value
-   env:
+jobs:
+  include:
+  - stage: deploy
+    if: attribute=value
+    env:
     - PRIOR_VERSION=$(git describe --abbrev=0 --tags)
     - RELEASE_VERSION=$(grep to get version number)
-   script:
-    - "$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."
-
+    script:
+    - '"$PRIOR_VERSION" = "$RELEASE_VERSION" && travis_terminate || echo "Deploying latest version ..."'
 ```
+{: data-file=".travis.yml"}
 
 Since we want the build to deploy only when `PRIOR_VERSION` and `RELEASE_VERSION`
 are not equal, we test for equality and terminate if that is found to be true.

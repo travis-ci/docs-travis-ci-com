@@ -1,6 +1,7 @@
 ---
 title: Heroku Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -18,12 +19,17 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-If you have both the [Heroku](https://toolbelt.heroku.com/) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
+If you have both the [Heroku](https://devcenter.heroku.com/articles/heroku-cli) and [Travis CI](https://github.com/travis-ci/travis.rb#readme) command line clients installed, you can get your key, encrypt it and add it to your `.travis.yml` by running the following command from your project directory:
 
 ```bash
 travis encrypt $(heroku auth:token) --add deploy.api_key
 ```
 
+`travis` command defaults to using [travis-ci.org](https://travis-ci.org) as the API endpoint. If your build runs on [travis-ci.com](https://travis-ci.com) (even if your repository is public), add `--pro` flag to override this:
+
+```bash
+travis encrypt $(heroku auth:token) --add deploy.api_key --pro
+```
 You can also use the Travis CI command line setup tool `travis setup heroku`.
 
 ## Deploying Custom Application Names
@@ -68,7 +74,7 @@ deploy:
 
 ## Deploying Specific Branches
 
-If you have branch specific options, as [shown above](#Deploying-Custom-Application-Names), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
+If you have branch specific options, as [shown above](#deploying-custom-application-names), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
@@ -181,7 +187,7 @@ When you use any of the `git` strategies, be mindful that the deployment will
 honor `.gitignore`.
 
 If your `.gitignore` file matches something that your build creates, use
-[`before_deploy`](#Running-commands-before-and-after-deploy) to change
+[`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
 ### Running commands before and after deploy

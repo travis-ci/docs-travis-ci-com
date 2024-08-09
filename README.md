@@ -1,6 +1,6 @@
-# About this repository [![Build Status](https://travis-ci.org/travis-ci/docs-travis-ci-com.svg?branch=master)](https://travis-ci.org/travis-ci/docs-travis-ci-com)
+# About this repository [![Build Status](https://travis-ci.com/travis-ci/docs-travis-ci-com.svg?branch=master)](https://travis-ci.com/travis-ci/docs-travis-ci-com)
 
-This is the documentation site for Travis CI! (<http://docs.travis-ci.com/>)
+This is the documentation site for Travis CI! (<https://docs.travis-ci.com/>)
 
 ## How to contribute
 
@@ -9,7 +9,7 @@ Once you're done with your changes send a pull request. Thanks!
 
 ## How to check your edit before sending PR
 
-You can inspect how your edits will be reflected by the documentation site.
+You can inspect how your edits will be reflected by the documentation site. Either by clicking on the Netlify preview link in your Pull Request or building the docs locally.
 
 ### Install dependencies
 
@@ -66,7 +66,7 @@ via POST), Puma is necessary.
 
 ### API V2 documentation
 
-API V2 (and 2.1) documentation is maintained in `slate/source` and updated is now generated at build time from source.
+API V2 (and 2.1) documentation is maintained in `slate/source` and is generated at build time from source.
 
 ## License
 
