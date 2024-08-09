@@ -11,7 +11,7 @@ permalink: /user/billing-overview/
 ## Travis CI Plan types
 
 
-Travis CI billing system consists of two types of subscriptions: Concurrent based plans and Usage-based plans.
+Travis CI billing system consists of two types of subscriptions: Concurrent-based plans and Usage-based plans.
 The variety of plans provides you with the flexibility to choose the plan that suits your needs.
 
 
@@ -21,20 +21,20 @@ The variety of plans provides you with the flexibility to choose the plan that s
 |Annual      | Available, same build rules as monthly. Purchase in [Travis CI](https://app.travis-ci.com/account/plan) or contact support.  | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per users triggering the builds)<br /><br />Contact support for high volume annual usage-based plans. |
 
 
-For most of users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage-based plan.
+For most users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please contact Travis CI asking for a Usage-based plan.
 
 ### Free Trial Plan
 
-A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a 10k trial pool of credits to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 30 days.
+A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a 10k trial pool of credits to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 14 days.
 
 Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details during the selection of the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure.
 
-> The  Free Plan is available only once and for new users only
+> The  Free Plan is available only once and for new users only.
 
 
 ## Concurrency based plans
 
-Concurrency-based plans are much like what Travis CI has been offering already for a long time: an ability to run a build consisting of X concurrent jobs.
+Concurrency-based plans are similar to what Travis CI has been offering for a long time: the ability to run a build consisting of X concurrent jobs.
 In Travis CI, builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until a queue capacity is available for processing.
 
 > If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 builds are processed while the remaining 3 of the builds wait in line to be processed.
@@ -49,7 +49,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 > If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://app.travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g., 25k credits. Now the build can be executed, and a pre-defined amount of [credits will be charged for each build minute of macOS build job](/user/billing-overview/#usage---credits).
 
 
-### Concurrency based Plan - Summary
+### Concurrency-based Plan - Summary
 
 | Area                            | Details    |
 | :---                            | ---        |
@@ -127,7 +127,7 @@ Users interested in Annual plans can select an annual plan on the [Plan page](ht
 |  4800K | $2,640 |
 |  6000K | $3,300 |
 
-> **All plans are available for Private and Open repositories in any platform; Linux, Windows, macOS, and FreeBSD. And all plans have a 10,000 user limit.**
+> **All plans are available for Private and Open repositories in any platform; Linux, Windows, macOS, and FreeBSD. And all plans have a 10,000-user limit.**
 
 #### Plan Usage
 
@@ -162,7 +162,7 @@ Use the credit calculator to estimate the credits you will need to build continu
 1. First, input the number of users.
 2. Next, select your Operating System (Linux, Windows, macOS).
 3. Next, specify your [VM size and configurations](https://docs.travis-ci.com/user/billing-overview/#vm-instance-sizes-and-credit-cost) (Large, X-Large, 2X-Large).
-4. Finally, input an amount of minutes for an estimated build time.
+4. Finally, input a number of minutes for an estimated build time.
 
 Please note that the first three users cost 25K credits, and each additional user costs an additional 25K credits.
 
@@ -241,12 +241,12 @@ Credits can be used to build both private and public repositories.
 On occasion, an allotment of OSS Only credits may be granted by Travis CI. These credits may be used only for builds over public repositories and are meant for open-source support.
 The OSS credits may be assigned as a one-time pool or renewable pool, subject to a case-by-case assessment of Travis CI staff.
 
-The OSS credits are a separate pool of credits from regular credits, with separate credits balance tracking.
+The OSS credits are a separate pool of credits from regular credits, with separate credit balance tracking.
 
 
 #### Free Plan Credits
 
-Each new user who subscribes to the Free Trial Plan is automatically granted 10K credits to use over a 30 day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features.
+Each new user who subscribes to the Free Trial Plan is automatically granted 10K credits to use over a 14-day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features.
 
 
 
