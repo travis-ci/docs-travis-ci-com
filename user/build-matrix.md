@@ -7,7 +7,7 @@ A build matrix is made up by several multiple jobs that run in parallel.
 
 This can be useful in many cases, but the two primary reasons to use a build matrix are:
 
-* [Reducing the overall build execution time](/user/speeding-up-the-build)
+* [Reducing the overall build execution time](/user/speeding-up-the-build/)
 * Running tests against different versions of runtimes or dependencies
 
 The examples on this page focus on the latter use case.
@@ -268,7 +268,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-If you need a (sole) job from the matrix in such case, add a blank job entry with curly brackets to the build instruction 
+If you need a (sole) job from the matrix in such case, add a blank job entry with curly brackets to the build instruction
 (as that instruction would inherit all values from the matrix):
 
 ```yaml
@@ -421,7 +421,7 @@ Jobs generated through the Matrix Expansion feature cannot be named.
 
 ## Job Uniqueness and Duplicate Jobs
 
-Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation)
+Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation/)
 process.
 
 For example, this config would result in only one job using the [YAML anchors and aliases](/user/build-config-yaml#private-keys-as-yaml-anchors-and-aliases-and-external-tooling):

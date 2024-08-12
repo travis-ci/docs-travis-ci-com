@@ -33,7 +33,7 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 ## Installation with Travis CI Enterprise 2.1.9+
 
-The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/precise) as it's default worker. However, starting with version 2.1.9+, it is possible to use Trusty build environments, assuming the feature flags are set. Otherwise, the installation process is very similar to the Enterprise 2.2 series.
+The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/precise/) as it's default worker. However, starting with version 2.1.9+, it is possible to use Trusty build environments, assuming the feature flags are set. Otherwise, the installation process is very similar to the Enterprise 2.2 series.
 
 ### Enabling the Trusty Beta Feature Flag
 

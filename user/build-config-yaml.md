@@ -6,7 +6,7 @@ layout: en
 
 Travis CI uses YAML as the primary language for build configuration stored in
 the main `.travis.yml` build config file, as well as other config sources
-imported using the [Build Config Imports](/user/build-config-imports) feature.
+imported using the [Build Config Imports](/user//) feature.
 
 This page documents a few noteworthy pieces of information about how
 Travis CI uses YAML.
@@ -88,14 +88,14 @@ numbers sometimes to be truncated in unintended ways. In turn, our
 documentation, as well as a lot of external articles and posts have recommended
 quoting version numbers so the YAML parser would interpret them as strings.
 
-*This no longer applies* if the feature [Build Config Validation](/user/build-config-validation)
+*This no longer applies* if the feature [Build Config Validation](/user/build-config-validation/)
 is active for the given repository.
 
 For example, specifying a Node.js version as `node_js: 9.10` would have been
 parsed into `9.0`, not matching the intended version. As a solution we would
 have recommended specifying `node_js: "9.10"` instead.
 
-With the introduction of a new YAML parser as part of the [Build Config Validation](/user/build-config-validation) 
+With the introduction of a new YAML parser as part of the [Build Config Validation](/user/build-config-validation/)
 feature, this is *no longer required* because this parser turns YAML
 numbers into Ruby strings, which will be typecasted later only if required
 by our [Build Config Schema](https://config.travis-ci.com/).

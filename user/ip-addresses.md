@@ -32,7 +32,7 @@ JSON:
 curl -s https://dnsjson.com/nat.travisci.net/A.json | jq '.results.records|sort'
 ```
 
-Note that the IP addresses used for [notifications](/user/notifications) are
+Note that the IP addresses used for [notifications](/user/notifications/) are
 different.
 
 More details about our different infrastructures are available on the

@@ -17,7 +17,7 @@ deploy:
 
 ## Status
 
-Support for deployments to nuget is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to nuget is in **alpha**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -37,9 +37,9 @@ Use the following options to further configure the deployment.
 
 All options can be given as environment variables if prefixed with `NUGET_` or `DOTNET_`.
 
-For example, `api_key` can be given as 
+For example, `api_key` can be given as
 
-* `NUGET_API_KEY=<api_key>` or 
+* `NUGET_API_KEY=<api_key>` or
 * `DOTNET_API_KEY=<api_key>`
 
 {% include deploy/secrets.md name="api_key" env_name="NUGET_API_KEY" %}
