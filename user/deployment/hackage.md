@@ -37,7 +37,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 For example, if you build your project with [different GHC versions](/user/languages/haskell/#specifying-haskell-compiler-versions) but only want to deploy from one GHC version, add an `on` condition to your `deploy:` section:
 

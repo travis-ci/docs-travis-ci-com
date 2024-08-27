@@ -181,4 +181,4 @@ You can find more information on the build config format for [Objective-C](https
 
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx/#xcode-version).

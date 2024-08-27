@@ -43,7 +43,7 @@ deploy:
 
 It is also possible, but not recommended, to use PyPI user and password, instead of token.
 
-> Note that if your PyPI password contains [special characters](/user/encryption-keys#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
+> Note that if your PyPI password contains [special characters](/user/encryption-keys/#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 
 ## Deploying tags
@@ -157,7 +157,7 @@ deploy:
 ## Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ## Running commands before and after release
 

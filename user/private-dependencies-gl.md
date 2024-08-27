@@ -43,7 +43,7 @@ GitLab allows you to set up SSH keys for a repository. These deploy keys have so
 However, using deploy keys is complicated by the fact that GitLab does not allow you to reuse keys.
 So a single private key cannot access multiple GitLab repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files).
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files/).
 Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a
 [repo key](#repo-key) instead.
 

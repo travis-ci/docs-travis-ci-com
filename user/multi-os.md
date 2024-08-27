@@ -94,15 +94,15 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty build environment](/user/reference/trusty/) and to a [macOS image using Xcode 7.2](/user/languages/objective-c#supported-xcode-versions):
+There are many options available and using the `matrix.include` key is essential to include any specific entries. For example, this matrix would route builds to the [Trusty build environment](/user/reference/trusty/) and to a [macOS image using Xcode 7.2](/user/languages/objective-c/#supported-xcode-versions):
 
 ```yaml
 jobs:
   include:
-    - 
+    -
       os: linux
       dist: trusty
-    - 
+    -
       os: osx
       osx_image: xcode7.2
 ```

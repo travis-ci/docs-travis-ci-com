@@ -6,13 +6,13 @@ layout: en_enterprise
 
 ## System Setup
 
-**Platform Requirements**: To use the Bionic build containers, the Travis CI installation must be at 2.2.6 or higher. Please be sure to [upgrade TCIE 2.x](/user/enterprise/upgrading/) or [install TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise), if needed, before getting started.
+**Platform Requirements**: To use the Bionic build containers, the Travis CI installation must be at 2.2.6 or higher. Please be sure to [upgrade TCIE 2.x](/user/enterprise/upgrading/) or [install TCIE 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/), if needed, before getting started.
 
 **Worker Requirements**:
 
 We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of memory, and at least 60 GB of disk space. Also, we suggest to run Ubuntu 18.04 or later. Port 22 must be open for SSH during installation and operation.
 
-> A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine. 
+> A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine.
 
 ## Third party apt repositories and services disabled by default
 
