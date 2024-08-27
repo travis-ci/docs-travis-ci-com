@@ -28,7 +28,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Git (push) is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Git (push) is in **development**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `deploy_key`, `name` and `email` are required.
@@ -58,9 +58,9 @@ Use the following options to further configure the deployment. Either `token` or
 
 All options can be given as environment variables if prefixed with `GITHUB_` or `GIT_`.
 
-For example, `token` can be given as 
+For example, `token` can be given as
 
-* `GITHUB_TOKEN=<token>` or 
+* `GITHUB_TOKEN=<token>` or
 * `GIT_TOKEN=<token>`
 ## Interpolation variables
 

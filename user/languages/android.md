@@ -18,7 +18,7 @@ Android builds are not available on the macOS environment.
 
 > Android builds are officially supported only on our Trusty Build environment at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala/#projects-using-sbt) and [Leiningen](/user/languages/clojure/).
 
 By setting
 
@@ -220,7 +220,7 @@ before_install:
  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
  - unzip -q commandlinetools.zip && cd cmdline-tools
  - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
- 
+
  # SETUP PATH(s)
  - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
  - export PATH=$ANDROID_HOME/emulator/:$PATH

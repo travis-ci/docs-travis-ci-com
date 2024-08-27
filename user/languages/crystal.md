@@ -44,7 +44,7 @@ and cc [@asterite](https://github.com/asterite),
 
 By default Travis CI will use the latest Crystal stable release. It is also possible
 to test projects against the nightly or specific version build of Crystal. To do so, set the
-`crystal` key in `.travis.yml`. For example, to test against the latest stable release, the 
+`crystal` key in `.travis.yml`. For example, to test against the latest stable release, the
 most recent nightly, and a specific version stable release:
 
 ```yaml

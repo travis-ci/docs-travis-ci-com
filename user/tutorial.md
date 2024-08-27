@@ -7,7 +7,7 @@ redirect_from:
 
 This is a short guide to using Travis CI with your cloud platform-hosted code repository.
 If you're new to continuous integration or would like some more information on
-what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners)
+what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners/)
 instead.
 
 ## Prerequisites
@@ -21,7 +21,7 @@ To start using Travis CI, make sure you have:
 
 1. Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with GitHub*](https://app.travis-ci.com/signin).
 
-2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. For any doubts about the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/tutorial#travis-ci-github-oauth-app-access-rights)
+2. Accept the Authorization of Travis CI. You'll be redirected to GitHub. For any doubts about the Travis CI GitHub Authorized OAuth App access rights message, please read more details [below](/user/tutorial/#travis-ci-github-oauth-app-access-rights)
 
 3. Click on your profile picture in the top right of your Travis Dashboard, click Settings, and then the green *Activate* button, and select the repositories you want to use with Travis CI.
 
@@ -53,7 +53,7 @@ To start using Travis CI, make sure you have:
 
 {{ site.data.snippets.github_oauth_access_rights }}
 
-Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopess).
+Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
 
 ## To get started with Travis CI using Assembla
 
@@ -86,8 +86,8 @@ Read more about it: [GitHub permissions used by Travis CI](/user/github-oauth-sc
    and `rake` to build the project.
 
 5. Add the `.travis.yml` file to a specific location in your repository:
-    1. Git Repository: in the root of the repository (`main` and branches). 
-    2. SVN Repository: 
+    1. Git Repository: in the root of the repository (`main` and branches).
+    2. SVN Repository:
         1. In the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`.
         2. In the `/branches/<branch name>/` (e.g.,`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to a specific branch.
     3. P4 (Perforce Helix Core) Repository:
@@ -118,7 +118,7 @@ Perforce and SVN builds are currently **available only for Linux Ubuntu** and st
 
 #### Travis CI access rights to Assembla
 
-Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes).
+Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/).
 
 ## To get started with Travis CI using Bitbucket
 
@@ -158,7 +158,7 @@ Read more about it: [Assembla permissions used by Travis CI](/user/assembla-oaut
 
 #### Travis CI access rights to BitBucket
 
-Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes).
+Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/).
 
 ## Get started with Travis CI using GitLab
 
@@ -198,7 +198,7 @@ Read more about it: [BitBucket permissions used by Travis CI](/user/bb-oauth-sco
 
 #### Travis CI access rights to GitLab
 
-Read more about it: [GitLab permissions used by Travis CI](/user/gl-oauth-scopes).
+Read more about it: [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/).
 
 ## Switching accounts
 
@@ -270,10 +270,10 @@ Travis CI isn't just for running tests. There are many other things you can do w
 
 Read more about:
 
-* [customizing your build](/user/customizing-the-build)
-* [shared build configuration imports](/user/build-config-imports)
+* [customizing your build](/user/customizing-the-build/)
+* [shared build configuration imports](/user/build-config-imports/)
 * [security best practices](/user/best-practices-security/)
 * [build stages](/user/build-stages/)
 * [build matrixes](/user/customizing-the-build/#build-matrix)
-* [installing dependencies](/user/installing-dependencies)
+* [installing dependencies](/user/installing-dependencies/)
 * [setting up databases](/user/database-setup/)

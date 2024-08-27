@@ -29,7 +29,7 @@ Travis CI Enterprise Core Services consist of components enlisted below. Each se
 | ----------------------- | ----------------------------------------------------------------- | ---------------------------------------------- |
 | travis-admin-web        | Travis Admin web application                                      |                                                |
 | travis-admin-worker     | A backend background handler for user synchronization with GitHub triggered on demand from Travis Admin |         |
-| travis-api              | Travis API, main Travis entry point for build requests, etc.       | May require a cluster of pods to handle workload | 
+| travis-api              | Travis API, main Travis entry point for build requests, etc.       | May require a cluster of pods to handle workload |
 | travis-api-cron         | Handles build scheduled by users in Travis Web                    |                                                |
 | travis-build            | Service building build script out of instructions parsed by travis-yml | If upscaling travis-yml, consider here as well |
 | travis-gatekeeper       | Keeper of the gates, authorizes build requests                    | May require a cluster of pods to handle workload |
@@ -55,11 +55,11 @@ Please note: certain services will need to run scheduled background jobs, usuall
 
 ## Prerequisites
 
-You can either install Travis CI Enterprise (TCIE) via [Replicated KOTS](https://kots.io/) to install it into a Kubernetes cluster on GCE, AWS, or OpenStack. 
+You can either install Travis CI Enterprise (TCIE) via [Replicated KOTS](https://kots.io/) to install it into a Kubernetes cluster on GCE, AWS, or OpenStack.
 Alternatively, you can install it on a single machine using the [Replicated kURL](https://kurl.sh/) installer and a configuration prepared by TravisCI (`tci-enterprise-kots`).
 
 To set up your Travis CI Enterprise 3.x, you need:
-  * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup). 
+  * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup).
   >Note: The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration. GitOps and Snapshots support need to be separately enabled for each license.
   * Infrastructure:
 
@@ -74,7 +74,7 @@ To set up your Travis CI Enterprise 3.x, you need:
     - *Authorization callback URL* - `https://<your-travis-ci-enterprise-domain>/api`
 
     URLs must include https or http at the beginning and cannot have trailing slashes.
-    
+
 
 ### System Requirements
 
@@ -93,11 +93,11 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 * [RabbitMQ](https://www.rabbitmq.com/)
 * [Postgres](https://www.postgresql.org/)
 
-## 1. Setting up Travis CI Core Services 
+## 1. Setting up Travis CI Core Services
 
 The Travis CI Enterprise Core Services (aka Platform) handles licensing, coordinates Worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
-installed as Kubernetes cluster or on at least one machine instance acting as Kubernetes host 
+installed as Kubernetes cluster or on at least one machine instance acting as Kubernetes host
 or multiple instances managed by Kubernetes, separate from that of the Travis CI
 Enterprise Worker. We recommend **compute optimized** instance running
 Ubuntu 18.04 LTS or later as the underlying operating system.
@@ -106,7 +106,7 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
 1. *On your infrastructure management platform*, create a Travis CI Core Services (or Platform) Security Group.
 
-    If you're setting up your instance image or Kubernetes cluster for the first time, you need to create 
+    If you're setting up your instance image or Kubernetes cluster for the first time, you need to create
     Security Groups or Firewall Rules. Create an entry for each port as shown in the table below:
 
     | Port | Service         | Description                                                                  |
@@ -124,8 +124,8 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 
 |  Infrastructure scenario                                          | How to set up TCIE Core Services           | How to Set Up TCIE Worker           |
 | ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------- |
-| not using default k8s service at cloud provider                   | Set up one vm as k8s host using Replicated kURL (see point 5 below) | [Set up vm to run Worker Image (docker or lxd)](user/enterprise/setting-up-worker/)                        |
-| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure setup you use |
+| not using default k8s service at cloud provider                   | Set up one vm as k8s host using Replicated kURL (see point 5 below) | [Set up vm to run Worker Image (docker or lxd)](/user/enterprise/setting-up-worker/)                        |
+| using k8s service at cloud provider (e.g. Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](/user/enterprise/setting-up-worker/) at your convernience, depending on infrastructure setup you use |
 
 In each case the TCIE Core Services will be deployed as k8s cluster. Cluster must be prepared and started.
 
@@ -141,13 +141,13 @@ In each case the TCIE Core Services will be deployed as k8s cluster. Cluster mus
 8. Run `kubectl kots install tci-enterprise-kots` to install TCIE 3.x. Please note down the administrative password and namespace used during this step.
 9. *In your browser*, navigate to `http://localhost:8800` to complete the setup. The TCIE 3.x admin console will automatically enable the during first installation:
 
-   1. Authorize with a password set during the installation process. 
-   2. Upload your Travis CI Enterprise license. 
+   1. Authorize with a password set during the installation process.
+   2. Upload your Travis CI Enterprise license.
    3. Connect your Source Control System (GitHub Enterprise Server, GitHub.com, or Bitbucket).
    4. Optionally, configure Email, Metrics, and Caches.
    5. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) for more information.
 
 
 ### 1.1 Example TCIE 3.x installation for GCE on macOSX
@@ -160,44 +160,44 @@ You'll want to make sure you have the latest version of Python 3. If you're on m
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
 ```
 
-Once brew is up and running, you'll install Python via: 
+Once brew is up and running, you'll install Python via:
 
 ```bash
 brew install python
 ```
 
-Now check if Python is installed via running: 
+Now check if Python is installed via running:
 
 ```bash
 python -version
-``` 
+```
 
 #### 1.1.2 Google SDK
 
-Install the Google Cloud SDK via: 
+Install the Google Cloud SDK via:
 
 ```bash
 curl https://sdk.cloud.google.com | bash
 ```
 
-Restart your shell session before running `gcloud init`: 
+Restart your shell session before running `gcloud init`:
 
 ```bash
 exec -l $SHELL
 ```
 
-Make sure gcloud installed via using the ```version``` arugument: 
+Make sure gcloud installed via using the ```version``` arugument:
 
 ```bash
 gcloud --version
 ```
-> Please make sure that `kubectl` is installed if you use tooling other than Google SDK. 
+> Please make sure that `kubectl` is installed if you use tooling other than Google SDK.
 
 #### 1.1.3 Initialize GCloud
 
 > For a provider different than Google, make sure you have your setup ready
 
-Now you'll be able to run ```gcloud init```. Once you've put your credentials in the terminal, it should look similar to this: 
+Now you'll be able to run ```gcloud init```. Once you've put your credentials in the terminal, it should look similar to this:
 
 ```bash
 Welcome! This command will take you through the configuration of gcloud.
@@ -217,7 +217,7 @@ Pick configuration to use:
 Please enter your numeric choice:
 ```
 
-You'll want to run the following set of variables: 
+You'll want to run the following set of variables:
 
 ```bash
 1
@@ -227,7 +227,7 @@ Y
 10
 ```
 
-In example case and timezone, the next command to run: 
+In example case and timezone, the next command to run:
 
 ```bash
 gcloud container clusters get-credentials tci-test2 --zone us-central1-b --project kubernetes-test-164423
@@ -235,33 +235,33 @@ gcloud container clusters get-credentials tci-test2 --zone us-central1-b --proje
 
 #### 1.1.4 Install Travis CI Enterprise via Replicated KOTS
 
-Using cURL to install Kots on *local machine* via: 
+Using cURL to install Kots on *local machine* via:
 
 ```bash
 curl https://kots.io/install | bash
 ```
 
-Run Kots: 
+Run Kots:
 
 ```bash
 kubectl kots install tci-enterprise-kots
 ```
 
-Once employed with the choice, you can type the following: 
+Once employed with the choice, you can type the following:
 
 ```bash
 travis
 ```
 
-From there, if you have the correct permissions, you can now start Enterprise on local via going to your browser and typing: 
+From there, if you have the correct permissions, you can now start Enterprise on local via going to your browser and typing:
 
 ```bash
 http://localhost:8800
 ```
 
-If you get a "permissions" error, please 
-* Make sure you have [obtained correct license](/user/enterprise/tcie-3.x-obtain-license). 
-* Contact one of your sysadmins to solve the access rights error. 
+If you get a "permissions" error, please
+* Make sure you have [obtained correct license](/user/enterprise/tcie-3.x-obtain-license/).
+* Contact one of your sysadmins to solve the access rights error.
 
 Once you get the proper permissions, you should have a license file. You'll see where you can drag and drop this on the localhost UI, it will look like this:
 
@@ -269,7 +269,7 @@ Once you get the proper permissions, you should have a license file. You'll see 
 
 #### 1.1.5 Configure Travis CI Enterprise
 
-Next, map your platform host, in example case the platform host is: 
+Next, map your platform host, in example case the platform host is:
 
 ```bash
 montana.travis-ci-enterprise.com
@@ -279,11 +279,11 @@ Example of how this would look like in the localhost UI:
 
 ![Port](/images/tcie-3.x-setting-up-Port.png)
 
-Next, you'll want to register a new OAuth application with GitHub. In this case, the application name was ```kubernetes``` and the homepage was the same as the platform host: 
+Next, you'll want to register a new OAuth application with GitHub. In this case, the application name was ```kubernetes``` and the homepage was the same as the platform host:
 
 ![OAuth](/images/tcie-3.x-setting-up-OAuth.png)
 
-Retrieve your ```Client_ID``` and your ```Secret``` from GitHub and enter them. This is how it would look like in the UI with application name set as ```kubernetes```: 
+Retrieve your ```Client_ID``` and your ```Secret``` from GitHub and enter them. This is how it would look like in the UI with application name set as ```kubernetes```:
 
 ![Secret](/images/tcie-3.x-setting-up-Secret.png)
 
@@ -293,18 +293,18 @@ Once your ```Client_ID``` and ```Secrets``` are obtained, obtain proper values v
 https://gh-app-setup.travis-ci-enterprise.com
 ```
 
-Be sure that in GitHub app section to use SSL (Secure Socket Layer) via 
+Be sure that in GitHub app section to use SSL (Secure Socket Layer) via
 ```bash
 https://
 ```
 
 ![JSON](/images/tcie-3.x-setting-up-JSON.png)
 
-Fill in the host field with the hostname and click submit, then grab your RSA key: 
+Fill in the host field with the hostname and click submit, then grab your RSA key:
 
 ![Details](/images/tcie-3.x-setting-up-Details.png)
 
-Once you've grabbed your RSA key, enter it via the UI: 
+Once you've grabbed your RSA key, enter it via the UI:
 
 ![RSA](/images/tcie-3.x-setting-up-RSA.png)
 
@@ -312,19 +312,19 @@ Now that you have your RSA key, you'll see a variable of settings, including ```
 
 ```bash
 kubectl get pods -n [NAMESPACE]
-``` 
-Remember to replace the ```[NAMESPACE]``` with your value from the config form. Now regarding the Load Balancer, below is the default behavior of the Load Balancer: 
+```
+Remember to replace the ```[NAMESPACE]``` with your value from the config form. Now regarding the Load Balancer, below is the default behavior of the Load Balancer:
 
 ![LoadBalancer](/images/tcie-3.x-setting-up-loadbalancer.svg)
 
 Go to your Google Cluster and search for ```nginx```, which is the service that maps/directs to a load balancer on Google Cloud. Copy the IP address from the existing Load Balancer and register it via the DNS provider. Enter the DNS name on the config tab of your Travis Dashboard.
 
-To access the config page, try running: 
+To access the config page, try running:
 ```bash
 kubectl kots admin-console --namespace travis
 ```
 
-The above command assumes your namespace is ```travis```, please replace it with yours. Remember registering the Load Balancer is generic. So you run ```kubectl get service nginx``` for example, just make a DNS record to point to the service's external IP. This is true with GCE and AWS. 
+The above command assumes your namespace is ```travis```, please replace it with yours. Remember registering the Load Balancer is generic. So you run ```kubectl get service nginx``` for example, just make a DNS record to point to the service's external IP. This is true with GCE and AWS.
 
 ## 2. Setting up the Enterprise Worker virtual machine
 
@@ -332,7 +332,7 @@ The Travis CI Enterprise Worker manages to build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using instances running Ubuntu 18.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
 After that, follow the [instructions to set up a Worker](/user/enterprise/setting-up-worker).
 

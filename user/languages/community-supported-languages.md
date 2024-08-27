@@ -91,13 +91,13 @@ execute (we recommend doing this on a virtual machine) to aid your development.
 
 In alphabetical order, they are:
 
-1. [C#](../csharp)
-2. [Crystal](../crystal)
-3. [D](../d)
-4. [Dart](../dart)
-5. [Haxe](../haxe)
-6. [Julia](../julia)
-7. [Nix](../nix)
-8. [Perl 6](../perl6)
-9. [R](../r)
-10. [Smalltalk](../smalltalk)
+1. [C#](../csharp/)
+2. [Crystal](../crystal/)
+3. [D](../d/)
+4. [Dart](../dart/)
+5. [Haxe](../haxe/)
+6. [Julia](../julia/)
+7. [Nix](../nix/)
+8. [Perl 6](../perl6/)
+9. [R](../r/)
+10. [Smalltalk](../smalltalk/)
