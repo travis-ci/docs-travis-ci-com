@@ -7,13 +7,13 @@ redirect_from:
 
 This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered, please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
 
-## Travis CI Enterprise (TCIE) 3.x 
+## Travis CI Enterprise (TCIE) 3.x
 
 The TCIE 3.x is deployed as Kubernetes cluster. Thus `travis bash` and `travis console` working previously with single Docker installation will not work anymore. They're replaced with specific `kubectl` command line commands.
 
-The term `Worker machine` still means the worker instance(s) that process and run the builds. 
+The term `Worker machine` still means the worker instance(s) that process and run the builds.
 
-## Travis CI Enterprise (TCIE) 2.x 
+## Travis CI Enterprise (TCIE) 2.x
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise 2.x installation:
 
@@ -89,11 +89,11 @@ To verify that webhook payloads are being successfully delivered by Github:
 
 All recent payload attempts to Travis CI Enterprise should be present. If any have failed with a message such as 'Peer certificate cannot be authenticated with given CA certificates', the root cause is most likely your SSL Certificate setup on your installation.
 
-Depending on your configuration, there may be multiple ways to solve this problem. Our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) contains instructions for the various setups available in Travis CI Enterprise.
+Depending on your configuration, there may be multiple ways to solve this problem. Our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) contains instructions for the various setups available in Travis CI Enterprise.
 
 #### Docker Version Mismatch
 
-This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-worker) on a fresh instance.
+This issue sometimes occurs after maintenance on workers that were originally installed before November 2017 or on systems running a `docker version` before `17.06.2-ce`. When this happens, the `/var/log/upstart/travis-worker.log` file will contain the following line: `Error response from daemon:client and server don't have same version`. For this issue, we recommend [re-installing each worker from scratch](/user/enterprise/setting-up-worker/) on a fresh instance.
 
 > Please note that the default build environment images will be pulled and you may need to apply customizations again as well.
 
@@ -108,7 +108,7 @@ To address this, either:
 
 #### You are running Enterprise v3.x or higher
 
-Verify if default queue configured in Enterprise Platform 3.x routes builds to a matching, existing workers. You may choose to alter the default queue setting by running admin console UI on `http://loclahost:8800`, navigating to Configuration and altering the option 'Set Default Build Environment' by selecting one of available options. 
+Verify if default queue configured in Enterprise Platform 3.x routes builds to a matching, existing workers. You may choose to alter the default queue setting by running admin console UI on `http://loclahost:8800`, navigating to Configuration and altering the option 'Set Default Build Environment' by selecting one of available options.
 
 
 ## Enterprise Container Fails to Start due to 'context deadline exceeded' Error
@@ -222,7 +222,7 @@ Ask the owner of **the affected account** (usually printed in the logs) to sync 
 
 ####  Sync account from the CLI with administrator privileges
 
-An administrator can also initiate a sync on behalf of someone else: 
+An administrator can also initiate a sync on behalf of someone else:
 
 **TCIE 3.X**: via manually forcing the github-sync to re-run synchronization
 
@@ -243,7 +243,7 @@ An administrator can also initiate a sync on behalf of someone else:
 
 When using self-signed certificate, the Rabbit MQ AMQPS will not work which will result in jobs queueing forever. Worker logs will indicate security issues when connecting to Rabbit using AMQPS.
 
-### Startegy 
+### Startegy
 
 Relax security contraints by explicitly marking that self-sgined certificates are allowed.
 

@@ -6,7 +6,7 @@ layout: en
 As of August, 13th 2019, we've switched the default Linux distribution on Travis CI from Ubuntu Trusty 14.04 LTS to
 Ubuntu Xenial 16.04. Here are the most common issues our customers ran into and how you can fix them.
 
-> If you’d like to stay on Ubuntu Trusty or need more time to set up your repository with Ubuntu Trusty, 
+> If you’d like to stay on Ubuntu Trusty or need more time to set up your repository with Ubuntu Trusty,
 please explicitly set `dist: trusty` in your .travis.yml file as soon as possible.
 
 ## What does this mean for your projects?
@@ -44,7 +44,7 @@ Sources from third-party APT repositories have been removed. During the Xenial i
 
 For example, to update the `git-lfs` version, you’d need to explicitly specify the source in your config:
 
-You can find the full list of sources that have been used and to install packages and then were removed [here](https://docs.travis-ci.com/user/reference/xenial#third-party-apt-repositories-removed).
+You can find the full list of sources that have been used and to install packages and then were removed [here](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed).
 
 ```
 addons:

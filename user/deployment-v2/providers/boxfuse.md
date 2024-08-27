@@ -45,7 +45,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-You can also use Travis CI [environment variables](/user/environment-variables)
+You can also use Travis CI [environment variables](/user/environment-variables/)
 like `TRAVIS_BUILD_NUMBER` to assign a version to the image, e.g.
 `image: "myapp:$TRAVIS_BUILD_NUMBER"`.
 

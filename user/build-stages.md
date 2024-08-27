@@ -15,7 +15,7 @@ In the simplest and most common use case, you can now make one job run _only_
 if several other, parallel jobs have completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
-various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build#build-matrix).
+various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build/#build-matrix).
 And you want to release your gem or package **only** if all tests have passed and
 completed successfully. Build stages make this possible.
 

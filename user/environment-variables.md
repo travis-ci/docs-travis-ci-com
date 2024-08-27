@@ -114,7 +114,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 2. In your repository directory:
 
-   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys#usage).
+   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys/#usage).
    * If you are using https://travis-ci.org, run:
 
        ```bash
@@ -125,7 +125,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 > Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
-The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
+The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys/).
 
 ## Defining Variables in Repository Settings
 
@@ -195,7 +195,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 - `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
-- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. PLEASE NOTE: This is not the same as *Custom Commit Message*.
+- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. It will contain *Custom Commit Message* if it was provided.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_COMPILER`: Indicates the compiler used by the current job (e.g., `clang`, `gcc`).
@@ -222,6 +222,10 @@ to tag the build, or to run post-build deployments.
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SLUG`:
   + if the current job is a pull request, the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
+  + if the current job is a push build, this variable is empty (`""`).
+- `TRAVIS_PULL_REQUEST_IS_DRAFT`:
+  + set to `true` if the current job is a pull request and the associated PR is in a draft state
+  + set to `false` if the current job is a pull request and the associated PR is not in a draft state
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the repository currently being built.
 - `TRAVIS_SECURE_ENV_VARS`:

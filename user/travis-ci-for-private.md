@@ -19,7 +19,7 @@ When you're ready to start using Travis CI, head over to the [billing page](http
 ## Can I use pull request testing on Travis CI for private repositories?
 
 Yes, you can. It's enabled by default for all repositories set up on Travis CI. See
-the [blog post](https://blog.travis-ci.com/announcing-pull-request-support/) accompanying the launch of pull requests for Travis CI.
+the [blog post](https://travis-ci.com/blog/announcing-pull-request-support/) accompanying the launch of pull requests for Travis CI.
 
 ## Who has access to the builds?
 
@@ -87,7 +87,7 @@ If you're using the Travis CI [command line client](https://github.com/travis-ci
    ```sh
    travis endpoint --com --set-default
    ```
-   
+
 ## How can I set the repository privacy status on Bitbucket?
 
 If you want to set the privacy status for a Bitbucket repository, follow the [instructions on

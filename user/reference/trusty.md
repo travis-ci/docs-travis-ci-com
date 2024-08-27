@@ -42,7 +42,7 @@ Your build is routed to this infrastructure automatically, you don't need make a
 
 ## Container-based infrastructure
 
-> Container-based infrastructure has been fully [deprecated](https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
+> Container-based infrastructure has been fully [deprecated](https://travis-ci.com/blog/2018-11-19-required-linux-infrastructure-migration#timeline---its-happening-fast).
 > Please remove any `sudo: false` keys in your `.travis.yml` file to use the fully-virtualized [Linux infrastructure](#linux-infrastructure).
 
 ## Image differences from Precise
@@ -335,7 +335,7 @@ addons:
 ### Environment variables
 
 There is a [list of default environment
-variables](/user/environment-variables#default-environment-variables) available
+variables](/user/environment-variables/#default-environment-variables) available
 in each build environment.
 
 ### apt configuration
@@ -376,4 +376,4 @@ versions) are shown in the "Build system information" section.
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.

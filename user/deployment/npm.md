@@ -109,7 +109,7 @@ deploy:
 [A deployment issue](https://github.com/travis-ci/travis-ci/issues/4738) is
 reported when multiple attempts are made.
 We recommend deploying from only one job with
-[Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+[Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ## Tagging releases
 

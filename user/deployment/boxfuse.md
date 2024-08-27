@@ -43,7 +43,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-You can also use Travis CI [environment variables](/user/environment-variables) like `TRAVIS_BUILD_NUMBER` to assign a version to the image. Ex.: `image: "myapp:$TRAVIS_BUILD_NUMBER"`
+You can also use Travis CI [environment variables](/user/environment-variables/) like `TRAVIS_BUILD_NUMBER` to assign a version to the image. Ex.: `image: "myapp:$TRAVIS_BUILD_NUMBER"`
 
 ### Specifying the Boxfuse environment
 
