@@ -27,9 +27,8 @@ Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with your preferr
 2. **Accept Travis CI Authorization**. </br>
 Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
 
-> **Note**: If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
-
-  * [GitHub Authorized OAuth App]](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
+If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
+  * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
   * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
   * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
   * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
