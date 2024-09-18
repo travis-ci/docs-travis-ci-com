@@ -19,46 +19,52 @@ To start using Travis CI, make sure you have the following:
 
 Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
 
-1. **Sign up for Travis CI**. 
+1. **Sign up for Travis CI**. </br>
 Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with your preferred account*](https://app.travis-ci.com/signin).
 
 [image1-signup]
 
-2. **Accept Travis CI Authorization**. 
+2. **Accept Travis CI Authorization**. </br>
 Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
 
 > **Note**: If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
 
-* [GitHub Authorized OAuth App]](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
-* [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
-* [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
-* [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
-* [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
+  * [GitHub Authorized OAuth App]](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
+  * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
+  * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
+  * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
+  * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
 
-3. **Verify your email account**. 
+
+3. **Verify your email account**. </br>
 Travis CI sends a verification email. Check your email and verify your account to continue. Otherwise, you will have limited build functions.
 
-4. **Select a Plan**. 
+
+4. **Select a Plan**. </br>
 Choose the best plan for you, or get started with our Trial Plan.
 
 [img2-plans]
 
-5. **Credit Card Validation**. 
+
+5. **Credit Card Validation**. </br>
 To commence the selected plan, you must first insert your billing information and a valid Credit Card.
 
 [img3-payment]
 
 > **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 30 days.
 
-6. **Settings configurations**.
+
+6. **Settings configurations**.</br>
 In your Travis Dashboard, click on your profile picture at the top right and select the Settings option to see a list of your available repositories.
 
-7. **Select repositories**.
+
+7. **Select repositories**.</br>
 Click the **Manage Repositories** button. Once directed to your chosen platform, select the repositories you want to use with Travis CI. 
 
 [img4-repos]
 
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
+
 
 ## Add a `.travis.yml` File
 
