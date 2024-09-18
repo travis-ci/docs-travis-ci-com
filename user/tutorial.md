@@ -185,4 +185,4 @@ Find more useful information in our Tutorial pages:
 * [Sign up for Travis](https://youtu.be/IZJJxl9BkmA)
 * [Get Started with Travis CI](https://youtu.be/_Og2kydTLWk)
 * [Core concepts for Beginners](https://youtu.be/EER3AWu4sqM)
-* [Travis CI Tutorials](/user/tutorials/tutorials_overview.md)
+* [Travis CI Tutorials](/user/tutorials/tutorials-overview)
