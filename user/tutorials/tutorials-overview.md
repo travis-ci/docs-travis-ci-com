@@ -8,11 +8,11 @@ The following tutorials illustrate how to use Travis CI with different programmi
 ## Getting Started Tutorials
 
 Learn how to get started by following any of the following programming language tutorials:
-* [Get started with C/C++](/user/tutorials/cpp-tutorial)
-* [Get started with Java](/user/tutorials/java-tutorial)
-* [Get started with Node.js](/user/tutorials/nodejs-tutorial)
-* [Get started with Python](/user/tutorials/python-tutorial)
-* [Get started with Ruby](/user/tutorials/ruby-tutorial)
+* [Get started with C/C++](/user/tutorials/tutorial-c/)
+* [Get started with Java](/user/tutorials/tutorial-java/)
+* [Get started with Node.js](/user/tutorials/tutorial-nodejs/)
+* [Get started with Python](/user/tutorials/tutorial-python/)
+* [Get started with Ruby](/user/tutorials/tutorial-ruby/)
 
 ### Videos
 * [Sign up for Travis](https://youtu.be/IZJJxl9BkmA)
