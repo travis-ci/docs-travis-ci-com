@@ -1,7 +1,7 @@
 ---
 title: Travis CI Tutorials
 layout: en
-—
+---
 
 The following tutorials illustrate how to use Travis CI with different programming languages. 
 
