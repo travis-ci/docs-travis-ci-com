@@ -1,7 +1,7 @@
 ---
 title: Use Ruby with Travis CI
 layout: en
-—
+---
 
 The following is a guide to getting started with Travis CI using Ruby.
 
