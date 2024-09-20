@@ -30,8 +30,8 @@ language: perl6
 </aside>
 
 This guide covers build environment and configuration topics specific to
-Perl 6 projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+Perl 6 projects. Please make sure to read our [OnBoarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Perl 6 builds are not available on the macOS environment.
 
