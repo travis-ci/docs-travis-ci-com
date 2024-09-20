@@ -63,3 +63,4 @@ For more information on C and C++ projects see:
 * [Building a C Project](/user/language/c/)
 * [Building a C++ Project](/user/language/cpp/)
 * [Building a C# Project](/user/language/csharp/)
+* [Travis CI Cookbook: C++](https://www.youtube.com/watch?v=9rKfaT8Quzs)
