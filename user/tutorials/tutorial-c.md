@@ -19,6 +19,7 @@ compiler:
   - gcc
   - clang
 ```
+{: data-file=".travis.yml"}
 
 ## Install Build Dependencies
 Now is the time to install any necessary packages, like build tools or libraries, to the project. 
@@ -29,6 +30,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y build-essential
 ```
+{: data-file=".travis.yml"}
 
 ## Configure your File
 Define the build and specify any test command to compile and run tests. 
@@ -38,6 +40,7 @@ Use the `script` section to specify any commands. Below is an example using a `M
 script:
   - make
 ```
+{: data-file=".travis.yml"}
 
 ## Commit and Push
 Once the file is set up, commit it to your repository, and Travis begins building and testing your C/C++ project. By the end, your file should look like this:
@@ -53,6 +56,7 @@ before_install:
 script:
   - make
 ```
+{: data-file=".travis.yml"}
 
 ## Further Reading
 For more information on C and C++ projects see:
