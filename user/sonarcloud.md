@@ -24,7 +24,7 @@ to use Java 17 JRE/JDK as default.
 
 Before inspecting your code, you need to:
 
-1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Tutorial](https://docs.travis-ci.com/user/tutorial/).
+1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Onboarding](/user/onboarding/).
 2. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
 3. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
