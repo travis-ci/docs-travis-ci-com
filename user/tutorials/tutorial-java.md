@@ -14,6 +14,7 @@ Add the following code to let Travis CI know you are working with Java:
 ```yaml
 language: java
 ```
+{: data-file=".travis.yml"}
 
 You can test your project across multiple Java versions. The following example uses `OpenJDK 11` and `OpenJDK 17`.
 
@@ -22,6 +23,7 @@ jdk:
   - openjdk11
   - openjdk17
 ```
+{: data-file=".travis.yml"}
 
 ### Install Build Dependencies
 Travis CI automatically installs project dependencies based on your build tool (like Maven or Gradle). For Maven projects, use the following command:
@@ -30,6 +32,7 @@ Travis CI automatically installs project dependencies based on your build tool (
 install:
   - mvn install -DskipTests=true -B -V
 ```
+{: data-file=".travis.yml"}
 
 The command above installs all necessary dependencies without running any tests during the installation. 
 
@@ -40,11 +43,13 @@ Use the `script` key to specify the command you want Travis CI to run your unit 
 script:
   - mvn test
 ```
+{: data-file=".travis.yml"}
 
 The code above runs unit tests with the default Maven settings.  
  
 ## Commit and Push
 Once the file is created, commit it to your repository. Travis CI detects the file and automatically starts building and testing your project each time you push a new change. The following is the complete code:
+ 
  ```yaml
 language: java
 jdk:
@@ -55,6 +60,7 @@ install:
 script:
   - mvn test
 ```
+{: data-file=".travis.yml"}
 
 ## Further Reading
 For more information on Java projects, see:
