@@ -22,6 +22,7 @@ Learn how to get started by following any of the following programming language 
 * [Start Building with Travis CI](https://youtu.be/qMd1_4m1fI4)
 * [Start Deploying](https://youtu.be/t0URMGjtBLQ)
 * [Level up your Builds](https://youtu.be/TbmvYBSMS_4)
+* [Tutorial: Perforce and Subversion](https://youtu.be/BkvRuIppVXo?si=3pjDPYclbgwLwt8r)
 
 ## Build Configuration Tutorials
 
