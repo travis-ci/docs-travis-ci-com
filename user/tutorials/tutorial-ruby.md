@@ -17,6 +17,7 @@ rvm:
   - 2.7
   - 3.0
 ```
+{: data-file=".travis.yml"}
 
 ## Install Build Dependencies
 Install your dependencies via Bundler by using the `bundle install` command. 
@@ -25,6 +26,7 @@ Install your dependencies via Bundler by using the `bundle install` command.
 install:
   - bundle install
 ``` 
+{: data-file=".travis.yml"}
 
 ## Define the Test Command
 Specify a command to run your tests. The example below uses `RSpec`:
@@ -33,6 +35,7 @@ Specify a command to run your tests. The example below uses `RSpec`:
 script:
   - bundle exec rspec
  ```
+{: data-file=".travis.yml"}
 
 ## Commit and Push 
 Push the `.travis.yml` file to your repository, and Travis CI runs the tests for your Ruby project. The following is the complete example:
@@ -47,6 +50,7 @@ install:
 script:
   - bundle exec rspec
 ```
+{: data-file=".travis.yml"}
 
 ## Further Reading
 For more information on Ruby projects, see:
