@@ -18,6 +18,7 @@ python:
   - "3.9"
   - "3.10"
  ```
+{: data-file=".travis.yml"}
 
 ## Install Build Dependencies
 Travis CI will automatically run commands to install your dependencies. In our example, a `requirements.txt` file manages dependencies. 
@@ -26,6 +27,7 @@ Travis CI will automatically run commands to install your dependencies. In our e
  install:
   - pip install -r requirements.txt
 ```
+{: data-file=".travis.yml"}
 
 ## Define the Test Command
 Specify a command to run your tests. The example below uses `pytest`:
@@ -34,6 +36,7 @@ Specify a command to run your tests. The example below uses `pytest`:
  script:
   - pytest
 ```
+{: data-file=".travis.yml"}
 
 ## Commit and Push 
 Once you’ve configured your `.travis.yml` file, push it to your GitHub repository, and Travis CI will trigger the build and test process automatically. The following is the complete example:
@@ -49,7 +52,10 @@ install:
 script:
   - pytest
 ```
+{: data-file=".travis.yml"}
+
 ## Further Reading
 For more information on Python projects, see:
 * [Building a Python Project](/user/languages/python/)
 * [First .travis.yml file](https://youtu.be/MLMwfDjMMIE)
+* [Getting Started with Python](https://www.youtube.com/watch?v=nkqgB7VNDEE)
