@@ -68,7 +68,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 ### Concurrency Plan - How to obtain it?
 
-1. Sign in to Travis CI with the [Version Control System of your choice](/user/tutorial/).
+1. Sign in to Travis CI with the [Version Control System of your choice](/user/onboarding/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
 3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
 4. Confirm the transaction.
@@ -97,7 +97,7 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 
 ### Usage-based Plan - How to obtain?
 
-1. Sign in to Travis CI with a [Version Control System of your choice](/user/tutorial/).
+1. Sign in to Travis CI with a [Version Control System of your choice](/user/onboarding/).
 2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and have your billing and contact details filled in correctly.
 3. Select an available Usage-based Plan or contact [Travis CI support](mailto:support@travis-ci.com) requesting a Usage-based Plan for larger options.
 
