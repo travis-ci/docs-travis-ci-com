@@ -27,7 +27,7 @@ language: cpp
 
 This guide covers build environment and configuration topics specific to C++
 projects. Please make sure to read our [OnBoarding](/user/onboarding/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C++ Projects
 
