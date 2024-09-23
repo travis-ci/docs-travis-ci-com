@@ -33,8 +33,8 @@ perl:
 Perl builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Perl projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [OnBoarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Perl versions
 

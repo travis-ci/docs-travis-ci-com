@@ -6,7 +6,7 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [OnBoarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Android builds are not available on the macOS environment.
 
@@ -16,7 +16,7 @@ Android builds are not available on the macOS environment.
 
 ### Overview
 
-> Android builds are officially supported only on our Trusty Build environment at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
+> Android builds are officially supported only on our Trusty Build environment at this time; hence, you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
 
 Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala/#projects-using-sbt) and [Leiningen](/user/languages/clojure/).
 

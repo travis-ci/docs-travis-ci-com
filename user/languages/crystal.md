@@ -26,8 +26,8 @@ language: crystal
 
 This guide covers build environment and configuration topics specific to [Crystal](http://crystal-lang.org)
 projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[OnBoarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
