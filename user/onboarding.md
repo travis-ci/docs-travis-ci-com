@@ -20,9 +20,9 @@ To start using Travis CI, make sure you have the following:
 Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
 
 1. **Sign up for Travis CI**. </br>
-Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign up with your preferred account*](https://app.travis-ci.com/signin).
+Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferred account*](https://app.travis-ci.com/signin).
 
-![Travis CI Sign-up](/user/images/onboarding-travis-sign-in.png)
+![Travis CI Sign-in](/user/images/onboarding-travis-sign-in.png)
 
 2. **Accept Travis CI Authorization**. </br>
 Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
@@ -50,7 +50,7 @@ To commence the selected plan, you must first insert your billing information an
 
 ![Payment Screen](/user/images/onboarding-payment.png)
 
-> **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 30 days.
+> **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 14 days.
 
 
 6. **Settings configurations**.</br>
