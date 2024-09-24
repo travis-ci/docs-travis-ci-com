@@ -60,7 +60,7 @@ script:
 
 ## Further Reading
 For more information on C and C++ projects see:
-* [Building a C Project](/user/language/c/)
-* [Building a C++ Project](/user/language/cpp/)
-* [Building a C# Project](/user/language/csharp/)
+* [Building a C Project](/user/languages/c/)
+* [Building a C++ Project](/user/languages/cpp/)
+* [Building a C# Project](/user/languages/csharp/)
 * [Travis CI Cookbook: C++](https://www.youtube.com/watch?v=9rKfaT8Quzs)
