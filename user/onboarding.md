@@ -19,46 +19,53 @@ To start using Travis CI, make sure you have the following:
 
 Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
 
-1. **Sign up for Travis CI**. 
-Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferred account*](https://app.travis-ci.com/signin).
+1. **Sign up for Travis CI**.
+
+   Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferred account*](https://app.travis-ci.com/signin).
 
    ![Travis CI Sign-in](/user/images/onboarding-travis-sign-in.png)
 
-2. **Accept Travis CI Authorization**. 
-Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
+1. **Accept Travis CI Authorization**. 
 
-  If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
-    
-    * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
-    * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
-    * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
-    * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
-    * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
+    Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
 
-3. **Verify your email account**. 
-Travis CI sends a verification email. Check your email and verify your account to continue. Otherwise, you will have limited build functions.
+    If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
+      
+      * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
+      * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
+      * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
+      * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
+      * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
 
-4. **Select a Plan**. 
-Choose the best plan for you, or get started with our Trial Plan.
+1. **Verify your email account**. 
 
-   ![Plan Selection](/user/images/onboarding-select-plan.png)
+    Travis CI sends a verification email. Check your email and verify your account to continue. Otherwise, you will have limited build functions.
 
-5. **Credit Card Validation**. 
-To commence the selected plan, you must first insert your billing information and a valid Credit Card.
+1. **Select a Plan**. 
 
-   ![Payment Screen](/user/images/onboarding-payment.png)
+    Choose the best plan for you, or get started with our Trial Plan.
 
-   > **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 14 days.
+    ![Plan Selection](/user/images/onboarding-select-plan.png)
 
-6. **Settings configurations**.
-In your Travis Dashboard, click on your profile picture at the top right and select the Settings option to see a list of your available repositories.
+1. **Credit Card Validation**. 
 
-7. **Select repositories**.
-Click the **Manage Repositories** button. Once directed to your chosen platform, select the repositories you want to use with Travis CI. 
+    To commence the selected plan, you must first insert your billing information and a valid Credit Card.
 
-![Manage Repositories](/user/images/onboarding-manage-repositories.png)
+    ![Payment Screen](/user/images/onboarding-payment.png)
 
-> Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
+    > **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 14 days.
+
+1. **Settings configurations**.
+
+    In your Travis Dashboard, click on your profile picture at the top right and select the Settings option to see a list of your available repositories.
+
+1. **Select repositories**.
+
+    Click the **Manage Repositories** button. Once directed to your chosen platform, select the repositories you want to use with Travis CI. 
+
+    ![Manage Repositories](/user/images/onboarding-manage-repositories.png)
+
+    > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
 
 
 ## Add a `.travis.yml` File
@@ -90,10 +97,11 @@ Finally, visit [Travis CI](https://app.travis-ci.com) and select your repository
 </blockquote>
 
 For Assembla users, configure the `.travis.yml` as follows:
+
 1. Git Repository:  in the repositories root (`main` and branches).
 2. SVN Repository:
-        1. In the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`.
-        2. In the `/branches/<branch name>/` (e.g.,`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to a specific branch.
+    1. In the `/trunk/` (default is `/trunk/.travis.yml`) for builds to run after commits to `trunk`.
+    2. In the `/branches/<branch name>/` (e.g.,`/branches/abc/.travis.yml` for branch named `abc`) for builds to run after commits to a specific branch.
 3. P4 (Perforce Helix Core) Repository:
         1. In the `/<depotname>/main/` (default is `/depot/main/.travis.yml`) for builds to run after submits to `/<depotname>/main`.
         2. In the directory respective to specific stream `/depot/<stream name>/`.travis.yml (e.g., `/depot/abc/.travis.yml` for stream `abc`) for builds to run after submits to a specific stream.
