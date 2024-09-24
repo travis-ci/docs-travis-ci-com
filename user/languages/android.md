@@ -6,7 +6,7 @@ layout: en
 
 ### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [OnBoarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Android builds are not available on the macOS environment.
 

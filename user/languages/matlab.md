@@ -28,7 +28,7 @@ language: matlab
 
 This guide covers build environment and configuration topics specific to
 [MATLAB&reg;](https://www.mathworks.com/products/matlab.html) and [Simulink&reg;](https://www.mathworks.com/products/simulink.html) projects. Please make sure to read our
-[OnBoarding](/user/onboarding/) and
+[Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}

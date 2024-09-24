@@ -33,7 +33,7 @@ Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string), not
 {{ site.data.snippets.linux_windows_note }}
 
 The rest of this guide covers configuring Go projects in Travis CI. If you're
-new to Travis CI please read our [OnBoarding](/user/onboarding/) and [General Build
+new to Travis CI please read our [Onboarding](/user/onboarding/) and [General Build
 configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying a Go version to use

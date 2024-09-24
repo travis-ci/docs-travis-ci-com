@@ -25,7 +25,7 @@ language: csharp
 </aside>
 
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
-projects. Please make sure to read our [OnBoarding](/user/onboarding/)
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community Supported Language

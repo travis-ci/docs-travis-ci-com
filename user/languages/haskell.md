@@ -27,7 +27,7 @@ language: haskell
 {{ site.data.snippets.linux_note }}
 
 The rest of this guide covers configuring Haskell projects on Travis CI. If
-you're new to Travis CI, please read our [OnBoarding](/user/onboarding/)
+you're new to Travis CI, please read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Haskell compiler versions

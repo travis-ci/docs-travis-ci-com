@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Haxe](http://haxe.org/) projects. Please make sure to read our
-[OnBoarding](/user/onboarding/) and
+[Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning

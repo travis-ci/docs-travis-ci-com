@@ -1,5 +1,5 @@
 ---
-title: Travis CI OnBoarding
+title: Travis CI Onboarding
 layout: en
 redirect_from:
   - /user/getting-started/

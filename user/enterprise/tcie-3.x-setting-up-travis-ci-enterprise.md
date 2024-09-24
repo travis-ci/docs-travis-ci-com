@@ -338,4 +338,4 @@ After that, follow the [instructions to set up a Worker](/user/enterprise/settin
 
 ## 3. Running builds!
 
-Skip over to the [OnBoarding Guide](/user/onboarding/) and connect some repositories to your new Travis CI Setup!
+Skip over to the [Onboarding Guide](/user/onboarding/) and connect some repositories to your new Travis CI Setup!
