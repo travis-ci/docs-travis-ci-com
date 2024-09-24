@@ -27,8 +27,8 @@ language: ruby
 {{ site.data.snippets.unix_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
 

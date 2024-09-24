@@ -27,8 +27,8 @@ language: c
 {{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C Projects
 

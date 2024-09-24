@@ -9,7 +9,7 @@ swiftypetags:
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build
 configuration](/user/customizing-the-build/) guides first.
 
 > Objective-C/Swift builds are not available on the Linux environments.

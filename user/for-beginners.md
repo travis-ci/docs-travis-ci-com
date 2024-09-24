@@ -77,5 +77,5 @@ the setup that suits your project best:
 
 More details on our build environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Now that you've read the basics, head over to our [Tutorial](/user/tutorial/) for details on setting up your first
-build!
+Now that you've read the basics, head over to our [Onboarding](/user/onboarding/) guide for details on setting up your first
+build, or see some [Tutorials](/user/tutorials/tutorials-overview/) to get started.
