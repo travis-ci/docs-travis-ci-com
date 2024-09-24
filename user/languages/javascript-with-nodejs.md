@@ -29,7 +29,7 @@ language: node_js
 {{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
-projects. Please make sure to read our [OnBoarding](/user/onboarding/)
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Node.js versions

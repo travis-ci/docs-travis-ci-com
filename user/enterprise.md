@@ -128,7 +128,7 @@ Detailed deployment requirements can be found in **‘Setting up’** and subseq
 
 Set up Travis CI Enterprise by heading over our [set up](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) page.
 
-Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/), the [OnBoarding](/user/onboarding/) guide, or the [tutorials](/user/tutorials/tutorials-overview/).
+Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/), the [Onboarding](/user/onboarding/) guide, or the [tutorials](/user/tutorials/tutorials-overview/).
 
 ## Contact
 

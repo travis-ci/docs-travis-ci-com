@@ -26,7 +26,7 @@ language: dart
 
 This guide covers build environment and configuration topics specific to
 [Dart](https://dart.dev/) projects. Please make sure to read our
-[OnBoarding](/user/onboarding/) and
+[Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning

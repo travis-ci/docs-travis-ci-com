@@ -25,7 +25,7 @@ language: d
 </aside>
 
 This guide covers build environment and configuration topics specific to D projects. Please make
-sure to read our [OnBoarding](/user/onboarding/) and
+sure to read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community Supported Language

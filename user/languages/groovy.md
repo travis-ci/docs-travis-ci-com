@@ -27,7 +27,7 @@ language: groovy
 {{ site.data.snippets.linux_note }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
-new to Travis CI, please read our [OnBoarding](/user/onboarding/) and
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 Groovy builds are not available on the macOS environment.

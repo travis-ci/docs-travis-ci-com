@@ -28,7 +28,7 @@ language: erlang
 
 The rest of this guide covers build environment and configuration topics
 specific to Erlang projects. Please make sure to read our
-[OnBoarding](/user/onboarding/) and
+[Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 Erlang builds are not available on the macOS environment.

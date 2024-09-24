@@ -22,7 +22,7 @@ To enable the setting, select the `Enabled` option and save the settings.
 
 ## Travis CI Roles
 
-New Travis CI Users are created via the “**sign-in with…**” functionality, linking a third-party application (GitHub, Assembla, BitBucket, or GitLab) to Travis CI. See the [OnBoarding guide](/user/onboarding/) for more information.
+New Travis CI Users are created via the “**sign-in with…**” functionality, linking a third-party application (GitHub, Assembla, BitBucket, or GitLab) to Travis CI. See the [Onboarding guide](/user/onboarding/) for more information.
 
 
 In Travis CI, user access to Travis CI repositories and accounts functionalities and the following are the different types of user roles:

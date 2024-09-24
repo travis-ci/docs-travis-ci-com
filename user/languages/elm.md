@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Elm](https://elm-lang.org/) projects. Please make sure to read our
-[OnBoarding](/user/onboarding/) and
+[Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
 <aside markdown="block" class="ataglance">
