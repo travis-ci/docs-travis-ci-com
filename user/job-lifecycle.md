@@ -17,13 +17,13 @@ In this section, learn the job lifecycle process and how to customize any phase 
 
 The ‘.travis.yml’ file describes the build process for Travis CI. A *build* in Travis CI consists of at least one unnamed stage or a sequence of [stages](/user/build-stages/). Each *stage* consists of one or more *jobs* running parallel inside the stage.
 
-[Build, Stages, and Jobs Diagram]()
+![Build, Stages, and Jobs Diagram](/user/images/Build-stages-jobs.png)
 
 Each *job* is a sequence of *phases*, which are sequential steps that form a job. The following table shows the main phases that users can add to jobs. 
 
 | **Pre-Install Phase (Optional)** | **Install Phase** | **Script Phase** | **Deploy Phase (Optional)** |
 |---|---|---|---|
-| Travis CI can run these optional commands in this phase:<br>- [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)<br>- `before_cache` (if and only if caching is effective)<br>- [`cache components`](/user/caching/) | Travis CI can run the following custom commands in this main phase:<br>- `install`: installs any dependencies required.<br>  - `before_install`: before the install phase.<br>  - `before_script`: before the script phase.<br>  - `after_script`: after the script phase.<br>  - `after_success`: when the build *succeeds* (e.g., building documentation), the result is in the `TRAVIS_TEST_RESULT` environment variable.<br>  - `after_failure`: when the build *fails* (e.g., uploading log files), the result is in the `TRAVIS_TEST_RESULT` environment variable. | Travis CI can run the following custom commands in this main phase:<br>- `script`: run the build script.<br>  - `before_install` - before the install phase.<br>  - `before_script` - before the script phase.<br>  - `after_script` - after the script phase.<br>  - `after_success` - when the build *succeeds* (e.g., building documentation), the result is in the `TRAVIS_TEST_RESULT` environment variable.<br>  - `after_failure` - when the build *fails* (e.g., uploading log files), the result is in the `TRAVIS_TEST_RESULT` environment variable. | Travis CI can run custom commands in the phases:<br>- `deploy`: optional deployment phase.<br>- `before_deploy`: (if and only if deployment is active)<br>- `after_deploy`: (if and only if deployment is active) |
+| Travis CI can run these optional commands in this phase:<br>- [`apt addons`](/user/installing-dependencies/#installing-packages-with-the-apt-addon)<br>- `before_cache` (if and only if caching is effective)<br>- [`cache components`](/user/caching/) | Travis CI can run the following custom commands in this main phase:<br>- `install`: installs any dependencies required.<br>  - `before_install`: before the install phase.<br>  - `before_script`: before the script phase.<br>  - `after_script`: after the script phase.<br>  - `after_success`: when the build *succeeds* (e.g., building documentation), the result is in the `TRAVIS_TEST_RESULT` environment variable.<br>  - `after_failure`: when the build *fails* (e.g., uploading log files), the result is in the `TRAVIS_TEST_RESULT` environment variable. | Travis CI can run the following custom commands in this main phase:<br>- `script`: run the build script.<br>  - `before_install`: before the install phase.<br>  - `before_script`: before the script phase.<br>  - `after_script`: after the script phase.<br>  - `after_success`: when the build *succeeds* (e.g., building documentation), the result is in the `TRAVIS_TEST_RESULT` environment variable.<br>  - `after_failure`: when the build *fails* (e.g., uploading log files), the result is in the `TRAVIS_TEST_RESULT` environment variable. | Travis CI can run custom commands in the phases:<br>- `deploy`: optional deployment phase.<br>- `before_deploy`: (if and only if deployment is active)<br>- `after_deploy`: (if and only if deployment is active) |
 
  > **Note**: A *build* can be composed of many jobs.
 
@@ -158,7 +158,7 @@ Follow these steps to run that script from your `.travis.yml` file:
     ```
     {: data-file=".travis.yml"}
 
-#### Use the `exit` Command Correctly
+#### Use the `exit` Command 
 
 After specifying the steps in the job lifecycle, these are compiled into a single bash script and executed on the worker.
 
