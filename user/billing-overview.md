@@ -12,9 +12,9 @@ Travis CI billing system consists of two types of subscriptions: Concurrency (fi
 The variety of plans provides you with the flexibility to choose the plan that suits your needs.  
 
 
-|                | Usage-based                     | Concurrency based (fixed-price) |
-|:-------        |:-------------------------------:|:-------------------------------:|
-|Credits         | Used for every build job. Allowance included in price and can be auto-refilled or purchjased on demand. | Used only for Premium VMs, standard jobs included in price and free of additional charge. May be purchased on demand. |
+|                 | Usage-based                     | Concurrency based (fixed-price) |
+|:-------         |:-------------------------------:|:-------------------------------:|
+|Credits          | Used for every build job. Allowance included in price and can be auto-refilled or purchjased on demand. | Used only for Premium VMs, standard jobs included in price and free of additional charge. May be purchased on demand. |
 |Users            | Unlimited / per user charge.    | Unlimited / incl. in price |
 |Network transfer | Unlimited / incl. in price      | Unlimited / incl. in price |
 |Cache storage    | Unlimited / incl. in price      | Unlimited / incl. in price |
@@ -22,7 +22,7 @@ The variety of plans provides you with the flexibility to choose the plan that s
 |Linux IBM/ARM build environments | Available, see more [details](#partner-queue-solution) | Available, see more [details](#partner-queue-solution) |
 |Premium VM build environment | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) |
 |Subscription     | Yes, monthly or annual.         | Yes, monthly or annual.    |
-|Usage based billing only | Yes, as custom option. Please [see more details on usage-based plans](#usage-based-plans) | Not available
+|Usage based billing only | Yes, as custom option. Please [see more details on usage-based plans](#usage-based-plans) | Not available |
 
 For most of users, a basic usage-based or single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options or high volume plans.
 
@@ -98,8 +98,23 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 
 1. User license cost: by default, credits per each unique user triggering a build or a specific rate charged in arrears at the end of month. See [Usage - user licenses](#usage---user-licenses) section for more details.
 2. Build job duration costs: See [Usage - Credits](#usage---credits) for more details.
-3. For Linux build job environments, additional resources are available as Premium VMs (extra CPU/RAM) on demand at a certain credit cost. See [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost) for more details.
+3. Additional resources are available as Premium VMs (usually extra CPU/RAM) on demand at a certain credit cost. See [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost) for more details.
 4. For a specific Linux build job environments, GPU builds are available on demand at a specific credit cost. See [GPU VM Instance Sizes and Credit Cost for GPU builds](#gpu-vm-instance-sizes-and-credit-cost-for-gpu-builds) for more details.
+
+|                                       | Usage-based with subscription | Usage based w/o subscription |
+|:---                                   |:-----------------------------:|:----------------------------:|
+| Users                                 | 25 000 credits per user<br /><br />A VCS user triggering build consumes a user license and such a license is not included in price or pre-purchased user license package  | A VCS user triggering build consumes a user license and such a license is not included in price or pre-purchased user license package. Consumed licenses are charged in arrears at the end of the month **as per plan rates** or are capped by allowed number of user licenses. | 1
+| Users incl. in plan price             | no additional charge          | no additional charge        |
+| Users 'X in price of 1' package       | e.g. 25 000 credits charge upon 1st user triggering build, 0 credits for subsequent users up to the limit of pre-purchased licenses | no additional charges and users up to the limit of pre-purchased licenses are covered by the package price, package cost charged in arrears after summarizing user license consumption in a month |
+| Build Job: Partner Queues (IBM)       | 0 credits for Open Source / standard Linux rate for rest | 0 credits for Open Source / standard Linux rate for rest |
+| Build Job: Standard Linux/FreeBSD     | 10 credits / minute            | 10 credits / minute |
+| Build Job: Standard Windows           | 20 credits / minute            | 20 credits / minute |
+| Build Job: macOS - legacy Intel       | 50 credits / minute            | 50 credits / minute |
+| Build Job:Linux - large VM size	      | 20 credits / min	             | 20 credits / min	   |
+| Build Job:LLinux - x-large VM size    |	40 credits / min	             | 40 credits / min    |
+| Build Job:LLinux - 2x-large VM size   |	80 credits / min	             | 80 credits / min    |
+| Build Job:LLinux - gpu-medium VM size | 	230 credits / min	           | 230 credits / min   |
+| Build Job:LLinux - gpu-xlarge VM size | 	890 credits / min	           | 890 credits / min   |
 
 ### Usage-based Plan - How to obtain?
 
@@ -205,10 +220,10 @@ Credits are deducted from your balance each time a build job starts a VM instanc
 | OS                   | # Credits per<br />started build minute |
 |:--------------------:|:-----------:|
 | Partner Queue        | 0           |
-| Linux                | 10          |
-| Experimental FreeBSD | 10          |
-| Windows              | 20          |
-| macOS                | 50          |
+| Linux                | 1 x usage credit cost of build minute |
+| Experimental FreeBSD | 1 x usage credit cost of build minute |
+| Windows              | 2 x usage credit cost of build minute |
+| macOS                | 5 x usage credit cost of build minute |
 
 Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up. Thus, queue waiting time or spinning-up time are not taken into account when calculating job duration time.
 
@@ -386,10 +401,9 @@ To use instance sizes:
 GPU VM size property impacts the cost of build minutes/credits usage in the following way:
 
 | GPU VM size              | Credits per<br />started build minute |
-|:--------------------:|:-------------------------------------:|
-| T4 medium            | 230                                   |
-| V100 x-large         | 890                                   |
-
+|:--------------------:|:-----------------------------------------:|
+| T4 medium            | 23 x usage credit cost of build minute    |
+| V100 x-large         | 89 x usage credit cost of build minute    |
 
 > GPU Support is only available for:
 > * arch: amd64
