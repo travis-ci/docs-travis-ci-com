@@ -65,7 +65,7 @@ In Travis CI, builds are executed singularly, without exceeding limitations. The
 > If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
 
 Linux, Windows, and FreeBSD builds are included in the price of these plans. The macOS builds are paid separately on concurrency plans and can be run after purchasing the separate credits add-on.
-Credits are used to pay for each build job minute on macOS. Purchase only the credits you need and use them until you run out. Please see more in the 'Usage based' section.
+Credits are used to pay for each build job minute on macOS. Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
 >
@@ -110,11 +110,11 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 | Build Job: Standard Linux/FreeBSD     | 10 credits / minute            | 10 credits / minute |
 | Build Job: Standard Windows           | 20 credits / minute            | 20 credits / minute |
 | Build Job: macOS - legacy Intel       | 50 credits / minute            | 50 credits / minute |
-| Build Job:Linux - large VM size	      | 20 credits / min	             | 20 credits / min	   |
-| Build Job:LLinux - x-large VM size    |	40 credits / min	             | 40 credits / min    |
-| Build Job:LLinux - 2x-large VM size   |	80 credits / min	             | 80 credits / min    |
-| Build Job:LLinux - gpu-medium VM size | 	230 credits / min	           | 230 credits / min   |
-| Build Job:LLinux - gpu-xlarge VM size | 	890 credits / min	           | 890 credits / min   |
+| Build Job: Linux - large VM size	    | 20 credits / min	             | 20 credits / min	   |
+| Build Job: Linux - x-large VM size    |	40 credits / min	             | 40 credits / min    |
+| Build Job: Linux - 2x-large VM size   |	80 credits / min	             | 80 credits / min    |
+| Build Job: Linux - gpu-medium VM size | 	230 credits / min	           | 230 credits / min   |
+| Build Job: Linux - gpu-xlarge VM size | 	890 credits / min	           | 890 credits / min   |
 
 ### Usage-based Plan - How to obtain?
 
