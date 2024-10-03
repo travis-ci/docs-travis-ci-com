@@ -12,13 +12,19 @@ Travis CI billing system consists of two types of subscriptions: Concurrency (fi
 The variety of plans provides you with the flexibility to choose the plan that suits your needs.  
 
 
-| Billing Period | Concurrency based (fixed-price) | Usage-based |
-|:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on standard sized VMs Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br />Paid premium VM size (credits). Contact sales for other options.<br /><br />Purchase in [Travis CI](https://app.travis-ci.com/account/plan). | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits) on all VM types<br />Paid user licenses (only per unique users triggering the builds)<br /><br /> |
-|Annual      | Available, same build rules as monthly. Purchase in [Travis CI](https://app.travis-ci.com/account/plan) or contact support.  | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per unique users triggering the builds)<br /><br />Contact support for high volume annual usage-based plans. |
+|                | Usage-based                     | Concurrency based (fixed-price) |
+|:-------        |:-------------------------------:|:-------------------------------:|
+|Credits         | Used for every build job. Allowance included in price and can be auto-refilled or purchjased on demand. | Used only for Premium VMs, standard jobs included in price and free of additional charge. May be purchased on demand. |
+|Users            | Unlimited / per user charge.    | Unlimited / incl. in price |
+|Network transfer | Unlimited / incl. in price      | Unlimited / incl. in price |
+|Cache storage    | Unlimited / incl. in price      | Unlimited / incl. in price |
+|Concurrent Jobs  | Very high, adjustable in valid cases on request| as per plan limitation |
+|Linux IBM/ARM build environments | Available, see more [details](#partner-queue-solution) | Available, see more [details](#partner-queue-solution) |
+|Premium VM build environment | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) |
+|Subscription     | Yes, monthly or annual.         | Yes, monthly or annual.    |
+|Usage based billing only | Yes, as custom option. Please [see more details on usage-based plans](#usage-based-plans) | Not available
 
-
-For most of users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options.
+For most of users, a basic usage-based or single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options or high volume plans.
 
 ### Free Trial Plan
 
@@ -84,7 +90,7 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit addons, if available, can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit addons, if available, can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Trial assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
 | **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40 concurrent jobs limit. |
 
