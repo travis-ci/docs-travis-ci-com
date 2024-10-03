@@ -225,6 +225,8 @@ Credits are deducted from your balance each time a build job starts a VM instanc
 | Windows              | 2 x usage credit cost of build minute |
 | macOS                | 5 x usage credit cost of build minute |
 
+See [credit costs associated with usage based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
+
 Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up. Thus, queue waiting time or spinning-up time are not taken into account when calculating job duration time.
 
 Your credits remain available until you use them or disband them. At the moment, unused paid credits expire after 12 months.
@@ -374,7 +376,7 @@ VM size property impacts the cost of build minutes/credits usage in the followin
 | x-large              | 4 x usage credit cost of build minute |
 | 2x-large             | 8 x usage credit cost of build minute |
 
-
+See [credit costs associated with usage based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
 > If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need, in both cases, 20 credits per every started build minutes (2 x 10 credits).
 
@@ -404,6 +406,8 @@ GPU VM size property impacts the cost of build minutes/credits usage in the foll
 |:--------------------:|:-----------------------------------------:|
 | T4 medium            | 23 x usage credit cost of build minute    |
 | V100 x-large         | 89 x usage credit cost of build minute    |
+
+See [credit costs associated with usage based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
 > GPU Support is only available for:
 > * arch: amd64
