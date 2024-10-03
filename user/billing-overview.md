@@ -241,7 +241,6 @@ and is meant to prevent abusive usage of the system.
 Partner Queue Solution is a solution for infrastructure sponsored by our Partners with OSS in mind, which can be used entirely for free. Currently, it includes:
 
 - IBM CPU builds in IBM Cloud (sponsored by IBM)
-- ARM64 CPU builds in Equinix Metal (former Packet) infrastructure (sponsored by ARM)
 
 This is available only to Open Source Software repositories.
 
@@ -250,7 +249,6 @@ To run a job using Partner Queue Solution, use the following `.travis.yml` tags 
 ```yaml
 os: linux
 arch:
-  - arm64
   - ppc64le
   - s390x
 ```
@@ -262,6 +260,8 @@ In order to start a build in the Usage-based Plan, a positive credits balance is
 In the case of Concurrency-based Plans, you can use the above infrastructure for OSS builds without any credits in your account.
 
 Partner Queues are available only for standard instance size.
+
+The `ppc64le` is also available for private builds at standard Linux per-minute credit rate.
 
 #### Negative Credits
 
