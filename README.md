@@ -5,27 +5,28 @@ Follow this guide to learn how to add new documentation and how to update existi
 
 ## Add Documentation
 
+The following are the steps to add documentation.
 
-Review the [Travis CI documentation guidelines](/STYLE.md).
-In the [Travis CI repository](https://github.com/travis-ci/docs-travis-ci-com/tree/master), browse to the *user* folder (or any other specific folder) and create a new branch.
-Create a new file and add the new documentation files. 
-Ensure to insert the name and extension for the file.
-Commit your changes and add a short message to describe your changes.
-Test the changes locally to verify your edits. 
-Submit a pull request. Include a clear title and description of the proposed changes, and click “**Create pull request**.”  
+1. Review the [Travis CI documentation guidelines](/STYLE.md).
+1. In the [Travis CI repository](https://github.com/travis-ci/docs-travis-ci-com/tree/master), browse to the *user* folder (or any other specific folder) and create a new branch.
+1. Create a new file and add the new documentation files. 
+1. Ensure to insert the name and extension for the file.
+1. Commit your changes and add a short message to describe your changes.
+1. Test the changes locally to verify your edits. 
+1. Submit a pull request. Include a clear title and description of the proposed changes, and click “**Create pull request**.”  
 
 
 ## Update Existing Documentation
 
 If you see a page that needs to be updated or that can be improved, follow these steps to update Travis CI's existing documentation. 
 
-Review the [Travis CI documentation guidelines](/STYLE.md).
-Identify the Travis CI docs page that needs to be updated. 
-Click the “**Improve this page on GitHub**” button in the top right corner.
-Once on GitHub, edit the relevant file.
-Commit your changes. Name your branch, and click the “**Propose changes**” button.
-Build the docs in a local environment to verify your edits. 
-Submit a pull request. Ensure a clear title and description of the proposed changes are added, and click “**Create pull request**.”
+1. Review the [Travis CI documentation guidelines](/STYLE.md).
+1. Identify the Travis CI docs page that needs to be updated. 
+1. Click the “**Improve this page on GitHub**” button in the top right corner.
+1. Once on GitHub, edit the relevant file.
+1. Commit your changes. Name your branch, and click the “**Propose changes**” button.
+1. Build the docs in a local environment to verify your edits. 
+1. Submit a pull request. Ensure a clear title and description of the proposed changes are added, and click “**Create pull request**.”
 
 Thank you for your contribution. The Travis CI team will review the pull request and approve any necessary changes.   
 
