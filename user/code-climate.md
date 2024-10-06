@@ -17,15 +17,15 @@ months](https://codeclimate.com/partners/travisci)!
 
 ## Measuring Test Coverage with Code Climate
 
-Test coverage integration can be used on both private and open source projects,
+Test coverage integration can be used on both private and open-source projects,
 and is free for open source.
 
-Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v1.0/docs/getting-started-test-coverage). In that guide you'll find: 
-* links to [parallel tests
-  support](https://docs.codeclimate.com/v1.0/docs/configuring-test-coverage#section-parallel-tests-and-multiple-test-suites) setup,
-* [troubleshooting
-  tips](https://docs.codeclimate.com/v1.0/docs/test-coverage-troubleshooting-tips),
-* and a [sample .travis.yml](https://docs.codeclimate.com/docs/travis-ci-test-coverage).
+Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v1.0/docs/getting-started-test-coverage). In that guide, you'll find: 
+* Links to [parallel tests
+  support](https://docs.codeclimate.com/v1.0/docs/configuring-test-coverage#section-parallel-tests-and-multiple-test-suites) setup.
+* [Troubleshooting
+  tips](https://docs.codeclimate.com/v1.0/docs/test-coverage-troubleshooting-tips).
+* A [sample .travis.yml](https://docs.codeclimate.com/docs/travis-ci-test-coverage) file.
 
 ## Build Config Reference
 
