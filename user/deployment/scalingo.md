@@ -1,6 +1,7 @@
 ---
 title: Scalingo deployment
 layout: en
+deploy: v1
 
 ---
 

@@ -27,8 +27,8 @@ language: c
 {{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ## CI environment for C Projects
 
@@ -101,3 +101,7 @@ before_install:
 {: data-file=".travis.yml"}
 
 {% include c11-cpp11-and-beyond-and-toolchains.md %}
+
+## Build Config Reference
+
+You can find more information on the build config format for [C](https://config.travis-ci.com/ref/language/c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

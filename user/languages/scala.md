@@ -28,8 +28,8 @@ Minimal example:
 Scala builds are not available on the macOS environment.
 
 The rest of this guide covers configuring Scala projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
@@ -44,10 +44,10 @@ To specify Scala versions in your build:
 ```yaml
 language: scala
 scala:
-   - 2.9.3
-   - 2.10.6
-   - 2.11.11
-   - 2.12.2
+  - 2.9.3
+  - 2.10.6
+  - 2.11.11
+  - 2.12.2
 ```
 {: data-file=".travis.yml"}
 
@@ -113,7 +113,7 @@ script: sbt -no-colors -J-Xss2m ++$TRAVIS_SCALA_VERSION test
 ## Projects Using Gradle, Maven or Ant
 
 If your project is not configured for sbt, the build process behaves like a
-typical [Java Project](/user/languages/java).
+typical [Java Project](/user/languages/java/).
 
 ## Testing Against Multiple JDKs
 
@@ -132,6 +132,10 @@ The version of Scala a job is using is available as:
 ```
 TRAVIS_SCALA_VERSION
 ```
+
+## Build Config Reference
+
+You can find more information on the build config format for [Scala](https://config.travis-ci.com/ref/language/scala) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 

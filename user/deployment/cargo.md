@@ -1,6 +1,7 @@
 ---
 title: Cargo Releases
 layout: en
+deploy: v1
 ---
 
 Travis CI can automatically release your Rust crate to [crates.io][]
