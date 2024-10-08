@@ -8,13 +8,15 @@ Follow this guide to learn how to add new documentation and how to update existi
 The following are the steps to add documentation.
 
 1. Review the [Travis CI documentation guidelines](/STYLE.md).
-1. In the [Travis CI repository](https://github.com/travis-ci/docs-travis-ci-com/tree/master), browse to the *user* folder (or any other specific folder) and create a new branch.
+1. Check existing documentation. Verify that the documentation does not already exist or look for related documentation that can be enhanced. 
+1. Determine proper placement. In the [Travis CI repository](https://github.com/travis-ci/docs-travis-ci-com/tree/master), browse to the *user* folder (or any other specific folder) and create a new branch.
 1. Create a new file and add the new documentation files. 
 1. Ensure to insert the name and extension for the file.
 1. Commit your changes and add a short message to describe your changes.
 1. Test the changes locally to verify your edits. 
 1. Submit a pull request. Include a clear title and description of the proposed changes, and click “**Create pull request**.”  
 
+Thank you for your contribution! The Travis CI team will review the pull request and approve any necessary changes.
 
 ## Update Existing Documentation
 
