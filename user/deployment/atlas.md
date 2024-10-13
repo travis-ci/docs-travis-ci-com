@@ -1,6 +1,7 @@
 ---
 title: Atlas deployment
 layout: en
+deploy: v1
 
 ---
 
