@@ -1,6 +1,7 @@
 ---
 title: RubyGems Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -115,7 +116,7 @@ deploy:
 
 ### Branch to release from
 
-If you have branch specific options, as [shown above](#Gem-to-release), Travis CI will automatically figure out which branches to release from. Otherwise, it will only release from your **master** branch.
+If you have branch specific options, as [shown above](#gem-to-release), Travis CI will automatically figure out which branches to release from. Otherwise, it will only release from your **master** branch.
 
 You can also explicitly specify the branch to release from with the **on** option:
 
@@ -158,7 +159,7 @@ deploy:
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ### Gem must be registered beforehand
 

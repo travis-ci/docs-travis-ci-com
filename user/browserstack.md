@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
+Travis CI integrates with [BrowserStack](https://www.browserstack.com/?utm_source=travis&utm_medium=partnered), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
 
@@ -15,19 +15,21 @@ and BrowserStack servers. Local Testing also has support for firewalls, proxies 
 Once the secure connection is setup, all URLs work out of the box, including your webserver, local folders, as well as
 URLs with HTTPS.
 
-[local-testing]: https://www.browserstack.com/local-testing
+[local-testing]: https://www.browserstack.com/local-testing/?utm_source=travis&utm_medium=partnered
 
-[local-binary]: https://www.browserstack.com/local-testing#command-line
+[local-binary]: https://www.browserstack.com/local-testing#command-line/?utm_source=travis&utm_medium=partnered
 
-[open-source-browserstack]: https://www.browserstack.com/pricing
+[open-source-browserstack]: https://www.browserstack.com/open-source/?utm_source=travis&utm_medium=partnered
 
-[account-settings]: https://www.browserstack.com/accounts/settings
+[account-settings]: https://www.browserstack.com/accounts/settings/?utm_source=travis&utm_medium=partnered
 
-[encryption-keys]: http://docs.travis-ci.com/user/encryption-keys/
+[encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
 
-[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
+[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby/?utm_source=travis&utm_medium=partnered
 
-[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix
+[travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
+
+[browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
 ## Setting up BrowserStack
 
@@ -38,7 +40,7 @@ file of your project.
 
 Choose whether you want to store your access key as plain text or in a secure/encrypted form. For open source projects we recommend
 storing the access key in a secure form so that pull requests cannot use the keys stored in your `.travis.yml`.
-For more information see the [pull requests page](/user/pull-requests/#Pull-Requests-and-Security-Restrictions).
+For more information see the [pull requests page](/user/pull-requests/#pull-requests-and-security-restrictions).
 
 ### Encrypted Access Key
 
@@ -99,6 +101,31 @@ Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel
 gets the right requests.  
 
+### App Upload
+
+Upload your App to the BrowserStack servers after building it. The app should be built in the install step and the test script must be run in the script step. To upload the app, configure the path to your app in the .travis.yml file:
+
+```yaml
+install:
+  - "Build script for the app"
+script:
+  - "Test script"
+addons:
+  browserstack:
+    username: "Your BrowserStack username"
+    access_key: "Your BrowserStack access key"
+    app_path: "path to your app file"
+```
+{: data-file=".travis.yml"}
+Once the app is uploaded to the BrowserStack servers the resulting app id will be set in the environment variable `BROWSERSTACK_APP_ID`. You can use it to set the Appium capability in your test.
+
+```ruby
+caps['app'] = ENV['BROWSERSTACK_APP_ID']
+```
+
+Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
+
+
 ## Additional Options
 
 ### Proxy
@@ -140,3 +167,7 @@ addons:
 {: data-file=".travis.yml"}
 
 The format for the **only** flag is, "Host pattern,Host Port,Flag for SSL True(1)/False(0)" and repeat.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Browserstack](https://config.travis-ci.com/ref/job/addons/browserstack) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
