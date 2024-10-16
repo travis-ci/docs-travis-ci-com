@@ -9,7 +9,7 @@ swiftypetags:
 ## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build
 configuration](/user/customizing-the-build/) guides first.
 
 > Objective-C/Swift builds are not available on the Linux environments.
@@ -175,6 +175,10 @@ install: make get-deps
 For Objective-C projects, `env`, `rvm`, `gemfile`, `xcode_sdk`, and
 `xcode_scheme` can be given as arrays to construct a build matrix.
 
+## Build Config Reference
+
+You can find more information on the build config format for [Objective-C](https://config.travis-ci.com/ref/language/objective-c) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx/#xcode-version).

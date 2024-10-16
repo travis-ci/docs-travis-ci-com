@@ -29,15 +29,24 @@ To only build pull requests targeting specific branches you can use [the `branch
 
 The most important restriction for pull requests is about secure environment variables and encrypted data.
 
-A pull request sent from a fork of the upstream repository could be manipulated to expose environment variables.
+A pull request sent from a fork of the upstream repository (we call it an "external pull request") could be manipulated to expose environment variables.
 The upstream repository's maintainer would have no protection against this attack, as pull requests can be sent by anyone who forks the repository on GitHub.
 
-Travis CI makes encrypted variables and data available only to pull requests coming from the same repository. These are considered trustworthy, as only members with write access to the repository can send them.
+Travis CI makes encrypted variables and data available only to pull requests coming from the same repository ("internal pull requests"). These are considered trustworthy, as only members with write access to the repository can send them.
 
-Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project.
+Pull requests sent from forked repositories do not have access to encrypted variables or data even if these are defined in the fork source project unless certain repository settings in Travis CI aren't set.
 
-If your build relies on encrypted variables to run, for instance to run Selenium tests with [BrowserStack](https://www.browserstack.com) or Sauce Labs, your build needs to take this into account. You won't be able to run
-these tests for pull requests from external contributors.
+### Repository settings - forks
+
+{{ site.data.snippets.git_repository_settings_forks_general }}
+
+{{ site.data.snippets.git_repository_settings_forks_encrypted_env_variables }}
+
+{{ site.data.snippets.git_repository_settings_forks_ssh_keys }}
+
+If you have the settings regarding sharing secrets with forks disabled and your build relies on encrypted variables to run, for instance to run Selenium tests with 
+[BrowserStack](https://www.browserstack.com) or [Sauce Labs](https://saucelabs.com/), your build 
+needs to take this into account. You won't be able to run these tests for pull requests from external contributors.
 
 To work around this, restrict these tests only to situations where the
 environment variables are available, or disable them for pull requests entirely, as shown in the following example:

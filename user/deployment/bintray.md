@@ -1,6 +1,7 @@
 ---
 title: Bintray Deployment
 layout: en
+deploy: v1
 
 ---
 

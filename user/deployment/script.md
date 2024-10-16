@@ -1,6 +1,7 @@
 ---
 title: Script deployment
 layout: en
+deploy: v1
 
 ---
 

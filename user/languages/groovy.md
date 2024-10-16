@@ -27,8 +27,8 @@ language: groovy
 {{ site.data.snippets.linux_note }}
 
 The rest of this guide covers configuring Groovy projects on Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 Groovy builds are not available on the macOS environment.
 
@@ -139,3 +139,7 @@ jdk:
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Groovy](https://config.travis-ci.com/ref/language/groovy) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

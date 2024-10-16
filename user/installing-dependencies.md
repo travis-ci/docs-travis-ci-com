@@ -10,20 +10,20 @@ redirect_from:
 
 ## Installing Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), or [xenial](/user/reference/xenial/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
-By default, `apt-get update` does not get run automatically. If you want to update `apt-get` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+By default, `apt-get update` does not get run automatically. If you want to update `apt-get update` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
 
 ```yaml
 before_install:
   - sudo apt-get update
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 ```
 {: data-file=".travis.yml"}
 
@@ -31,16 +31,16 @@ The second way is to use the [APT addon](#installing-packages-with-the-apt-addon
 
 ```yaml
 before_install:
-  - sudo apt-get install -y libxml2-dev
+  - sudo apt-get -y install libxml2-dev
 addons:
   apt:
     update: true
 ```
 {: data-file=".travis.yml"}
 
-> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time.
+> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time. Additionally, some packages may fail to update, which will lead to a failed build.
 >
-> Use the `-y` parameter with apt-get to assume yes as the answer to each apt-get prompt.
+> Use the `-y` parameter with apt-get to assume yes to all queries by the apt tools.
 
 ### Installing Packages from a custom APT repository
 
@@ -50,9 +50,9 @@ For example, to install gcc from the ubuntu-toolchain ppa
 
 ```yaml
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 -y
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -q update
+  - sudo apt-get -y install gcc-4.8
 ```
 {: data-file=".travis.yml"}
 
@@ -66,8 +66,8 @@ This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the loc
 before_script:
   - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
   - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
-  - sudo apt-get update -qq
-  - sudo apt-get install varnish -y
+  - sudo apt-get -qq update
+  - sudo apt-get -y install varnish
 ```
 {: data-file=".travis.yml"}
 
@@ -142,12 +142,20 @@ addons:
 
 > Note: If `apt-get install` fails, the build is marked an error.
 
+> You can also have a look at the [Apt](https://config.travis-ci.com/ref/job/addons/apt) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
 ### Installing Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages using our Xenial images:
+You can install [snap](http://snapcraft.io/) packages using our Xenial or
+Bionic images:
 
 ```yaml
 dist: xenial
+```
+or 
+
+```yaml
+dist: bionic
 ```
 {: data-file=".travis.yml"}
 
@@ -171,7 +179,7 @@ of the two possible forms:
     This results in:
 
       ```
-      $ sudo snaps install hugo
+      $ sudo snap install hugo
       ```
 
 1. The map specifying how the snap should be installed. Possible keys are:
@@ -193,7 +201,7 @@ of the two possible forms:
     This results in:
 
       ```
-      $ sudo snaps install aws-cli --classic --channel=latest/edge
+      $ sudo snap install aws-cli --classic --channel=latest/edge
       ```
 
     `confinement` and `channel` are optional.
@@ -293,6 +301,28 @@ brew install openssl
 rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
 ```
 
+> You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## Installing Packages on FreeBSD
+
+To install packages that are not included in the default FreeBSD environment use `pkg` in the `before_install` step of your `.travis.yml`:
+
+```yaml
+before_install:
+  - su -m root -c 'pkg install -y curl'
+```
+{: data-file=".travis.yml"}
+
+For convenience, you can use the `pkg` addon in your `.travis.yml`. For example, to install go and curl:
+
+```yaml
+addons: 
+ pkg: 
+  - go 
+  - curl
+```
+{: data-file=".travis.yml"}
+
 ## Installing Dependencies on Multiple Operating Systems
 
 If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
@@ -330,7 +360,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
+> Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
 
 To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
 

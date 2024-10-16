@@ -1,13 +1,14 @@
 ---
 title: Google App Engine Deployment
 layout: en
+deploy: v1
 
 ---
 
 Travis CI can automatically deploy your [Google App Engine](https://cloud.google.com/appengine/docs) or [Managed VMs](https://cloud.google.com/appengine/docs/managed-vms/) application after a successful build.
 
 For a minimal configuration, add the following to your `.travis.yml`:
-  
+
 ```yaml
 deploy:
   provider: gae
@@ -134,4 +135,4 @@ without using this provider.
 - **version**: The version of the app that will be created or replaced by this deployment. If you do not specify a version, one will be generated for you. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
 - **default**: Flag to set the deployed version to be the default serving version. See [`gcloud app deploy`](https://cloud.google.com/sdk/gcloud/reference/app/deploy)
 - **verbosity**: Lets you adjust the verbosity when invoking `"gcloud"`. Defaults to `"warning"`. See [`gcloud`](https://cloud.google.com/sdk/gcloud/reference/).
-- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](https://blog.travis-ci.com/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.
+- **docker_build**: If deploying a Managed VM, specifies where to build your image. Typical values are `"remote"` to build on Google Cloud Engine and `"local"` which requires Docker to be set up properly (to utilize this on Travis CI, read [Using Docker on Travis CI](https://travis-ci.com/blog/2015-08-19-using-docker-on-travis-ci/)). Defaults to `"remote"`.

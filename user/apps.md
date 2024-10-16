@@ -92,6 +92,23 @@ By CyanCor
 - [website](https://buildmonitor.io/)
 - [source code](https://gitlab.com/BuildMonitor/TravisConnector)
 
+### Meercode CI Build Dashboard
+
+![meercode.io](/images/apps/meercodeio.png){:.app}
+
+Meercode is the ultimate monitoring dashboard for your CI/CD builds.<br>
+By Meercode.io
+
+- [website](https://meercode.io/)
+
+### BuildPulse Flaky Test Dashboard
+
+![buildpulse.io](/images/apps/buildpulse.png){:.app}
+
+Automatically detect, track, and rank flaky tests.<br>
+By Workshop 64
+
+- [website](https://buildpulse.io/)
 
 ## Tools
 
@@ -180,8 +197,6 @@ By ThoughtWorks Inc.
 - [website](http://ccmenu.org/)
 - [app store](https://itunes.apple.com/us/app/ccmenu/id603117688)
 - [tutorial](/user/cc-menu/)
-
-![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
 
 ## Linux
 
