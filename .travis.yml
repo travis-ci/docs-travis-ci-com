@@ -38,7 +38,7 @@ jobs:
     language: shell
     cache: false
     install:
-    - rvm use 2.5.3
+    - rvm use 3.3.1 --install
     script:
     - git clone https://github.com/travis-ci/dpl.git
     - cd dpl
