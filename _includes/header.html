@@ -5,6 +5,34 @@
       <ul id="navigation" class="navigation">
         <li><a href="https://travis-ci.com/blog">Blog</a></li>
         <li><a href="/">Docs</a></li>
+        <li class="searchbox-wrap">
+          <div class="searchtoggle">
+            <img class="searchtoggleicon" src="/images/ui/search.svg" alt="Search icon" />
+          </div>
+          <div class="searchbox">
+            <form>
+              <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
+            </form>
+            <script type="text/javascript">
+              var Swiftype = window.Swiftype || {};
+                (function() {
+                  Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
+
+                  Swiftype.searchSearchFields = {
+                    "page": ["title, body, tags"]
+                  };
+                  Swiftype.autocompleteSearchFields = {
+                    "page": ["title, body, tags"]
+                  };
+                  /** DO NOT EDIT BELOW THIS LINE **/
+                  var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+                  script.src = "//swiftype.com/embed.js";
+                  var entry = document.getElementsByTagName('script')[0];
+                  document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
+                }());
+            </script>
+          </div>
+        </li>
         <li class="toggle"><button type="button" id="toggle-menu" class="button--teal">Menu</button></li>
       </ul>
     </nav>
