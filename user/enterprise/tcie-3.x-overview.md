@@ -5,12 +5,12 @@ layout: en_enterprise
 
 Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It introduces long requested changes to it's deployment set-up as well as provides majority of features available in our hosted solution.
 
-## Main features
+## Main Features
 
 * High feature parity between Travis CI Enterprise 3.x and travis-ci.com, including (but not only):
-  * Updated User Interface: user profile settings and repository specific settings, incl. environmental variables, custom SSH keys for repository access and security settings
+  * Updated User Interface: user profile settings and repository-specific settings, incl. environmental variables, custom SSH keys for repository access, and security settings
   * Updated User Interface notifications and build/build job information
-  * Updated build configuration service, including ability to [import shared build configuration](/user/build-config-imports/) to your .travis.yml, even from other repositories (which may come in handy when structuring complex build definitions or e.g. importing secrets shared accross repositories)
+  * Updated build configuration service, including the ability to [import shared build configuration](/user/build-config-imports/) to your .travis.yml, even from other repositories (which may come in handy when structuring complex build definitions or e.g. importing secrets shared accross repositories)
   * [Build configuration validator](/user/build-config-validation/) hinting you on what may be wrong with .travis.yml for your builds
   * Multiple integrations with Version Control systems:
     * GitHub Cloud
@@ -30,6 +30,6 @@ Travis CI Enterprise 3.x is a major release of Travis CI Enterprise line. It int
   * Bionic
   * Focal
 
-## Travis CI Enterprise 2.0 End of Life
+## Travis CI Enterprise 2.0 Discontinued
 
-Travis CI Enterprise 2.x will reach End Of Life in Q1 2021. After Q1 2021, you won't receive any patches or security patches anymore for your Enterprise 2.x installation. We strongly recommend upgrading your existing Travis CI Enterprise 2.x installation to 3.x before that time. If you need more time or have questions, please reach out to [our support team](mailto:enterprise@travis-ci.com?subject=Travis CI Enterprise 2.x Migration).
+Travis CI Enterprise 2.x will reach End-of-Life in Q1 2021. After Q1 2021, you won't receive any patches or security patches for your Enterprise 2.x installation. We strongly recommend upgrading your existing Travis CI Enterprise 2.x installation to 3.x before that time. If you need more time or have questions, please reach out to [our support team](mailto:enterprise@travis-ci.com?subject=Travis CI Enterprise 2.x Migration).
