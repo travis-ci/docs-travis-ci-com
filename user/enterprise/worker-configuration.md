@@ -1,5 +1,5 @@
 ---
-title: Customizing Enterprise Worker Configuration
+title: Customize Enterprise Worker Configuration
 layout: en_enterprise
 
 ---
