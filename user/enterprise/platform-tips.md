@@ -224,7 +224,7 @@ On the worker machine, you need to run this command to remove travis-worker and 
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
-#### With Ubuntu 14.04 as host operating system
+### With Ubuntu 14.04 as host operating system
 
 ```sh
 sudo service replicated stop
