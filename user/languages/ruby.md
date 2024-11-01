@@ -13,6 +13,7 @@ layout: en
 | [Default `install`](#dependency-management) | `bundle install --jobs=3 --retry=3`       |
 | [Default `script`](#default-build-script)   | `rake`                                    |
 | [Matrix keys](#build-matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| YJIT Support                                | Yes (with supported Ruby versions         |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
