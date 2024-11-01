@@ -32,6 +32,8 @@ new to Travis CI, please read our [Onboarding](/user/onboarding/) and
 
 ## Specifying Ruby versions and implementations
 
+> YJIT, a lightweight, minimalistic Ruby JIT built inside CRuby is available with supported Ruby versions.
+
 The Ruby environment on Travis CI uses [RVM](https://rvm.io/) to provide many
 Ruby implementations, versions and even patch levels.
 
