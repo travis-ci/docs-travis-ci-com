@@ -126,7 +126,12 @@ travis setup releases --com
 
 ## Authenticating with an OAuth token
 
-The recommended way to authenticate is to use a GitHub OAuth token. It must have the `public_repo` or `repo` scope to upload assets. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub oauth token with the correct scopes.
+The recommended way to authenticate is to use a GitHub OAuth token. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub OAuth token with the correct scopes.
+
+If you can't use `travis setup releases`, you can set up the token manually with the following steps:
+1. Create a personal access token on the Github account. It must have the `public_repo` or `repo` scope to upload assets.
+2. Encrypt the token using Travis CLI: `travis encrypt [super_secret_token]`. Note that you must _not_ give the token a name in the encrypt command, as you might for an environment variable.
+3. Add the secure encrypted token to the deploy section of your `.travis.yml`, under the `api_key`.
 
 This results in something similar to:
 
@@ -142,7 +147,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-**Warning:** the `public_repo` and `repo` scopes for GitHub oauth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+**Warning:** the `public_repo` and `repo` scopes for GitHub OAuth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have the write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
 
 ## Authentication with a Username and Password
 
@@ -229,7 +234,7 @@ Please note that all paths in `file` are relative to the current working directo
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ## Running commands before or after release
 
@@ -247,16 +252,15 @@ after_deploy:
 
 ## Advanced options
 
-Options from `.travis.yml` are passed through to Octokit API's
+The following options from `.travis.yml` are passed through to Octokit API's
 [#create_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#create_release-instance_method)
-and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods,
-so you can use any valid Octokit option,
-unless they are treated separately in this document.
+and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releases.html#update_release-instance_method) methods.
 
-These include:
-
+* `tag_name`
+* `target_commitish`
 * `name`
 * `body`
+* `draft` (boolean)
 * `prerelease` (boolean)
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).

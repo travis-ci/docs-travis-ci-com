@@ -32,7 +32,7 @@ The Coverity Scan addon doesn't work on macOS versions with the SIP feature enab
 
 2. If necessary, create a public repo on [GitHub](https://github.com) for your project.
 
-3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Getting Tutorial](/user/tutorial/) guide.
+3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Onboarding](/user/onboarding/) guide.
 
 4. Sign in to Scan, and then add your project. Be sure to add it as a [GitHub Project](https://scan.coverity.com/projects/new?tab=github).
 

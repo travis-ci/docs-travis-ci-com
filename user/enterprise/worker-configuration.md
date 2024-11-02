@@ -202,7 +202,7 @@ export TRAVIS_WORKER_DOCKER_API_VERSION=1.35
 
 In this example we've used Docker-CE 17.12. According to the [API mismatch table](https://docs.docker.com/develop/sdk/#docker-ee-and-ce-api-mismatch) we need to choose `1.35` for `TRAVIS_WORKER_DOCKER_API_VERSION`.
 
-Below you find the full list of available environment variables and how they're accessible during the build:
+Below you can find the full list of available environment variables and how they're accessible during the build:
 
 Environment variable | Available as:
 `TRAVIS_WORKER_DOCKER_HTTP_PROXY` | `HTTP_PROXY`, `http_proxy`
@@ -216,6 +216,20 @@ Environment variable | Available as:
 export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'
 ```
 
+## How to set LXD worker specifics
+
+After running the `lxd_install.sh` the LXD worker configuration is stored in `/var/snap/travis-worker/common/worker.env`. 
+
+All parameters mentioned on this page with the exception of Docker parameters apply to LXD.
+Below you can find a list of available parameters:
+
+Parameters | Definition:
+`TRAVIS_WORKER_LXD_CPUS` | defines how many CPU's can be used by LXD, the default is `2`.
+`TRAVIS_WORKER_LXD_CPUS_BURST` | defines if all CPU's can be used by LXD if not already in use, the default is `True`.
+`TRAVIS_WORKER_LXD_DISK` | LXD disk size limit, the default is `20Gb`.
+`TRAVIS_WORKER_LXD_ARCH_OVERRIDE` | overrides the architecture defined in the job configuration, not present by default.
+`TRAVIS_WORKER_LXD_MEMORY` | defines the memory available for each container, the default is `4Gb`.
+`TRAVIS_WORKER_LXD_NETWORK` | defines the network bandwidth, the default is `1Gb`.
 
 ## Contact Enterprise Support
 

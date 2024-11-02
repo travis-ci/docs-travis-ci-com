@@ -30,8 +30,8 @@ language: perl6
 </aside>
 
 This guide covers build environment and configuration topics specific to
-Perl 6 projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+Perl 6 projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Perl 6 builds are not available on the macOS environment.
 
@@ -160,3 +160,7 @@ script:
     - PERL6LIB=src prove --ext .t --ext .t6 -v -r --exec=perl6 tests/
 ```
 {: data-file=".travis.yml"}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Perl6](https://config.travis-ci.com/ref/language/perl6) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

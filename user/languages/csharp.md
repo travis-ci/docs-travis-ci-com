@@ -25,8 +25,8 @@ language: csharp
 </aside>
 
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community Supported Language
 
@@ -190,3 +190,6 @@ script:
 ```
 {: data-file=".travis.yml"}
 
+## Build Config Reference
+
+You can find more information on the build config format for [C#](https://config.travis-ci.com/ref/language/csharp) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

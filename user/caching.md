@@ -334,13 +334,15 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
 
 ### Caches expiration
 
-Cache archives are currently set to expire after 28 days for repositories on https://travis-ci.org and
-45 days for those on https://travis-ci.com. 
+Cache archives are currently set to expire after 45 days for repositories on https://app.travis-ci.com. 
 This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Caching](https://config.travis-ci.com/ref/job/cache) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Configuration
 
@@ -428,7 +430,7 @@ jobs should use.
 These factors are:
 
 1. OS name (currently, `linux`, `osx`, or `windows`)
-2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
+2. OS distribution (for Linux, `focal`, `bionic`, `xenial`, `trusty`, or `precise`)
 3. macOS image name (e.g., `xcode7.2`)
 4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 5. Language runtime version (for the language specified in the `language` key) if applicable

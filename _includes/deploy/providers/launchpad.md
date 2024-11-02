@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Launchpad is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Launchpad is in **alpha**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -35,4 +35,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `LAUNCHPAD_`.
 
 For example, `oauth_token` can be given as `LAUNCHPAD_OAUTH_TOKEN=<oauth_token>`.
+
 {% include deploy/secrets.md name="oauth_token" env_name="LAUNCHPAD_OAUTH_TOKEN" %}

@@ -7,7 +7,7 @@ no_toc: true
 
 ## Copyright Information
 
-Copyright 2019, Travis CI Corporation. All rights reserved.
+Copyright 2020, Travis CI Corporation. All rights reserved.
 
 ## Procedure for Making Claims of Copyright Infringement
 

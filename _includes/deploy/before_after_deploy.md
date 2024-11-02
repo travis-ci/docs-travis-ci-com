@@ -2,7 +2,9 @@
 
 Sometimes you want to run commands before or after deploying.
 
-You can use the `before_deploy` and `after_deploy` steps for this. These will
+You can use the `before_deploy` and `after_deploy` steps for this. 
+
+> Please note: These will
 only be triggered if Travis CI is actually deploying.
 
 ```yaml

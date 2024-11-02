@@ -13,6 +13,7 @@ For a minimal configuration, add the following to your `.travis.yml`:
 deploy:
   provider: gae
   keyfile: <keyfile>
+  edge: true # opt in to dpl v2
 ```
 {: data-file=".travis.yml"}
 

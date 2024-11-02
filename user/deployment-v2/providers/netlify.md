@@ -12,13 +12,13 @@ after a successful build.
 
 ## Deploying a specific directory
 
-To deploy a specific directory, use the `local_dir` key:
+To deploy a specific directory, use the `dir` key:
 
 ```yaml
 deploy:
   provider: netlify
   # ⋮
-  local_dir: "_build/"
+  dir: "_build/"
 ```
 {: data-file=".travis.yml"}
 

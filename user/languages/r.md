@@ -8,7 +8,7 @@ layout: en
 
 This guide covers build environment and configuration topics specific to R
 projects.
-Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
+Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -272,16 +272,20 @@ for building R packages. The default rules roughly amount to:
 
 ```yaml
 install:
-- R -e 'devtools::install_deps(dep = T)'
+- R -e 'remotes::install_deps(dep = T)'
 
 script:
 - R CMD build .
-- R CMD check *tar.gz
+- R CMD check *tar.gz --as-cran
 ```
 {: data-file=".travis.yml"}
 
 If you'd like to see the full details, see
 [the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
+
+## Build Config Reference
+
+You can find more information on the build config format for [R](https://config.travis-ci.com/ref/language/r) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 

@@ -23,7 +23,7 @@ deploy:
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
-    branch: master
+    branch: main
 ```
 {: data-file=".travis.yml"}
 
@@ -38,9 +38,9 @@ token](https://help.github.com/articles/creating-an-access-token-for-command-lin
 with the `public_repo` or `repo` scope (`repo` is required for private
 repositories). Since the token should be private,
 you'll want to pass it to Travis securely in your [repository
-settings](/user/environment-variables#defining-variables-in-repository-settings)
+settings](/user/environment-variables/#defining-variables-in-repository-settings)
 or via [encrypted variables in
-`.travis.yml`](/user/environment-variables#defining-encrypted-variables-in-travisyml).
+`.travis.yml`](/user/environment-variables/#defining-encrypted-variables-in-travisyml).
 
 ## Further configuration
 

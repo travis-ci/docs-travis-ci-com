@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Hephy is in **beta**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Hephy is in **beta**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -41,4 +41,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `HEPHY_`.
 
 For example, `password` can be given as `HEPHY_PASSWORD=<password>`.
+
 {% include deploy/secrets.md name="password" env_name="HEPHY_PASSWORD" %}

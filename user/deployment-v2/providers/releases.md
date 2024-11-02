@@ -14,6 +14,7 @@ deploy:
   provider: releases
   token: <encrypted token>
   file: <file>
+  edge: true # opt in to dpl v2
   on:
     tags: true
 ```

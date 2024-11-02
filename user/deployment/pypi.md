@@ -14,7 +14,7 @@ For a minimal configuration, generate [PyPI API token](https://pypi.org/help/#ap
 ```yaml
 deploy:
   provider: pypi
-  user: "__token__"
+  username: "__token__"
   password: "Your PyPI API token, including the pypi- prefix"
 ```
 {: data-file=".travis.yml"}
@@ -35,7 +35,7 @@ travis encrypt your-api-token --add deploy.password --com
 ```yaml
 deploy:
   provider: pypi
-  user: "__token__"
+  username: "__token__"
   password:
     secure: "Your encrypted token"
 ```
@@ -43,7 +43,7 @@ deploy:
 
 It is also possible, but not recommended, to use PyPI user and password, instead of token.
 
-> Note that if your PyPI password contains [special characters](/user/encryption-keys#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
+> Note that if your PyPI password contains [special characters](/user/encryption-keys/#note-on-escaping-certain-symbols) you need to escape them before encrypting your password. Some people have [reported difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI with passwords containing anything except alphanumeric characters.
 
 
 ## Deploying tags
@@ -55,7 +55,7 @@ commits, like so:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     tags: true
@@ -71,7 +71,7 @@ You can explicitly specify the branch to release from with the **on** option:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     branch: production
@@ -83,7 +83,7 @@ Alternatively, you can also configure Travis CI to release from all branches:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   on:
     all_branches: true
@@ -101,7 +101,7 @@ To release to a different PyPI index:
 ```yaml
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   server: https://mypackageindex.com/index
 ```
@@ -115,7 +115,7 @@ If you would like to upload different distributions, specify them using the `dis
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   distributions: "sdist bdist_wheel" # Your distributions here
 ```
@@ -135,7 +135,7 @@ To avoid this, use the `skip_existing` flag:
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   skip_existing: true
 ```
@@ -149,7 +149,7 @@ Maybe that is not what you want, as you might generate some artifacts that are s
 ```
 deploy:
   provider: pypi
-  user: ...
+  username: ...
   password: ...
   skip_cleanup: true
 ```
@@ -157,7 +157,7 @@ deploy:
 ## Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ## Running commands before and after release
 

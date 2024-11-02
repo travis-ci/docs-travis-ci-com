@@ -3,7 +3,7 @@
 Most likely, you would only want to deploy when a new version of your
 package is cut.
 
-To do this, you can include a `tags` condition like do:
+To do this, you can include a `tags` condition like so:
 
 ```yaml
 deploy:

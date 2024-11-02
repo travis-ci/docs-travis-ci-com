@@ -1,5 +1,6 @@
 .DS_Store
 .bundle
+.history
 .jekyll-metadata
 .rvmrc
 .sass-cache
@@ -11,8 +12,8 @@ _data/node_js_versions.yml
 _data/language-details/*-versions.yml
 assets/javascripts/tablefilter
 _site
-bin
 node_modules
 source/tmp/*
 tmp/
 api/
+user/notifications.md

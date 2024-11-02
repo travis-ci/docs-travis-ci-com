@@ -75,7 +75,7 @@ file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
 
 Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
-- For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests)
+- For Ruby and RSpec use the [parallel_tests](https://github.com/grosser/parallel_tests) gem.
 - For Java, use the built-in feature [to run tests in parallel
   using JUnit](http://incodewetrustinc.blogspot.com/2009/07/run-your-junit-tests-in-parallel-with.html).
 
@@ -169,7 +169,7 @@ reports in your Travis builds, but it has been shown to have a negative effect
 upon performance.
 
 You may wish to consider
-[disabling the PHP XDebug extension](/user/languages/php#disabling-preinstalled-php-extensions) for your
+[disabling the PHP XDebug extension](/user/languages/php/#disabling-preinstalled-php-extensions) for your
 builds if:
 
 - you are not generating code coverage reports in your Travis tests; or

@@ -8,7 +8,7 @@ provider: pypi
 Travis CI can automatically release your Python package to [PyPI](https://pypi.python.org/) after a successful build.
 
 {% capture content %}
-  > Note that if your PyPI password contains [special > characters](/user/encryption-keys#note-on-escaping-certain-symbols)
+  > Note that if your PyPI password contains [special > characters](/user/encryption-keys/#note-on-escaping-certain-symbols)
   > you need to escape them before encrypting your password. Some people have [reported
   > difficulties](https://github.com/travis-ci/dpl/issues/377) connecting to PyPI
   > with passwords containing anything except alphanumeric characters.

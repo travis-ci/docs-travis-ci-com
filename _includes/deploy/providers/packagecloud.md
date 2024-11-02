@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Packagecloud is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Packagecloud is in **alpha**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -44,4 +44,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `PACKAGECLOUD_`.
 
 For example, `token` can be given as `PACKAGECLOUD_TOKEN=<token>`.
+
 {% include deploy/secrets.md name="token" env_name="PACKAGECLOUD_TOKEN" %}

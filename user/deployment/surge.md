@@ -39,7 +39,7 @@ If you are generating files for deployment you must tell the `deploy` step to ke
 ```yaml
 deploy:
   ...
-  skip_cleanup: true
+  cleanup: false
 ```
 {: data-file=".travis.yml"}
 

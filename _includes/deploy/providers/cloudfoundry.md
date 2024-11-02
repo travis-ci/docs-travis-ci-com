@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Cloud Foundry is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Cloud Foundry is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -33,6 +33,7 @@ Use the following options to further configure the deployment.
 | `buildpack` | Buildpack name or Git URL &mdash; type: string |
 | `manifest` | Path to the manifest &mdash; type: string |
 | `skip_ssl_validation` | Skip SSL validation &mdash; type: boolean |
+| `deployment_strategy` | Deployment strategy, either rolling or null &mdash; type: string |
 | `v3` | Use the v3 API version to push the application &mdash; type: boolean |
 
 ### Shared options
@@ -45,4 +46,5 @@ Use the following options to further configure the deployment.
 All options can be given as environment variables if prefixed with `CLOUDFOUNDRY_`.
 
 For example, `password` can be given as `CLOUDFOUNDRY_PASSWORD=<password>`.
+
 {% include deploy/secrets.md name="password" env_name="CLOUDFOUNDRY_PASSWORD" %}

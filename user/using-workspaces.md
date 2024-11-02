@@ -1,19 +1,15 @@
 ---
-title: Using Workspaces (Beta)
+title: Using Workspaces
 layout: en
 ---
 
-# Workspaces (Beta)
-
-> Workspaces are currently in beta testing, and may change without a prior
-> notice.
-{: .beta}
+# Workspaces
 
 Workspaces allow jobs _within_ a build to share files.
 They are useful when you want to use build artifacts from a previous job;
 for example, you create a cache that can be used in multiple jobs later.
 
-So you can clearly see when a workspace is created and used, we recommend using workspaces with [build stages](/user/build-stages), as shown in the following [examples](#workspace-examples).
+So you can clearly see when a workspace is created and used, we recommend using workspaces with [build stages](/user/build-stages/), as shown in the following [examples](#workspace-examples).
 
 > Note that it is best to create a workspace in one stage and then use it in
 subsequent stages.
@@ -93,6 +89,72 @@ In this example:
   1. in the subsequent "Deploy" stage, we fetch the workspaces
      produced by the jobs in the previous stage, and deploy it
      using a custom script.
+
+A more explicit example below:
+
+
+```yaml
+jobs:
+  include:
+    - stage: Build and Test
+      name: "Job A"
+      script:
+        - echo "Building Job A"
+        - echo "Running tests for Job A"
+        - mkdir -p workspace-a
+        - echo "This is data from Job A" > workspace-a/data-A.txt
+      workspaces:
+        create:
+          name: workspace-a
+          paths:
+            - workspace-a
+
+    - name: "Job B"
+      script:
+        - echo "Building Job B"
+        - echo "Running tests for Job B"
+        - mkdir -p workspace-b
+        - echo "This is data from Job B" > workspace-b/data-B.txt
+      workspaces:
+        create:
+          name: workspace-b
+          paths:
+            - workspace-b
+
+    - name: "Job C"
+      script:
+        - echo "Building Job C"
+        - echo "Running tests for Job C"
+        - mkdir -p workspace-c
+        - echo "This is data from Job C" > workspace-c/data-C.txt
+      workspaces:
+        create:
+          name: workspace-c
+          paths:
+            - workspace-c
+
+    - stage: Deploy
+      name: "Deploy"
+      script:
+        - echo "Deploying using artifacts from Job A Job B and Job C"
+        - cat workspace-a/data-A.txt
+        - cat workspace-b/data-B.txt
+        - cat workspace-c/data-C.txt
+      workspaces:
+        use:
+          - workspace-a
+          - workspace-b
+          - workspace-c
+```
+{: data-file=".travis.yml"}
+
+In above example:
+
+1. Build stage "Build and Test" consists of 3 jobs, each of them producing output to a separate workspace
+2. Build stage "Deploy" consists of one job, which
+    1. Marks usage of all 3 previosuly created workspaces
+    2. pulls data out of each previously created workspace and echoes it to standard output to demonstrate ability to access workspace
+
 
 ## Workspaces and concurrency
 Note that workspaces work best if there is no race condition set while

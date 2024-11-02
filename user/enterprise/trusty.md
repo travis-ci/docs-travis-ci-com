@@ -4,6 +4,8 @@ layout: en_enterprise
 
 ---
 
+> Please note that support for Trusty build environment is discontinued for Travis CI Enterprise. This is a **legacy** document left for reference.
+
 ## System Setup
 
 **Platform Requirements**: To use the Trusty build containers, the Travis CI installation must be at 2.1.9 or higher. Please be sure to [upgrade](/user/enterprise/upgrading/), if needed, before getting started.
@@ -31,7 +33,7 @@ This installer uses Docker's `aufs` storage driver. If you have any questions or
 
 ## Installation with Travis CI Enterprise 2.1.9+
 
-The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/precise) as it's default worker. However, starting with version 2.1.9+, it is possible to use Trusty build environments, assuming the feature flags are set. Otherwise, the installation process is very similar to the Enterprise 2.2 series.
+The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/precise/) as it's default worker. However, starting with version 2.1.9+, it is possible to use Trusty build environments, assuming the feature flags are set. Otherwise, the installation process is very similar to the Enterprise 2.2 series.
 
 ### Enabling the Trusty Beta Feature Flag
 

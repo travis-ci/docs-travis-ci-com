@@ -8,8 +8,8 @@ layout: en
 
 This guide covers build environment and configuration topics specific to
 [Elm](https://elm-lang.org/) projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 <aside markdown="block" class="ataglance">
 
@@ -109,3 +109,7 @@ for details.
   If neither `elm-format` nor `elm` is overridden, the default value, `elm0.19.0`
   is used.
 * `TRAVIS_NODE_VERSION` points to the `node_js` version in use.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Elm](https://config.travis-ci.com/ref/language/elm) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

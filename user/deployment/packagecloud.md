@@ -113,7 +113,7 @@ the `local-dir` directory. Ensure the source package and it's contents are outpu
 ### Conditional releases
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
 ### Running commands before and after release
 

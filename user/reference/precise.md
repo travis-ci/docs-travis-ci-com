@@ -7,7 +7,8 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
-> Precise is EOL by Canonical, try updating to a newer image and see our [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
+> Precise is EOL by Canonical, try updating to a newer image. It is considered as deprecated build envrionment in Travis CI and not supportted with any updates.
+> Past guides, for reference: [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
 
 ### What This Guide Covers
 
@@ -42,7 +43,7 @@ images.
 
 For other images, see the list below:
 
-- [macOS CI Environment](/user/reference/osx)
+- [macOS CI Environment](/user/reference/osx/)
 - [Trusty CI Environment](/user/reference/trusty)
 
 ### Version control
@@ -123,7 +124,7 @@ Please note that the addon only works in 64-bit Linux environments.
 
 ### Environment variables
 
-There is a [list of default environment variables](/user/environment-variables#default-environment-variables) available in each build environment.
+There is a [list of default environment variables](/user/environment-variables/#default-environment-variables) available in each build environment.
 
 ### Libraries
 
@@ -392,4 +393,4 @@ Recent 1.7.x version (usually the most recent)
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.

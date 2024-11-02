@@ -1,5 +1,5 @@
 ---
-title: Upgrading Travis CI Enterprise
+title: Upgrading Travis CI Enterprise 2.x
 layout: en_enterprise
 
 ---
@@ -21,11 +21,7 @@ Without the encryption key you cannot access the information in your production 
 
 > Without the encryption key the information in the database is not recoverable.
 
-To make a backup, please follow these steps:
-
-1. Open an SSH connection to the platform machine.
-2. Run `travis bash`. This will open a bash session with `root` privileges into the Travis container.
-3. Then run `grep -A1 encryption: /usr/local/travis/etc/travis/config/travis.yml`. Create a backup of the value returned by that command by either writing it down on a piece of paper or storing it on a different computer.
+{{ site.data.snippets.enterprise_2_encryption_key_backup }}
 
 ## Updating your Travis CI Enterprise Platform
 
@@ -49,6 +45,14 @@ whether you are behind a web proxy you'll want to run one of these:
   curl -sSL -x http://: -o /tmp/installer.sh https://enterprise.travis-ci.com/install
   sudo bash /tmp/installer.sh http-proxy=http://:
 ```
+
+To apply an update patch for a specific release e.g you currently have version 2.9.1 and want to update to a more secure patch at 2.9.7 patch, you would execute:
+
+```
+  curl -sSL "https://get.replicated.com/docker?replicated_tag=2.9.7" | sudo bash
+```
+ 
+> Please note that for Ubuntu Bionic, you'll need to add the following flag to `installer.sh` as follows: `installer.sh --travis_build_images=bionic`
 
 ## Updating your Travis CI Enterprise Worker
 
