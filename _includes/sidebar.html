@@ -1,37 +1,10 @@
 <div id="sidebar" class="sidebar">
-  <div>
-    <!-- <h2>Search</h2> -->
-    <div class="searchbox">
-      <form>
-        <input type="text" id="st-search-input" class="searchbox-input" placeholder="Search the docs" />
-      </form>
-      <script type="text/javascript">
-      var Swiftype = window.Swiftype || {};
-        (function() {
-          Swiftype.key = 'tXvDDzd4fNTBnLvxfEyx';
-
-          Swiftype.searchSearchFields = {
-            "page": ["title, body, tags"]
-          };
-          Swiftype.autocompleteSearchFields = {
-            "page": ["title, body, tags"]
-          };
-          /** DO NOT EDIT BELOW THIS LINE **/
-          var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-          script.src = "//swiftype.com/embed.js";
-          var entry = document.getElementsByTagName('script')[0];
-          document.getElementsByTagName('script')[0].parentNode.insertBefore(script, entry);
-        }());
-      </script>
-    </div>
-  </div>
-
   <section class="sidebar-navigation">
     <nav>
       <h3>Getting Started</h3>
       <ul>
+        <li><a href="/user/onboarding/">Travis CI Onboarding</a></li>
         <li><a href="/user/for-beginners/">Core Concepts for Beginners</a></li>
-        <li><a href="/user/tutorial/">Travis CI Tutorial</a></li>
         <li><a href="/user/customizing-the-build/">Customizing the Build</a></li>
         <li><a href="/user/speeding-up-the-build/">Speeding up the Build</a></li>
         <li><a href="/user/docker/">Using Docker in your Build</a></li>
@@ -42,6 +15,16 @@
         <li><a href="https://github.com/travis-ci/travis#readme">Command Line Client</a></li>
         <li><a href="/user/build-config-imports/">Build Config Imports</a></li>
         <li><a href="/user/build-config-validation/">Build Config Validation</a></li>
+      </ul>
+
+      <h3>Tutorials</h3>
+      <ul>
+        <li class="is-overview"><a href="/user/tutorials/tutorials-overview/">Overview</a></li>
+        <li><a href="/user/tutorials/tutorial-c/">C/C++ Tutorial</a></li>
+        <li><a href="/user/tutorials/tutorial-java/">Java Tutorial</a></li>
+        <li><a href="/user/tutorials/tutorial-nodejs/">Node.js Tutorial</a></li>
+        <li><a href="/user/tutorials/tutorial-python/">Python Tutorial</a></li>
+        <li><a href="/user/tutorials/tutorial-ruby/">Ruby Tutorial</a></li>
       </ul>
 
       <h3>Jobs, Builds, Matrices and Stages</h3>
@@ -141,7 +124,7 @@
         <li><a href="/user/triggering-builds/">Triggering Builds with API V3</a></li>
         <li><a href="https://github.com/travis-ci/travis#ruby-library">The Ruby Library</a></li>
       </ul>
-      
+
       <h3>Hosted Billing</h3>
       <ul>
         <li class="is-overview"><a href="/user/billing-overview/">Overview</a></li>

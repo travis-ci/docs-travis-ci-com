@@ -28,8 +28,8 @@ language: elixir
 
 The rest of this guide covers build environment and configuration topics
 specific to Elixir projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 Elixir builds are not available on the macOS environment.
 

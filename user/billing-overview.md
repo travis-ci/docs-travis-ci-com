@@ -9,22 +9,28 @@ permalink: /user/billing-overview/
 
 
 Travis CI billing system consists of two types of subscriptions: Concurrency (fixed-price) based plans and Usage-based plans.
-The variety of plans provides you with the flexibility to choose the plan that suits your needs.  
+The variety of plans allows you to choose the plan that suits your needs.  
 
 
-| Billing Period | Concurrency based (fixed-price) | Usage-based |
-|:-------        |:-----------------:|:-----------:|
-|Month           | Concurrent jobs limit<br />Unlimited build minutes on standard sized VMs Linux, Windows, and FreeBSD<br />Paid macOS builds (credits)<br />Paid premium VM size (credits). Contact sales for other options.<br /><br />Purchase in [Travis CI](https://app.travis-ci.com/account/plan). | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits) on all VM types<br />Paid user licenses (only per unique users triggering the builds)<br /><br /> |
-|Annual      | Available, same build rules as monthly. Purchase in [Travis CI](https://app.travis-ci.com/account/plan) or contact support.  | Very high concurrency limit<br />Paid macOS, Linux, Windows, and FreeBSD build minutes (credits)<br />Paid user licenses (only per unique users triggering the builds)<br /><br />Contact support for high volume annual usage-based plans. |
+|                 | Usage-based                     | Concurrency based (fixed-price) |
+|:-------         |:-------------------------------:|:-------------------------------:|
+|Credits          | Used for every build job. Allowance is included in the price and can be auto-refilled or purchased on demand. | Used only for Premium VMs; standard jobs are included in the price and free of additional charge. It may be purchased on demand. |
+|Users            | Unlimited / per-user charge.    | Unlimited / incl. in price |
+|Network transfer | Unlimited / incl. in price      | Unlimited / incl. in price |
+|Cache storage    | Unlimited / incl. in price      | Unlimited / incl. in price |
+|Concurrent Jobs  | Very high, adjustable for valid cases on request| as per plan limitation |
+|Linux IBM/ARM build environments | Available, see more [details](#partner-queue-solution) | Available, see more [details](#partner-queue-solution) |
+|Premium VM build environment | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) | Available, paid in credits. For 'PremiumVM as default build environment' [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) |
+|Subscription     | Yes, monthly or annual.         | Yes, monthly or annual.    |
+| Usage-based billing only | Yes, it is a custom option. Please [see more details on usage-based plans](#usage-based-plans) | Not available |
 
-
-For most of users, a single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options.
+For most users, a basic usage-based or single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options or high-volume plans.
 
 ### Free Trial Plan
 
 A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a pool of 10k trial credits (1k Linux build minutes) to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 14 days.
 
-Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details during the selection of the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure. 
+Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details while selecting the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure. 
 
 > The Free Trial Plan is available only once and for new users only
 
@@ -32,11 +38,11 @@ Due to security reasons and an anti-abuse preventive measure, any new user will 
 
 *Build minute* - every build minute of a build job after the build job environment is started (queue time and spinning up the environment time are not deducting credits from the allowance).
 
-*Unique user triggering the build* - every VCS (Version Control System) user, who's activity in VCS triggers a build in Travis CI via e.g. commit or pull request in the source repository. It does not have to be a user, who signed up to Travis CI - therefore it's important to review and adjust Travis CI Repository settings which VCS scenarios and users are allowed to trigger the build in Travis CI. Count of unique users triggering builds is tracked and reset every month, regardless if Usage-based plan is marked as monthly or annual. The same unique user triggering builds within a month is consuming user-license allowance only once in a given month.
+*Unique user triggering the build* - every VCS (Version Control System) user whose activity in VCS triggers a build in Travis CI via, e.g., commit or pull request in the source repository. It does not have to be a user who signed up for Travis CI; therefore, it's important to review and adjust Travis CI Repository settings in which VCS scenarios and users are allowed to trigger the build in Travis CI. The count of unique users triggering builds is tracked and reset every month, regardless of whether the Usage-based plan is marked as monthly or annual. The same unique user-triggering builds within a month consumes a user-license allowance only once in a given month.
 
-*Build* - a build consists of at least 1 and up to *n* build jobs. Each build is triggered by an *unique user*.
+*Build* - a build consists of at least 1 and up to *n* build jobs. Each build is triggered by a *unique user*.
 
-*Build job* - a build job is where the build and test work happens. Build job is executed in an ephemeral environment (removed after single build job is finished) of a container or VM instance at Travis CI infrastructure. Build job duration is tracked and - if required - relevant cost covered from the credits pool.
+*Build job*—a build job is where the build and test work happens. It is executed in an ephemeral environment (removed after a single build job is finished) of a container or VM instance at Travis CI infrastructure. The duration of the build job is tracked, and—if required—the relevant cost is covered from the credits pool.
 
 ## Concurrency based plans
 
@@ -58,8 +64,8 @@ In Travis CI, builds are executed singularly, without exceeding limitations. The
 >
 > If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
 
-Linux, Windows, and FreeBSD builds are included in the price of these plans. The macOS builds are paid separately on concurrency plans and can be run after purchasing the separate credits add-on.
-Credits are used to pay for each build job minute on macOS. Purchase only the credits you need and use them until you run out. Please see more in the 'Usage based' section.
+The price of these plans includes Linux, Windows, and FreeBSD builds. The macOS builds are paid separately on concurrency plans and can be run after purchasing the separate credits add-on.
+Credits are used to pay for each build job minute on macOS. Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
 >
@@ -68,7 +74,7 @@ Credits are used to pay for each build job minute on macOS. Purchase only the cr
 
 ### Concurrency Plan - How to obtain it?
 
-1. Sign in to Travis CI with the [Version Control System of your choice](/user/tutorial/).
+1. Sign in to Travis CI with the [Version Control System of your choice](/user/onboarding/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
 3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
 4. Confirm the transaction.
@@ -84,27 +90,42 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit addons, if available, can be purchased at any time, and credits are only used when you need them. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Plan assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit add-ons, if available, can be purchased anytime, and credits are only used when needed. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding the pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Trial assigned upon sign-up grants you unlimited users for free. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
 | **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40 concurrent jobs limit. |
 
 #### Credit costs associated with Usage-based Plans
 
-1. User license cost: by default, credits per each unique user triggering a build or a specific rate charged in arrears at the end of month. See [Usage - user licenses](#usage---user-licenses) section for more details.
-2. Build job duration costs: See [Usage - Credits](#usage---credits) for more details.
-3. For Linux build job environments, additional resources are available as Premium VMs (extra CPU/RAM) on demand at a certain credit cost. See [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost) for more details.
-4. For a specific Linux build job environments, GPU builds are available on demand at a specific credit cost. See [GPU VM Instance Sizes and Credit Cost for GPU builds](#gpu-vm-instance-sizes-and-credit-cost-for-gpu-builds) for more details.
+1. User license cost: by default, credits per each unique user triggering a build or a specific rate charged in arrears at the end of the month. See the [Usage - user licenses](#usage---user-licenses) section for more details.
+2. Build job duration costs: For more details, see [Usage—Credits](#usage---credits).
+3. Additional resources (usually extra CPU/RAM) are available as Premium VMs on demand at a certain credit cost. See [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost) for more details.
+4. For specific Linux build job environments, GPU builds are available on demand at a specific credit cost. See [GPU VM Instance Sizes and Credit Cost for GPU builds](#gpu-vm-instance-sizes-and-credit-cost-for-gpu-builds) for more details.
+
+|                                       | Usage-based with subscription | Usage based w/o subscription |
+|:---                                   |:-----------------------------:|:----------------------------:|
+| Users                                 | 25 000 credits per user<br /><br />A VCS user triggering build consumes a user license, and such a license is not included in the price or pre-purchased user license package  | A VCS user triggering build consumes a user license and such a license is not included in the price or pre-purchased user license package. Consumed licenses are charged in arrears at the end of the month **as per plan rates** or are capped by the allowed number of user licenses. | 1
+| Users incl. in plan price             | no additional charge          | no additional charge        |
+| Users 'X in the price of 1' package       | e.g., 25 000 credits charge upon 1st user triggering build, 0 credits for subsequent users up to the limit of pre-purchased licenses | no additional charges and users up to the limit of pre-purchased licenses are covered by the package price, package cost may be charged upfront or in arrears after summarizing user license consumption in a month |
+| Build Job: Partner Queues (IBM)       | 0 credits for Open Source / standard Linux rate for rest | 0 credits for Open Source / standard Linux rate for rest |
+| Build Job: Standard Linux/FreeBSD     | 10 credits / minute            | 10 credits / minute |
+| Build Job: Standard Windows           | 20 credits / minute            | 20 credits / minute |
+| Build Job: macOS - legacy Intel       | 50 credits / minute            | 50 credits / minute |
+| Build Job: Linux - large VM size	    | 20 credits / min	             | 20 credits / min	   |
+| Build Job: Linux - x-large VM size    |	40 credits / min	             | 40 credits / min    |
+| Build Job: Linux - 2x-large VM size   |	80 credits / min	             | 80 credits / min    |
+| Build Job: Linux - gpu-medium VM size | 	230 credits / min	           | 230 credits / min   |
+| Build Job: Linux - gpu-xlarge VM size | 	890 credits / min	           | 890 credits / min   |
 
 ### Usage-based Plan - How to obtain?
 
-1. Sign in to Travis CI with a [Version Control System of your choice](/user/tutorial/).
+1. Sign in to Travis CI with a [Version Control System of your choice](/user/onboarding/).
 2. Navigate to the [Plans](https://app.travis-ci.com/account/plan) and have your billing and contact details filled in correctly.
 3. Select an available Usage-based Plan or contact [Travis CI support](mailto:support@travis-ci.com) requesting a Usage-based Plan for larger options.
 
 
 ### Usage-based Plan - How it works
 
-The Usage-based pricing is a model using credits. It may contain included user-license allowance and credit pool. Usage-based pricing features very high concurrent build jobs soft limits. In other words, users and organizations can run as many build jobs in Travis CI as they want simultaneously, meaning that all builds are executed as soon as possible. The final cost is flexible and closely related to the actual usage of the system, allowing you to downscale or upscale as per your needs.
+Usage-based pricing is a model using credits. It may include a user-license allowance and credit pool. Usage-based pricing features very high concurrent build jobs soft limits. In other words, users and organizations can run as many build jobs in Travis CI as they want simultaneously, meaning that all builds are executed as soon as possible. The final cost is flexible and closely related to the actual usage of the system, allowing you to downscale or upscale as per your needs.
 
 All credit charges are deducted from a credit pool associated with an Usage-based plan assigned to Travis CI User or Organization, which is an 'owner' of a VCS repository enabled in Travis CI.
 
@@ -118,7 +139,7 @@ In custom cases, instead of charge in credits, user licenses will be tracked wit
 
 Once the Usage-based plan is assigned to the Travis CI user or Travis CI Organization, which 'owns' repositories enabled at Travis CI, there will be a credits allowance present. Credits are immediately granted upon:
 
-* the usage-based subscription´s payment (autobilling)
+* The usage-based subscription´s payment (auto-billing)
 * manual purchase of a credits package
 * auto-refilling credits (see [Auto-refill feature](/user/billing-autorefill/) feature description)
 
@@ -126,18 +147,18 @@ Usage-based plan may come with pre-purchased user-license allowance (expressed a
 
 Every unique user triggering build within a month is consuming one user-license. Please see [Usage - user licenses](#usage---user-licenses) section for more details.
 
-Every build job started on standard infrastructure is consuming credits. Exact cost rate depends on the type of build job and its duration. See See [Usage - Credits](#usage---credits), [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost) and [GPU VM Instance Sizes and Credit Cost for GPU builds](#gpu-vm-instance-sizes-and-credit-cost-for-gpu-builds) for more details.
+Every build job started on standard infrastructure is consuming credits. The exact cost rate depends on the type of build job and its duration. See [Usage - Credits](#usage---credits), [VM Instance Sizes and Credit Cost](#vm-instance-sizes-and-credit-cost), and [GPU VM Instance Sizes and Credit Cost for GPU builds](#gpu-vm-instance-sizes-and-credit-cost-for-gpu-builds) for more details.
 
 Triggering builds is only possible if a user has a positive credit balance. To get more credits, users can use the [Auto-refill feature](/user/billing-autorefill/) or change to a higher [credits plan](https://app.travis-ci.com/account/plan). If the user has credits after the plan´s renewal, these usually carry over to the new plan. For more information about your plan and validity dates, see the [Plan page](https://app.travis-ci.com/account/plan).
 
 
 ### Monthly Usage-based Plans
 
-Monthly Usage-based plans are a subscription, granting specific credit pool each month and (optionally) user-license allowance included in the price. Once these allowances are depleted, the credits may be refilled via manual purchase of credits package or [auto-refilled](/user/billing-autorefill/) and spent on builds and additional user-licenes.
+Monthly Usage-based plans are subscriptions, granting a specific credit pool each month and (optionally) user-license allowance included in the price. Once these allowances are depleted, the credits may be refilled via manual purchase of credits package or [auto-refilled](/user/billing-autorefill/) and spent on builds and additional user-licenes.
 
 Consumed user-license count is reset each month.
 
-If not stated or set otherwise, Monthly Usage-based plan is renewed automatically.
+If not stated or set otherwise, the Monthly Usage-based plan is renewed automatically.
 
 #### Selecting a Plan
 
@@ -155,7 +176,7 @@ Annual Usage-based plans are a subscription, granting specific credit pool each 
 
 Consumed user-license count is reset each month during the annual plan duration.
 
-If not stated or set otherwise, Annual Usage-based plan is renewed automatically.
+If not stated or set otherwise, the Annual Usage-based plan is renewed automatically.
 
 
 #### Selecting a Plan
@@ -181,7 +202,7 @@ Upon cancellation, users have the remaining time of the contract plus one extra 
 
 ### Changing Plans
 
-If you wish to switch from your monthly subscription to another plan with a different amount of credits, your new plan subscription will take effect at the start of the following month. And if you still run out of credits before the end of each month, try an annual plan, where you get a annual amount of credits for the price of 11 months.
+If you wish to switch from your monthly subscription to another plan with a different amount of credits, your new plan subscription will take effect at the start of the following month. And if you still run out of credits before the end of each month, try an annual plan, where you get an annual amount of credits for the price of 11 months.
 
 ### Usage - Credits
 
@@ -192,17 +213,19 @@ Thus whenever you select or are assigned a Usage-based plan:
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. a plan coming with 25,000 credits will result in an immediate charge according to the enlisted price.
 * If you have the Auto-Refill option enabled, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon successful charge on your credit card; read more about it [here](/user/billing-autorefill/).
 
-You can also purchase credits while on the Concurrency-based Plan. These are used only in scenarios that require credits to start a build job (e.g. building on macOS or using a non-standard VM instance size).
+You can also purchase credits while on the Concurrency-based Plan. These are used only in scenarios that require credits to start a build job (e.g., building on macOS or using a non-standard VM instance size).
 
 Credits are deducted from your balance each time a build job starts a VM instance or an LXD container and is running. Each started build job minute has a credit cost associated with the environment used, as shown in the table below. If your account runs out of credits, there's a slight margin of negative credits you are allowed to exceed in order to finish the job, but if that margin is passed - jobs will be canceled due to insufficient credits balance.
 
 | OS                   | # Credits per<br />started build minute |
 |:--------------------:|:-----------:|
 | Partner Queue        | 0           |
-| Linux                | 10          |
-| Experimental FreeBSD | 10          |
-| Windows              | 20          |
-| macOS                | 50          |
+| Linux                | 1 x usage credit cost of build minute |
+| Experimental FreeBSD | 1 x usage credit cost of build minute |
+| Windows              | 2 x usage credit cost of build minute |
+| macOS                | 5 x usage credit cost of build minute |
+
+See [credit costs associated with usage-based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
 Build job minutes are counted from the moment when [VM or LXD container](/user/reference/overview/#virtualization-environments) is spun up. Thus, queue waiting time or spinning-up time are not taken into account when calculating job duration time.
 
@@ -218,7 +241,6 @@ and is meant to prevent abusive usage of the system.
 Partner Queue Solution is a solution for infrastructure sponsored by our Partners with OSS in mind, which can be used entirely for free. Currently, it includes:
 
 - IBM CPU builds in IBM Cloud (sponsored by IBM)
-- ARM64 CPU builds in Equinix Metal (former Packet) infrastructure (sponsored by ARM)
 
 This is available only to Open Source Software repositories.
 
@@ -227,22 +249,23 @@ To run a job using Partner Queue Solution, use the following `.travis.yml` tags 
 ```yaml
 os: linux
 arch:
-  - arm64
   - ppc64le
   - s390x
 ```
 
 Please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages for more details.
 
-In order to start a build in the Usage-based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. At the moment of introducing Partner Queue Solution, active accounts on the Usage-based Plans, including the Free Plan, with a balance of zero or fewer credits, are updated to hold 1 credit. Thus everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you still need to file an additional request.
+In order to start a build in the Usage-based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. When introducing Partner Queue Solution, active accounts on the Usage-based Plans, including the Free Plan, with a balance of zero or fewer credits, are updated to hold 1 credit. Thus, everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you must file an additional request.
 
 In the case of Concurrency-based Plans, you can use the above infrastructure for OSS builds without any credits in your account.
 
 Partner Queues are available only for standard instance size.
 
+The `ppc64le` is also available for private builds at a standard Linux per-minute credit rate.
+
 #### Negative Credits
 
-By design, the billing system usually allows the build job to finish even if the possible cost of the build job expressed in credits exceeds the available credits balance. Once the build finishes, you may notice your credit balance to be negative. **This is perfectly normal.** The negative balance will be deducted from the newly arriving credit pool whenever your credits get replenished, e.g. after purchasing an addon. What remains is your available credit balance for your builds.
+By design, the billing system usually allows the build job to finish even if the possible cost of the build job expressed in credits exceeds the available credits balance. Once the build finishes, you may notice your credit balance to be negative. **This is perfectly normal.** The negative balance will be deducted from the newly arriving credit pool whenever your credits get replenished, e.g., after purchasing an addon. What remains is your available credit balance for your builds.
 
 Please note: Currently, if the system decides that the build could cause your negative balance to be too high, the job can be canceled mid-flight due to insufficient credits balance. This will be addressed in one of the incoming updates in order to allow fluent processing for your builds.
 
@@ -265,13 +288,13 @@ Each new user who subscribes to the Free Trial Plan is automatically granted cre
 
 ### Usage - User Licenses
 
-User-licenses in Usage-based plans are consumed by [unique users triggering builds](#definitions) in a following order:
+User-licenses in Usage-based plans are consumed by [unique users triggering builds](#definitions) in the following order:
 
 * any user-license allowance included in the price (if applicable)
 * any discounted user-license allowance (if applicable)
-* immediate charge in credits for user license or, in custom cases, adds to count of user licenses consumed within current month to be charged at the end of month
+* immediate charge in credits for a user license or, in custom cases, adds to the count of user licenses consumed within the current month to be charged at the end of the month.
 
-Count of unique users triggering a build is tracked and reset monthly. Unique users triggering a build are calculated as in following example:
+The count of unique users triggering a build is tracked and reset monthly. Unique users triggering a build are calculated as in the following example:
 
 > If person A triggers a build, and person B triggers a build, the billing system will recognize 2 unique users. Now, if person A or B again triggers a build, the amount of unique users triggering remains 2 (assuming builds are triggered within the same month). Only when user C triggers a build within the same month the number of unique users triggering a build will be increased to 3.
 >
@@ -285,30 +308,29 @@ Usage-based plans may have or may have not user-license allowance included in th
 
 ##### Example 1: Credits, no user allowance included in price, user-license charge in credits, build with *n* build jobs
 
-> If a build is triggered, the system will check if this is a new unique user triggering build. If yes, credit charge for user license will be immediately dedcuted from the available credit pool upon the build start.
+> If a build is triggered, the system will check if this is a new, unique user-triggered build. If yes, a credit charge for the user license will be immediately deducted from the available credit pool upon the start of the build.
 > 
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
 
 ##### Example 2: Credits, user-license pool included in plan price, user-license charge in credits, build with *n* build jobs
 
-> If a build is triggered, the system will check if this is a new unique user triggering build. If yes, system checks if consuming user-license exceeds user-license limit included:
+> If a build is triggered, the system will check if this is a new, unique user-triggering build. If yes, the system checks if consuming user-license exceeds user-license limit included:
 > 
 > no - no credit charge for user-license
 > yes - credit charge for user license will be immediately deducted from the available credit pool upon the build start.
 >
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
 
-##### Example 3: Credits, pool of 3 discounted user-licenses included in the plan (e.g. *first 3 users for $XX*), user-license charge in credits, build with *n* build jobs
+##### Example 3: Credits, pool of 3 discounted user-licenses included in the plan (e.g., *first 3 users for $XX*), user-license charge in credits, build with *n* build jobs
 
 > Discounted user-license included in the plan means, in this example, that first three users cost e.g. 25K credits and after that each subsequent unique user triggering build costs $25k credits.
 > 
-> If a build is triggered, the system will check if this is a new unique user triggering build. If yes, system checks if consuming user-license exceeds pool of discounted user-license limit included in the plan:
+> If a build is triggered, the system will check if this is a new unique user triggering build. If yes, the system checks if the consuming user-license exceeds the pool of discounted user-license limit included in the plan:
 > 
 > no - if this is 1st user out of first 3 discounted, a charge of e.g. 25k credits is deducted upon build start. If this is 2nd or 3rd unique user within a month, no credits are deducted from credit pool.
 > yes - full user-license credits charge is deducted from available credit pool upon build start.
 > 
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
-
 
 
 
@@ -318,7 +340,7 @@ Usage-based plan w/o subscription charges you at the end of each month for the n
 
 With every build started, Travis CI keeps track of how many unique users triggered a build within a current billing period. At the end of the month, the total amount is used to calculate the user license charge.
 
-##### Example 1: Credits, user-licenses counted within a month and charged at the end of period, build with *n* build jobs
+##### Example 1: Credits, user-licenses counted within a month and charged at the end of the period, build with *n* build jobs
 
 > If a build is triggered, the system will check if this is a new unique user triggering build and if any potential included user-license allowance are exceeded:
 > 
@@ -353,7 +375,7 @@ VM size property impacts the cost of build minutes/credits usage in the followin
 | x-large              | 4 x usage credit cost of build minute |
 | 2x-large             | 8 x usage credit cost of build minute |
 
-
+See [credit costs associated with usage-based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
 > If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need, in both cases, 20 credits per every started build minutes (2 x 10 credits).
 
@@ -369,7 +391,7 @@ vm:
  size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key
 ```
 
-Instance sizes do not apply to Windows, and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
+Instance sizes do not apply to Windows and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
 
 To use instance sizes:
 
@@ -380,10 +402,11 @@ To use instance sizes:
 GPU VM size property impacts the cost of build minutes/credits usage in the following way:
 
 | GPU VM size              | Credits per<br />started build minute |
-|:--------------------:|:-------------------------------------:|
-| T4 medium            | 230                                   |
-| V100 x-large         | 890                                   |
+|:--------------------:|:-----------------------------------------:|
+| T4 medium            | 23 x usage credit cost of build minute    |
+| V100 x-large         | 89 x usage credit cost of build minute    |
 
+See [credit costs associated with usage-based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
 > GPU Support is only available for:
 > * arch: amd64

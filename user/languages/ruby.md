@@ -13,6 +13,7 @@ layout: en
 | [Default `install`](#dependency-management) | `bundle install --jobs=3 --retry=3`       |
 | [Default `script`](#default-build-script)   | `rake`                                    |
 | [Matrix keys](#build-matrix)                | `env`, `rvm`, `gemfile`, `jdk`            |
+| YJIT Support                                | Yes (with supported Ruby versions         |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -27,10 +28,12 @@ language: ruby
 {{ site.data.snippets.unix_note }}
 
 The rest of this guide covers configuring Ruby projects on Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Specifying Ruby versions and implementations
+
+> YJIT, a lightweight, minimalistic Ruby JIT built inside CRuby is available with supported Ruby versions.
 
 The Ruby environment on Travis CI uses [RVM](https://rvm.io/) to provide many
 Ruby implementations, versions and even patch levels.

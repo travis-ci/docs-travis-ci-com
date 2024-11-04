@@ -5,6 +5,8 @@ permalink: /
 no_header: true
 no_toc: true
 short_title: true
+deploy: v2
+no_deploy: true
 ---
 
 <section class="index-intro">
@@ -12,7 +14,7 @@ short_title: true
     <img src="images/ui/docs-desktop.svg" alt="Image of desktop">
   </figure>
   <h1>New around here? Let's get you going.</h1>
-  <p><a class="get-started-button" href="/user/tutorial/">Travis CI Tutorial</a></p>
+  <p><a class="get-started-button" href="/user/onboarding/">Travis CI Onboarding</a></p>
 </section>
 
 <div class="row index-main">
@@ -36,10 +38,17 @@ short_title: true
       <h2>Deployment Guides</h2>
       <p>Learn how to deploy to your hosting provider using Travis CI.</p>
       <ul>
-        <li><a href="/user/deployment/heroku/">Heroku</a></li>
-        <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
-        <li><a href="/user/deployment/openshift/">OpenShift</a></li>
-        <li><a href="/user/deployment">more deployment guides</a></li>
+        {% if page.deploy == 'v2' %}
+          <li><a href="/user/deployment-v2/providers/heroku/">Heroku</a></li>
+          <li><a href="/user/deployment-v2/providers/codedeploy/">AWS CodeDeploy</a></li>
+          <li><a href="/user/deployment-v2/providers/openshift/">OpenShift</a></li>
+          <li><a href="/user/deployment-v2">more deployment guides</a></li>
+        {% else %}
+          <li><a href="/user/deployment/heroku/">Heroku</a></li>
+          <li><a href="/user/deployment/codedeploy/">AWS CodeDeploy</a></li>
+          <li><a href="/user/deployment/openshift/">OpenShift</a></li>
+          <li><a href="/user/deployment">more deployment guides</a></li>
+        {% endif %}
       </ul>
     </section>
     <section>
