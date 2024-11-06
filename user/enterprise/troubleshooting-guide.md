@@ -119,7 +119,7 @@ After a fresh installation or configuration change the Enterprise container does
 Ready state command canceled: context deadline exceeded
 ```
 
-### Possible Issue and Workaround
+### Possible Issues and Workarounds
 
 The following is a possible issue with the GitHub OAuth app configuration and its workaround.
 
