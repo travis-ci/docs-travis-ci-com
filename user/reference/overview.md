@@ -7,7 +7,6 @@ redirect_from:
   - /user/migrating-from-legacy/
 ---
 
-### What This Guide Covers
 
 This guide provides an overview on the different environments in which Travis CI can run your builds, and why you might want to pick one over another.
 
@@ -28,14 +27,14 @@ This is sudo enabled, full virtual machine per build, that runs Linux
 
 #### LXD container
 
-This is sudo enabled LXD container build environment, as close to a virtual machine as you can get in containers world. A Linux environment is run within an unprivileged LXD container.
+This is a sudo-enabled LXD container build environment, as close to a virtual machine as you can get in the container world. A Linux environment is run within an unprivileged LXD container.
 
-* Fast spin-up (decreased build time when compared to full VM) yet some [limitations](/user/reference/overview/#linux-security-and-lxd-container) do apply
-* It starts with min 2 vCPUs and if there is more computing time available, the host can dynamically assign it to speed up your build
+* Fast spin-up (decreased build time when compared to full VM), yet some [limitations](/user/reference/overview/#linux-security-and-lxd-container) do apply
+* It starts with min 2 vCPUs, and if there is more computing time available, the host can dynamically assign it to speed up your build
 
-#### Which one do I use?
+#### Choose a Virtualization type
 
-For the majority of cases, whenever available, we recommend to use LXD-based containers.
+For the majority of cases, whenever available, we recommend using LXD-based containers.
 
 Use full VM only if LXD is not available or you need
 * privileged fs access
@@ -65,7 +64,7 @@ A [macOS](/user/reference/osx/) environment for Objective-C and other macOS spec
 
 A [Windows](/user/reference/windows/) environment running Windows Server, version 1803.
 
-### Virtualisation Environment vs Operating System
+### Virtualization Environment vs. Operating System
 
 The following table summarizes the differences across virtual environments and operating systems:
 
@@ -91,7 +90,7 @@ The following table summarizes the differences across virtual environments and o
   The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 
 
-## What infrastructure is my environment running on?
+## Define the Environment's Infrastructure
 
 Usually, knowing the virtualization environment characteristics from the [table above](#virtualisation-environment-vs-operating-system) is sufficient.
 
@@ -100,7 +99,7 @@ But, if you do need more detail, you have one of these two questions:
 * you want to see what infrastructure a [finished build](#for-a-finished-build) ran on.
 * you want to determine what infrastructure a [particular `.travis.yml` configuration](#for-a-particular-travisyml-configuration) will run on.
 
-### For a finished build
+### For finished builds
 
 To see what infrastructure a finished build ran on, look at the *hostname* at the top of the build log:
 
@@ -112,13 +111,13 @@ if it contains:
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
 * `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
-* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Equinix Metal, formerly known as Packet)
-* `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM)
-* `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM)
+* `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Equinix Metal, formerly known as Packet).
+* `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM).
+* `lxd-s390x` → the build ran within an LXD container on Z-based infrastructure (currently delivered by IBM).
 
-If *instance*, right under the *hostname* contains `ec2` → the build ran within an LXD container or as a 'full VM' on AWS Arm64 Graviton2 infrastructure
+If *instance*, right under the *hostname* contains `ec2` → the build ran within an LXD container or as a 'full VM' on AWS Arm64 Graviton2 infrastructure.
 
-### For a particular .travis.yml configuration
+### For particular .travis.yml file configurations
 
 * Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
@@ -144,9 +143,9 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
 
-### Linux: .travis.yml examples
+### Linux Examples
 
-#### The AMD64 builds
+#### AMD64 builds
 
 ```yaml
 arch: amd64          # optional, this is default, routes to a full VM
@@ -155,7 +154,7 @@ dist: focal          # or bionic | xenial | trusty | precise with xenial as defa
 ```
 {: data-file=".travis.yml"}
 
-#### The Arm64 builds
+#### Arm64 builds
 
 ```yaml
 arch: arm64           # LXD container based build for OSS only
@@ -203,11 +202,11 @@ dist: focal           # or bionic | xenial with xenial as default
 
 > These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slower and have fixed computing power assigned compared to containers (LXD).
 
-#### Access to Privileged fs/Features (Apparmor)
+#### Access Privileged File Systems
 
 > Due to security reasons, builds run in LXD containers will be denied access to privileged filesystems and paths - a privileged container with write access to e.g. /sys/kernel/debugfs might muddle an LXD host.
 
-As a result, for instance a command in `.travis.yml` like:
+As a result, for instance, a command in `.travis.yml` like:
 ```yaml
 sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
 ```
@@ -225,7 +224,7 @@ If you run into a message like:
 
 It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/canonical/lxd/blob/main/doc/syscall-interception.md)).
 
-### Linux: Hugepages Support from within LXD Container
+### Linux: Hugepages Support 
 
 As of now, Travis CI is not configured to allow hugepages within unprivileged containers. This may change on short notice.
 
@@ -243,7 +242,7 @@ vm:
 ```
 {: data-file=".travis.yml"}
 
-Available instance sizes can be selected for following build jobs:
+Available instance sizes can be selected for the following build jobs:
 
 * OS is Linux, FreeBSD or Windows
 * CPU architecture is amd64
