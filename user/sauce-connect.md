@@ -1,5 +1,5 @@
 ---
-title: Using Sauce Labs with Travis CI
+title: Use Sauce Labs with Travis CI
 layout: en
 
 ---
@@ -13,7 +13,7 @@ with it. For that purpose, it uses Sauce Connect.
 Note that due to security restrictions, the Sauce Labs addon is not available on pull
 request builds unless you use the [JWT Addon](/user/jwt).
 
-## Setting up Sauce Connect
+## Setup Sauce Connect
 
 [Sauce Connect][sauce-connect] securely proxies browser traffic between Sauce
 Labs' cloud-based VMs and your local servers. Sauce Connect uses ports 443 and 80 for
@@ -92,9 +92,9 @@ driver = Selenium::WebDriver.for(:remote, {
 
 [ruby-bindings]: https://code.google.com/p/selenium/wiki/RubyBindings
 
-## Additional options
+## Additional Options
 
-Sometimes you may need to pass additional options to Sauce Connect. Currently
+Sometimes, you may need to pass additional options to Sauce Connect. Currently
 supported parameters are
 
 - `direct_domains`
