@@ -1,5 +1,5 @@
 ---
-title: Using BrowserStack with Travis CI
+title: Use BrowserStack with Travis CI
 layout: en
 
 ---
@@ -11,7 +11,7 @@ like Selenium, Karma and others.
 This add-on automatically sets up [BrowserStack Local][local-testing] which allows you to test your private servers alongside public URLs, using the BrowserStack cloud. To do this it uses the [BrowserStackLocal binary][local-binary] for your build platform.
 
 [BrowserStack Local][local-testing] establishes a secure connection between your Travis build container/VM
-and BrowserStack servers. Local Testing also has support for firewalls, proxies and Active Directory.
+and BrowserStack servers. Local testing also supports firewalls, proxies, and Active Directory.
 Once the secure connection is setup, all URLs work out of the box, including your webserver, local folders, as well as
 URLs with HTTPS.
 
@@ -31,7 +31,7 @@ URLs with HTTPS.
 
 [browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
-## Setting up BrowserStack
+## Setup BrowserStack
 
 Please sign up for a BrowserStack account if you haven't already; it's
 [free][open-source-browserstack] for Open Source projects. Once you have signed up get your username and access key from
@@ -79,7 +79,7 @@ The add-on will **ALWAYS** create a Local Identifier for each local connection t
 testing framework, the Local Identifier must be added to the Selenium capabilities.
 
 The Local Identifier is exposed as an environment variable `BROWSERSTACK_LOCAL_IDENTIFIER`. You can use it to set
-the Selenium capability. See the following example which uses Ruby's [selenium-webdriver][browserstack-ruby-bindings]:
+the Selenium capability. See the following example, which uses Ruby's [selenium-webdriver][browserstack-ruby-bindings]:
 
 ```ruby
 require 'rubygems'
@@ -89,7 +89,7 @@ require 'selenium-webdriver'
 caps = Selenium::WebDriver::Remote::Capabilities.new
 caps['browserstack.local'] = 'true'
 caps['browserstack.localIdentifier'] = ENV['BROWSERSTACK_LOCAL_IDENTIFIER']
-# Add other capabilities like browser name, version and os name, version
+# Add other capabilities like browser name, version, and os name, version
 ...
 
 driver = Selenium::WebDriver.for(:remote,
@@ -123,14 +123,14 @@ Once the app is uploaded to the BrowserStack servers the resulting app id will b
 caps['app'] = ENV['BROWSERSTACK_APP_ID']
 ```
 
-Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
+Check out the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
 
 
 ## Additional Options
 
 ### Proxy
 
-Local testing also allows you to set the proxy host, port, username and password
+Local testing also allows you to set the proxy host, port, username, and password
 through which all urls will be resolved:
 
 ```yaml
@@ -150,7 +150,7 @@ addons:
 
 Some other options that are supported by the add on are,
 
-- **forcelocal**: If this is set to true then all network traffic will be resolved via the Travis CI container/VM.
+- **forcelocal**: If this is set to true, then all network traffic will be resolved via the Travis CI container/VM.
 - **only**: restricts Local testing access to the specified local servers and/or folders.
 
 Sample usage,
