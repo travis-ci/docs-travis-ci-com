@@ -1,5 +1,5 @@
 ---
-title: Atlas deployment
+title: Atlas Deployment
 layout: en
 deploy: v1
 
@@ -23,7 +23,7 @@ To deploy your application to Atlas:
    ```
    {: data-file=".travis.yml"}
 
-## Including or Excluding Files
+## Include or Exclude Files
 
 You can include and exclude files by adding the `include` and `exclude` entries to `.travis.yml`. Both are glob patterns of files or directories to include or exclude, and may be specified multiple times. If there is a conflict, excludes have precedence over includes.
 
@@ -37,7 +37,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Using your Version Control System
+### Use the Version Control System
 
 Get the lists of files to exclude and include from your version control system (Git, Mercurial or Subversion):
 
@@ -50,7 +50,11 @@ deploy:
 
 ## Other Deployment Options
 
-### Specifying the Address of the Atlas Server:
+The following section lists other deployment options that are available.
+
+### Specify the Atlas Server Address
+
+Use the following code to specify the Atlas Server Address:
 
 ```yaml
 deploy:
@@ -59,7 +63,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Adding Custom Metadata
+### Add Custom Metadata
 
 Add one or more items of metadata:
 
