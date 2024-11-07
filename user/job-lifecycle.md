@@ -118,7 +118,7 @@ script: bundle exec rake build && bundle exec rake builddoc
 
 The example above fails immediately when `bundle exec rake build` fails. Note the `&&`
 
-### Use the `$?` Command
+### Use the $? Command
 
 Each command in `script` is processed by a special bash function. This function manipulates the `$?` command to produce logs suitable for display. Consequently, you should not rely on the value of `$?` in the `script` section to alter the build behavior.
 
@@ -158,7 +158,7 @@ Follow these steps to run that script from your `.travis.yml` file:
     ```
     {: data-file=".travis.yml"}
 
-#### Use the `exit` Command 
+#### Use the exit Command 
 
 After specifying the steps in the job lifecycle, these are compiled into a single bash script and executed on the worker.
 
@@ -181,7 +181,7 @@ The exit code of `after_success`, `after_failure`, `after_script`, `after_deploy
 
 To troubleshoot more common issues, see our [Common Builds Problems](/user/common-build-problems/) documentation.
 
-## Deploying your Code
+## Code Deployment
 
 Deployment is an optional phase in the job lifecycle. It is defined by using one of our continuous deployment providers to deploy code to Heroku, Amazon, or a different supported platform.
 
