@@ -36,7 +36,7 @@ deploy:
 
 Alternatively, use the Travis CI command line setup tool to add the deployment `travis setup elasticbeanstalk`.
 
-## Creating an application without deploying it
+## Create an application without deploying it
 
 To create an application without deploying it, add `only_create_app_version: "true"` to your `.travis.yml`.
 
@@ -53,9 +53,9 @@ The following environment variables are available:
 * `ELASTIC_BEANSTALK_LABEL`: Label name of the new version.
 * `ELASTIC_BEANSTALK_DESCRIPTION`: Description of the new version.      Defaults to the last commit message.
 
-## Running commands before and after deploy
+## Run Commands Before and After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use
+Sometimes, you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
