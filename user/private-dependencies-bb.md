@@ -19,7 +19,7 @@ either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on Bitbucket, there are several different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
-disavantages, so read each method carefully and pick the one that applies best
+disadvantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
@@ -30,8 +30,8 @@ to your situation.
 | **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
-the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that access is read only.
+the deploy key approach. This allows you to limit access to a well-defined list
+of repositories, and make sure that access is read-only.
 
 ## Deploy Key
 
@@ -39,10 +39,10 @@ Bitbucket allows you to set up SSH keys for a repository. These deploy keys have
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
-- The same key can be used for dependencies not stored on Bitbucket.
+- The same key can be used for dependencies that are not stored on Bitbucket.
 
 However, using deploy keys is complicated by the fact that Bitbucket does not allow you to reuse keys.
-So a single private key cannot access multiple Bitbucket repositories.
+So, a single private key cannot access multiple Bitbucket repositories.
 
 You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files/).
 Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a
