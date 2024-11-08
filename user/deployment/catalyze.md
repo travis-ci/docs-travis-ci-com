@@ -58,7 +58,7 @@ Before configuring your `.travis.yml` you need to:
        ```
        {: data-file=".travis.yml"}
 
-### Deploying a subset of your Files
+## Deploy a subset of your Files
 
 To only deploy the `build` folder, for example, set `skip_cleanup: true` and
 path: "build":
@@ -72,7 +72,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Running commands before and after deploy
+## Run Commands Before and After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
