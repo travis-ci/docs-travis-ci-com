@@ -6,13 +6,11 @@ layout: en
 
 
 
-## What This Guide Covers
-
 This guide covers headless GUI & browser testing using tools provided by the Travis [CI environment](/user/reference/precise/). Most of the content is technology-neutral and does not cover all the details of specific testing tools (like Poltergeist or Capybara). We recommend you start with the [Onboarding](/user/onboarding/) and [Build Configuration](/user/customizing-the-build/) guides before reading this one.
 
-## Using Sauce Labs
+## Work with Sauce Labs
 
-[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to more than 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open source projects).
+[Sauce Labs](https://saucelabs.com) provides a Selenium cloud with access to more than 170 different device/OS/browser combinations. If you have browser tests that use Selenium, using Sauce Labs to run the tests is very easy. First, you need to sign up for their service (it's free for open-source projects).
 
 Once you've signed up, set up a tunnel using Sauce Connect so Sauce Labs can connect to your web server. Our [Sauce Connect addon](/user/sauce-connect/) makes this easy, just add this to your .travis.yml:
 
@@ -51,14 +49,14 @@ capabilities["tags"] = [os.environ["TRAVIS_PYTHON_VERSION"], "CI"]
 
 For travis-web, our very own website, we use Sauce Labs to run browser tests on multiple browsers. We use environment variables in our [.travis.yml](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/.travis.yml#L14-15) to split up the build into multiple jobs, and then pass the desired browser into Sauce Labs using [desired capabilities](https://github.com/travis-ci/travis-web/blob/15dc5ff92184db7044f0ce3aa451e57aea58ee19/script/saucelabs.rb#L9-13). On the Travis CI side, it ends up looking like [this](https://travis-ci.org/travis-ci/travis-web/builds/12857641).
 
-## Using xvfb to Run Tests That Require a GUI
+## Run GUI Tests with xvfb 
 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
 or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
 
-### Using `services:`
+### Use services: on your script
 
 > This only works on Ubuntu 16.04 (Xenial) and later on releases i.e. with `dist: xenial` or `dist: bionic`
 
@@ -72,7 +70,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-### Using the xvfb-run wrapper
+### How to use the xvfb-run wrapper
 
 `xvfb-run` is a wrapper for invoking `xvfb` so that `xvfb` can be used with
 less fuss:
@@ -89,7 +87,7 @@ script: xvfb-run --server-args="-screen 0 1024x768x24" make test
 ```
 {: data-file=".travis.yml"}
 
-### Using xvfb directly
+### Direct use of xvfb 
 
 > This is recommended on Ubuntu 14.04 (Trusty) i.e. with `dist: trusty`. For `dist: xenial`, use the `services` keyword described [above](/user/gui-and-headless-browsers/#using-services).
 
@@ -121,7 +119,7 @@ before_install:
 
 See [xvfb manual page](http://www.xfree86.org/4.0.1/Xvfb.1.html) for more information.
 
-### Starting a Web Server
+### Start a Web Server
 
 <!-- FIXME: write this paragraph -->
 
@@ -148,10 +146,10 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 </div>
 
 
-## Using the [Chrome addon](/user/chrome) in the headless mode
+## Headless mode with the Chrome addon
 
 Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
-mode, which is suitable for driving browser-based tests using Selenium and other tools.
+mode with the [Chrome addon](/user/chrome), which is suitable for driving browser-based tests using Selenium and other tools.
 
 > As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on macOS builds.
 
@@ -181,14 +179,14 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-#### Documentation
+### More Documentation
 
 * [Headless Chromium documentation](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 * [Getting Started with Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome)
 
-## Using the [Firefox addon](/user/firefox) in headless mode
+## Headless mode with the Firefox addon
 
-Starting with version 56, Firefox can be used in "headless" mode, which is
+Starting with version 56, Firefox can be used in "headless" mode with the [Firefox addon](/user/firefox), which is
 suitable for driving browser-based tests using Selenium and other tools.
 Headless mode can be enabled using the `MOZ_HEADLESS`
 [environment variable](/user/environment-variables/):
@@ -215,12 +213,12 @@ options.add_argument('-headless')
 firefox = Firefox(firefox_options=options)
 ```
 
-#### Documentation
+### More Documentation
 
 * [Using headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode)
 * [Automated testing with headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode)
 
-## Using PhantomJS
+## Use PhantomJS
 
 [PhantomJS](http://phantomjs.org/) is a headless WebKit with JavaScript API. It is an optimal solution for fast headless testing, site scraping, pages capture, SVG renderer, network monitoring and many other use cases.
 
@@ -237,12 +235,14 @@ If you need a web server to serve the tests, see the previous section.
 
 ## Examples
 
+The following are a series of examples.
+
 ### Real World Projects
 
 - [Ember.js](https://github.com/emberjs/ember-mocha/blob/master/.travis.yml) (starts web server programmatically)
 - [Sproutcore](https://github.com/sproutcore/sproutcore/blob/master/.travis.yml) (starts web server with *before_script*)
 
-### Ruby
+### Ruby Example
 
 #### RSpec, Jasmine, Cucumber
 
