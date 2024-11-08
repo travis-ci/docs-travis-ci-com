@@ -1,5 +1,5 @@
 ---
-title: TestFairy deployment
+title: TestFairy Deployment
 layout: en
 deploy: v1
 
@@ -27,7 +27,7 @@ $ travis encrypt "YOUR API KEY" --add deploy.api-key
 
 ## Symbols file
 
-Attach your symbols mapping file so TestFairy can de-obfuscate and symbolicate crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
+Attach your symbols mapping file so TestFairy can de-obfuscate and symbolize crash reports automatically. Set the `symbols-file` key to your `proguard_mapping.txt` file or to a zipped `.dSYM` file.
 
 ```yaml
 deploy:
