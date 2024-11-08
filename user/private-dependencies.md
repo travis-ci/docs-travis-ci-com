@@ -17,7 +17,7 @@ either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on GitHub, there are four different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
-disavantages, so read each method carefully and pick the one that applies best
+disadvantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
@@ -28,8 +28,8 @@ to your situation.
 | **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
-the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that access is read only.
+the deploy key approach. This allows you to limit access to a well-defined list
+of repositories, and make sure that access is read-only.
 
 ## Deploy Key
 
@@ -51,7 +51,7 @@ You can add SSH keys to user accounts on GitHub. Most users have probably alread
 
 This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
-### Repository settings - forks
+### Fork Repository settings
 
 {{ site.data.snippets.git_repository_settings_forks_general }}
 
@@ -59,7 +59,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 > Please Note: In the [travis-ci.com](https://app.travis-ci.com), secrets may also be stored in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
 
-### Using an existing key
+### Use an existing key
 
 [ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}
 
@@ -81,7 +81,7 @@ Current SSH key: Key to clone myorg/lib1 and myorg/lib2
 
 You can omit the `-r myorg/main` if your current working directory is a clone of the "myorg/main" repository.
 
-### Generating a new key
+### Generate a new key
 
 Assumptions:
 
@@ -115,7 +115,7 @@ You can omit the `-r myorg/main` if your current working directory is a clone of
 
 At the end of the process, it will ask you whether you want to store the generated key somewhere, usually it is safe to say "no" here. After all, you can just generate a new key as necessary. See [below](#reusing-a-generated-key) for instructions on storing and reusing a generated key.
 
-### Reusing a generated key
+### Reuse a generated key
 
 Assumptions:
 
