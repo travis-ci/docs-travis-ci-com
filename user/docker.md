@@ -1,5 +1,5 @@
 ---
-title: Using Docker in Builds
+title: Use Docker in Builds
 layout: en
 
 ---
@@ -24,9 +24,9 @@ examples.
 
 > We do not currently support use of Docker on macOS.
 
-> For information on how to use Docker on Travis CI Enterprise check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
+> For information on how to use Docker on Travis CI Enterprise, check out [Enabling Docker Builds](/user/enterprise/build-images/#enabling-docker-builds).
 
-## Using a Docker Image from a Repository in a Build
+## Use a Docker Image from a Repository
 
 This [example repository](https://github.com/travis-ci/docker-sinatra) runs two
 Docker containers built from the same image:
@@ -84,7 +84,7 @@ Finished in 0.022952763 seconds.
 43.57 tests/s, 43.57 assertions/s
 ```
 
-## Building a Docker Image from a Dockerfile
+## Build a Docker Image from a Dockerfile
 
 Instead of downloading the Docker image from
 [carlad/sinatra](https://registry.hub.docker.com/u/carlad/sinatra/) you can
@@ -117,7 +117,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-## Pushing a Docker Image to a Registry
+## Push a Docker Image to a Registry
 
 To push an image to a Docker registry, one must first authenticate via `docker
 login`.  The email, username, and password used for login should be stored in
@@ -139,7 +139,7 @@ Within your `.travis.yml` prior to attempting a `docker push` or perhaps before
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 ```
 
-### Branch Based Registry Pushes
+### Branch-Based Registry Pushes
 
 To push a particular branch of your repository to a remote registry,
 use the custom deploy section of your `.travis.yml`:
@@ -172,7 +172,7 @@ When pushing to a private registry, be sure to specify the hostname in the
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
-## Using Docker Compose
+## Use the Docker Compose
 
 The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#docker).
 
@@ -191,7 +191,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-## Installing a newer Docker version
+## Install a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually
 updating it in the `before_install` step of your `.travis.yml`:
