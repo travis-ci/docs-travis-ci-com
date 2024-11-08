@@ -72,9 +72,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Run Commands Before and After Deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use
+Sometimes, you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
