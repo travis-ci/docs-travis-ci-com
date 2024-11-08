@@ -78,7 +78,7 @@ This is necessary because Cargo will refuse to publish crates from a dirty
 working directory (an option to allow this may be added to this provider in the
 future).
 
-## Run Commands Before and After Deploy
+## Run Commands Before or After Deploy
 
 Sometimes, you want to run commands before or after deploying. You can use the
 `before_deploy` and `after_deploy` stages for this. These will only be triggered
