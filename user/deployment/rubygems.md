@@ -48,7 +48,7 @@ travis setup rubygems
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-## Pre-releasing
+## Pre-release
 
 Instead of releasing for each new version of your gem, you can have Travis CI create a [prerelease](http://guides.rubygems.org/patterns#prerelease-gems) for each build.
 
@@ -62,7 +62,7 @@ s.version = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 
 If your gem's current version is 1.0.0, then Travis CI will create a prerelease with the version 1.0.0-alpha-20, where `20` is the build number.
 
-### Gem to release
+### Gem Release
 
 By default, we will try to release a gem by the same name as the repository. For example, if you release a gem from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to release the gem named *travis-chat*.
 
@@ -102,9 +102,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Gemspec to use
+### Use Gemspec
 
-If you like, you can specify can alternate option with the `gemspec` option:
+If you like, you can specify an alternate option with the `gemspec` option:
 
 ```yaml
 deploy:
@@ -114,9 +114,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch to release from
+### Release Branch
 
-If you have branch specific options, as [shown above](#gem-to-release), Travis CI will automatically figure out which branches to release from. Otherwise, it will only release from your **master** branch.
+If you have branch-specific options, as [shown above](#gem-to-release), Travis CI will automatically figure out which branches to release from. Otherwise, it will only be released from your **master** branch.
 
 You can also explicitly specify the branch to release from with the **on** option:
 
@@ -142,9 +142,9 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a release.
 
-### Releasing build artifacts
+### Release build artifacts
 
-After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
+After your tests run and before the release, Travis CI will clean up any additional files and changes you made.
 
 Maybe that is not what you want, as you might generate some artifacts that are supposed to be released, too. There is now an option to skip the clean up:
 
@@ -156,20 +156,20 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Conditional releases
+### Conditional Releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### Gem must be registered beforehand
+### Register Gem 
 
 Note that the gem you upload must be registered beforehand.
 If the gem does not exist on the host to which it is uploaded, deployment will fail.
 See [this GitHub issue](https://github.com/travis-ci/dpl/issues/574) for details.
 
-### Running commands before and after release
+### Run Commands Before or After Release
 
-Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+Sometimes, you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
 ```yaml
 before_deploy: "echo 'ready?'"
