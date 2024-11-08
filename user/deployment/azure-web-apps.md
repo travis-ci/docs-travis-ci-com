@@ -70,7 +70,7 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Run Commands Before and After Deploy
+### Run Commands Before or After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
