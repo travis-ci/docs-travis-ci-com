@@ -28,7 +28,7 @@ To define variables in Repository Settings, make sure you're logged in, navigate
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-### Fetch Deployment Progress and Logs
+## Fetch Deployment Progress and Logs
 
 The Azure Web App provider can print Azure's deployment progress to your Travis log using the `verbose` option. However, Git will print your password if the authentication fails (it will not if you provide a correct user/password combination).
 
@@ -38,7 +38,7 @@ deploy:
   verbose: true
 ```
 
-### Deployment Branch
+## Deployment Branch
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -84,7 +84,7 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploy to slots
+## Deploy to slots
 
 You might need to deploy multiple branches to different slots. You can set multiple providers to deploy to specific slots. The following configuration would deploy the `master` branch to the `myapp-staging` slot and the `develop` branch to the `myapp-develop` slot. In order to use slots you'll need to [set up staging environments for web apps in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
 
