@@ -20,7 +20,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Generating your Firebase token
+## Generate Firebase tokens
 
 Generate your Firebase token after [installing the Firebase tools](https://github.com/firebase/firebase-tools#installation) by running:
 
@@ -35,7 +35,7 @@ When using `travis encrypt --add` you are likely to receive `WARNING: The name o
 
 Remember to [encrypt](/user/encryption-keys/#usage) the token before adding it to your `.travis.yml`
 
-## Deploying to a custom project
+## Deploy to a custom project
 
 To deploy to a different project than the one specified in the `firebase.json`, use the `project` key in your `.travis.yml`:
 
@@ -48,7 +48,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Adding a message to a deployment
+## Add Deployment Messages 
 
 To add a message to describe the deployment, use the `message` key in your `.travis.yml`:
 
@@ -61,9 +61,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use
+Sometimes, you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 
