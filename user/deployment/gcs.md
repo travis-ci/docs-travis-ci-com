@@ -1,5 +1,5 @@
 ---
-title: Google Cloud Storage (GCS) Deployment
+title: Google Cloud Storage Deployment
 layout: en
 deploy: v1
 
@@ -48,9 +48,9 @@ travis setup gcs
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### GCS ACL via option
+### Set GCS via ACL
 
-You can set the acl of your uploaded files via the `acl` option like this:
+You can set the ACL of your uploaded files via the `acl` option like this:
 
 ```yaml
 deploy:
@@ -66,9 +66,9 @@ deploy:
 Valid ACL values are: `private`, `public-read`, `public-read-write`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`. The ACL defaults to `private`.
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
 
-### Deploying specific folder
+### Deploy Specific Folders
 
-You can set specific directory to be uploaded using `local-dir` option like this:
+You can set a specific directory to be uploaded using `local-dir` option like this:
 
 ```yaml
 deploy:
@@ -89,9 +89,9 @@ If the `directory-name` is generated during build process, it will be deleted (c
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### Setting `Content-Encoding` header
+### Setting a Content-Encoding Header
 
-GCS uploads can optionally set HTTP header `Content-Encoding`.
+GCS uploads can optionally set the HTTP header `Content-Encoding`.
 This header allows files to be sent compressed while retaining file extensions and
 the associated MIME types.
 
@@ -112,7 +112,7 @@ the appropriate header.
 
 GCS uploads can optionally set the `Cache-Control` HTTP header.
 
-Set HTTP header `Cache-Control` to suggest that the browser cache the file. Defaults to `no-cache`. Valid options are `no-cache`, `no-store`, `max-age=<seconds>`, `s-maxage=<seconds> no-transform`, `public`, `private`.
+Set the HTTP header `Cache-Control` to suggest that the browser cache the file. Defaults to `no-cache`. Valid options are `no-cache`, `no-store`, `max-age=<seconds>`, `s-maxage=<seconds> no-transform`, `public`, `private`.
 
 ```yaml
 deploy:
