@@ -1,10 +1,9 @@
 ---
-title: Building a Smalltalk Project
+title: Build a Smalltalk Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Smalltalk
 projects. Please make sure to read our
@@ -15,7 +14,7 @@ projects. Please make sure to read our
 
 Travis CI support for Smalltalk is provided by [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) and contributed by the community and may be removed or altered at any time. If you run into any problems, please report them [here](https://github.com/hpi-swa/smalltalkCI/issues).
 
-## Basic configuration
+## Basic configurations
 
 To set up continuous integration for your Smalltalk project, you need a `.travis.yml` and a `.ston` configuration file for SmalltalkCI.
 
