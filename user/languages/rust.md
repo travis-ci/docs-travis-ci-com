@@ -131,7 +131,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-## Environment variables
+## Environment Variables
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.
