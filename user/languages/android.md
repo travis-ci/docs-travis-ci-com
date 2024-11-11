@@ -58,7 +58,7 @@ android:
 ```
 {: data-file=".travis.yml"}
 
-### Install Android SDK components
+### Install Android SDK Components
 
 In your `.travis.yml`, you can define the list of SDK components to be installed, as illustrated in the following example:
 
