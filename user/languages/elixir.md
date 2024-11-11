@@ -1,10 +1,9 @@
 ---
-title: Building an Elixir Project
+title: Build an Elixir Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -42,7 +41,7 @@ language: elixir
 ```
 {: data-file=".travis.yml"}
 
-### Specify which Elixir version to build with
+### Specify an Elixir version
 
 You can specify Elixir version to build with by the `elixir` key.
 
@@ -66,7 +65,7 @@ has latest patches but may be occasionally be broken.
 See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372)
 for more details.
 
-### Specifying OTP Release version
+### Specify the OTP Release version
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
