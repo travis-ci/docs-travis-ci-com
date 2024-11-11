@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to npm is *stable**.
+Support for deployments to npm is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment.

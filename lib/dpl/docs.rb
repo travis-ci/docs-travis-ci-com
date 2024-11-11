@@ -160,8 +160,8 @@ module Dpl
         dev:        'Support for deployments to %s is in **development**',
         alpha:      'Support for deployments to %s is in **alpha**',
         beta:       'Support for deployments to %s is in **beta**',
-        stable:     'Support for deployments to %s is *stable**',
-        deprecated: 'Support for deployments to %s is *deprecated**',
+        stable:     'Support for deployments to %s is **stable**',
+        deprecated: 'Support for deployments to %s is **deprecated**',
         pre_stable: 'Please see [Maturity Levels](%s) for details.'
       }
 
