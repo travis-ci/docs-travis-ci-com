@@ -1,10 +1,9 @@
 ---
-title: Building a C#, F#, or Visual Basic Project
+title: Build a C#, F#, or Visual Basic Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -50,11 +49,11 @@ solution: solution-name.sln
 
 When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution.
 
-## Choosing Runtime and Version to Test Against
+## Test against Runtime and Version 
 
 ### Mono
 
-By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against latest, 3.12.0 and 3.10.0:
+By default, Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against the latest, 3.12.0 and 3.10.0:
 
 ```yaml
 language: csharp
@@ -97,7 +96,7 @@ script:
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
 
-## Testing Against Mono and .NET Core
+## Test against Mono and .NET Core
 
 You can test against both Mono and .NET Core by using `matrix.include`. This example tests against both the latest mono and .NET Core:
 
@@ -119,7 +118,7 @@ jobs:
 
 The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
 
-## Running Unit Tests (NUnit, xUnit, etc.)
+## Run Unit Tests for NUnit and xUnit
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
@@ -155,7 +154,7 @@ script:
 
 > *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xUnit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
-### Using Solution-Level NuGet Packages
+### Use Solution-Level NuGet Packages
 
 Another way is to add the console testrunner of your choice as a solution-level NuGet package.
 
