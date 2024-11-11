@@ -1,10 +1,8 @@
 ---
-title: Building a Rust Project
+title: Build a Rust Project
 layout: en
 
 ---
-
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,11 +24,11 @@ language: rust
 
 {{ site.data.snippets.all_note }}
 
-The rest of this guide covers configuring Rust projects in Travis CI. If you're
+This guide covers configuring Rust projects in Travis CI. If you're
 new to Travis CI, please read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
-## Choosing a Rust version
+## Choose a Rust version
 
 By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
