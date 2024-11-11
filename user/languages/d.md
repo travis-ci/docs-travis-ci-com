@@ -27,7 +27,7 @@ This guide covers build environment and configuration topics specific to D proje
 sure to read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community Supported Language
+### Community-Supported Language
 
 D is a community-supported language in Travis CI, maintained by [@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach). If you run into any problems, please report them in the
 [Travis CI community forum](https://travis-ci.community/c/languages/d).
