@@ -27,9 +27,9 @@ This guide covers build environment and configuration topics specific to C#, F#,
 projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community Supported Language
+### Community-Supported Language
 
- C#, F#, and Visual Basic support is community-supported in Travis CI.
+C#, F#, and Visual Basic support is community-supported in Travis CI.
 If you run into any problems, please report them in the [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new)
 and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry](https://github.com/nterry).
 
