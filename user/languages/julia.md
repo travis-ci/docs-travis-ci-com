@@ -1,26 +1,25 @@
 ---
-title: Building a Julia Project
+title: Build a Julia Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 [Julia](http://julialang.org) projects. Please make sure to read our
 [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community-Supported Warning
+## Community-Supported Warning
 
-Travis CI support for Julia is contributed by the community and may be removed
+Travis CI's support for Julia is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI Julia Community Forums](https://travis-ci.community/c/languages/julia)
 and cc [@ararslan](https://github.com/ararslan), [@staticfloat](https://github.com/staticfloat), and [@StefanKarpinski](https://github.com/StefanKarpinski).
 
-For general Julia support on Travis CI go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.org/slack/) in the __#testing__ channel.
+For general Julia support on Travis CI, go to the [Travis Community](https://travis-ci.community/c/languages/julia) or [Julia Lang Slack Channel](https://julialang.org/slack/) in the __#testing__ channel.
 
-## Choosing Julia versions to test against
+## Test against Julia versions
 
 Julia workers on Travis CI download and install a binary of Julia. You can specify
 the Julia versions to test in the `julia:` key in your `.travis.yml` file. For example:
@@ -41,7 +40,7 @@ of Julia.
  - `X.Y` will test against the latest release for that minor version.
  - `X.Y.Z` will test against that exact version.
 
-The oldest versions for which binaries are available is 0.3.1 for Linux,
+The oldest version for which binaries are available is 0.3.1 for Linux,
 or 0.2.0 for [macOS](/user/multi-os/).
 
 ## Coverage
@@ -70,7 +69,7 @@ Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
 Pkg.test(coverage=true)
 ```
 
-Otherwise it will use the older form:
+Otherwise, it will use the older form:
 
 ```julia
 if VERSION >= v"0.7.0-DEV.5183"
