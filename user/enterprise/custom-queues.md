@@ -49,7 +49,7 @@ production:
 
 See the [example](#advanced-configuration-yaml-example) for details on syntax. Click 'Save' on the Management Console Settings when you are ready. Travis CI Enterprise will restart with your new queue settings.
 
-### Advanced Configuration YAML Example
+### Advanced Configuration YAML
 
 The syntax for the **Advanced Configuration YAML** field is very important. Incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
 

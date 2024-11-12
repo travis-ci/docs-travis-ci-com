@@ -1,8 +1,10 @@
 ---
-title: Focal Build Containers for Enterprise (beta)
+title: Focal Build Containers for Enterprise
 layout: en_enterprise
 
 ---
+
+> Note: Focal Build Containers for Enterprise is a beta feature. 
 
 ## System Setup
 
@@ -15,13 +17,13 @@ We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of me
 
 > A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine.
 
-## Third party apt repositories and services disabled by default
+## Third-party apt repositories and services disabled by default
 
 [Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/focal/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
 
 [Services disabled by default](https://docs.travis-ci.com/user/reference/focal/#services-disabled-by-default) to speed up boot time and improve performance.
 
-## Installation with Travis CI Enterprise 3.0 and later
+## Install Focal with Travis CI Enterprise 3.0 or higher
 
 On a new server, please run the commands below to install the Focal build environment:
 
@@ -34,7 +36,7 @@ $ sudo bash /tmp/installer.sh \
 --travis_build_images=focal
 ```
 
-## Restarting `travis-worker`
+## Restart the travis-worker
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
@@ -44,7 +46,7 @@ $ sudo systemctl restart travis-worker
 
 Worker configuration changes are applied on start.
 
-## Running Builds in the Focal Build Environment
+## Run Builds in the Focal Build Environment
 
 To run a project's builds in the new Focal build environment, please add a `dist: focal` to your `.travis.yml` file.
 

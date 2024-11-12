@@ -16,7 +16,7 @@ We recommend using a machine with 8 vCPUs and 15 GB of memory and at least 40 GB
 
 > _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
 
-## Installation with Travis CI Enterprise 2.2+
+## Install with Travis CI Enterprise 2.2 and higher
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
@@ -31,11 +31,11 @@ sudo bash /tmp/installer.sh \
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
 
 
-## Installation with Travis CI Enterprise 2.1.9+
+## Install with Travis CI Enterprise 2.1.9 and higher
 
 The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/precise/) as it's default worker. However, starting with version 2.1.9+, it is possible to use Trusty build environments, assuming the feature flags are set. Otherwise, the installation process is very similar to the Enterprise 2.2 series.
 
-### Enabling the Trusty Beta Feature Flag
+### Enable the Trusty Beta Feature Flag
 
 1. SSH into the platform machine.
 2. Run `travis console`.
@@ -43,7 +43,7 @@ The Travis CI Enterprise 2.1 series has the [Precise [Legacy]](/user/enterprise/
 4. Type in `exit` to leave the console.
 5. Disconnect from the Travis Enterprise platform machine.
 
-### Installation (Travis CI Enterprise 2.1.9+)
+### Install the travis-worker
 
 Once a worker instance is up and running, `travis-worker` can be installed as follows:
 
@@ -57,11 +57,11 @@ sudo bash /tmp/installer.sh \
 
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
 
-### Running builds on Trusty on Travis CI Enterprise 2.1.9+
+### Run builds on Trusty on Travis CI Enterprise 2.1.9 and higher
 
 To run builds on a worker with Trusty images, please add `dist: trusty` to your `.travis.yml`. If that key is not present in your project's `.travis.yml`, the build will be routed to the default (Precise) build environments instead.
 
-## Restarting `travis-worker`
+## Restart travis-worker
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 

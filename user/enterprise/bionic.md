@@ -14,13 +14,13 @@ We recommend using a **compute optimized** machine with 8 vCPUs and ~16 GB of me
 
 > A single worker machine can only be used together with one build environment. If you would like to setup additional build environments (such as Xenial or Focal), please provision an additional machine.
 
-## Third party apt repositories and services disabled by default
+## Third-party apt repositories and services disabled by default
 
 [Third party apt-repositories are removed](https://docs.travis-ci.com/user/reference/bionic/#third-party-apt-repositories-removed) to help reduce risk of unrelated interference and allow for faster apt-get updates.
 
 [Services disabled by default](https://docs.travis-ci.com/user/reference/bionic/#services-disabled-by-default) to speed up boot time and improve performance.
 
-## Installation with Travis CI Enterprise 2.2.6 and later
+## Install Bionic with Travis CI Enterprise 2.2.6 or higher
 
 To install the Bionic build environment on a new server, run the commands below:
 
@@ -33,7 +33,7 @@ $ sudo bash /tmp/installer.sh \
 --travis_build_images=bionic
 ```
 
-## Restarting `travis-worker`
+## Restart the travis-worker
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 
@@ -43,7 +43,7 @@ $ sudo systemctl restart travis-worker
 
 Worker configuration changes are applied on start.
 
-## Running Builds in the Bionic Build Environment
+## Run Builds in the Bionic Build Environment
 
 To run a project's builds in the new Bionic build environment, please add a `dist: bionic` to your `.travis.yml` file.
 

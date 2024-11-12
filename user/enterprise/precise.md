@@ -43,7 +43,7 @@ sudo bash /tmp/installer.sh \
 
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
 
-## Restarting `travis-worker`
+## Restart the travis-worker
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 

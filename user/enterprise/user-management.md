@@ -70,3 +70,8 @@ To sync a user (not technically part of User Management, but a related task):
 To sync one user: `travis sync_users --logins=<login>` 
 
 To sync all users: `travis sync_users`
+
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
