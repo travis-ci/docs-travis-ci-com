@@ -42,7 +42,7 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-## Listing individual jobs
+## List individual jobs
 
 In addition, jobs can be specified by adding entries to the key `jobs.include`.
 
@@ -68,7 +68,7 @@ jobs:
 
 > You can also have a look at the [Language](https://config.travis-ci.com/ref/language) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Excluding Jobs
+## Exclude Jobs
 
 The build matrix expansion sometimes produced unwanted combinations. In that
 case it can be convenient to exclude certain combinations using the key
@@ -139,7 +139,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Excluding jobs with `env` value
+### Exclude Jobs with the env value
 
 When excluding jobs with `env` values, the value must match
 _exactly_.
@@ -233,7 +233,7 @@ keys defined.
 
 In this example with a 3-job Python build matrix, each job in `jobs.include`
 has the `python` value set to `'3.8'`.
-You can explicitly set the python version for a specific entry:
+You can explicitly set the Python version for a specific entry:
 
 ```yaml
 language: python
@@ -254,7 +254,7 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ### Explicitly included jobs with only one element in the build matrix
 
 As a special case, if your build matrix has only one element _and_ you have
-explicitly included jobs, matrix expansion is not done and the explicit jobs
+explicitly included jobs, matrix expansion is not done, and the explicit jobs
 _completely_ define your build. For example:
 
 ```yaml
@@ -286,7 +286,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-## Rows that are Allowed to Fail
+## Allow Rows to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
@@ -303,14 +303,14 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Matching Jobs with `allow_failures`
+### Match Jobs with allow_failures
 
 When matching jobs against the definitions given in `allow_failures`, _all_
 conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
 top level of the build matrix (i.e., not in `jobs.include`).
 
-#### `allow_failures` Examples
+#### Examples
 
 Consider
 
@@ -355,7 +355,7 @@ jobs:
 
 Without the top-level `env`, no job will be allowed to fail.
 
-## Fast Finishing
+## Use Fast Finish
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
@@ -369,7 +369,7 @@ jobs:
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
-## Using Different Programming Languages per Job
+## Use Different Programming Languages per Job
 You can also use the `jobs.include` feature to have different languages for each job in your build. For example,
 
 ```yaml
@@ -435,7 +435,7 @@ jobs:
   - <<: *shared_job
 ```
 
-In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g. a job name:
+In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g., a job name:
 
 ```yaml
 _shared_job: &shared_job

@@ -1,12 +1,12 @@
 ---
-title: Triggering builds with API V3
+title: Trigger Builds with API Version 3.0
 
 layout: en
 ---
 
-## Travis CI Hosted Solution (app.travis-ci.com)
+## Travis CI Hosted Solution 
 
-Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
+To use Travis CI as a hosted solution (app.travis-ci.com), trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
 1. Get an API token from your Travis CI [settings page](https://app.travis-ci.com/account/preferences). You'll need the token to authenticate most of these API requests.
 
@@ -164,7 +164,7 @@ Trigger Travis CI builds using the API on your Travis CI Enterprise instance by 
    `.travis.yml` file present in the repository is *not* merged with the values contained in the request.
 
 
-## Customizing the commit message
+## Customize Commit Messages
 
 You can specify a commit message in the request body:
 
@@ -195,7 +195,7 @@ The default merge mode is `deep_merge_append` with [Build Config Validation](/us
 enabled. With Build Config Validation disabled the default is `deep_merge`,
 which will be discontinued soon.
 
-We recommend to specify the merge mode with your API requests explicitly.
+We recommend specifying the merge mode with your API requests explicitly.
 
 Consider these examples:
 
@@ -228,10 +228,10 @@ addons:
     - cmake
 ```
 
-### Deep merge append/prepend
+### Deep Merge append and prepend modes
 
 The merge modes `deep_merge_append` and `deep_merge_prepend` recursively merge
-sections (keys) that hold maps (hashes), and concatenates sequences (arrays) by
+sections (keys) that hold maps (hashes), and concatenate sequences (arrays) by
 either appending or prepending to the sequence in the importing config.
 
 Given the merge mode `deep_merge_append`, with the example build configs above
@@ -286,7 +286,7 @@ the result will be:
 }
 ```
 
-### Deep merge
+### Deep Merge mode
 
 The merge mode `deep_merge` recursively merges sections (keys) that hold maps (hashes),
 but overwrites sequences (arrays).
@@ -316,7 +316,7 @@ the result will be:
 }
 ```
 
-### Merge
+### Merge mode
 
 The merge mode `merge` performs a shallow merge.
 
@@ -341,7 +341,7 @@ in `.travis.yml`:
   }
 }
 ```
-### Replace
+### Replace mode
 
 The merge mode `replace` instructs Travis CI to simply replace the build config
 in your `.travis.yml` file with the config sent with your API request.

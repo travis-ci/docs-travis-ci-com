@@ -22,7 +22,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying to a custom forge
+## Deploy to a Custom Forge
 
 To deploy to your own hosted Forge instance by adding it in the `url` key:
 
@@ -38,9 +38,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use
+Sometimes, you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 

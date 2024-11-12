@@ -7,7 +7,7 @@ deploy: v1
 
 You now have the amazing ability to deploy directly to [CloudFoundry](https://run.pivotal.io/) after a successful build on Travis CI.
 
-## The Easy Way
+## Grab the code and Deploy
 
 Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
@@ -15,7 +15,7 @@ Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and
 
 You will be asked to answer a few simple questions about your CloudFoundry setup, and Travis will take care of the rest!
 
-## The Slightly Harder Way
+## Write the code and Deploy
 
 So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running:
 

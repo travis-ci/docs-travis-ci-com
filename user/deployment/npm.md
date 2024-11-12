@@ -36,7 +36,7 @@ $ travis setup npm
 Keep in mind that the above command has to run in your project directory, so
 it can modify the `.travis.yml` for you.
 
-## NPM auth token
+## npm Auth token
 
 Your NPM Auth Token can be obtained by:
 
@@ -91,7 +91,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a release.
 
-## Releasing build artifacts
+## Release build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
 
@@ -111,7 +111,7 @@ reported when multiple attempts are made.
 We recommend deploying from only one job with
 [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-## Tagging releases
+## Tag releases
 
 You can automatically add [npm distribution tags](https://docs.npmjs.com/getting-started/using-tags) with the `tag` option:
 
@@ -122,7 +122,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Note on `.gitignore`
+## The .gitignore method
 
 Notice that `npm` deployment honors `.gitignore` if `.npmignore` does not exist.
 This means that if your build creates artifacts in places listed in `.gitignore`,
@@ -136,7 +136,7 @@ If your `.gitignore` file matches something that your build creates, use
 its content, or create (potentially empty) `.npmignore` file
 to override it.
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -150,9 +150,9 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Troubleshooting "npm ERR! You need a paid account to perform this action."
+## Troubleshoot npm Error
 
-npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are
+If you get the error message "npm ERR! You need a paid account to perform this action." is because npm assumes that [scoped packages](https://docs.npmjs.com/misc/scope) are
 private by default. You can explicitly tell npm your package is a public package
 and avoid this error by adding the following to your `package.json` file:
 

@@ -20,7 +20,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Encrypt your API key
+## Encrypt your API key
 
 It is recommended that you encrypt your api key. You can encrypt this key using the `travis` command line client and this command:
 
@@ -35,8 +35,7 @@ $ travis encrypt ab012cd345678901234e456fa7bc89def01a23b4 --add deploy.key
 ```
 
 
-
-### Branch to deploy from
+## Deployment Branch 
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -66,7 +65,7 @@ Builds triggered from Pull Requests will never trigger a deploy.
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
-### Running commands before and after deploy
+### Run Commands Before or After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -80,7 +79,7 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-### `dry_run` option
+## Use the dry_run option
 
 For testing deployment configuration, you can add `dry_run: true` to prevent connecting
 to the Bintray server:
@@ -92,7 +91,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Descriptor file example
+## Descriptor file example
 
 The descriptor is in JSON file format in three sections:
 
@@ -137,7 +136,7 @@ The descriptor is in JSON file format in three sections:
 }
 ```
 
-#### Package Section
+### Package Section
 
 Bintray package information. The following information is mandatory on open source projects:
 
@@ -148,11 +147,11 @@ Bintray package information. The following information is mandatory on open sour
 - `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
 
 
-#### Version Section
+### Version Section
 
 Package version information. In case the version already exists on Bintray, only the name field is mandatory.
 
-#### Files Section
+### Files Section
 
 Configure the files you would like to upload to Bintray and their upload path.
 
@@ -169,7 +168,7 @@ In the example above, the following files are uploaded:
 
 **Note:** Regular expressions defined as part of the `includePattern` and `excludePattern` properties must be wrapped with brackets.
 
-#### Debian Upload
+### Debian Upload
 
 When artifacts are uploaded to a Debian repository on Bintray using the Automatic index layout, the Debian distribution information is required and must be specified. The information is specified in the descriptor file by the matrixParams as part of the files closure as shown in the following example:
 
@@ -186,7 +185,7 @@ When artifacts are uploaded to a Debian repository on Bintray using the Automati
 ]
 ```
 
-#### Overwriting Existing Files
+### Overwrite Existing Files
 
 If an artifact by a given name already exists in the Bintray repository, then by default it is not overwritten. If you want to replace the existing file, define the `override` key in your matrix properties:
 

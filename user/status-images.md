@@ -1,5 +1,5 @@
 ---
-title: Embedding Status Images
+title: Embed Status Images
 layout: en
 
 ---
@@ -30,9 +30,9 @@ Build status images for private repositories include a security token.
 This token is only used to access the build status image, but we recommend you
 not use it on a publicly available site.
 
-## Travis CI pages show the default branch's result
+## Show the default branch's result
 
-On the pages on Travis CI, we show the result of the most recent
+On the pages on Travis CI, we show the results of the most recent
 build on its default branch.
 For example, for [docs-travis-ci-com](https://app.travis-ci.com/travis-ci/docs-travis-ci-com),
 this is the `master` branch.

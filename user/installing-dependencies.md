@@ -8,7 +8,7 @@ redirect_from:
 
 
 
-## Installing Packages on Standard Infrastructure
+## Install Packages on Standard Infrastructure
 
 To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
@@ -42,7 +42,7 @@ addons:
 >
 > Use the `-y` parameter with apt-get to assume yes to all queries by the apt tools.
 
-### Installing Packages from a custom APT repository
+### Install Packages from a custom APT Repository
 
 For some packages, you may find an existing repository, which isn't yet set up on our build environment by default. You can easily add custom repositories and Launchpad PPAs as part of your build.
 
@@ -71,7 +71,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-### Installing Packages without an APT Repository
+### Install Packages without an APT Repository
 
 For some projects, there may be a Debian/Ubuntu package available, but no corresponding APT repository. These are still easy to install, but require the extra step of downloading.
 
@@ -86,13 +86,13 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Installing Packages with the APT Addon
+### Install Packages with the APT Addon
 
 You can also install packages and sources using the APT addon, without running `apt-get` commands in your `before_install` script.
 
-If your requirements goes beyond the normal installation, please use another method described above.
+If your requirements go beyond the normal installation, please use another method described above.
 
-#### Adding APT Sources
+#### Add APT Sources
 
 To add APT sources, you can use one of the following three types of entries:
 
@@ -100,7 +100,7 @@ To add APT sources, you can use one of the following three types of entries:
 2. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
 3. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
 
-The following snippet shows these three types of APT sources
+The following snippet shows these three types of APT sources.
 
 ```yaml
 addons:
@@ -113,7 +113,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-#### Adding APT Packages
+#### Add APT Packages
 
 List APT packages under the `addons.apt.packages` key:
 
@@ -144,7 +144,7 @@ addons:
 
 > You can also have a look at the [Apt](https://config.travis-ci.com/ref/job/addons/apt) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-### Installing Snap Packages with the Snaps Addon
+### Install Snap Packages with the Snaps Addon
 
 You can install [snap](http://snapcraft.io/) packages using our Xenial or
 Bionic images:
@@ -182,7 +182,7 @@ of the two possible forms:
       $ sudo snap install hugo
       ```
 
-1. The map specifying how the snap should be installed. Possible keys are:
+1. The map specifies how the snap should be installed. Possible keys are:
    `name`, `confinement`, and `channel`.
    The `confinement` key will be used to add `--classic` or `--devmode` flag,
    and `channel` will be passed to `--channel` flag.
@@ -206,7 +206,7 @@ of the two possible forms:
 
     `confinement` and `channel` are optional.
 
-## Installing Packages on macOS
+## Install Packages on macOS
 
 To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
 
@@ -232,7 +232,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Installing Casks
+### Install Casks
 
 The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
 
@@ -246,7 +246,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Installing From Taps
+### Install From Taps
 
 Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
 
@@ -264,9 +264,9 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Using a Brewfile
+### Use Brewfile
 
-Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked in to your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
+Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked into your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
 
 [brewfile]: https://github.com/Homebrew/homebrew-bundle
 
@@ -286,7 +286,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-### Using Homebrew without addon on older macOS images
+### Use Homebrew without addon on older macOS images
 
 If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
 
@@ -303,7 +303,7 @@ rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you n
 
 > You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Installing Packages on FreeBSD
+## Install Packages on FreeBSD
 
 To install packages that are not included in the default FreeBSD environment use `pkg` in the `before_install` step of your `.travis.yml`:
 
@@ -323,7 +323,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## Installing Dependencies on Multiple Operating Systems
+## Install Dependencies on Multiple Operating Systems
 
 If you're testing on both Linux and macOS, you can use both the APT addon and the Homebrew addon together. Each addon will only run on the appropriate platform:
 
@@ -344,7 +344,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-## Installing Projects from Source
+## Install Projects from Source
 
 Some dependencies can only be installed from a source package. The build may require a more recent version or a tool or library that's not available as a Ubuntu package.
 
