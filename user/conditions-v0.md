@@ -12,7 +12,7 @@ specifying conditions in your build configuration (your `.travis.yml` file).
 See [Conditional Builds, Stages, and Jobs](/user/conditional-builds-stages-jobs/)
 for details.
 
-## Specifying conditions
+## Specify conditions
 
 The condition can be specified using a boolean language as follows:
 
@@ -29,9 +29,9 @@ A term is defined as:
 All keywords (such as `AND`, `OR`, `NOT`, `IN`, `IS`, attributes, and
 functions) are case-insensitive.
 
-### Left hand side
+### Left-hand side
 
-The left hand side part can either be a known attribute or a function call.
+The left-hand side part can either be a known attribute or a function call.
 
 Known attributes are:
 
@@ -52,7 +52,7 @@ The function `env` currently only supports environment variables that are given
 in your build configuration (e.g. on `env` or `env.global`), not environment
 variables specified in your repository settings.
 
-### Right hand side
+### Right-hand side
 
 It is currently not possible to compare function calls. This means that if you
 try to evaluate something similar to:

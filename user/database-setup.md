@@ -1,5 +1,5 @@
 ---
-title: Setting up Databases and Services
+title: Setup Databases and Services
 layout: en
 
 redirect_from:
@@ -12,7 +12,7 @@ You can check databases and services availability in the build environment you a
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
-## Starting Services
+## Start Services
 
 Travis CI environments do not start services by default, to make more RAM available
 to build scripts. Start services by adding them to the `services:` section of your
@@ -61,7 +61,7 @@ and a blank password.
 
 You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
-### Using MySQL with ActiveRecord
+### Use MySQL with ActiveRecord
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
@@ -74,7 +74,7 @@ test:
 ```
 {: data-file="config/database.yml"}
 
-You might have to create the `myapp_test` database first, for example in
+You might have to create the `myapp_test` database first, for example, in
 the `before_install` step in `.travis.yml`:
 
 ```yaml
@@ -83,14 +83,14 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Note on `test` database
+### Note on test database
 
 In older versions of MySQL, the Ubuntu package provided the `test` database by
 default.  This is no longer the case as of version 5.5.37 due to security
 concerns (See [change
 log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
 
-The `test` database may be created if needed, for example in the
+The `test` database may be created if needed, for example, in the
 `before_install` step in `.travis.yml`:
 
 ```yaml
@@ -116,7 +116,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-### Using PostgreSQL in your Builds
+### Use PostgreSQL
 
 The default user for accessing the local PostgreSQL server is `postgres` with a blank password.
 
@@ -145,7 +145,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-### Using a different PostgreSQL Version
+### Use a different PostgreSQL Version
 
 The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
 from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
@@ -183,7 +183,7 @@ For PostgreSQL 10 you must specify the packages
 to install it and the user is `postgres` and the port is 5432.  For PostgreSQL 11 and 12 you must
  specify the packages, but the user is `travis` and the port is 5433 instead. So you must specify the PGPORT
 
-### Using PostGIS
+### Use PostGIS
 
 Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
@@ -202,7 +202,7 @@ before_script:
 
 The Travis CI build environment comes with a number of pre-installed locales, but you can also install additional ones, should you require them.
 
-#### Installing Locales
+#### Install Locales
 
 The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack.
 
@@ -217,7 +217,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Using `pg_config`
+### Use pg_config
 
 If your builds rely on the `pg_config` command, you need to install an additional
 apt package `postgresql-server-dev-X.Y`, where `X.Y` matches the version of PostgreSQL
@@ -306,7 +306,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-### MongoDB does not immediately accept connections
+### Troubleshoot MongoDB accepting connections
 
 A few users have reported that MongoDB does not accept connections when from the build script.
 
@@ -424,7 +424,7 @@ services:
 
 Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
 
-### Installing older versions of Cassandra
+### Install older versions of Cassandra
 
 Use the following example to install a specific older version of Cassandra in your `.travis.yml`:
 
@@ -468,7 +468,7 @@ before_script:
 
 ElasticSearch uses the default configuration and is available on 127.0.0.1.
 
-### Installing specific versions of ElasticSearch
+### Install specific ElasticSearch version
 
 You can overwrite the installed ElasticSearch with the version you need (e.g., 7.6.2) with the following:
 
@@ -520,7 +520,7 @@ When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
 If you need to run multiple builds using different databases, you can configure environment variables
 and a `before_script` or `before_install` line to create a build matrix.
 
-### Using environment variables and a before_script step
+### Use environment variables and a before_script step
 
 Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
@@ -528,7 +528,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that, you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:
@@ -558,7 +558,7 @@ before_script:
 For a real example, see [doctrine/doctrine2
 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
 
-### Using Ruby
+### Use Ruby
 
 Another approach is put all database configuration in one YAML file (`test/database.yml` for example), like ActiveRecord does:
 

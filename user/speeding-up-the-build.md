@@ -1,15 +1,15 @@
 ---
-title: Speeding up the build
+title: Speed up the build
 layout: en
 
 ---
 
 Travis CI implements a few optimizations which help to speed up your build,
-like in memory filesystem for DB's files, but there is a range of things
+like in-memory filesystem for DB's files, but there is a range of things
 that can be done to improve build times even more.
 
 
-## Parallelizing your Builds across Virtual Machines
+## Parallelize Builds across Virtual Machines
 
 To speed up a test suite, you can break it up into several parts using
 Travis CI's [build
@@ -71,7 +71,7 @@ actionmailer, activesupport and a whole bunch of sets run the activerecord
 tests against multiple databases. See their [.travis.yml
 file](https://github.com/rails/rails/blob/master/.travis.yml) for more examples.
 
-## Parallelizing your Build on One Virtual Machine
+## Parallelize a Build on a single Virtual Machine
 
 Parallelizing the test suite on one virtual machine depends on the language and test runner:
 
@@ -81,11 +81,11 @@ Parallelizing the test suite on one virtual machine depends on the language and 
 
 To give you an idea of the speedup we are talking about, I've tried to run tests in parallel on `travis-core` and I was able to see a drop from about 26 minutes to about 19 minutes across 4 jobs.
 
-## Parallelizing RSpec, Cucumber and Minitest on Multiple VMs
+## Parallelize RSpec, Cucumber, and Minitest on Multiple VMs
 
-If you want to parallel tests for RSpec, Cucumber or Minitest on multiple VMs to get faster feedback from CI, you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run a comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
+If you want to perform parallel tests for RSpec, Cucumber, or Minitest on multiple VMs to get faster feedback from CI, you can try [knapsack](https://github.com/ArturT/knapsack) gem. It will split tests across virtual machines and make sure that tests will run a comparable time on each VM (each job will take similar time). You can use our matrix feature to set up knapsack.
 
-### RSpec Parallelization example
+### RSpec Parallelization Example
 
 ```yaml
 script: "bundle exec rake knapsack:rspec"
@@ -106,7 +106,7 @@ MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=0
 MY_GLOBAL_VAR=123 CI_NODE_TOTAL=2 CI_NODE_INDEX=1
 ```
 
-### Cucumber Parallelization example
+### Cucumber Parallelization Example
 
 ```yaml
 script: "bundle exec rake knapsack:cucumber"
@@ -119,7 +119,7 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-### Minitest Parallelization example
+### Minitest Parallelization Example
 
 ```yaml
 script: "bundle exec rake knapsack:minitest"
@@ -132,9 +132,9 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-### RSpec, Cucumber and Minitest Parallelization example
+### RSpec, Cucumber, and Minitest Parallelization Example
 
-If you want to parallelize a test suite for RSpec, Cucumber and Minitest at the same time, define script in `.travis.yml` as follows:
+If you want to parallelize a test suite for RSpec, Cucumber, and Minitest at the same time, define script in `.travis.yml` as follows:
 
 ```yaml
 script:
@@ -155,13 +155,13 @@ You can either use our [built-in caching](/user/caching/) or roll your own on S3
 want to roll your own and you use Ruby with Bundler, check out [the great WAD project](https://github.com/Fingertips/WAD).
 For other languages, you can use s3 tools directly to upload and download the dependencies.
 
-## Environment-Specific Ways to Speed up your Build
+## Environment-Specific Ways to Speed up a Build
 
 In addition to the optimizations implemented by Travis, there are also
 several environment-specific ways you may consider to increase the speed of
 your tests.
 
-### PHP optimizations
+### PHP Optimizations
 
 PHP VM images on Travis CI provide several PHP versions which include
 XDebug. The XDebug extension is useful, if you wish to generate code coverage
@@ -176,7 +176,7 @@ builds if:
 - you are testing on PHP 7.0 or above and are able to use the [PHP Debugger (phpdbg)](https://github.com/krakjoe/phpdbg)
   which may be faster.
 
-#### Using phpdbg example
+#### phpdbg Example
 
 ```yaml
 before_script:
@@ -188,7 +188,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-### Makefile optimization
+### Makefile Optimization
 
 If your makefile build consists of independent parts that can be safely
 parallelized, you can [run multiple recipes
@@ -200,7 +200,7 @@ similar number (or slightly higher if your build frequently waits on disk I/O).
 
 > Note that doing this will cause concurrent recipe output to become interleaved.
 
-#### Makefile parallelization example
+#### Makefile Parallelization Example
 
 ```yaml
 env:

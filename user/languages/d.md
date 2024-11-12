@@ -1,10 +1,9 @@
 ---
-title: Building a D Project
+title: Build a D Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -28,7 +27,7 @@ This guide covers build environment and configuration topics specific to D proje
 sure to read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community Supported Language
+### Community-Supported Language
 
 D is a community-supported language in Travis CI, maintained by [@MartinNowak](https://github.com/MartinNowak) and [@wilzbach](https://github.com/wilzbach). If you run into any problems, please report them in the
 [Travis CI community forum](https://travis-ci.community/c/languages/d).
@@ -37,9 +36,9 @@ Please report compiler-specific issues at [DMD's issue tracker](https://issues.d
 [GDC's issue tracker](https://gcc.gnu.org/bugzilla).
 [DUB](https://github.com/dlang/dub) related problems should be reported to [DUB's issue tracker](https://github.com/dlang/dub/issues).
 
-## Choosing compilers to test against
+## Test against Compilers
 
-By default Travis CI will use the latest dmd version. It is also possible to test projects against
+By default, Travis CI will use the latest dmd version. It is also possible to test projects against
 gdc or ldc and to choose specific compiler versions. To do
 so, specify the compiler using the `d:` key in `.travis.yml`.
 
