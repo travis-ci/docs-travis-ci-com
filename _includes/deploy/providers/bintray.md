@@ -18,7 +18,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Bintray is *stable**.
+Support for deployments to Bintray is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment.
