@@ -1,5 +1,5 @@
 ---
-title: Setting up Travis CI Enterprise Worker Machine
+title: Setup Travis CI Enterprise Worker Machine
 layout: en_enterprise
 
 ---
@@ -13,7 +13,7 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 1. [Enterprise 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform) or [Enterprise 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) Platform is set up
 2. You need the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
-## Setting up the Worker
+## Travis CI Worker Setup
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
@@ -32,7 +32,7 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
     $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
     ```
 
-### Installing Workers behind a web proxy
+### Install Workers behind a web proxy
 
 If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
 Then rerun the installation script.  
@@ -53,7 +53,7 @@ export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
 
 After setting up a new instance for the worker, please follow the respective guides for your Travis CI Enterprise version.
 
-## Setting up the LXD Worker
+## LXD Worker Setup
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 

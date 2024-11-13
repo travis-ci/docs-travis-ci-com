@@ -67,7 +67,7 @@ Click the **Manage Repositories** button. Once directed to your chosen platform,
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
 
 
-## Add a `.travis.yml` File
+## Add a .travis.yml File
 
 The next step is to add a `.travis.yml` file to your repository to tell Travis CI what to do. The following example specifies a Ruby project built with Ruby 2.2 and the latest version of JRuby.
 
@@ -87,7 +87,7 @@ Add the `.travis.yml` to a specific location in your repository.
 > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 Finally, visit [Travis CI](https://app.travis-ci.com) and select your repository to check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command.
 
-### Assembla `.travis.yml` File Configuration
+### Assembla .travis.yml File Configuration
 
 <blockquote class="beta">
   <p>
@@ -123,7 +123,7 @@ See the example below for reference.
 Perforce and SVN builds are currently **available only for Linux Ubuntu** and standard amd64 CPU architecture build environments, starting from the Bionic Beaver Ubuntu distribution.
 
 
-## Switching Accounts
+## Switch Accounts
 
 You can easily switch between your cloud platform provider accounts:
 
@@ -133,7 +133,7 @@ You can easily switch between your cloud platform provider accounts:
 
 ![Switch Accounts](/user/images/onboarding-settings.png)
 
-## Selecting a different programming language
+## Select a different programming language
 
 Use one of these common languages:
 

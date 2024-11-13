@@ -23,13 +23,13 @@ Without the encryption key you cannot access the information in your production 
 
 {{ site.data.snippets.enterprise_2_encryption_key_backup }}
 
-## Updating your Travis CI Enterprise Platform
+## Update the Travis CI Enterprise Platform
 
 You can check for new releases by going to the management interface dashboard `https://<your-travis-ci-enterprise-domain>:8800` and clicking on the 'Check Now' button. If an update is available you will be able to read the release notes and install the update.
 
 > There will be a small amount of downtime while an update is installed. For this reason we recommend that you perform each update during a maintenance window.
 
-## Updating Replicated on the Platform
+## Update Replicated on the Platform
 
 To update Replicated on the Platform installation you'll want to run
 the install script which will download the latest version. Depending on
@@ -54,9 +54,9 @@ To apply an update patch for a specific release e.g you currently have version 2
  
 > Please note that for Ubuntu Bionic, you'll need to add the following flag to `installer.sh` as follows: `installer.sh --travis_build_images=bionic`
 
-## Updating your Travis CI Enterprise Worker
+## Update the Travis CI Enterprise Worker
 
-### On Ubuntu 16.04 and later
+### On Ubuntu 16.04 and higher
 
 On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To update travis-worker, please follow the steps below.
 
@@ -81,7 +81,7 @@ $ sudo apt-get update
 $ sudo apt-get install travis-worker
 ```
 
-## Restoring from Backups
+## Restore from Backups
 
 In the rare event something goes wrong and/or you'd like to restore from a backup, please use the following steps:
 

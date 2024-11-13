@@ -1,14 +1,13 @@
 ---
-title: The macOS Build Environment
+title: macOS Build Environment
 layout: en
 redirect_from:
   - /user/osx-ci-environment/
   - /user/workers/os-x-infrastructure/
 ---
 
-### What This Guide Covers
 
-This guide explains what packages, tools and settings are available in the
+This guide explains what packages, tools, and settings are available in the
 Travis macOS CI environment (often referred to as the “CI environment”).
 
 
@@ -28,7 +27,7 @@ and rolled back at the end of it. This offers a number of benefits:
 The environment available to test suites is known as the *Travis CI
 environment*.
 
-## Using macOS
+## Use macOS
 
 To use our macOS build infrastructure, add the following to your `.travis.yml`:
 
@@ -69,7 +68,7 @@ The Homebrew addon uses the Homebrew database on the build image by default, but
 
 ## File System
 
-VMs running macOS 10.13 use HFS+, VMs running macOS 10.14 and newer use APFS.
+VMs running macOS 10.13 use HFS+, and VMs running macOS 10.14 and newer use APFS.
 
 
 ## JDK and macOS
@@ -118,22 +117,26 @@ and later, use `xcode9.4` (or later).
 
 ## Runtimes
 
-Every worker has at least one version of Go, Java, Python, Ruby and NodeJS to accommodate
+Every worker has at least one version of Go, Java, Python, Ruby, and NodeJS to accommodate
 projects that may need one of those runtimes during the build.
 
-## Ruby versions/implementations
+## Implement Ruby versions
 
-Default macOS Ruby (depends on macOS version) -- You need to use `sudo` to install gems with this Ruby and you can also use the [pre-compiled Ruby binaries](https://rubies.travis-ci.org/) we made available.
+The default macOS Ruby (depends on macOS version) -- You need to use `sudo` to install gems with this Ruby and you can also use the [pre-compiled Ruby binaries](https://rubies.travis-ci.org/) we made available.
 
 Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 
-## Gems in the global gem set
+## Global Gem set
+
+The following are Gems in the global gem set.
 
 - bundler
 - rake
 - cocoapods
 
-## Python related tools
+## Python-related tools
+
+The following are Python-related tools available.
 
 - pyenv (via homebrew)
 - virtualenv (via pip)
@@ -141,7 +144,7 @@ Rubies are built using [RVM](http://rvm.io/) that is installed per-user.
 - scipy (via pip)
 - tox (via pip)
 
-## Xcode version
+## Xcode Versions
 
 Xcode 9.4.1 is installed with all available simulators and SDKs.
 Command Line Tools are also installed.

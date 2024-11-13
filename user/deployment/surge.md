@@ -9,12 +9,12 @@ Travis CI can deploy your static files to [Surge.sh](https://surge.sh/) after a 
 
 You will need to set 2 environment variables in your travis settings and set the deployment provider details in `.travis.yml`
 
-### Environment variables
+## Environment variables
 
 - **SURGE_LOGIN**: Set it to the email address you use with Surge
 - **SURGE_TOKEN**: Set it to your login token (get it by doing a `surge token`)
 
-### Configuration of `.travis.yml`:
+## Configure the .travis.yml file
 
 - Add `surge` as deployment provider in `.travis.yml`
 
@@ -32,7 +32,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Generated content
+## Generate content
 
 If you are generating files for deployment you must tell the `deploy` step to keep your changes:
 
@@ -48,7 +48,7 @@ It is suggested that you generate your files during the `script` step or the `be
 - When generating files during the `script` step, an error results in a failed build.
 - When generating files during the `before_deploy` step, an error does *not* result in a failed build.
 
-### Branches
+## Deploy from Branches
 
 By default, Travis CI will only deploy from your `master` branch. You can specify what branch to deploy from with the deploy option `on`:
 

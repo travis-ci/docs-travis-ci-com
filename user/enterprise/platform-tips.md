@@ -12,7 +12,9 @@ and tools.
 **TCIE 2.x**: Please connect to your Platform machine via SSH before getting
 started.
 
-## Inspecting Logs and Running Services
+## Inspect Logs and Run Services
+
+The following section describes how to inspect logs on different platforms and how to run the services. 
 
 ### Platform logs
 
@@ -36,7 +38,8 @@ On the Platform you can find the main log file at
 
 ### Worker logs
 
-#### With Ubuntu 16.04 and later as host operating system
+This section describes how to obtain worker logs with Ubuntu as the host operating system. 
+#### With Ubuntu 16.04 and higher 
 
 On the Worker you can obtain the worker logs by running:
 
@@ -44,12 +47,12 @@ On the Worker you can obtain the worker logs by running:
 $ sudo journalctl -u travis-worker
 ```
 
-#### With Ubuntu 14.04 as host operating system
+#### With Ubuntu 14.04 
 
 On the Worker you can find the main log file at
 `/var/log/upstart/travis-worker.log`
 
-## Accessing Travis Container and Console on the Platform
+## Access Travis Container and Console on the Platform
 
 ### Console access in TCIE 3.x
 
@@ -67,7 +70,7 @@ Platform.
 `travis console`: This will get you into a Ruby IRB session on the
 Platform.
 
-## Cancelling or Resetting Stuck Jobs
+## Cancel or Reset Stuck Jobs
 
 Occasionally, jobs can get stuck in a `queued` state on the worker. To cancel or
 reset a large number of jobs, please execute the following steps:
@@ -86,7 +89,7 @@ Then, please run:
 >> stuck_jobs.each(&:reset!)
 ```
 
-## Clearing Redis Archive Queue (for releases < 2.1.7)
+## Clear Redis Archive Queue (V2.1.7 and prior)
 
 In releases of Enterprise before 2.1.7, jobs where enqueued in the archive queue
 for log aggregation. Currently, this feature is available only for the hosted
@@ -109,7 +112,7 @@ Then, please run:
 >> Sidekiq::Queue.new('archive').clear
 ```
 
-## Managing RabbitMQ in TCIE 3.x
+## Manage RabbitMQ in TCIE 3.x
 
 RabbitMQ is now deployed in separate pod named `travisci-platform-rabbitmq-ha-0` and all Rabbit-related maintenance should be done there.
 In order to access RabbitMQ pod execute 
@@ -120,7 +123,7 @@ and perform any necessary actions.
 
 The RabbitMQ management UI is available under `https://[platform-hostname]/amqp_ui`.
 
-## Resetting the RabbitMQ Certificate in TCIE 2.x
+## Reset the RabbitMQ Certificate in TCIE 2.x
 
 After an upgrade of Replicated 2.8.0 to a newer version, occasionally the service
 restarts with the following error:
@@ -148,7 +151,7 @@ $ sudo rm -r /etc/travis/ssl/rabbitmq.cert
 After this, do a full reboot of the system and everything should start again properly.
 
 
-## Viewing Sidekiq Queue Statistics
+## View Sidekiq Queue Statistics
 
 In the past there have been reported cases where the system became unresponsive. It took quite a while until jobs where worked off or they weren't picked up at all. We found out that often full Sidekiq queues played a part in this. To get some insight, it helps to retrieve some basics statistics in the Ruby console:
 
@@ -181,7 +184,7 @@ Then, please run:
       "user_sync"=>0}
 ```
 
-## Uninstalling Travis CI Enterprise 3.x
+## Uninstall Travis CI Enterprise 3.x
 
 If you wish to uninstall Travis CI Enterprise 3.x from your Kubernetes cluster, please execute:
 
@@ -194,7 +197,7 @@ $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
 
-## Uninstalling Travis CI Enterprise 2.x
+## Uninstall Travis CI Enterprise 2.x
 
 If you wish to uninstall Travis CI Enterprise 2.x from your platform and worker
 machines, please follow the instructions below. On the platform machine, you
@@ -221,7 +224,7 @@ On the worker machine, you need to run this command to remove travis-worker and 
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
-#### With Ubuntu 14.04 as host operating system
+### With Ubuntu 14.04 as host operating system
 
 ```sh
 sudo service replicated stop
@@ -248,7 +251,7 @@ Additionally, please use the following command to clean up all Docker build imag
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
-## Finding out about the Maximum Available Concurrency
+## Discover the Maximum Available Concurrency
 
 To find out how much concurrency is available in your Travis CI Enterprise setup:
 
@@ -265,7 +268,7 @@ root@te-main:/# rabbitmqctl list_consumers -p travis | grep builds.trusty | wc -
 
 The number that's returned here is equal to the maximum number of concurrent jobs that are available. To adjust concurrency, please follow the instructions [here](/user/enterprise/worker-configuration/#configuring-the-number-of-concurrent-jobs) for each worker machine.
 
-## Finding out how Many Worker Machines are Connected
+## Discover how many Worker Machines are Connected
 
 If you wish to find out how many worker machines are currently connected, please follow these steps:
 
@@ -281,7 +284,7 @@ root@te-main:/# rabbitmqctl list_consumers -p travis | grep amq.gen- | wc -l
 
 If you need to boot more worker machines, please see our docs about [installing new worker machines](/user/enterprise/setting-up-travis-ci-enterprise/#2-setting-up-the-enterprise-worker-virtual-machine).
 
-## Integrating Travis CI Enterprise into Your Monitoring
+## Integrate Travis CI Enterprise into your Monitoring
 
 To check if your Travis CI Enterprise 2.x/3.x installation is up and running, query the `/api/uptime` endpoint of your instance.
 
@@ -292,7 +295,7 @@ $ curl -H "Authorization: token XXXXX" https://<your-travis-ci-enterprise-domain
 If everything is up and running, it answers with a `HTTP 200 OK`, or in case of failure with an `HTTP 500 Internal Server Error`.
 
 
-## Configuring Backups
+## Configure Backups
 
 This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
 
@@ -309,7 +312,7 @@ Without the encryption key you cannot access the information in your production 
 
 {{ site.data.snippets.enterprise_2_encryption_key_backup }}
 
-### Creating a backup of the data directories
+### Create a backup of the data directories
 
 #### Data backup in TCIE 3.x
 
@@ -362,7 +365,7 @@ The data directories are located on the platform machine and are mounted into th
 
 The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create a compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
-## Migrating from GitHub Services to Webhooks
+## Migrate from GitHub Services to Webhooks
 
 Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
 

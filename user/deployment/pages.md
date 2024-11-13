@@ -31,7 +31,7 @@ deploy:
 > all the files created during the build, which will probably delete what you are
 > trying to upload.
 
-## Setting the GitHub token
+## Set the GitHub token
 
 You'll need to generate a [personal access
 token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
@@ -42,11 +42,11 @@ settings](/user/environment-variables/#defining-variables-in-repository-settings
 or via [encrypted variables in
 `.travis.yml`](/user/environment-variables/#defining-encrypted-variables-in-travisyml).
 
-## Further configuration
+## Further configurations
 
-* `local_dir`: Directory to push to GitHub Pages, defaults to current directory.
+* `local_dir`: Directory to push to GitHub Pages, defaults to the current directory.
   Can be specified as an absolute path or a relative path from the current directory.
-* `repo`: Repo slug, defaults to current repo. **Note:** The slug consists of username and repo name and is formatted like `user/repo-name`.
+* `repo`: Repo slug, defaults to the current repo. **Note:** The slug consists of username and repo name and is formatted like `user/repo-name`.
 * `target_branch`: Branch to (force, see: `keep_history`) push `local_dir`
   contents to, defaults to `gh-pages`.
 * `keep_history`: Optional, create incremental commit instead of doing push

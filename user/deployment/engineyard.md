@@ -16,7 +16,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-You can also use `email` and `password` instead of `api_key`. It is recommended to encrypt the key/password.
+You can also use `email` and `password` instead of `api_key`. Encrypting the key/password is recommended.
 
 Optional settings include: `app`, `account`, `environment` and `migrate`.
 
@@ -28,7 +28,7 @@ $ travis setup engineyard
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Application or Environment to deploy
+## Deploy Application 
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to a Engine Yard app named *travis-chat*.
 
@@ -54,7 +54,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-This branch specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
+These branch-specific settings are possible for all options (except `on`) and can be very useful for deploying to different environments:
 
 ```yaml
 deploy:
@@ -66,9 +66,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch to deploy from
+## Deploy Specific Branches
 
-If you have branch specific options, as [shown above](#application-or-environment-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
+If you have branch-specific options, as [shown above](#application-or-environment-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
 You can also explicitly specify the branch to deploy from with the **on** option:
 
@@ -93,7 +93,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Running migrations
+## Run Migrations
 
 You can trigger migrations by using the migrate option:
 
@@ -105,7 +105,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).

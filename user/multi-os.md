@@ -1,5 +1,5 @@
 ---
-title: Testing Your Project on Multiple Operating Systems
+title: Test your Project on Multiple Operating Systems
 layout: en
 
 ---
@@ -7,7 +7,7 @@ layout: en
 If your code is used on multiple operating systems it probably should be tested on
 multiple operating systems. Travis CI can test on Linux and macOS.
 
-To enable testing on multiple operating systems add the `os` key to your `.travis.yml`:
+To enable testing on multiple operating systems, add the `os` key to your `.travis.yml`:
 
 ```yaml
 os:
@@ -18,7 +18,7 @@ os:
 
 The value of the `$TRAVIS_OS_NAME` variable is set to `linux` or `osx` according to the operating system a particular build is running on, so you can use it to conditionalize your build scripts.
 
-If you are already using a [build matrix](/user/customizing-the-build/#build-matrix) to test multiple versions, the `os` key also multiplies the matrix.
+If you already use a [build matrix](/user/customizing-the-build/#build-matrix) to test multiple versions, the `os` key also multiplies the matrix.
 
 ## Operating System differences
 
@@ -52,7 +52,7 @@ that can affect your tests:
   In some cases, commands that do the same thing could have different names.
   These need to be investigated case by case.
 
-## Allowing Failures on Jobs Running on One Operating System
+## Allow Jobs' Failures 
 
 To ignore the results of jobs on one operating system, add the following
 to your `.travis.yml`:
@@ -64,7 +64,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-## Example Multi OS Build Matrix
+## Multi OS Build Matrix Example
 
 Here's an example `.travis.yml` file using if/then directives to customize the [build lifecycle](/user/job-lifecycle/) to use [Graphviz](https://graphviz.gitlab.io/) in both Linux and macOS.
 
@@ -108,7 +108,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Python example (unsupported languages)
+### Python Example 
 
 For example, this `.travis.yml` uses the `matrix.include` key to include four specific entries in the build matrix. It also takes advantage of `language: generic` to test Python on macOS. Custom requirements are installed in `./.travis/install.sh` below.
 

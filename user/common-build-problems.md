@@ -9,7 +9,7 @@ redirect_from:
 
 
 
-## My tests broke but were working yesterday
+## Broken Tests that previously worked
 
 A very common cause when a test is suddenly breaking without any major code
 changes involved is a change in upstream dependencies.
@@ -33,9 +33,9 @@ version.
 * Additionally, we update our build environment regularly, which brings in newer
 versions of languages and the running services.
 
-## My build script is killed without any error
+## The build script is killed without any errors
 
-Sometimes, you'll see a build script causing an error and the message in
+Sometimes, you'll see a build script causing an error, and the message in
 the log will be something like `Killed`.
 
 This is usually caused by the script or one of the programs it runs exhausting
@@ -47,7 +47,7 @@ Depending on the tool in use, this can be caused by a few things:
 - Ruby test suite consuming too much memory
 - Tests running in parallel using too many processes or threads (e.g. using the
   `parallel_test` gem)
-- g++ needing too much memory to compile files, for instance with a lot of
+- g++ needing too much memory to compile files, for instance, with a lot of
   templates included.
 
 ### Parallel processes
@@ -63,7 +63,7 @@ likely to show similar causes. It can be caused by memory leaks or by custom
 settings for the garbage collector, for instance to delay a sweep for as long as
 possible. Dialing these numbers down should help.
 
-## My build fails unexpectedly
+## Unexpected Build Failures
 
 One possible cause for builds failing unexpectedly can be calling `set -e` (also known as `set errexit`), either *directly in* your `.travis.yml`, or `source`ing a script which does. This causes any error causing a non-zero return status in your script to stop and fail the build immediately.
 
@@ -74,7 +74,7 @@ See also [Complex Build Steps](/user/customizing-the-build/#implementing-complex
 Another reason could be that the repo setting **Clone or import** is set to `OFF.` In this case, no information from the repository is shared and it is possible some builds using private dependencies between repos can break.
 If you want to avoid the situation when all of your repositories stop sharing dependencies, please go to the repository settings and explicitly set **Clone or Import** to `ON.` In this case, your builds keep running as usual.
 
-## Segmentation faults from the language interpreter (Ruby, Python, PHP, Node.js, etc.)
+## Segmentation faults from the language interpreter 
 
 If your build is failing due to unexpected segmentation faults in the language interpreter, this may be caused by corrupt or invalid caches of your extension codes (gems, modules, etc). This can happen with any interpreted language, such as Ruby, Python, PHP, Node.js, etc.
 
@@ -82,7 +82,7 @@ Fix the problem by
 * clearing the cache or
 * removing the cache key from your .travis.yml (you can add it back in a subsequent commit).
 
-## **Ruby**: RSpec returns 0 even though the build failed
+## **Ruby**: RSpec returns 0 when the build failed
 
 In some scenarios, when running `rake rspec` or even rspec directly, the command
 returns 0 even though the build failed. This is commonly due to some RubyGem
@@ -110,7 +110,7 @@ If your project is using the [Code Climate integration](/user/code-climate/) or
 Simplecov, this issue can also come up with the 0.8 branch of Simplecov. The fix
 is to downgrade to the last 0.7 release until the issue is fixed.
 
-## **Capybara**: I'm getting errors about elements not being found
+## **Capybara**: Not found elements Errors 
 
 In scenarios that involve JavaScript, you can occasionally see errors that
 indicate that an element is missing, a button, a link, or some other resource
@@ -138,14 +138,14 @@ If you're still seeing timeouts after increasing it initially, set it to
 something much higher for one test run. Should the error still persist, there's
 possibly a deeper issue on the page, for instance compiling the assets.
 
-## **Ruby**: Installing the debugger_ruby-core-source library fails
+## **Ruby**: debugger_ruby-core-source library installation fails
 
-This Ruby library unfortunately has a history of breaking with even patchlevel
+This Ruby library, unfortunately, has a history of breaking with even patch-level
 releases of Ruby. It's commonly a dependency of libraries like linecache or
 other Ruby debugging libraries.
 
 We recommend moving these libraries to a separate group in your Gemfile and then
-to install RubyGems on Travis CI without this group. As these libraries are only
+installing RubyGems on Travis CI without this group. As these libraries are only
 useful for local development, you'll even gain a speedup during the installation
 process of your build.
 
@@ -161,9 +161,9 @@ end
 bundler_args: --without development debug
 ```
 
-## **Ruby**: Tests frozen and cancelled after 10 minute log silence
+## **Ruby**: Tests frozen and canceled 
 
-In some cases, the use of the `timecop` gem can result in seemingly sporadic
+In some cases, tests get frozen and then canceled after 10 minutes of log silence. The use of the `timecop` gem can result in seemingly sporadic
 "freezing" due to issues with ordering calls of `Timecop.return`,
 `Timecop.freeze`, and `Timecop.travel`.  For example, if using RSpec, be sure to
 have a `Timecop.return` configured to run *after* all examples:
@@ -179,7 +179,7 @@ end
 
 ## **Mac**: macOS Mavericks (10.9) Code Signing Errors
 
-With Mavericks quite a lot has changed in terms of code signing and the keychain application.
+With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
 
 Signs of issues can be error messages stating that an identity can't be found and that "User
 interaction is not allowed."
@@ -311,7 +311,7 @@ You can also have more details in [this GitHub issue](https://github.com/travis-
 
 ## **Mac**: Errors running CocoaPods
 
-CocoaPods usage can fail for a few reasons currently.
+CocoaPods usage can currently fail for a few reasons.
 
 ### Newer version of CocoaPods required
 
@@ -324,7 +324,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### CocoaPods can't be found
+### CocoaPods cannot be found
 
 CocoaPods isn't currently installed on all available Rubies, which unfortunately
 means it will fail when using the default Ruby, which is 2.0.0.
@@ -350,14 +350,14 @@ rvm: 1.9.3
 ```
 {: data-file=".travis.yml"}
 
-## **System**: Required language pack isn't installed
+## **System**: Required language pack not installed
 
 The Travis CI build environments currently have only the en_US language pack
-installed. If you get an error similar to : "Error: unsupported locale
+installed. If you get an error similar to: "Error: unsupported locale
 setting", then you may need to install another language pack during your test
 run.
 
-This can be done with the follow addition to your `.travis.yml`:
+This can be done with the following addition to your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -380,7 +380,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## **Linux**: apt fails to install package with 404 error
+## **Linux**: apt fails to install the package with 404 error
 
 This is often caused by old package database and can be fixed by adding the following to `.travis.yml`:
 
@@ -390,12 +390,12 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-## **Windows**: common build problems and known issues
+## **Windows**: Common build problems and Known issues
 
-For a list of common build problems on Windows, known issues and workarounds, please visit the [Travis CI community forum].(https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
+For a list of common build problems on Windows, known issues, and workarounds, please visit the [Travis CI community forum].(https://travis-ci.community/t/current-known-issues-please-read-this-before-posting-a-new-topic/264).
 The [Travis CI community forum](https://travis-ci.community) provides better visibility on the issues customers are running into and how to solve them.
 
-## Travis CI does not preserve the state between builds
+## Travis CI not preserving the state between builds
 
 Travis CI uses virtual machine snapshotting to make sure no state is preserved between
 builds. If you modify the CI environment by writing something to a data store, creating
@@ -407,7 +407,7 @@ Travis CI runs all commands over SSH in isolated virtual machines. Commands that
 modify SSH session states are "sticky" and persist throughout the build. For example,
 if you `cd` into a directory, all subsequent commands are run from that directory.
 
-## Git submodules are not updated correctly
+## Git submodules not updating correctly
 
 Travis CI automatically initializes and updates submodules when there's a `.gitmodules` file in the root of the repository.
 
@@ -447,7 +447,7 @@ https://github.com/someuser/somelibrary.git
 
 Otherwise, Travis CI builders won't be able to clone your project because they don't have your private SSH key.
 
-## My builds are timing out
+## Builds time out
 
 Builds can unfortunately time out, either during installation of dependencies or during the build itself, for instance because of a command that's taking a longer amount of time to run while not producing any output.
 
@@ -490,7 +490,7 @@ does work in the [other steps](/user/job-lifecycle/).
 
 ### Build times out because no output was received
 
-When a long running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
+When a long-running command or compile step regularly takes longer than 10 minutes without producing any output, you can adjust your build configuration to take that into consideration.
 
 The shell environment in our build system provides a function that helps to work around that, at least for longer than 10 minutes.
 
@@ -515,13 +515,13 @@ Continuing the example above to extend the waiting time to 30 minutes:
 
 > We recommend to carefully use `travis_wait`, as overusing it can extend your build time when there could be a deeper underlying issue. When in doubt, [email us](mailto:support@travis-ci.com) first to see if something could be improved about this particular command first.
 
-#### Limitations of `travis_wait`
+#### Limitations of travis_wait
 
 `travis_wait` works by starting a process, sending it to the background, and watching the background
 process.
 If the command you pass to `travis_wait` does not persist, then `travis_wait` does not extend the timeout.
 
-## Running builds in debug mode
+## Run builds in debug mode
 
 In private repositories and those public repositories for which the feature is enabled,
 it is possible to run builds and jobs in debug mode.
@@ -529,7 +529,7 @@ Using this feature, you can interact with the live VM where your builds run.
 
 For more information, please consult [the debug VM documentation](/user/running-build-in-debug-mode/).
 
-## Log length exceeded
+## Exceed Log length 
 
 The log for each build is limited to approximately 4 MB. When it reaches that length, the build is terminated and you'll see the following message at the end of your build log:
 
@@ -539,7 +539,7 @@ The log length has exceeded the limit of 4 Megabytes (this usually means that te
 The build has been terminated.
 ```
 
-## FTP/SMTP/other protocol do not work
+## FTP and SMTP Protocols do not work
 
 Some protocols such as FTP and SMTP are not directly supported due to the
 infrastructure requirements in place for security and fair usage. Using
@@ -559,7 +559,7 @@ before_install:
 {: data-file=".travis.yml"}
 
 
-## I pushed a commit and can't find its corresponding build
+## Pushing a commit and not finding the build
 
 The build request events that Travis CI receives are listed in your repository's Requests page. You can find it under the **More Options** dropdown menu, choosing **Requests**.
 
@@ -578,22 +578,22 @@ If a build hasn't been triggered for your commit, these are the possible build r
 
 > Please note that Travis CI does not receive a Webhook event when more than three commits are tagged. So if you do `git push --tags`, and more than three tags that are present locally, are not known on GitHub, Travis will not be told about any of those events, and the tagged commits will not be built.
 
-## I'm running out of disk space in my build
+## Build running out of disk space
 
 Approximate available disk space is listed in the [build environment overview](/user/reference/overview/#virtualisation-environment-vs-operating-system).
 
 The best way to find out what is available on your specific image is to run `df -h` as part of your build script.
 If you need a bit more space in your Ubuntu builds, we recommend using `language: minimal`, which will route you to a base image with less tools and languages preinstalled. This image has approximately ~24GB of free space.
 
-## Uploading artifacts to sonatype
+## Upload artifacts to sonatype
 
 When publishing via the `nexus-staging-maven-plugin` to Sonatype OSS Repository, IP addresses used by TravisCI change due to our [NAT layer](https://travis-ci.com/blog/2018-07-23-the-tale-of-ftp-at-travis-ci). To get around this, please use a `stagingProfileId` as [explained in this document](https://travis-ci.community/t/sonatype-deployment-problems/1353/2?u=mzk).
 
-## Travis CLI does not recognize my valid Github token
+## Travis CLI does not recognize my valid GitHub token
 
 When using the [Travis CLI tool](https://github.com/travis-ci/travis.rb#readme) to interact with the Travis CI platform, if you receive an `insufficient_oauth_permissions` error or similar, please ensure the Github Token supplied via `--github-token` has **repo** scope as [explained in this document](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
 
-## Duplicate/Unknown job shows up in my build
+## Unknown or Duplicate jobs in a build
 
 When specifying stages, users often unknowingly add an implicit job to the list of jobs in a stage using YAML that is otherwise syntactically correct.
 
@@ -631,7 +631,9 @@ This creates only one job,  _Peanut Butter and Bread_ under the stage named _Bre
 
 When adding custom setup instructions to a NodeJS build, add them in the `before_script` phase and not before _dependencies are installed_. The `before_script` phase is the safest place to add custom setup scripts. Symptoms of this problem include previously succeeding builds suddenly failing due to the addition of a new dependency.
 
-## **Node**: NPM/YARN throw ***Error: connect ENETUNREACH*** or build hangs in the install phase i.e. `npm install` or `yarn install` for NodeJs versions 16+ on LXD images (ppc64le, arm64 and s390x)
+## **Node**: NPM or YARN connect ENETUNREACH Error
+
+If using NPM or YARN, the ***Error: connect ENETUNREACH*** shows or the build hangs in the install phase, i.e., `npm install` or `yarn install` for NodeJs versions 16+ on LXD images (ppc64le, arm64, and s390x).
 
 This seems to be a known bug and the details can be reviewed at https://github.com/npm/cli/issues/4163. Add the following to resolve the issue:
 

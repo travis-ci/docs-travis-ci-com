@@ -39,7 +39,7 @@ For the remaining languages, Travis CI will run Syft to build SBOM.
 The default output of the SBOM file is a CycloneDX-compatible JSON. However, it is possible to request CycloneDX-compatible XML or SPDX JSON.
 
 
-## How to trigger SBOM generation in .travis.yml?
+## Trigger SBOM generation
 
 There’s a new node in the existing `addons` section added specifically to help handle SBOM generation instructions.
 
@@ -90,7 +90,7 @@ The new `sbom` node has the following available properties:
 *  `input_dir` - is an input source code directorycontaining a package manager file corresponding to the programming language. It is relative to the build job environment. The default path for SBOM input is the build input directory */home/travis/build/<repository slug>*. However, if specific software source code parts are kept in repository subdirectories (e.g., frontend or backend of application or, e.g., */lib* subdirectory), one may want to generate SBOM only over this subdirectory. In order to do that, `input_dir: /<repository subdirectory>` (which would take as input directory the */home/travis/build/<repository slug>/<repository subdirectory>*) should be explicitly provided.
 *  `output_dir` - this is the output directory, where SBOM file(s) are placed once the SBOM generation is finished. The default output path should is */home/travis/build/<repo slug>/sbom-<TRAVIS_JOB_ID>* where TRAVIS_JOB_ID is a [default environment variable](/user/environment-variables/#default-environment-variables) present in the build job. If this parameter is used, e.g., `output_dir: /my_subdir` is provided, the SBOM files are placed in a subdirectory  relative to */home/travis/build/<repo slug>/*, e.g., in `/home/travis/build/<repo slug>/my_subdir`
 
-## How to deploy SBOM file(s) to target location?
+## Deploy SBOM files to target location
 
 Travis CI does not maintain an SBOM registry. Every user is free to take the generated SBOM files from the `output_dir` location and transfer them to the selected destination via proper instructions placed in the `.travis.yml`.
 

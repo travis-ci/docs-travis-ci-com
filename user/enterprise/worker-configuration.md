@@ -1,5 +1,5 @@
 ---
-title: Customizing Enterprise Worker Configuration
+title: Customize Enterprise Worker Configuration
 layout: en_enterprise
 
 ---
@@ -8,7 +8,9 @@ layout: en_enterprise
 
 ## Credentials for Connecting to the Platform
 
-### With Ubuntu 16.04 as host operating system
+The following section shows how to connect to the platform with different Ubuntu versions as the host operating system. 
+
+### Connect with Ubuntu 16.04
 
 The configuration for connecting to the Travis CI Enterprise platform can be found in `/etc/default/travis-worker`.
 If you need to change the hostname the Worker should connect to, or the
@@ -18,7 +20,7 @@ RabbitMQ password, you can do so by updating:
 export AMQP_URI="amqp://travis:<rabbitmq password>@<your-travis-ci-enterprise-domain>/travis"
 ```
 
-### With Ubuntu 14.04 as host operating system
+### Connect with Ubuntu 14.04
 
 The configuration for connecting to the Travis CI Enterprise Platform,
 including the RabbitMQ password, can be found in
@@ -32,7 +34,7 @@ export TRAVIS_ENTERPRISE_HOST="<your-travis-ci-enterprise-domain>"
 export TRAVIS_ENTERPRISE_SECURITY_TOKEN="super-secret-password"
 ```
 
-## Setting Timeouts
+## Set Timeouts
 
 The following options can be customized in `/etc/default/travis-worker`.
 It is recommended to have all Workers use the same config.
@@ -52,7 +54,7 @@ following setting:
 export TRAVIS_WORKER_LOG_TIMEOUT="10m"
 ```
 
-## Configuring the Number of Concurrent Jobs
+## Configure the Number of Concurrent Jobs
 
 The number of concurrent jobs run by the worker and the number of CPUs
 allowed for a job to use are configured with the
@@ -87,7 +89,7 @@ export TRAVIS_WORKER_DOCKER_CPUS=0
 ```
 
 
-## Changing the Worker Hostname
+## Change the Worker Hostname
 
 Each Worker should have a unique hostname, making it easier to determine
 where jobs ran. By default this is set to the `hostname` of the host the
@@ -108,7 +110,7 @@ verification warnings.
 export TRAVIS_WORKER_BUILD_API_INSECURE_SKIP_VERIFY="false"
 ```
 
-## Enabling S3 Dependency Caching
+## Enable S3 Dependency Caching
 
 If you would like to set up S3 dependency caching for your builds, you
 can use the following example config:
@@ -124,7 +126,7 @@ export TRAVIS_WORKER_BUILD_CACHE_S3_SCHEME="https"
 export TRAVIS_WORKER_BUILD_CACHE_TYPE="s3"
 ```
 
-## Configuring Jobs' Allowed Memory Usage
+## Configure Jobs' Memory Usage
 
 The Worker comes configured with the RAM defaulted to 4G. If you want to
 change it, you can add the following. To completely disable it, set the
@@ -136,7 +138,7 @@ export TRAVIS_WORKER_DOCKER_MEMORY=4G
 export TRAVIS_WORKER_DOCKER_MEMORY=0
 ```
 
-## Setting Maximum Log Length
+## Set Maximum Log Length
 
 The Worker comes configured with `defaultMaxLogLength = 4500000` which
 is 4.5MB. The setting is measured in bytes, so to get 40MB you need
@@ -146,7 +148,7 @@ is 4.5MB. The setting is measured in bytes, so to get 40MB you need
 export TRAVIS_WORKER_MAX_LOG_LENGTH=40000000
 ```
 
-## Mounting Volumes across Worker Jobs on Enterprise
+## Mount Volumes across Worker Jobs on Enterprise
 
 You can use [Docker bind mounts](https://docs.docker.com/storage/bind-mounts/)
 when the worker launches the container of a job. This lets you share files or directories
@@ -167,9 +169,9 @@ A full list of options and mount modes is listed in the official
 
 If you're using Travis CI Enterprise behind an HTTP(S) proxy, we've got you covered. Since travis-worker 4.6 it is possible to run builds behind a proxy.
 
-### How do I find out if I have the correct travis-worker version installed?
+### How to know if the correct travis-worker version got installed
 
-#### Ubuntu 16.04+
+#### For Ubuntu 16.04 and higher
 
 Connect to your worker machine via SSH and run:
 
@@ -178,7 +180,7 @@ $ sudo docker images | grep worker
 travisci/worker        v4.6.1                      ef7a3419050c        17 hours ago        44.7MB
 ```
 
-#### Ubuntu 14.04
+#### For Ubuntu 14.04
 
 Connect to your worker machine via SSH and run:
 
@@ -187,11 +189,11 @@ $ travis-worker -v
 travis-worker v=v4.6.1 rev=73392421d0ca807b83d4d459ad3dd484820fd181 d=2018-10-30T16:13:39+0000 go=go1.11.1
 ```
 
-#### Upgrade travis-worker
+#### Upgrade the travis-worker
 
 If you need to install a newer version of travis-worker, please follow the instructions in our [Updating your Travis CI Worker docs](/user/enterprise/upgrading/#updating-your-travis-ci-enterprise-worker).
 
-### Configuring an HTTP Proxy
+### Configure an HTTP Proxy
 
 On the worker machine, please open `/etc/default/travis-worker` in your editor and add the two lines from the example below. The value for `TRAVIS_WORKER_DOCKER_API_VERSION` depends on the installed Docker version.
 
@@ -216,7 +218,7 @@ Environment variable | Available as:
 export TRAVIS_WORKER_DOCKER_NO_PROXY='.ubuntu.com,packagecloud.io,.postgresql.org'
 ```
 
-## How to set LXD worker specifics
+## Set LXD worker specifics
 
 After running the `lxd_install.sh` the LXD worker configuration is stored in `/var/snap/travis-worker/common/worker.env`. 
 

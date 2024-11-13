@@ -10,7 +10,7 @@ Travis CI introduces the new User Role Management feature to increase security a
 
 This feature allows Travis CI administrators to execute permission limits on user privileges to the minimum functionality necessary to work (on an as-needed basis) to protect particular build job logs.
 
-## Enabling User Role Management
+## Enable User Role Management
 
 From the Travis CI Enterprise admin console, open the `Config` menu, expand the `Advanced Settings` menu on the left and click on the `Users Roles Management`.
 
@@ -63,7 +63,7 @@ The following are the available fields where each user can be associated with se
 
 ## User Management Tab
 
-The User Management tab lists the users with access to the repository, and Travis CI admin users can assign repository connection roles.
+The User Management tab lists the users who have access to the repository, and Travis CI admin users can assign repository connection roles.
 
 The following are the available fields where each user can be associated with several roles.   
 - Name: displays the user’s name.
@@ -225,3 +225,9 @@ The following table displays GitHub organization roles.
 | Admin           | admin user         |
 | Read            | pull user          |
 | Write           | push user          |
+
+
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
