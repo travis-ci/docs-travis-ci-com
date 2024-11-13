@@ -122,7 +122,7 @@ The path is relative to the repository's root.
 For configurations imported from a different repository, the latest version of
 the default branch in the repository will be used by default.
 
-For configurations imported from the same repository the commit you are
+For configurations imported from the same repository, the commit you are
 currently building will be used by default. This is intended to help while you
 are creating and testing the shared configurations.
 
@@ -138,8 +138,8 @@ import:
 
 ## Import private repository configs 
 
-In order to share configurations **from** a private repository this needs to
-be allowed on that repository, by enabling the *Allow importing config files from this repository*
+In order to share configurations **from** a private repository, this needs to
+be allowed on that repository by enabling the *Allow importing config files from this repository*
 setting in `More options > Settings > Config Import`.
 
 > Only private repositories owned by the same organization or user account will
@@ -205,6 +205,7 @@ import:
 - source: other.yml
   mode: deep_merge_prepend
 ```
+{: data-file=".travis.yml"}
 
 ### Deep merge
 
@@ -236,7 +237,7 @@ if required, sections in `one.yml` with content from `.travis.yml`). The results
 merged into the `two.yml` file (again, items in the result of the previous merge win
 over what’s in this one, as the `deep_merge` mode is specified here).
 
-The reasoning behind this is that in many cases when you import something to your
+The reasoning behind this is that, in many cases, when you import something to your
 `.travis.yml` file, you want to be able to overwrite or customize that imported
 configuration with config in your `.travis.yml` file.
 
@@ -245,7 +246,7 @@ configuration with config in your `.travis.yml` file.
 The merge mode `merge` performs a shallow merge.
 
 This means that root level sections (keys) defined in your `.travis.yml` will
-overwrite root level sections (keys) that are also present in the imported
+overwrite root-level sections (keys) that are also present in the imported
 file.
 
 ```yaml
@@ -253,6 +254,7 @@ import:
 - source: one.yml
   mode: merge # shallow merge
 ```
+{: data-file=".travis.yml"}
 
 ## Import precedence
 
