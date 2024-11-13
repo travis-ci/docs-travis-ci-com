@@ -152,6 +152,8 @@ Bionic images:
 ```yaml
 dist: xenial
 ```
+{: data-file=".travis.yml"}
+
 or 
 
 ```yaml
@@ -196,7 +198,7 @@ of the two possible forms:
             confinement: classic # or devmode
             channel: latest/edge # will be passed to --channel flag
       ```
-      {: data-file:".travis.yml"}
+      {: data-file=".travis.yml"}
 
     This results in:
 
@@ -208,9 +210,9 @@ of the two possible forms:
 
 ## Install Packages on macOS
 
-To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain) use [Homebrew](http://brew.sh).
+To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain), use [Homebrew](http://brew.sh).
 
-For convenience, you can use Homebrew addon in your `.travis.yml`.
+For convenience, you can use the Homebrew addon in your `.travis.yml`.
 For example, to install beanstalk:
 
 ```yaml
@@ -381,6 +383,7 @@ wget https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.gz
 tar -xzvf protobuf-2.4.1.tar.gz
 cd protobuf-2.4.1 && ./configure --prefix=/usr && make && sudo make install
 ```
+{: data-file="install-protobuf.sh"}
 
 Once it's added to the repository, you can run it from your .travis.yml:
 
