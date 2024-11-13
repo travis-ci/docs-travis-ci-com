@@ -251,8 +251,9 @@ arch:
   - ppc64le
   - s390x
 ```
+{: data-file=".travis.yml"}
 
-Please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages for more details.
+For more details, please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages.
 
 In order to start a build in the Usage-based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. When introducing Partner Queue Solution, active accounts on the Usage-based Plans, including the Free Plan, with a balance of zero or fewer credits, are updated to hold 1 credit. Thus, everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you must file an additional request.
 
@@ -355,11 +356,12 @@ This scenario is an example of a user with Credits, user licenses counted within
 
 ## VM Instance Sizes and Credit Cost
 
-Usage and Concurrency based plans allow you to choose the instance size the build will run on (for the 'full vm' build job). Larger instance sizes deliver more resources (namely vCPU and RAM) for your build jobs. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
+Usage and Concurrency-based plans allow you to choose the instance size the build will run on (for the 'full vm' build job). Larger instance sizes deliver more resources (namely vCPU and RAM) for your build jobs. This can be done by setting a 'vm' property in the .travis.yml config. This property allows you to choose the Virtual machine instance for a build:
 ```yaml
 vm:
   size: [large|x-large|2x-large]
 ```
+{: data-file=".travis.yml"}
 
 Instance sizes do not apply to OSX build jobs. Our [CI Environment Overview page](/user/reference/overview/#vm-instance-size) describes the available VM sizes vs. operating system and CPU architecture.
 
@@ -391,6 +393,7 @@ GPU builds allow you to choose the instance size the build will run on (for the 
 vm:
  size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key
 ```
+{: data-file=".travis.yml"}
 
 Instance sizes do not apply to Windows and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
 
