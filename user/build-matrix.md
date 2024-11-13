@@ -228,7 +228,7 @@ of Python.
 
 ### Explicitly included jobs inherit the first value in the array
 
-The jobs which are explicitly included inherit the first value of the expansion
+The jobs that are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `jobs.include`
@@ -413,6 +413,7 @@ jobs:
     script: echo "Running job 1"
 
 ```
+{: data-file=".travis.yml"}
 
 This name will appear on the build matrix UI and can be convenient in order to
 quickly identify jobs in a large matrix.
@@ -434,6 +435,7 @@ jobs:
   - <<: *shared_job
   - <<: *shared_job
 ```
+{: data-file=".travis.yml"}
 
 In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g., a job name:
 
@@ -447,3 +449,4 @@ jobs:
   - name: Job 2
     <<: *shared_job
 ```
+{: data-file=".travis.yml"}
