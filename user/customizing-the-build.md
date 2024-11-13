@@ -76,7 +76,7 @@ The *Auto Cancellation Setting* is in the *Settings* tab of each repository, and
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
-For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically canceled:
 
 ![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
 
@@ -101,7 +101,7 @@ git:
 ```
 {: data-file=".travis.yml"}
 
-> Some operations on the repository, such as common automated code review scripts (e.g. Pronto for Ruby), may fail due to the limited git clone depth, not being able to access all the objects in the repository. Removing the depth flag, or running `git fetch --unshallow` might solve the issue.
+> Some operations on the repository, such as common automated code review scripts (e.g., Pronto for Ruby), may fail due to the limited git clone depth, not being able to access all the objects in the repository. Removing the depth flag, or running `git fetch --unshallow` might solve the issue.
 
 ## Git Clone Quiet
 
@@ -190,7 +190,7 @@ Deploy keys are not currently supported by LFS, so you should use a Assembla OAu
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial and Bionic images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial, and Bionic images.
 
 ### macOS
 
@@ -260,12 +260,13 @@ You can do this by adding:
 git:
   clone: false
 ```
+{: data-file=".travis.yml"}
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
 
 ## Set the symlinks option
 
-In some cases when a repository is used for both Linux and Windows, it may be desirable to set
+In some cases, when a repository is used for both Linux and Windows, it may be desirable to set
 [core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
 
 To do this:
@@ -274,6 +275,7 @@ To do this:
 git:
   symlinks: true
 ```
+{: data-file=".travis.yml"}
 
 ## Build Specific Branches
 
