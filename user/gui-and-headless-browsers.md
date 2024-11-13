@@ -213,7 +213,7 @@ options.add_argument('-headless')
 firefox = Firefox(firefox_options=options)
 ```
 
-### More Documentation
+### More Documentation
 
 * [Using headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Using_headless_mode)
 * [Automated testing with headless mode](https://developer.mozilla.org/en-US/Firefox/Headless_mode#Automated_testing_with_headless_mode)
