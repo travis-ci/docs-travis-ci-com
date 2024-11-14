@@ -268,6 +268,7 @@ date.timezone = "Europe/Paris"
 default_socket_timeout = 120
 # some other configuration directives...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command in your `.travis.yml`:
 
@@ -295,6 +296,7 @@ extension="mongo.so"
 # some other mongo specific configuration directives
 # or general custom PHP settings...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command:
 
@@ -406,6 +408,7 @@ virtual host as usual, the important part for php-fpm is this:
   # [...]
 </VirtualHost>
 ```
+{: data-file="travis-ci-apache"}
 
 ## Build Config Reference
 
