@@ -243,6 +243,7 @@ script:
  - adb devices
  - .....
 ```
+{: data-file=".travis.yml"}
 
 ## Examples
 
