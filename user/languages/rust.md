@@ -108,6 +108,7 @@ before_cache:
   - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
   ⋮ # rest of your existing "before_cache"
 ```
+{: data-file=".travis.yml"}
 
 ## Default Build Script
 
