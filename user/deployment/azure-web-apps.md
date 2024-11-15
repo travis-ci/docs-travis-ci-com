@@ -37,6 +37,7 @@ deploy:
   provider: azure_web_apps
   verbose: true
 ```
+{: data-file=".travis.yml"}
 
 ## Deployment Branch
 
@@ -49,6 +50,7 @@ deploy:
   provider: azure_web_apps
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -58,6 +60,7 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
