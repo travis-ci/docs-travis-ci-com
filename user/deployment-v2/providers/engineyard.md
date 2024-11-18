@@ -27,7 +27,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploying branches to different apps or environments
+### Deploy branches to different apps or environments
 
 In order to choose apps or environments based on the current branch use
 separate deploy configurations:
@@ -64,7 +64,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Running migrations
+### Run migrations
 
 You can trigger migrations by using the migrate option:
 
