@@ -12,7 +12,7 @@ or another npm-like registry after a successful build.
 
 ## NPM auth token
 
-Your NPM Auth token can be obtained the following ways:
+Your NPM Auth token can be obtained in the following ways:
 
 Log in to your NPM account, and generate a new token at `https://www.npmjs.com/settings/<user>/tokens`,
 where `<user>` is the name of your user account.
@@ -23,7 +23,7 @@ to create a user, then open the `~/.npmrc` file:
 * For NPM v2+, use the `authToken` value.
 * For NPM ~1, use the `auth` value.
 
-## Tagging releases
+## Tag releases
 
 You can automatically add [npm distribution tags](https://docs.npmjs.com/getting-started/using-tags)
 using the `tag` option:
@@ -35,7 +35,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Note on .gitignore
+## The .gitignore method
 
 Note that `npm` deployment honors `.gitignore` if `.npmignore` does not exist.
 This means that if your build creates artifacts in places listed in `.gitignore`,
@@ -60,6 +60,7 @@ and avoid this error by adding the following to your `package.json` file:
     "access": "public"
   },
 ```
+{: data-file="package.json"}
 
 {% include deploy/shared.md tags=true %}
 
