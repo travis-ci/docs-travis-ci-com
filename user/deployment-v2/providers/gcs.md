@@ -15,9 +15,9 @@ Travis CI supports uploading to Google Cloud Storage (GCS).
 
 {% include deploy/providers/gcs.md content=content %}
 
-### Deploying a specific folder
+## Deploy to specific folders
 
-You can set specific directory to be uploaded using `local-dir` option like this:
+You can set a specific directory to be uploaded using the `local-dir` option like this:
 
 ```yaml
 deploy:
@@ -27,9 +27,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Specifiying an ACL
+## Specify an ACL
 
-You can set the acl of your uploaded files via the `acl` option like this:
+You can set the ACL of your uploaded files via the `acl` option like this:
 
 ```yaml
 deploy:
@@ -41,11 +41,11 @@ deploy:
 
 See the [full documentation on Google Cloud](https://cloud.google.com/storage/docs/reference-headers#xgoogacl).
 
-### HTTP cache control
+## HTTP cache control
 
 GCS uploads can optionally set the `Cache-Control` HTTP header.
 
-Set HTTP header `Cache-Control` to suggest that the browser cache the file.
+Set the HTTP header `Cache-Control` to suggest that the browser cache the file.
 
 ```yaml
 deploy:
