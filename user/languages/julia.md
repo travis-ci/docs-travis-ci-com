@@ -54,6 +54,7 @@ options can be used as follows, placing them at the top level of the YAML docume
 codecov: true
 coveralls: true
 ```
+{: data-file=".travis.yml"}
 
 This will then upload the coverage statistics upon successful completion of the tests to
 the specified services.
@@ -68,6 +69,7 @@ using Pkg
 Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
 Pkg.test(coverage=true)
 ```
+{: data-file="JuliaProject.toml"}
 
 Otherwise, it will use the older form:
 
@@ -79,8 +81,9 @@ Pkg.clone(pwd())
 Pkg.build("$pkgname") # Pkg.build("$pkgname"; verbose = true) for Julia 1.1 and up
 Pkg.test("$pkgname", coverage=true)
 ```
+{: data-file="JuliaProject.toml"}
 
-where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
+Where the package name `$pkgname` is the repository name, with any trailing `.jl` removed.
 
 Note that the `coverage=true` argument only tells `Pkg.test` to emit coverage information
 about the tests it ran; it does not submit this information to any services.

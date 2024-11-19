@@ -27,6 +27,7 @@ For example: To push test coverage artifact, make sure the `test-coverage` analy
 name = "test-coverage"
 enabled = true
 ```
+{: data-file=".deepsource.toml"}
 
 Refer to [DeepSource's analyzer documentation](https://deepsource.io/docs/analyzer/) for instructions specific to the analyzer.
 
@@ -67,5 +68,6 @@ after_success:
   # Report coverage artifact to 'test-coverage' analyzer
   - ./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml
 ```
+{: data-file=".travis.yml"}
 
 > Questions? We're happy to sort it out for you. Reach out to us at [support@deepsource.io](mailto:support@deepsource.io)

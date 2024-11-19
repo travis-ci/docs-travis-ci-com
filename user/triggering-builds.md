@@ -227,6 +227,7 @@ addons:
     packages:
     - cmake
 ```
+{: data-file=".travis.yml"}
 
 ### Deep Merge append and prepend modes
 

@@ -101,7 +101,7 @@ Device destinations are strings that identify a particular device to use. You ca
 them to xcodebuild by using the `-destination` flag. If you're using the default script
 in your Travis CI build, you can use the `xcode_destination` key in your .travis.yml:
 
-```
+```yaml
 xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 ```
 {: data-file=".travis.yml"}

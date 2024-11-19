@@ -101,6 +101,7 @@ For example, to test using Vows:
   "test": "vows --spec"
 },
 ```
+{: data-file="package.json"}
 
 ## Use Gulp
 
@@ -148,6 +149,7 @@ as specified in your lock file.
 cache:
   npm: false
 ```
+{: data-file=".travis.yml"}
 
 To explicitly cache your dependencies:
 

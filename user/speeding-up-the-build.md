@@ -20,7 +20,7 @@ Say you want to split up your unit tests and your integration tests into two
 different build jobs. They’ll run in parallel and fully utilize the available
 build capacity for your account.
 
-Here's an example on how to utilize this feature in your `.travis.yml`:
+Here's an example of how to utilize this feature in your `.travis.yml`:
 
 ```yaml
 env:

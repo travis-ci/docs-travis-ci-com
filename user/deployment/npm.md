@@ -161,5 +161,6 @@ and avoid this error by adding the following to your `package.json` file:
     "access": "public"
   },
 ```
+{: data-file="package.json"}
 
 [npmjs]: https://npmjs.com/

@@ -73,7 +73,7 @@ script: lein midje
 
 For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
-```
+```yaml
 :dev-dependencies [[midje "1.4.0"]
                    [lein-midje "1.0.10"]])
 ```
@@ -81,7 +81,7 @@ For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
-```
+```yaml
 :profiles {:dev {:dependencies [[midje "1.6.3"]]
                  :plugins [[lein-midje "3.0.0"]]}}
 ```
@@ -91,7 +91,7 @@ Please note that for projects that only support Clojure 1.3.0 and later
 versions, you may need to exclude transient `org.clojure/clojure` for Midje in
 project.clj:
 
-```
+```yaml
 :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
                    [lein-midje "1.0.10"]])
 ```
@@ -112,14 +112,14 @@ script: lein spec
 
 For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
 
-```
+```yaml
 :dev-dependencies [[speclj "3.3.1"]]
 ```
 {: data-file=".project.clj"}
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
-```
+```yaml
 :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 ```
 {: data-file=".project.clj"}

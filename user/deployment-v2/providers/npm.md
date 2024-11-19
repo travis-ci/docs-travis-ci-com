@@ -60,6 +60,6 @@ and avoid this error by adding the following to your `package.json` file:
     "access": "public"
   },
 ```
-
+{: data-file="package.json"}
 {% include deploy/shared.md tags=true %}
 

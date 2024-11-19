@@ -34,6 +34,7 @@ Add the Coveralls Gem to your `Gemfile`:
 
 gem 'coveralls', require: false
 ```
+{: data-file="Gemfile"}
 
 You might need to update your `Gemfile.lock` as well.
 
@@ -49,6 +50,7 @@ Add Coveralls to the top of your test suite before you `require` any application
 require 'coveralls'
 Coveralls.wear!
 ```
+{: data-file="Gemfile"}
 
 After those three steps, the next time you push a commit, you'll be able to look up your [code coverage statistics](https://coveralls.io)!
 

@@ -47,6 +47,7 @@ Examples:
 ```yml
 d: dmd-2.089.1
 ```
+{: data-file=".travis.yml"}
 
 ```yml
 # latest dmd, gdc and ldc
@@ -55,6 +56,7 @@ d:
   - gdc
   - ldc
 ```
+{: data-file=".travis.yml"}
 
 ```yml
 # nightlies and betas of dmd, ldc
@@ -64,10 +66,11 @@ d:
   - dmd-beta
   - ldc-beta
 ```
+{: data-file=".travis.yml"}
 
 All valid versions from the [D's official install script](https://dlang.org/install.html) are supported.
 Testing against multiple compilers will create one row in your build matrix for each compiler. The
-Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2` or `gdc` and the
+Travis CI D builder will export the `DC` env variable to point to `dmd`, `ldc2`, or `gdc` and the
 `DMD` env variable to point to `dmd`, `ldmd2` or `gdmd`.
 
 > You can also have a look at the [D](https://config.travis-ci.com/ref/language/d) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

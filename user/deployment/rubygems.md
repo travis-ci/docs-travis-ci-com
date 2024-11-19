@@ -59,6 +59,7 @@ To enable this, add the following line to your gemspec, underneath your existing
 ```
 s.version = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 ```
+{: data-file="gemspec"}
 
 If your gem's current version is 1.0.0, then Travis CI will create a prerelease with the version 1.0.0-alpha-20, where `20` is the build number.
 
