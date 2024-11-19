@@ -111,6 +111,7 @@ or define this as a repository settings environment variable, or in the `env.glo
 ```bash
 ARTIFACTS_DEBUG=1
 ```
+{: data-file="env.global"}
 
 ## Travis CI Artifact Uploader
 For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts) which is installed on your build VM by default. 
