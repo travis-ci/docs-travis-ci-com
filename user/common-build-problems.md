@@ -44,9 +44,9 @@ are two cores available, bursted.
 
 Depending on the tool in use, this can be caused by a few things:
 
-- Ruby test suite consuming too much memory
-- Tests running in parallel using too many processes or threads (e.g. using the
-  `parallel_test` gem)
+- Ruby test suite consuming too much memory.
+- Tests running in parallel using too many processes or threads (e.g., using the
+  `parallel_test` gem).
 - g++ needing too much memory to compile files, for instance, with a lot of
   templates included.
 
@@ -105,6 +105,7 @@ if defined?(RUBY_ENGINE) && RUBY_ENGINE == "ruby" && RUBY_VERSION >= "1.9"
   end
 end
 ```
+{: data-file="example.rb"}
 
 If your project is using the [Code Climate integration](/user/code-climate/) or
 Simplecov, this issue can also come up with the 0.8 branch of Simplecov. The fix
@@ -460,7 +461,7 @@ There are few ways to work around that.
 ### Timeouts installing dependencies
 
 If you are getting network timeouts when trying to download dependencies, either
-use the built in retry feature of your dependency manager or wrap your install
+use the built-in retry feature of your dependency manager or wrap your install
 commands in the `travis_retry` function.
 
 #### Bundler
@@ -468,18 +469,20 @@ commands in the `travis_retry` function.
 Bundler retries three times by default, but if you need to increase that number,
 use the following syntax in your `.travis.yml`
 
-```bash
+```yaml
 bundler_args: --retry 5
 ```
+{: data-file=".travis.yml"}
 
 #### travis_retry
 
 For commands which do not have a built-in retry feature, use the `travis_retry`
-function to retry it up to three times, if the return code is non-zero:
+function to retry it up to three times if the return code is non-zero:
 
-```bash
+```yaml
 install: travis_retry pip install myawesomepackage
 ```
+{: data-file=".travis.yml"}
 
 Most of our internal build commands are wrapped with `travis_retry` to reduce the
 impact of network timeouts.
@@ -642,3 +645,4 @@ env:
   global:
     - NODE_OPTIONS="--dns-result-order=ipv4first"
 ```
+{: data-file=".travis.yml"}

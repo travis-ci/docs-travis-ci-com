@@ -132,8 +132,8 @@ script: make
 
 to
 
-```bash
+```yaml
 script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
 ```
-
+{: data-file=".travis.yml"}
 Be sure to replace `make` with your standard CI build command.

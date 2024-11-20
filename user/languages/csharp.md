@@ -77,7 +77,7 @@ You can choose from the following Mono versions:
 
 > *Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
 
-**Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
+**Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions, specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
 ### .NET Core
 
@@ -91,8 +91,9 @@ script:
  - dotnet restore
 ...
 ```
+{: data-file=".travis.yml"}
 
-> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
+> *Note*: You need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
 

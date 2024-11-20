@@ -63,12 +63,12 @@ To pull in dependencies with a password, you will have to use the user name and 
 
 Alternatively, you can also write the credentials to the `~/.netrc` file:
 
-```
+```bash
 machine bitbucket.com
   login ci-user
   password mypassword123
 ```
-
+{: data-file="~/.netrc"}
 
 You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`:
 
@@ -76,10 +76,11 @@ You can also encrypt the password and then write it to the netrc in a `before_in
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 ```
 
-```bash
+```yaml
 before_install:
 - echo -e "machine bitbucket.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
 
@@ -98,6 +99,7 @@ end
 gem 'lib1', bitbucket: "myorg/lib1"
 gem 'lib2', bitbucket: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init recursive` command runs before the `~/.netrc` credentials
@@ -131,10 +133,11 @@ Make sure the token has the "repo" scope.
 
 Your `~/.netrc` should look like this:
 
-```
+```bash
 machine bitbucket.com
   login the-generated-token
 ```
+{: data-file="~/.netrc"}
 
 You can also use it in URLs directly: `https://the-generated-token@bitbucket.com/myorg/lib1.git`.
 
@@ -169,6 +172,7 @@ end
 gem 'lib1', bitbucket: "myorg/lib1"
 gem 'lib2', bitbucket: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init --recursive` command runs before the `~/.netrc` credentials

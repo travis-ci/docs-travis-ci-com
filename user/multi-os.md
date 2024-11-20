@@ -157,5 +157,6 @@ else
     # Install some custom requirements on Linux
 fi
 ```
+{: data-file="install.sh"}
 
 Travis CI then tests the four expanded builds using `make test` automatically.

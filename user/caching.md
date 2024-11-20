@@ -143,6 +143,7 @@ To disable npm caching, use:
 cache:
   npm: false
 ```
+{: data-file=".travis.yml"}
 
 To explicitly cache `npm`, use:
 
@@ -443,7 +444,7 @@ usable in all jobs using it.
 In this case, we advise you to add a public environment variable
 name to each job to create a unique cache entry:
 
-```
+```yaml
 CACHE_NAME=JOB1
 ```
 {: data-file=".travis.yml"}
@@ -481,7 +482,7 @@ tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
 ## How does caching work
 
 Travis CI saves an archive of all the directories listed in the configuration and uploads
-it to a storage provider, using a secure and protected URL, ensuring security and privacy of
+it to a storage provider, using a secure and protected URL, ensuring the security and privacy of
 the uploaded archives.
 
 Note that this makes our cache not network-local, it is still bound to network

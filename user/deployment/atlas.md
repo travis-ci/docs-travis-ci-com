@@ -78,4 +78,16 @@ deploy:
 
 {{ site.data.snippets.conditional_deploy }}
 
-{{ site.data.snippets.before_and_after }}
+## Run Commands Before or After Deploy
+
+Sometimes, you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+
+```yaml
+before_deploy: "echo 'ready?'"
+deploy:
+  # ⋮
+after_deploy:
+  - ./after_deploy_1.sh
+  - ./after_deploy_2.sh
+```
+{: data-file=".travis.yml"}

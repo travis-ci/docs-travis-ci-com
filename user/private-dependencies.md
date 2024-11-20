@@ -37,9 +37,9 @@ GitHub allows you to set up SSH keys for a repository. These deploy keys have so
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
-- The same key can be used for dependencies not stored on GitHub.
+- The same key can be used for dependencies that are not stored on GitHub.
 
-However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
+However, using deploy keys is complicated because GitHub does not allow you to reuse keys. So, a single private key cannot access multiple GitHub repositories.
 
 You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files/). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#user-key) instead.
 
@@ -184,12 +184,12 @@ To pull in dependencies with a password, you will have to use the user name and 
 
 Alternatively, you can also write the credentials to the `~/.netrc` file:
 
-```
+```bash
 machine github.com
   login ci-user
   password mypassword123
 ```
-
+{: data-file="~/.netrc"}
 
 You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`:
 
@@ -197,10 +197,11 @@ You can also encrypt the password and then write it to the netrc in a `before_in
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 ```
 
-```bash
+```yaml
 before_install:
 - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
 
@@ -219,6 +220,7 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init recursive` command runs before the `~/.netrc` credentials
@@ -247,10 +249,11 @@ Under the GitHub account settings for the user you want to use, navigate to [Set
 
 Your `~/.netrc` should look like this:
 
-```
+```bash
 machine github.com
   login the-generated-token
 ```
+{: data-file="~/.netrc"}
 
 You can also use it in URLs directly: `https://the-generated-token@github.com/myorg/lib1.git`.
 
@@ -285,6 +288,7 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init --recursive` command runs before the `~/.netrc` credentials

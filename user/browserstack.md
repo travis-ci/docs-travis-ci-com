@@ -96,6 +96,7 @@ driver = Selenium::WebDriver.for(:remote,
   :url => "http://USERNAME:ACCESS_KEY@hub-cloud.browserstack.com/wd/hub",
   :desired_capabilities => caps)
 ```
+{: data-file="example.rb"}
 
 Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since matrix builds in travis can be run on
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel
@@ -122,6 +123,7 @@ Once the app is uploaded to the BrowserStack servers the resulting app id will b
 ```ruby
 caps['app'] = ENV['BROWSERSTACK_APP_ID']
 ```
+{: data-file="example.rb"}
 
 Check out the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
 

@@ -98,6 +98,7 @@ Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-b
 git:
   depth: false
 ```
+{: data-file=".travis.yml"}
 
 ## Deprecated Features
 

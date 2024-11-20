@@ -65,6 +65,7 @@ SmalltalkCISpec {
   ]
 }
 ```
+{: data-file=".smalltalk.ston"}
 
 ## Configuration
 

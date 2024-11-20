@@ -134,6 +134,7 @@ jobs:
           on:
             branch: sbom
 ```
+{: data-file=".travis.yml"}
 
 See more examples in our [test repository](https://github.com/travis-ci/travis-tests/blob/sbom/.travis.yml#L44-L158).
 

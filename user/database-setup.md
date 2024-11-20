@@ -371,6 +371,7 @@ addons:
     packages:
     - rabbitmq-server 
 ```
+{: data-file=".travis.yml"}
 
 ## Riak
 

@@ -220,6 +220,7 @@ before_install:
 install:
   - pip install --user -r requirements.txt --use-feature=2020-resolver
 ```
+{: data-file=".travis.yml"}
 
 ### Custom Dependency Management
 
