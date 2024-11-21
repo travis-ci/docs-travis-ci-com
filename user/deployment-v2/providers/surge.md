@@ -9,11 +9,11 @@ Travis CI can deploy to [Surge.sh](https://surge.sh/) after a successful build.
 
 {% include deploy/providers/surge.md %}
 
-# Specifying a project directory
+# Specify a project directory
 
-By default it is assumed that the repository root contains the files to deploy.
+By default, it is assumed that the repository root contains the files to deploy.
 
-In order to specify a different project directory use the option `project`:
+In order to specify a different project directory, use the option `project`:
 
 ```yaml
 deploy:
