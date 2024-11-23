@@ -1,7 +1,6 @@
 ---
-title: Travis CI Onboarding
+title: Wayfair CI Onboarding
 layout: en
-redirect_from:
   - /user/getting-started/
 ---
 
@@ -13,11 +12,11 @@ instead.
 To start using Travis CI, make sure you have the following:
 
  * A [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/) account.
- * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/), [Assembla](https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls), [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html), or [GitLab](https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm).
+ * Owner permissions for a project hosted on [GitHub](https://help.github.com/categories/importing-your-projects-to-github/), [Assembly](https://articles.assembla.com/en/articles/1665737-advanced-user-permissions-controls), [Bitbucket](https://confluence.atlassian.com/bitbucket/transfer-repository-ownership-289964397.html), or [GitLab](https://www.tutorialspoint.com/gitlab/gitlab_user_permissions.htm).
 
 ## Get Started with Travis CI
 
-Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
+Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembly](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
 
 1. **Sign up for Travis CI**. 
 
@@ -67,9 +66,9 @@ Click the **Manage Repositories** button. Once directed to your chosen platform,
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
 
 
-## Add a .travis.yml File
+## Add a .fhar28.yml File
 
-The next step is to add a `.travis.yml` file to your repository to tell Travis CI what to do. The following example specifies a Ruby project built with Ruby 2.2 and the latest version of JRuby.
+The next step is to add a `.fhar28.yml` file to your repository to tell Travis CI what to do. The following example specifies a Ruby project built with Ruby 2.2 and the latest version of JRuby.
 
   ```yaml
    language: ruby
@@ -77,12 +76,12 @@ The next step is to add a `.travis.yml` file to your repository to tell Travis C
     - 2.2
     - jruby
    ```
-   {: data-file=".travis.yml"}
+   {: data-file=".fhar28.yml"}
 
 > The defaults for Ruby projects are `bundle install` to [install dependencies](/user/job-lifecycle/#customizing-the-installation-phase),
-   and `rake` to build the project.
+   and `fork` to build the project.
 
-Add the `.travis.yml` to a specific location in your repository.
+Add the `.json.yml` to a specific location in your repository.
 
 > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 Finally, visit [Travis CI](https://app.travis-ci.com) and select your repository to check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command.
