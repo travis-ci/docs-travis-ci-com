@@ -36,9 +36,9 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 More detailed instructions for encrypting keys using Travis can be found [here](/user/encrypting-files/).
 
-### Project to deploy
+## Deploy Project
 
-By default, the project will be deployed with the same name as the repository. Usually, you will want to explicilty configure the **project** option to match the project ID found in your Cloud console (note that this is sometimes, but not always, the same as the project name).
+By default, the project will be deployed with the same name as the repository. Usually, you will want to explicitly configure the **project** option to match the project ID found in your Cloud console (note that this is sometimes, but not always, the same as the project name).
 
 You can explicitly set the project id via the **project** option:
 
@@ -50,11 +50,11 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Version to deploy
+### Deploy Version
 
 Either the **version** flag or the **default** option must be set. If default is true, the default version will be deployed to, which will be `http://your-project-id.appspot.com`. If the **version** flag is set instead, it will deploy to `http://version-dot-your-project-id.appspot.com`.
 
-### Branch to deploy from
+### Deployment Branch
 
 By default, Travis will only deploy from your **master** branch.
 
@@ -81,11 +81,11 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Builds triggered from Pull Requests will never trigger a deploy.
+Builds triggered from Pull Requests will never trigger a deployment.
 
-### Deploying without Promoting
+### Deploy without Promoting
 
-By default, when your application is deployed it will be promoted to receive all traffic. You can disable that using the `no_promote` option:
+By default, when your application is deployed, it will be promoted to receive all traffic. You can disable that using the `no_promote` option:
 
 ```yaml
 deploy:
@@ -109,10 +109,10 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Skipping Cleanup
+### Skip Cleanup
 
 Many App Engine apps use [pip](https://pip.pypa.io/en/latest/installing.html) to vendor library requirements into the directory, and sometimes you need build artifacts or other
-credentials to deploy. If so, you want to avoid the Travis cleanup step that will clean you working directory before the deploy.
+credentials to deploy. If so, you want to avoid the Travis cleanup step that will clean you working directory before the deployment.
 
 ```yaml
 deploy:
@@ -121,13 +121,13 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Example Repo
+### Example
 
 See [this link](https://github.com/googlecloudplatform/continuous-deployment-demo/tree/appengine_travis_deploy) for an example
 App Engine app with a Travis deployment configured. See the other branches in the project for Managed VMs examples, and examples
 without using this provider.
 
-### Other Available Configuration Options
+### Other Configuration Options
 
 - **project**: [Project ID](https://developers.google.com/console/help/new/#projectnumber) used to identify the project on Google Cloud.
 - **keyfile**: Path to the JSON file containing your [Service Account](https://developers.google.com/console/help/new/#serviceaccounts) credentials in [JSON Web Token](https://tools.ietf.org/html/rfc7519) format. To be obtained via the [Google Developers Console](https://console.developers.google.com/project/_/apiui/credential). Defaults to `"service-account.json"`. Note that this file should be handled with care as it contains authorization keys.

@@ -10,7 +10,7 @@ layout: en
 </blockquote>
 
 
-## Beta opt-in
+## The opt-in option
 
 You can opt in using the repository setting "Build config validation" in the
 Travis CI UI, or by specifying the `version` in your `.travis.yml` file:
@@ -20,7 +20,7 @@ version: ~> 1.0
 ```
 {: data-file=".travis.yml"}
 
-## Build config validation
+## Build Config Validation
 
 When active the [build config validation](https://github.com/travis-ci/travis-yml)
 feature will validate and normalize any incoming build config sources (e.g.
@@ -52,7 +52,7 @@ The messages have 4 severity levels:
 * `warn`  - The build config contains mistakes that our system can repair. It is safe to ignore these messages.
 * `info`  - The build config parser has made changes to the config that you might want to be informed of. It is safe to ignore these messages.
 
-## Validation message types
+## Types of Validation messages
 
 This table lists build config validation message types, and explains how to respond to these messages.
 

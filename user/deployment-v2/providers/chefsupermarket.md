@@ -12,9 +12,10 @@ after a successful build.
   Encrypt your client key by running the following command and add it to your
   `.travis.yml` file:
 
-  ```bash
+  ```yaml
   travis encrypt-file client.pem
   ```
+{: data-file=".travis.yml"}
 
   See [Encrypting Files](/user/encrypting-files/) for instructions on adding
   encrypted files to your repository and `.travis.yml` file.

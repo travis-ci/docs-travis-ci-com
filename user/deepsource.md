@@ -1,11 +1,11 @@
 ---
-title: Reporting artifacts to DeepSource
+title: Report Artifacts to DeepSource
 layout: en
 ---
 
 [DeepSource](https://deepsource.io) is a source code analysis tool that flags anti-patterns, security vulnerabilities, style violations, and provides actionable issues and metrics.
 
-DeepSource's analyzers accepts artifacts pushed from external sources via the CLI. An example artifact would be test coverage file.
+DeepSource's analyzers accepts artifacts pushed from external sources via the CLI. An example artifact would be a test coverage file.
 
 The following guide walks through how to push an artifact as part of the build process.
 
@@ -27,6 +27,7 @@ For example: To push test coverage artifact, make sure the `test-coverage` analy
 name = "test-coverage"
 enabled = true
 ```
+{: data-file=".deepsource.toml"}
 
 Refer to [DeepSource's analyzer documentation](https://deepsource.io/docs/analyzer/) for instructions specific to the analyzer.
 
@@ -39,7 +40,7 @@ Refer to [DeepSource CLI documentation](https://deepsource.io/docs/config/cli.ht
 
 ## Example
 
-The following `.travis.yml` configuration pushes python test coverage to DeepSource's `test-coverage` analyzer.
+The following `.travis.yml` configuration pushes Python test coverage to DeepSource's `test-coverage` analyzer.
 
 ```yaml
 # Set build language to Python
@@ -67,5 +68,6 @@ after_success:
   # Report coverage artifact to 'test-coverage' analyzer
   - ./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml
 ```
+{: data-file=".travis.yml"}
 
 > Questions? We're happy to sort it out for you. Reach out to us at [support@deepsource.io](mailto:support@deepsource.io)

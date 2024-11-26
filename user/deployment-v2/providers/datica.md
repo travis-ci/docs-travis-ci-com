@@ -8,7 +8,7 @@ provider: datica
 Travis CI can automatically deploy to [Datica](https://datica.com) after
 a successful build.
 
-In order to setup a deployment you need to:
+In order to set up a deployment, you need to:
 
 ### Find your Git remote
 
@@ -61,7 +61,7 @@ before_deploy: echo "[git.catalyzeapps.com]:2222 ecdsa-sha2-nistp256 BBBB12abZmK
 ```
 {: data-file=".travis.yml"}
 
-### Specifying a directory to deploy
+### Specify a directory to deploy
 
 To only deploy the `build` directory, for example, set `path`:
 

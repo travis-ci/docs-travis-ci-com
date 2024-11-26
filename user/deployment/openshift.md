@@ -30,7 +30,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 To provide the best service possible, Travis CI has teamed up with OpenShift as a [partner](https://www.openshift.com/partners) and there is an official [Travis CI QuickStart](https://hub.openshift.com/quickstarts/26-travis-ci) to get you going.
 
-### Application to deploy
+## Deploy to Applications
 
 By default, we will try to deploy to an application by the same name as the repository. For example, if you deploy an application from the GitHub repository [travis-ci/travis-chat](https://github.com/travis-ci/travis-chat) without explicitly specify the name of the application, Travis CI will try to deploy to an OpenShift app named *travis-chat*.
 
@@ -71,7 +71,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch to deploy from
+## Deploy Specific Branches
 
 If you have branch specific options, as [shown above](#application-to-deploy), Travis CI will automatically figure out which branches to deploy from. Otherwise, it will only deploy from your **master** branch.
 
@@ -98,7 +98,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Deploying build artifacts
+## Deploy build artifacts
 
 After your tests ran and before the deploy, Travis CI will clean up any additional files and changes you made.
 
@@ -117,7 +117,7 @@ deploy:
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### Note on `.gitignore`
+### The .gitignore method
 
 As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
@@ -126,7 +126,7 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deploy
+## Run Commands Before or After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -140,7 +140,7 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deployment branch
+### Deployment Branch
 
 OpenShift can be configured to deploy from a branch different from the default `master` via `rhc app-configure --deployment-branch mybranch`.
 

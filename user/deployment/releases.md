@@ -28,7 +28,7 @@ This configuration will use the "GITHUB OAUTH TOKEN" to upload "FILE TO UPLOAD"
 GitHub Releases works with git tags, so it is important that
 you understand how tags affect GitHub Releases.
 
-## Deploying only on tagged builds
+## Deploy on tagged builds
 
 With [`on.tags: true`](/user/deployment/#conditional-releases-with-on),
 your Releases deployment will trigger if and only if the build is a tagged
@@ -42,8 +42,9 @@ Regular releases require tags.
 If you set `on.tags: true` (as the initial example in this document), this
 requirement is met.
 
-## Draft releases with `draft: true`
-With
+## Draft releases 
+
+For Draft releases using `draft: true`, use the following code:
 
 ```yaml
 deploy:
@@ -59,9 +60,9 @@ the resultant deployment is a draft Release that only repository collaborators
 can see.
 This gives you an opportunity to examine and edit the draft release.
 
-## Setting the tag at deployment time
+## Set the tag at deployment
 
-GitHub Releases needs the present commit to be tagged at the deployment time.
+GitHub Releases need the present commit to be tagged at the deployment time.
 If you set `on.tags: true`, the commit is guaranteed to have a tag.
 
 Depending on the workflow, however, this is not desirable.
@@ -86,7 +87,7 @@ For example:
 ```
 {: data-file=".travis.yml"}
 
-### When tag is not set at deployment time
+### Tag not set during deployment
 
 If the tag is still not set at the time of deployment, the deployment
 provider attempts to match the current commit with a tag from remote,
@@ -110,7 +111,7 @@ other means; for instance, by
 
 If you need to overwrite existing files, add `overwrite: true` to the `deploy` section of your `.travis.yml`.
 
-## Using Travis CI client to populate initial deployment configuration
+## Populate the initial deployment configuration with Travis CI
 
 You can also use the [Travis CI command line client](https://github.com/travis-ci/travis.rb#installation) to configure your `.travis.yml`:
 
@@ -124,7 +125,7 @@ Or, if you're using a private repository or the GitHub Apps integration:
 travis setup releases --com
 ```
 
-## Authenticating with an OAuth token
+## OAuth token Authentication 
 
 The recommended way to authenticate is to use a GitHub OAuth token. Instead of setting it up manually, it is highly recommended to use `travis setup releases`, which automatically creates and encrypts a GitHub OAuth token with the correct scopes.
 
@@ -147,9 +148,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-**Warning:** the `public_repo` and `repo` scopes for GitHub OAuth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have the write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per repository basis.
+**Warning:** the `public_repo` and `repo` scopes for GitHub OAuth tokens grant write access to all of a user's (public) repositories. For security, it's ideal for `api_key` to have the write access limited to only repositories where Travis deploys to GitHub releases. The suggested workaround is to create a [machine user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users) — a dummy GitHub account that is granted write access on a per-repository basis.
 
-## Authentication with a Username and Password
+## Username and Password Authentication
 
 You can also authenticate with your GitHub username and password using the `user` and `password` options. This is not recommended as it allows full access to your GitHub account but is simplest to setup. It is recommended to encrypt your password using `travis encrypt "GITHUB PASSWORD" --add deploy.password`. This example authenticates using  a username and password.
 
@@ -165,7 +166,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying to GitHub Enterprise
+## Deploy to GitHub Enterprise
 
 If you wish to upload assets to a GitHub Enterprise repository, you must override the `$OCTOKIT_API_ENDPOINT` environment variable with your GitHub Enterprise API endpoint:
 
@@ -182,9 +183,9 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-## Uploading Multiple Files
+## Upload Multiple Files
 
-You can upload multiple files using yml array notation. This example uploads two files.
+You can upload multiple files using the yml array notation. This example uploads two files.
 
 ```yaml
 deploy:
@@ -236,7 +237,7 @@ Please note that all paths in `file` are relative to the current working directo
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-## Running commands before or after release
+## Run Commands Before or After Release
 
 Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
@@ -265,7 +266,7 @@ and [#update_release](https://octokit.github.io/octokit.rb/Octokit/Client/Releas
 
 Note that formatting in `body` is [not preserved](https://github.com/travis-ci/dpl/issues/155).
 
-## Troubleshooting Git Submodules
+## Troubleshoot Git Submodules
 
-GitHub Releases executes a number of git commands during deployment. For this reason, it is important that the working directory is set to the one for which the release will be created, which generally isn't a problem, but if you clone another repository during the build or use submodules, it is worth double checking.
+GitHub Releases executes a number of git commands during deployment. For this reason, it is important that the working directory is set to the one for which the release will be created, which generally isn't a problem, but if you clone another repository during the build or use submodules, it is worth double-checking.
 

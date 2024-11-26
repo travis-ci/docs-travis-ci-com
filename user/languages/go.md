@@ -1,5 +1,5 @@
 ---
-title: Building a Go Project
+title: Build a Go Project
 layout: en
 
 swiftypetags:
@@ -8,7 +8,6 @@ swiftypetags:
   - go
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -33,10 +32,10 @@ Note that, in order to choose Go 1.10, you must use `go: "1.10"` (a string), not
 {{ site.data.snippets.linux_windows_note }}
 
 The rest of this guide covers configuring Go projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and [build
+new to Travis CI please read our [Onboarding](/user/onboarding/) and [General Build
 configuration](/user/customizing-the-build/) guides first.
 
-## Specifying a Go version to use
+## Specify a Go version
 
 You can use any tagged version of Go, a version with `x` in place of the minor
 or patch level to use the latest for a given major or minor version, or use
@@ -90,7 +89,7 @@ are taken in the `install` step:
 
 In all other cases, the command `go get ${gobuild_args} ./...` is run.
 
-### godep support
+### godep Support
 
 There is support included for [godep](https://github.com/tools/godep) when used
 with vendored dependencies such that the `GOPATH` will be prefixed with
@@ -108,7 +107,7 @@ All of the `godep` integration steps are performed prior to the separate
 Note that the `godep` support is only activated if a custom `install` step is
 not specified.
 
-### Installing Private Dependencies
+### Install Private Dependencies
 
 As `go get` uses HTTPS to clone dependencies from GitHub rather than SSH, it
 requires a different workaround from our [recommended way of handling private
@@ -127,7 +126,7 @@ create a personal access token.
 Make sure to give it the `repo` scope, which allows accessing private
 repositories.
 
-To reduce access rights of the token, you can also create a separate user
+To reduce the access rights of the token, you can also create a separate user
 account with access to only the repositories you need for a particular project.
 
 Copy the token and store it in a .netrc in your repository, with the following

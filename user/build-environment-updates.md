@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-> Please note that the releases listed below are not exhaustive, and that there
+> Please note that the releases listed below are not exhaustive and that there
 > are various means by which the behavior of a given build environment may
 > change.  When in doubt, please request clarification via a [GitHub
 > issue](https://github.com/travis-ci/travis-ci/issues).

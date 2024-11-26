@@ -1,10 +1,10 @@
 ---
-title: Obtaining Travis CI 3.x license
+title: Travis CI 3.x License
 layout: en_enterprise
 
 ---
 
-In order to obtain your Travis CI Enterprise 3.x license, please follow instructions below.
+In order to obtain your Travis CI Enterprise 3.x license, please follow the instructions below.
 
 ## New customers
 

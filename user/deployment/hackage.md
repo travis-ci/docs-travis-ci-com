@@ -34,7 +34,7 @@ $ travis setup hackage
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).

@@ -13,7 +13,7 @@ The best way to define an environment variable depends on what type of informati
 - if it *does* contain sensitive information, and is the same for all branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
 - if it *does* contain sensitive information, and might be different for different branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
-## Defining Public Variables in .travis.yml
+## Define Public Variables 
 
 Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
@@ -38,9 +38,9 @@ env:
 
 <a id="note-format"/>
 
-> Variables' values are passed to the generated build script verbatim. So make sure to escape any [Bash special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you need to put quotes around that value. E.g. `a long phrase` should be written as `"a long phrase"`.
+> Variables' values are passed to the generated build script verbatim. So make sure to escape any [Bash special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you need to put quotes around that value. E.g., `a long phrase` should be written as `"a long phrase"`.
 
-### Defining Multiple Variables per Item
+### Define Multiple Variables per Item
 
 If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
@@ -83,7 +83,7 @@ USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```
 
-## Defining encrypted variables in .travis.yml
+## Define Encrypted variables
 
 {: #Encrypted-Variables}
 
@@ -106,7 +106,7 @@ env:
 >
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
-### Encrypting environment variables
+### Encrypting Environment variables
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
@@ -127,7 +127,7 @@ Encrypt environment variables with the public key attached to your repository us
 
 The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys/).
 
-## Defining Variables in Repository Settings
+## Define Variables in Repository Settings
 
 {{ site.data.snippets.environment_variables }}
 

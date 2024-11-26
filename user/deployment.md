@@ -2,11 +2,12 @@
 title: Deployment
 layout: en
 swiftypetags: 'skip_cleanup'
+deploy: v1
 ---
-
+<!--
 > This page documents deployments using dpl v1 which is the
 > default version. The next major version dpl v2 will be released soon. Please
-> see [the announcement blog post](https://travis-ci.com/blog/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2/).
+> see [the announcement blog post](https://travis-ci.com/blog/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2/). -->
 
 ## Supported Providers
 
@@ -17,7 +18,7 @@ Continuous Deployment to the following providers is supported:
 To deploy to a custom or unsupported provider, use the [after-success build
 stage](/user/deployment/custom/) or [script provider](/user/deployment/script/).
 
-## Uploading Files and skip_cleanup
+## Upload Files and the skip_cleanup method
 
 When deploying files to a provider, prevent Travis CI from resetting your
 working directory and deleting all changes made during the build ( `git stash
@@ -29,7 +30,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying to Multiple Providers
+## Deploy to Multiple Providers
 
 Deploying to multiple providers is possible by adding the different providers
 to the `deploy` section as a list. For example, if you want to deploy to both
@@ -46,7 +47,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Conditional Releases with `on:`
+## Conditional Releases 
 
 Set your build to deploy only in specific circumstances by configuring the `on:` key for any deployment provider.
 
@@ -95,7 +96,7 @@ Use the following options to configure conditional deployment:
        This also causes the `branch` condition to be ignored.
     * When `tags` is not set, or set to any other value, `$TRAVIS_TAG` is ignored, and the `branch` condition is considered, if it is set.
 
-### Examples of Conditional Deployment
+### Conditional Deployment Example
 
 This example deploys to Appfog only from the `staging` branch when the test has run on Node.js version 0.11.
 
@@ -166,7 +167,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Adding a deployment provider
+### Add a Deployment Provider
 
 We are working on adding support for other PaaS providers. If you host your application with a provider not listed here and you would like to have Travis CI automatically deploy your application, please [get in touch](mailto:support@travis-ci.com).
 

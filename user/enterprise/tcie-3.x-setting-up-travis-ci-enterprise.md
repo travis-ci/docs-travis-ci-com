@@ -1,5 +1,5 @@
 ---
-title: Setting up Travis CI Enterprise 3.x
+title: Setup Travis CI Enterprise 3.x
 layout: en_enterprise
 redirect_from:
   - /user/enterprise/installation/
@@ -93,7 +93,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 * [RabbitMQ](https://www.rabbitmq.com/)
 * [Postgres](https://www.postgresql.org/)
 
-## 1. Setting up Travis CI Core Services
+## Setup Travis CI Core Services
 
 The Travis CI Enterprise Core Services (aka Platform) handles licensing, coordinates Worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
@@ -150,9 +150,9 @@ In each case the TCIE Core Services will be deployed as k8s cluster. Cluster mus
 > If you have decided to use a self-signed certificate or wish to use Let's Encrypt certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) for more information.
 
 
-### 1.1 Example TCIE 3.x installation for GCE on macOSX
+### Example: TCIE 3.x installation for GCE on macOSX
 
-#### 1.1.1 Python
+#### Python
 
 You'll want to make sure you have the latest version of Python 3. If you're on macOSX (a clean install), you'll want to install Homebrew via:
 
@@ -172,7 +172,7 @@ Now check if Python is installed via running:
 python -version
 ```
 
-#### 1.1.2 Google SDK
+#### Google SDK
 
 Install the Google Cloud SDK via:
 
@@ -193,7 +193,7 @@ gcloud --version
 ```
 > Please make sure that `kubectl` is installed if you use tooling other than Google SDK.
 
-#### 1.1.3 Initialize GCloud
+#### Initialize GCloud
 
 > For a provider different than Google, make sure you have your setup ready
 
@@ -233,7 +233,7 @@ In example case and timezone, the next command to run:
 gcloud container clusters get-credentials tci-test2 --zone us-central1-b --project kubernetes-test-164423
 ```
 
-#### 1.1.4 Install Travis CI Enterprise via Replicated KOTS
+#### Install Travis CI Enterprise via Replicated KOTS
 
 Using cURL to install Kots on *local machine* via:
 
@@ -267,7 +267,7 @@ Once you get the proper permissions, you should have a license file. You'll see 
 
 ![License](/images/tcie-3.x-setting-up-License.png)
 
-#### 1.1.5 Configure Travis CI Enterprise
+#### Configure Travis CI Enterprise
 
 Next, map your platform host, in example case the platform host is:
 
@@ -326,7 +326,7 @@ kubectl kots admin-console --namespace travis
 
 The above command assumes your namespace is ```travis```, please replace it with yours. Remember registering the Load Balancer is generic. So you run ```kubectl get service nginx``` for example, just make a DNS record to point to the service's external IP. This is true with GCE and AWS.
 
-## 2. Setting up the Enterprise Worker virtual machine
+## Setup the Enterprise Worker virtual machine
 
 The Travis CI Enterprise Worker manages to build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
@@ -336,6 +336,12 @@ Make sure you have already [set up the Enterprise Platform](/user/enterprise/tci
 
 After that, follow the [instructions to set up a Worker](/user/enterprise/setting-up-worker).
 
-## 3. Running builds!
+## Running builds
 
- Skip over to the [Getting Started Guide](https://docs.travis-ci.com/user/tutorial/) and connect some repositories to your new Travis CI Setup!
+Skip over to the [Onboarding Guide](/user/onboarding/) and connect some repositories to your new Travis CI Setup!
+
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}
+

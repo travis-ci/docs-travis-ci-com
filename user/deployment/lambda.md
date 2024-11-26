@@ -31,17 +31,17 @@ $ travis encrypt "AWS SECRET ACCESS KEY" --add deploy.secret_access_key
 
 You will be prompted to enter your secret access key on the command line.
 
-### Optional configuration parameters
+## Optional configuration parameters
 
 See [documentation](https://github.com/travis-ci/dpl#lambda) for additional
 configuration parameters
 
-### Conditional releases
+## Conditional releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### AWS permissions
+## AWS permissions
 
 The AWS user that Travis deploys as must have the following IAM permissions in order to deploy:
 

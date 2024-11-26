@@ -6,7 +6,7 @@ layout: en
 
 
 
-## Update/Downgrade Maven
+## Update or Downgrade Maven
 
 The newer Maven isn't always stable compared to previous ones, potentially
 breaking plugins, This script downloads and installs the latest 3.1.1 release

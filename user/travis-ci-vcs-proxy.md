@@ -37,16 +37,16 @@ You will need:
 
 If you are on Windows when working with Perforce repository, you may want to check [Windows section](/user/travis-ci-vcs-proxy#windows) below in the *P4 CLI Usage* chapter.
 
-## Setting up repositories and organization TCI Proxy
+## Setup repositories and organization TCI Proxy
 
-You will go through following major steps in configuration
+You will go through the following major steps in configuration.
 
 * In case of Assembla Cloud with P4 or SVN repository
   * Note down certain configuration details from your P4 or SVN repository in Assembla Cloud. 
   * Add Travis Ci VCS Proxy listener token to the Assembla Cloud P4 or SVN repository settings.
   * For Assembla Cloud P4 repository: optionally configure a group with long login timeout (to prevent builds not running due to expired P4 tickets/tokens). 
 
-> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](/user/tutorial/#to-get-started-with-travis-ci-using-assembla). Travis CI VCS Proxy is a separate connection layer for P4 and SVN servers, as it is meant to connect also self-hosted P4 or SVN servers.
+> Please note, that Assembla Git repositories are not avialable in Travis CI VCS Proxy. These are available after you [directly sign-up to Travis CI using Assembla](/user/onboarding/). Travis CI VCS Proxy is a separate connection layer for P4 and SVN servers, as it is meant to connect also self-hosted P4 or SVN servers.
  
 * Travis CI VCS Proxy
   * Add an organization.
@@ -134,7 +134,7 @@ P4CLIENT=testspace_j # This is your local client name, choose anything.
 ```
 You can access your P4 environment variables by running in your command line `cat ~/.p4enviro` and if you want to edit your environment variables run `vim ~/.p4enviro` in your command line or use an IDE or text editor of your choice.
 
-## Inviting collaborators to TCI VCS Proxy Organization
+## Invite collaborators to TCI VCS Proxy Organization
 
 To allow users to trigger builds in Travis CI, first, you must add them as members of the organization in the TCI VCS Proxy. 
 
@@ -276,7 +276,7 @@ After you pushed successfully, with your Assembla username, you can see my `.tra
 
 You may find more of the useful information in <a href="https://articles.assembla.com/en/collections/33902-using-perforce" target="_blank">Assembla articles on working with Perforce Helix Core<a/>. 
 
-## I want to build with Travis CI
+## Build with Travis CI
 
 Once the Travis CI VCS Proxy configuration is ready for at least one organization and repository, please follow the instructions in [Getting started with Travis CI using Travis CI VCS Proxy](/user/travis-ci-vcs-proxy-get-started/).
 

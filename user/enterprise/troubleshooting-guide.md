@@ -7,13 +7,13 @@ redirect_from:
 
 This document provides guidelines and suggestions for troubleshooting your Travis CI Enterprise installation. Each topic contains a common problem and strategies for solving it. If you have questions about a specific scenario or have an issue that is not covered, please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) for assistance.
 
-## Travis CI Enterprise (TCIE) 3.x
+## Travis CI Enterprise 3.x
 
 The TCIE 3.x is deployed as Kubernetes cluster. Thus `travis bash` and `travis console` working previously with single Docker installation will not work anymore. They're replaced with specific `kubectl` command line commands.
 
 The term `Worker machine` still means the worker instance(s) that process and run the builds.
 
-## Travis CI Enterprise (TCIE) 2.x
+## Travis CI Enterprise 2.x
 
 Throughout this document we'll be using the following terms to refer to the two components of your Travis CI Enterprise 2.x installation:
 
@@ -22,17 +22,15 @@ Throughout this document we'll be using the following terms to refer to the two 
 
 > Please note that this guide is geared towards non-High Availability (HA) setups. Please contact us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com) if you require support for your HA setup.
 
-## Builds Are not Starting
-
-### The problem
+## Builds are not Starting
 
 In the Travis CI Web UI you see no builds are starting. The builds either have no visible state or have a state of `queued`. Canceling and restarting builds has no effect.
 
-### Strategies
+### Possible Issues and Workarounds
 
-There are a few different potential approaches which may help to get builds running again. Please try each one in order.
+There are a few different potential approaches that may help to get builds running again. Please try each one in order.
 
-#### Connection to RabbitMQ was lost
+#### Lost connection to RabbitMQ
 
 The Enterprise Platform uses RabbitMQ to communicate with worker machine(s) in order to process builds. In certain circumstances it is possible for the worker machine(s) to lose connection with RabbitMQ and therefore become unable to process builds successfully. This is a known problem and we're working on it to deliver a permanent solution.
 
@@ -69,7 +67,7 @@ If you have made changes to this file, please run the following so they take eff
 $ sudo restart travis-worker
 ```
 
-#### Ports are not open in Security groups / Firewall
+#### Ports not open in Security groups or Firewall
 
 A source for the problem could be that the worker machine is not able to communicate with the platform machine.
 
@@ -97,7 +95,7 @@ This issue sometimes occurs after maintenance on workers that were originally in
 
 > Please note that the default build environment images will be pulled and you may need to apply customizations again as well.
 
-#### You are running Enterprise v2.2 or higher
+#### Issue when running Enterprise v2.2 or higher
 
 By default, the Enterprise Platform v2.2 or higher will attempt to route builds to the `builds.trusty` queue. This could lead to build issues, if you are not running a Trusty worker to process those builds or if you are targeting a different distribution (e.g. `xenial`).
 
@@ -106,7 +104,7 @@ To address this, either:
 - Ensure that you have installed a Trusty worker on a new virtual machine instance: [Trusty installation guide](/user/enterprise/trusty/)
 - Override the default queuing behavior to specify a new queue. To override the default queue you must access the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable` and toggle the 'Override Default Build Environment' button. This will allow you to specify the new default based on your needs and the workers that you have available.
 
-#### You are running Enterprise v3.x or higher
+#### Issue when running Enterprise v3.x or higher
 
 Verify if default queue configured in Enterprise Platform 3.x routes builds to a matching, existing workers. You may choose to alter the default queue setting by running admin console UI on `http://loclahost:8800`, navigating to Configuration and altering the option 'Set Default Build Environment' by selecting one of available options.
 
@@ -115,26 +113,24 @@ Verify if default queue configured in Enterprise Platform 3.x routes builds to a
 
 > This issue occurs only for TCIE 2.x. The TCIE 3.x is deployed as Kubernetes/microk8s cluster.
 
-### The problem
-
 After a fresh installation or configuration change the Enterprise container doesn't start and the following error is visible in the Admin Dashboard found at `https://<your-travis-ci-enterprise-domain>:8800/dashboard`:
 
 ```
 Ready state command canceled: context deadline exceeded
 ```
 
-### Strategies
+### Possible Issues and Workarounds
+
+The following is a possible issue with the GitHub OAuth app configuration and its workaround.
 
 #### GitHub OAuth app configuration
 
 The above mentioned error can be caused by a configuration mismatch in [the GitHub OAuth Application](/user/enterprise/setting-up-travis-ci-enterprise/#prerequisites). Please check that _both_ website and callback URL contain the Travis CI Enterprise's hostname. If you have discovered a mismatch here, please restart the Travis container from within the Admin Dashboard.
 
 
-## travis-worker on Ubuntu 16.04 Does not Start
+## The travis-worker does not start on Ubuntu 16.04
 
-### The problem
-
-`travis-worker` was installed on a fresh installation of Ubuntu 16.04 (Xenial) with no issues. However, the command `sudo systemctl status travis-worker` shows that it is not running.
+The `travis-worker` was installed on a fresh installation of Ubuntu 16.04 (Xenial) with no issues. However, the command `sudo systemctl status travis-worker` shows that it is not running.
 
 In addition, the command `sudo journalctl -u travis-worker` contains the following error:
 
@@ -142,7 +138,7 @@ In addition, the command `sudo journalctl -u travis-worker` contains the followi
 /usr/local/bin/travis-worker-wrapper: line 20: /var/tmp/travis-run.d/travis-worker: No such file or directory
 ```
 
-### Strategy
+### Workaround
 
 One possible reason that travis-worker is not running is that `systemctl` cannot create a temporary directory for environment files. To fix this, please create the directory `/var/tmp/travis-run.d/travis-worker` and assign write permissions via:
 
@@ -153,8 +149,6 @@ $ chown -R travis:travis /var/tmp/travis-run.d/
 
 ## Builds Fail with Curl Certificate Errors
 
-### The problem
-
 A build fails with a long `curl` error message similar to:
 
 ```
@@ -163,13 +157,11 @@ curl: (60) SSL certificate problem: unable to get local issuer certificate
 
 This can have various causes, including an automatic nvm update or a caching error.
 
-### Strategy
+### Workaround
 
 This error is most likely caused by a self-signed certificate. During the build, the worker container attempts to fetch different files from the platform machine. If the server was originally provisioned with a self-signed certificate, curl doesn't trust this certificate and therefore fails. While we're working on resolving this in a permanent way, currently the only solution is to install a certificate issued by a trusted Certificate Authority (CA). This can be a free Let's Encrypt certificate or any other trusted CA of your choice. We have a section in our [SSL Certificate Management](/user/enterprise/ssl-certificate-management/#using-a-lets-encrypt-ssl-certificate) page that walks you through the installation process using Let's Encrypt as an example.
 
-## User Accounts are Stuck in Syncing State
-
-### The problem
+## User Accounts Stuck in Syncing State
 
 One or more user accounts are stuck in the `is_syncing = true` state. When you query the database, the number of users which are currently syncing does not decrease over the time. Example:
 
@@ -181,7 +173,7 @@ travis_production=> select count(*) from users where is_syncing=true;
 (1 row)
 ```
 
-### Strategy
+### Workaround
 
 You can reset the `is_syncing` flag for user accounts that are stuck by running:
 
@@ -199,14 +191,12 @@ Next, regardless of TCIE version, run:
 
 It can happen that organizations are also stuck in the syncing state. Since an organization itself does not have a `is_syncing` flag, all users that do belong to it have to be successfully synced.
 
-## Logs contain many GitHub API 422 errors
-
-### The Problem
+## Logs contain GitHub API 422 errors
 
 On every commit made when a build runs, a commit status is created for a given SHA. Due to GitHub’s limitations at 1,000 statuses per SHA and context within a repository, if more than 1,000 statuses are created this leads to a validation error.
 This issue should no longer be present in GitHub Apps integrations but will be present in Webhooks integrations.
 
-### Strategy
+### Possible Issues and Workarounds
 
 The workaround for this issue is to manually re-sync the user account with GitHub. This will generate a fresh token for the user account that has not reached any GitHub API limits.
 
@@ -232,19 +222,22 @@ An administrator can also initiate a sync on behalf of someone else:
 
 > If `—logins=<GITHUB-LOGIN>` is not provided then this command will trigger a sync on every user. This could result in long runtimes and may impact production operations if you have a large number of total users on your Travis CI Enterprise instance.
 
-1. Open a SSH connection to the platform machine.
+1. Open an SSH connection to the platform machine.
 2. Initiate a sync by running `travis sync_users —logins=<GITHUB-LOGIN>`
 
-## RabbiMQ AMQPS issue causes build jobs to never enqueue
+## RabbiMQ AMQPS issue causes build jobs not to enqueue
 
 > This issue occurs only in TCIE 3.x. The TCIE 2.x Rabbit does not contain any AMQPS support.
 
-### The problem
-
 When using self-signed certificate, the Rabbit MQ AMQPS will not work which will result in jobs queueing forever. Worker logs will indicate security issues when connecting to Rabbit using AMQPS.
 
-### Startegy
+### Workaround
 
-Relax security contraints by explicitly marking that self-sgined certificates are allowed.
+Relax security constraints by explicitly marking that self-signed certificates are allowed.
 
 SSH to the worker machine. Add `export AMQP_INSECURE=true` to `/etc/default/travis-worker`. Restart the worker instance.
+
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

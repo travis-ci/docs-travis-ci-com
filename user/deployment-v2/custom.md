@@ -10,7 +10,7 @@ machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
 You may choose the [Script provider](/user/deployment/script/) instead, as it
 provides conditional deployment.
 
-### SFTP
+## SFTP
 
 ```yaml
 env:
@@ -33,7 +33,7 @@ The env variables `SFTP_USER` and `SFTP_PASSWORD` can also be
 See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to
 use cURL as an SFTP client.
 
-### ⋮
+## ⋮
 
 This should also work with services you can deploy to via git.
 

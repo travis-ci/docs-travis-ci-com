@@ -1,5 +1,5 @@
 ---
-title: Using YAML as a build configuration language
+title: Use YAML as a build configuration language
 
 layout: en
 ---
@@ -11,7 +11,7 @@ imported using the [Build Config Imports](/user//) feature.
 This page documents a few noteworthy pieces of information about how
 Travis CI uses YAML.
 
-## Usage of YAML anchors and aliases
+## YAML anchors and aliases
 
 In more advanced use cases, in order to reduce repetition in large build config
 files a good practice is to use YAML's mechanism of defining and reusing shared
@@ -50,10 +50,10 @@ deploy:
     branch: staging
 ```
 
-## Private keys as YAML anchors and aliases and external tooling
+## Private keys as YAML anchors, aliases, and external tooling
 
-In some cases it might be better to define a shared piece of YAML config in a
-different place than where it is going to be used, e.g. in order to increase
+In some cases, it might be better to define a shared piece of YAML config in a
+different place than where it is going to be used, e.g., in order to increase
 readability.
 
 For example, one might define several jobs by reusing a shared portion of
@@ -92,7 +92,7 @@ quoting version numbers so the YAML parser would interpret them as strings.
 is active for the given repository.
 
 For example, specifying a Node.js version as `node_js: 9.10` would have been
-parsed into `9.0`, not matching the intended version. As a solution we would
+parsed into `9.0`, not matching the intended version. As a solution, we would
 have recommended specifying `node_js: "9.10"` instead.
 
 With the introduction of a new YAML parser as part of the [Build Config Validation](/user/build-config-validation/)

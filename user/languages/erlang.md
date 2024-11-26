@@ -1,10 +1,9 @@
 ---
-title: Building a Erlang project
+title: Build an Erlang project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -28,14 +27,14 @@ language: erlang
 
 The rest of this guide covers build environment and configuration topics
 specific to Erlang projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 Erlang builds are not available on the macOS environment.
 
-## Choosing OTP releases to test against
+## Test against OTP releases
 
-Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
+Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify the OTP releases you want your project to be tested against, use the `otp_release` key:
 
 ```yaml
 language: erlang
@@ -49,7 +48,7 @@ Get a complete list of the pre-compiled versions available on the VM by adding `
 
 ## Default Test Script
 
-Travis CI by default assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
+Travis CI, by default, assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
 
 ```bash
 rebar3 eunit
@@ -84,7 +83,7 @@ to install [project dependencies](https://github.com/basho/riak/blob/master/reba
 
 ## Environment Variable
 
-The version of OTP release a job is using is available as:
+The version of the OTP release a job is using is available as:
 
 ```
 TRAVIS_OTP_RELEASE
@@ -96,7 +95,7 @@ TRAVIS_OTP_RELEASE
 
 You can find more information on the build config format for [Erlang](https://config.travis-ci.com/ref/language/erlang) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## OTP/Release versions
+## OTP and Release versions
 
 These archives are available for on-demand installation.
 
@@ -112,7 +111,7 @@ These archives are available for on-demand installation.
 - [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
 - [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
 
-## Tutorial(s)
+## Tutorials
 
 - [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 - [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
