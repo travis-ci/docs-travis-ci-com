@@ -9,10 +9,10 @@ To increase security, repository owners have the option to have control over the
 
 You can choose to enable or limit access using the following security settings. 
 
-### Enabling access to old build jobs
+### Enable access to old build jobs
 {{ site.data.snippets.enabling_access_jobs_logs }}
 
-### Limiting access to build job logs
+### Limit access to build job logs
 {{ site.data.snippets.limiting_access_jobs_logs }}
 
 ### Disable logs Options 

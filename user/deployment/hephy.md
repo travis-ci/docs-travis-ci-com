@@ -37,12 +37,12 @@ $ travis setup hephy
 
 > Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Conditional Releases
+## Conditional Releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### Note on `.gitignore`
+## The .gitignore method
 
 As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
@@ -51,9 +51,9 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Running Commands Before and After Deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+Sometimes, you want to run commands before or after triggering a deployment. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
 ```yaml
     before_deploy: "echo 'ready?'"

@@ -12,7 +12,7 @@ Build stages is a way to group jobs, and run jobs in each stage in parallel,
 but run one stage after another sequentially.
 
 In the simplest and most common use case, you can now make one job run _only_
-if several other, parallel jobs have completed successfully.
+if several other parallel jobs have been completed successfully.
 
 Let’s say you want to test a library like a Ruby gem or an npm package against
 various runtime (Ruby or Node.js) versions in [parallel](/user/customizing-the-build/#build-matrix).
@@ -21,7 +21,7 @@ completed successfully. Build stages make this possible.
 
 Of course, there are a lot more and a lot more elaborated use cases than this
 one. You can, for example, also use build stages to warm up dependency caches
-in a single job on a first stage, then use the cache on several jobs on a
+in a single job on the first stage, then use the cache on several jobs on a
 second stage. Or, you could generate a Docker image and push it first, then
 test it on several jobs in parallel. Or, you could run unit tests, deploy to
 staging, run smoke tests and only then deploy to production.
@@ -35,11 +35,11 @@ Stages group jobs that run in parallel and different stages run sequentially.
 
 A stage is a group of jobs that are allowed to run in parallel. However, each
 one of the stages runs one after another and will only proceed, if all jobs in
-the previous stage have passed successfully. If one job fails in one stage, all
-other jobs on the same stage will still complete, but all jobs in subsequent
+the previous stage has passed successfully. If one job fails in one stage, all
+other jobs on the same stage will still complete, but all jobs in the subsequent
 stages will be canceled and the build fails.
 
-You can configure as many jobs per stage as you need and you can have as many
+You can configure as many jobs per stage as you need, and you can have as many
 stages as your delivery process requires.
 
 In the following example, we are running two jobs on the first stage called
@@ -47,7 +47,7 @@ test, and then run a single third job on the second stage called deploy:
 
 ![Example screencast](/images/stages/stages.gif)
 
-## How to Define Build Stages?
+## Define Build Stages
 
 Here’s how you’d set up the build configuration for this in your `.travis.yml`
 file:
@@ -67,13 +67,13 @@ jobs:
 This configuration creates the build from the screencast above. I.e., it creates
 a build with three jobs, two of which start in parallel in the first stage
 (named `test`), while the third job on the second stage (named `deploy`) starts
-only after the test stage completes successfully.
+only after the test stage is completed successfully.
 
 ## Build Config Reference
 
 You can find more information on the build config format for [build stages](https://config.travis-ci.com/ref/stages) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Naming Your Build Stages
+## Name Build Stages
 
 Stages are identified by their names, which are composed of names and emojis.
 The first letter of a stage name is automatically capitalized for
@@ -101,7 +101,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Naming Your Jobs within Build Stages
+### Name Jobs within Build Stages
 
 You can also name specific jobs within build stages. We recommend unique job names, but
 do not enforce it (though this may change in the future). Jobs defined in the `jobs.include`
@@ -124,7 +124,7 @@ jobs:
 ## Build Stages and Build Matrix Expansion
 
 [Matrix expansion](/user/customizing-the-build/#build-matrix)
-means that certain top level configuration keys expand into a matrix of jobs.
+means that certain top-level configuration keys expand into a matrix of jobs.
 
 For example:
 
@@ -142,7 +142,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-This will run two jobs on Ruby 2.3 and 2.4 respectively first and assign these
+This will run two jobs on Ruby 2.3 and 2.4, respectively, first and assign these
 to the default stage test. The third job on the deploy stage starts only after
 the test stage has completed successfully.
 
@@ -151,7 +151,7 @@ that defines a matrix dimension.
 > In the example above, without explicitly setting `rvm: 2.4`, the `include`d job inherits
 `rvm: 2.3`.
 
-## Specifying Stage Order and Conditions
+## Specify Stage Order and Conditions
 
 You can specify the order for stages in the section `stages`:
 
@@ -215,7 +215,7 @@ See [the S3 example](#sharing-files-between-jobs-via-s3) below.
 
 ## Examples
 
-### Deploying to Heroku
+### Deploy to Heroku
 
 An example with 5 stages:
 
@@ -227,7 +227,7 @@ An example with 5 stages:
 
 You can find more [details here](/user/build-stages/deploy-heroku/).
 
-### Deploying to Rubygems
+### Deploy to Rubygems
 
 This example has two build stages:
 
@@ -236,7 +236,7 @@ This example has two build stages:
 
 You can find more [details here](/user/build-stages/deploy-rubygems/).
 
-### Deploying to NPM
+### Deploy to NPM
 
 This example has two build stages:
 
@@ -245,7 +245,7 @@ This example has two build stages:
 
 You can find more [details here](/user/build-stages/deploy-npm/).
 
-### Deploying to GitHub Releases
+### Deploy to GitHub Releases
 
 This example has two build stages:
 
@@ -254,7 +254,7 @@ This example has two build stages:
 
 You can find more [details here](/user/build-stages/deploy-github-releases/).
 
-### Combining build stages with matrix expansion
+### Combine build stages with matrix expansion
 
 This example has two build stages:
 
@@ -263,7 +263,7 @@ This example has two build stages:
 
 You can find more [details here](/user/build-stages/matrix-expansion/).
 
-### Warming up a cache with expensive dependencies
+### Warm up a cache with expensive dependencies
 
 This uses two build stages in order to warm up a cache with expensive dependencies, and optimize test run times:
 
@@ -272,7 +272,7 @@ This uses two build stages in order to warm up a cache with expensive dependenci
 
 You can find more [details here](/user/build-stages/warm-cache/).
 
-### Sharing a Docker image
+### Share a Docker image
 
 This example has 2 build stages:
 
@@ -281,7 +281,7 @@ This example has 2 build stages:
 
 You can find more [details here](/user/build-stages/share-docker-image/).
 
-### Sharing files between jobs via S3
+### Share files between jobs via S3
 
 This uses two build stages, sharing files from build stage 1 in stage 2:
 
@@ -290,7 +290,7 @@ This uses two build stages, sharing files from build stage 1 in stage 2:
 
 You can find more [details here](/user/build-stages/share-files-s3/).
 
-### Defining different steps on different stages
+### Define different steps in different stages
 
 This example has 2 build stages:
 
@@ -299,7 +299,7 @@ This example has 2 build stages:
 
 You can find more [details here](/user/build-stages/define-steps/).
 
-### Defining steps using YAML aliases
+### Define steps using YAML aliases
 
 This example uses YAML aliases to define steps. It has 3 build stages:
 

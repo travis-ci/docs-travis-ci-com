@@ -26,7 +26,7 @@ The `snap` value should be a string that matches exactly one file when the deplo
 If the name of the snap file is not known ahead of time, you can use a shell glob pattern, as shown
 in the example above.
 
-## Providing credentials to upload the snap
+## Provide credentials and Upload the Snap
 To upload snaps from Travis CI, export a Snap Store login token, and provide it as an environment variable
 `$SNAP_TOKEN`.
 
@@ -49,7 +49,7 @@ The token will be printed out.
 
 _Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded._
 
-### Using the CLI client
+### Use the CLI client
 Using our [CLI client](https://github.com/travis-ci/travis.rb#readme), define `$SNAP_TOKEN`:
 
 ```bash
@@ -57,10 +57,10 @@ Using our [CLI client](https://github.com/travis-ci/travis.rb#readme), define `$
 travis env set SNAP_TOKEN "<token>"
 ```
 
-### Using Settings page
+### Use the Settings page
 Equivalently, you can do this on the [Settings page](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings) of your repository at Travis CI.
 
-## Using uploaded Snap
+## Use the Uploaded Snap
 Your community of early-adopters and testers can install your app in any of the [supported Linux distributions](https://docs.snapcraft.io/core/install) with:
 
 ```bash

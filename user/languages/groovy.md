@@ -1,10 +1,9 @@
 ---
-title: Building a Groovy project
+title: Build a Groovy project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -43,7 +42,7 @@ language: groovy
 ```
 {: data-file=".travis.yml"}
 
-## Projects Using Gradle
+## Gradle Projects 
 
 ### Gradle Dependency Management
 
@@ -79,7 +78,7 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
-## Projects Using Maven
+## Maven Projects 
 
 ### Maven Dependency Management
 
@@ -99,7 +98,7 @@ If your project has `pom.xml` file in the repository root and does not have a
 mvn test -B
 ```
 
-## Projects Using Ant
+## Ant Projects
 
 ### Ant Default Test Command
 
@@ -122,7 +121,7 @@ install: ant deps
 ```
 {: data-file=".travis.yml"}
 
-## Testing Against Multiple JDKs
+## Test against Multiple JDKs
 
 To test against multiple JDKs, use the `:jdk` key in `.travis.yml`. For example,
 to test against Oracle JDK 8 and
@@ -135,7 +134,7 @@ jdk:
 ```
 {: data-file=".travis.yml"}
 
-### Using Java 10 and Up
+### Use Java 10 and higher
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).

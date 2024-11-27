@@ -13,7 +13,7 @@ Travis CI can automatically deploy your [Engine Yard](https://www.engineyard.com
 
 {% include deploy/providers/engineyard.md content=content %}
 
-### Application or Environment to deploy
+## Application or Environment to deploy
 
 By default, the application name will be inferred from your repository name.
 
@@ -27,7 +27,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploying branches to different apps or environments
+## Deploy branches to different apps or environments
 
 In order to choose apps or environments based on the current branch use
 separate deploy configurations:
@@ -64,7 +64,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Running migrations
+## Run migrations
 
 You can trigger migrations by using the migrate option:
 

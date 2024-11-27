@@ -18,7 +18,7 @@ Without the encryption key you cannot access the information in your production 
 
 {{ site.data.snippets.enterprise_3_encryption_key_backup }}
 
-## Updating your Travis CI Enterprise Platform
+## Update your Travis CI Enterprise Platform
 
 Run `kubectl kots admin-console -n [namspace]` to access admin console on `http://localhost:8800`.
 
@@ -32,7 +32,7 @@ If there’s a new version it will appear in *all versions* list. Click *deploy*
 
 > There will be a small amount of downtime while an update is installed. For this reason we recommend that you perform each update during a maintenance window.
 
-## Updating Replicated on the Platform
+## Update Replicated on the Platform
 
 To update Replicated KOTS version on the Platform installation you'll want to run
 following command:
@@ -40,9 +40,9 @@ following command:
 `curl https://kots.io/install | bash`
 
 
-## Updating your Travis CI Enterprise Worker
+## Update your Travis CI Enterprise Worker
 
-### On Ubuntu 16.04 and later
+### On Ubuntu 16.04 and higher
 
 On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To update travis-worker, please follow the steps below.
 
@@ -57,7 +57,7 @@ On Ubuntu 16.04 and later, travis-worker ships inside a Docker container. To upd
   $ sudo systemctl restart travis-worker
   ```
 
-## Restoring from Backups
+## Restore from Backups
 
 In the rare event something goes wrong and/or you'd like to restore from a backup, please use the following steps:
 

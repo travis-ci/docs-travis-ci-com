@@ -6,7 +6,7 @@ layout: en_enterprise
 
 This page contains operations manual level information about Workspaces and Cache in Travis CI Enterprise.
 
-## Cache vs Workspaces
+## Cache vs. Workspaces
 
 Cache, aka Build Cache, is configured file bucket which serves a purpose as a cache for build artifacts. Users of Travis CI Enterprise may put or pull to/from the Cache the build artifacts.
 **Cache is meant for items used in different builds**.
@@ -31,12 +31,16 @@ There's a new menu called "Workspaces UI Settings", where specific configuration
 >
 > It is recommended to:
 >
-> - use separate file bucket than the one used for cache, both for security and maintenance reasons
-> - have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended time is 3 hours, which equals default max time of a single job running uninterrupted under certain conditions
-> - make sure your infrastructure hosting build image instances has connectivity to the file bucket configured for workspaces
+> - use separate file bucket than the one used for cache, both for security and maintenance reasons.
+> - have a file bucket configured with auto-cleanup policy (TCIE is not performing any housekeeping on the file bucket) - default recommended time is 3 hours, which equals default max time of a single job running uninterrupted under certain conditions.
+> - make sure your infrastructure hosting build image instances has connectivity to the file bucket configured for workspaces.
 
 ### Workspaces usage
 
 Please see [our documentation](/user/using-workspaces/) for end-user facing usage instructions for Workspaces.
 
 Please read also [about build stages](/user/build-stages/) in order to create streamlined set of jobs, which can be used e.g. for pre-building a short lived artifact in first steps of build pipeline.
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

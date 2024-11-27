@@ -18,7 +18,7 @@ either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on Assembla, there are several different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
-disavantages, so read each method carefully and pick the one that applies best
+disadvantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
@@ -30,7 +30,7 @@ to your situation.
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that access is read only.
+of repositories, and make sure that access is read-only.
 
 ## Deploy Key
 

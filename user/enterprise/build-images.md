@@ -1,5 +1,5 @@
 ---
-title: Customizing Travis CI Enterprise Build Images
+title: Customize Travis CI Enterprise Build Images
 layout: en_enterprise
 
 ---
@@ -9,7 +9,7 @@ development process and improve the build environment and performance.
 
 
 
-## Customizing Build Images
+## Customize Build Images
 
 After pulling the build images from
 [quay.io](https://quay.io/organization/travisci) either through
@@ -61,7 +61,7 @@ you can run:
       docker -H tcp://0.0.0.0:4243 rm travis_ruby
 ```
 
-## Enabling Docker Builds
+## Enable Docker Builds
 
 ### Worker machine configuration
 

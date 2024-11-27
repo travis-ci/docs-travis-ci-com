@@ -1,19 +1,15 @@
 ---
-title: The Windows Build Environment
+title: Windows Build Environment
 layout: en
 ---
 
-### What This Guide Covers
-
-This guide explains what packages, tools and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
+This guide explains what packages, tools, and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
 
 > Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or macOS is currently supported.
 
-## Support
-
 > Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/c/windows) of our Community Forums.
 
-## Using Windows
+## Use Windows
 
 To use our Windows build infrastructure, add the following to your `.travis.yml`:
 
@@ -47,6 +43,9 @@ Powershell can be used by calling `powershell` in your .travis.yml file for now.
 VMs running Windows use the default file system, NTFS.
 
 ## Supported languages
+
+The following is a list of the supported languages.
+
 - Bash `language: bash` or `language: shell`
 - C with `language: c`
 - C++ with `language: cpp`
@@ -56,6 +55,8 @@ VMs running Windows use the default file system, NTFS.
 - Rust with `language: rust`
 
 ## Pre-installed Chocolatey packages
+
+The following is a list of the pre-installed Chocolatey packages.
 
 - 7zip.install v19.0
 - chocolatey v0.10.15 
@@ -104,7 +105,7 @@ VMs running Windows use the default file system, NTFS.
 
 [^git]: Travis uses the system-wide Git for Windows installation in its own machinery, so use an alternative package like [`git.portable`](https://chocolatey.org/packages/git.portable) if you need a custom version of Git.
 
-## How do I use MSYS2?
+## Use MSYS2
 
 [MSYS2](https://www.msys2.org/) is a popular development environment for building GCC-based projects with Unix-style build systems. While it isn't included in the Windows image, it is fairly easy to install via [the Chocolatey package](https://chocolatey.org/packages/msys2) using the following additions to the sections of your `.travis.yml`:
 

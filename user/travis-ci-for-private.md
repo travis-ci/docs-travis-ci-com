@@ -23,7 +23,7 @@ the [blog post](https://travis-ci.com/blog/announcing-pull-request-support/) acc
 
 ## Who has access to the builds?
 
-Access rights on Travis CI is based on the access rights on GitHub, Bitbucket, GitLab or Assembla:
+Access rights on Travis CI are based on the access rights on GitHub, Bitbucket, GitLab or Assembla:
 
 - Users that can access a repository on GitHub, Bitbucket, GitLab or Assembla can see the build status and logs on Travis CI.
 - Users that can push to a repository on GitHub, Bitbucket, GitLab or Assembla can trigger, cancel and restart builds, and change its settings.
@@ -45,7 +45,7 @@ You can change the access rights to **Restricted** (or back to **Open**) under t
 
 ![Billing access toggle](/images/admin_only_toggle.png "Billing access toggle")
 
-## Is it safe to give Travis CI access to my private code?
+## Is giving Travis CI access to my private code safe?
 
 Security is our major concern when it comes to your source code. At Travis CI, we make sure our infrastructure is protected and secure so that your most valuable asset is safe and protected from unauthorized access.
 

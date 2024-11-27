@@ -19,7 +19,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Bluemix Cloud Foundry is *stable**.
+Support for deployments to Bluemix Cloud Foundry is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment.

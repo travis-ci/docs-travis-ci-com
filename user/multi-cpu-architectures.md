@@ -1,5 +1,5 @@
 ---
-title: Building on Multiple CPU Architectures
+title: Build on Multiple CPU Architectures
 layout: en
 permalink: /user/multi-cpu-architectures/
 ---
@@ -45,7 +45,7 @@ The two `arm64` tags are used right now to distinguish between OSS-support only 
 
 The default CPU architecture used in Travis CI builds is `amd64`. It is used when no `arch` key is present. 
 
-## Identifying CPU Architecture of Build Jobs
+## Identify Build Jobs CPU Architecture
 
 You can identify for which CPU architecture a build job is run via
 
@@ -55,9 +55,9 @@ You can identify for which CPU architecture a build job is run via
 - A default environmental variable printed out during your build job: `$TRAVIS_CPU_ARCH` (for a complete list of available default environmental variables please see our [Environment Variables - Default Environment Variables](https://docs.travis-ci.com/user/environment-variables/#default-environment-variables) documentation. 
 
 
-## Testing on Multiple CPU Architectures
+## Test on Multiple CPU Architectures
 
-To enable testing on multiple CPU architectures add the `arch` key to your `.travis.yml`:
+To enable testing on multiple CPU architectures, add the `arch` key to your `.travis.yml`:
 
 ```yaml
 arch:
@@ -77,7 +77,7 @@ If you are already using a [build matrix](/user/customizing-the-build/#build-mat
 - The default LXD image supported by Travis CI is Ubuntu Xenial 16.04 and by using `dist` you can select different supported LXD images. Also see our [CI Environment Overview - Virtualisation Environment vs Operating System](https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system) documentation. The LXD host, on which LXD-based builds are run, is on Ubuntu 18.04.
 - The amd64 CPU architecture build job currently runs as a regular 'full VM' and will be transitioned to an LXD compliant Linux OS image usage over time.
 
-## Example Multi Architecture Build Matrix
+## Multi Architecture Build Matrix
 
 Here’s an example of a `.travis.yml` file using the `arch` key to compile against `amd64`, `arm64`, `arm64-graviton2`, `ppc64le` (IBM Power) and `s390x` (IBM Z) under Linux and using C as the programming language. 
 
@@ -153,7 +153,7 @@ jobs:
 
 For example, the above `.travis.yml`, would result in running both jobs with the environmental variable LIB_PATH assigned different values being run only on `amd64` architecture.
 
-## Using Docker in Multiple CPU Architecture-Based Builds within LXD Containers
+## Use Docker in Multiple CPU Architecture-Based Builds within LXD Containers
 
 It is possible to use Docker in multiple CPU architecture-based builds within an LXD container. You may need a specific CPU architecture compliant docker image as a base or ensure relevant libraries required by your build are added to your Dockerfile.
 

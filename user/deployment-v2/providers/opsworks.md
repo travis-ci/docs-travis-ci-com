@@ -17,7 +17,7 @@ Travis CI can automatically deploy your [AWS OpsWorks](https://aws.amazon.com/en
 
 {% include deploy/providers/opsworks.md content=content %}
 
-### Migrate the Database
+## Migrate the Database
 
 If you want to migrate your rails database on travis to AWS OpsWorks, add the `migrate` option:
 
@@ -29,7 +29,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Waiting for Deployments
+## Waiting for Deployments
 
 By default, the build will continue immediately after triggering an OpsWorks
 deploy. To wait for the deploy to complete, use the `wait_until_deployed`
@@ -46,9 +46,9 @@ deploy:
 Travis CI will wait up to 10 minutes for the deploy to complete, and log
 whether it succeeded.
 
-### Updating App Settings after successful Deployments
+## Update App Settings after successful Deployments
 
-By default the deploy from Travis CI triggers a deployment on OpsWorks but does
+By default, the deploy from Travis CI triggers a deployment on OpsWorks but does
 not touch any other configuration. To also update the revision in App Settings
 use the `update_app_on_success` option. In addition you have to set the
 `wait_until_deployed` option:
@@ -62,7 +62,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Travis CI will wait until the deployment returns successful and only then
+Travis CI will wait until the deployment returns successfully and only then
 update the revision in App Settings.
 
 {% include deploy/shared.md %}

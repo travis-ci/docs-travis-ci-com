@@ -9,7 +9,7 @@ Travis CI can automatically upload your build to [Rackspace Cloud Files](https:/
 
 {% include deploy/providers/cloudfiles.md %}
 
-## Specifying files to upload
+## Specify Upload Files
 
 Often, you don't want to upload your entire project to Cloud Files.
 
@@ -35,7 +35,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying to multiple regions or containers:
+## Deploy to multiple regions or containers
 
 If you want to upload to multiple regions or containers, you can do this:
 

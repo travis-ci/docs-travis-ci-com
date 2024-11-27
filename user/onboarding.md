@@ -20,30 +20,34 @@ To start using Travis CI, make sure you have the following:
 Get started with Travis CI, a continuous integration service used to test and build software projects hosted on [GitHub](https://github.com/), [Assembla](https://www.assembla.com/), [Bitbucket](https://bitbucket.org/), or [GitLab](https://about.gitlab.com/).
 
 1. **Sign up for Travis CI**. 
+
 Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferred account*](https://app.travis-ci.com/signin).
 
    ![Travis CI Sign-in](/user/images/onboarding-travis-sign-in.png)
 
 2. **Accept Travis CI Authorization**. 
+
 Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
 
   If you have any doubts about the Travis CI access rights to your chosen platform, read more details here:
-    
-    * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
-    * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
-    * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
-    * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
-    * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
+   * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
+   * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
+   * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
+   * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
+   * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
 
 3. **Verify your email account**. 
+
 Travis CI sends a verification email. Check your email and verify your account to continue. Otherwise, you will have limited build functions.
 
 4. **Select a Plan**. 
+
 Choose the best plan for you, or get started with our Trial Plan.
 
    ![Plan Selection](/user/images/onboarding-select-plan.png)
 
 5. **Credit Card Validation**. 
+
 To commence the selected plan, you must first insert your billing information and a valid Credit Card.
 
    ![Payment Screen](/user/images/onboarding-payment.png)
@@ -51,9 +55,11 @@ To commence the selected plan, you must first insert your billing information an
    > **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 14 days.
 
 6. **Settings configurations**.
+
 In your Travis Dashboard, click on your profile picture at the top right and select the Settings option to see a list of your available repositories.
 
 7. **Select repositories**.
+
 Click the **Manage Repositories** button. Once directed to your chosen platform, select the repositories you want to use with Travis CI. 
 
 ![Manage Repositories](/user/images/onboarding-manage-repositories.png)
@@ -61,7 +67,7 @@ Click the **Manage Repositories** button. Once directed to your chosen platform,
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
 
 
-## Add a `.travis.yml` File
+## Add a .travis.yml File
 
 The next step is to add a `.travis.yml` file to your repository to tell Travis CI what to do. The following example specifies a Ruby project built with Ruby 2.2 and the latest version of JRuby.
 
@@ -81,7 +87,7 @@ Add the `.travis.yml` to a specific location in your repository.
 > Travis only runs builds on the commits you push *after* you've added a `.travis.yml` file.
 Finally, visit [Travis CI](https://app.travis-ci.com) and select your repository to check the build status page to see if your build [passes or fails](/user/job-lifecycle/#breaking-the-build) according to the return status of the build command.
 
-### Assembla `.travis.yml` File Configuration
+### Assembla .travis.yml File Configuration
 
 <blockquote class="beta">
   <p>
@@ -117,7 +123,7 @@ See the example below for reference.
 Perforce and SVN builds are currently **available only for Linux Ubuntu** and standard amd64 CPU architecture build environments, starting from the Bionic Beaver Ubuntu distribution.
 
 
-## Switching Accounts
+## Switch Accounts
 
 You can easily switch between your cloud platform provider accounts:
 
@@ -127,7 +133,7 @@ You can easily switch between your cloud platform provider accounts:
 
 ![Switch Accounts](/user/images/onboarding-settings.png)
 
-## Selecting a different programming language
+## Select a different programming language
 
 Use one of these common languages:
 

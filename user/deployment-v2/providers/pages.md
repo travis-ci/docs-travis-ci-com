@@ -14,6 +14,6 @@ Travis CI can deploy to [GitHub Pages](https://pages.github.com/) after a succes
 
 {% include deploy/providers/pages_git.md content=content %}
 
-## Setting the GitHub token
+## Set up the GitHub token
 
 {% include deploy/shared.md %}

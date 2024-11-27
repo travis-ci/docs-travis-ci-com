@@ -9,7 +9,7 @@ Travis CI can automatically deploy your modules to [Puppet Forge ](https://forge
 
 {% include deploy/providers/puppetforge.md %}
 
-## Deploying to a custom Forge
+## Deploy to a custom Forge
 
 To deploy to your own hosted Forge instance by adding it in the `url` key:
 
