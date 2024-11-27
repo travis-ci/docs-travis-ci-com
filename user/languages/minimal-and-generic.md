@@ -1,12 +1,15 @@
 ---
-title: Minimal and Generic images
+title: Minimal and Generic Images
 layout: en
 
 ---
 
 ## What This Guide Covers
 
-Travis CI supports many popular programming languages, but can never hope to support them all. `language: minimal` and `language: generic` are images available in Ubuntu Xenial `dist: xenial`and Ubuntu Trusty `dist:trusty`, that are not tailored to any particular programming language. As their names suggest, one is optimized be faster and use less disk space, the other to have more languages and services available.
+
+Travis CI supports many popular programming languages but can never hope to support them all. This guide covers how to use minimal and generic images.
+
+`language: minimal` and `language: generic` are images available in Ubuntu Focal `dist: focal`, Ubuntu Bionic `dist: bionic`, Ubuntu Xenial `dist: xenial`, and Ubuntu Trusty `dist:trusty`, that are not tailored to any particular programming language. As their names suggest, `language: minimal` is optimized to be faster and use less disk space, and `language: generic` has more languages and services available.
 
 > Note that `language: minimal` is not the same as omitting the `language` key, if you do that the default language is set to Ruby.
 
@@ -44,7 +47,7 @@ The `minimal` image contains:
 
 * [version control tools](/user/reference/trusty/#version-control)
 * [essential build tools such as gcc and make](/user/reference/trusty/#compilers--build-toolchain)
-* [network tools such as curl and essential](/user/reference/trusty/#networking-tools)
+* [network tools such as curl](/user/reference/trusty/#networking-tools)
 * [Docker](/user/reference/trusty/#docker)
 * [python](/user/reference/trusty/#python-images)
 
