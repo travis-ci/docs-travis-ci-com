@@ -1,5 +1,5 @@
 ---
-title: Setting up Travis CI Enterprise 2.x
+title: Setup Travis CI Enterprise 2.x
 layout: en_enterprise
 redirect_from:
   - /user/enterprise/install-on-xenial/
@@ -39,7 +39,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 
 You can also try services like [compose.com](https://compose.com/), if you would like these services hosted outside your organization.
 
-## 1. Setting up Enterprise Platform virtual machine
+## Setup Enterprise Platform virtual machine
 
 The Travis CI Enterprise Platform handles licensing, coordinates worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
@@ -82,22 +82,22 @@ installation's hostname, port 8800) to complete the setup:
    1. Optionally, configure Email, Metrics and Caches.
    1. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management) for more information.
+> If you have decided to use a self-signed certificate, there may be additional configuration steps required. Please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) for more information.
 
-## 2. Setting up the Enterprise Worker virtual machine
+## Setup the Enterprise Worker virtual machine
 
 The Travis CI Enterprise Worker manages build containers and reports build
 statuses back to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using instance running Ubuntu 16.04 LTS or later as the underlying operating system.
 
-Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard. 
+Make sure you have already [set up the Enterprise Platform](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) and have the *RabbitMQ password* and the *hostname* from the Platform Dashboard.
 
-After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker).
+After that, follow [instructions to set up a Worker](/user/enterprise/setting-up-worker/).
 
 
-## 3. Running builds!
+## Running builds
 
- Skip over to the [Getting Started Guide](https://docs.travis-ci.com/user/tutorial/) and connect some repositories to your new Travis CI Setup!
+Skip over to the [Onboarding Guide](/user/onboarding/) and connect some repositories to your new Travis CI Setup!
 
 <!-- TODO
 
@@ -108,3 +108,7 @@ Java config
 Proxies
 
 -->
+
+## Contact Enterprise Support
+
+{{ site.data.snippets.contact_enterprise_support }}

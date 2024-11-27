@@ -1,24 +1,22 @@
 ---
-title: Building an Android Project
+title: Build an Android Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
+This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Android builds are not available on the macOS environment.
-
 
 
 ## CI Environment for Android Projects
 
 ### Overview
 
-> Android builds are officially supported only on our Trusty Build environment at this time hence you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
+> Android builds are officially supported only on our Trusty Build environment at this time; hence, you'll need to explicitly specify `dist: trusty` in your .travis.yml file.
 
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala#projects-using-sbt) and [Leiningen](/user/languages/clojure).
+Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala/#projects-using-sbt) and [Leiningen](/user/languages/clojure/).
 
 By setting
 
@@ -60,9 +58,9 @@ android:
 ```
 {: data-file=".travis.yml"}
 
-### How to install Android SDK components
+### Install Android SDK Components
 
-In your `.travis.yml` you can define the list of SDK components to be installed, as illustrated in the following example:
+In your `.travis.yml`, you can define the list of SDK components to be installed, as illustrated in the following example:
 
 ```yaml
 language: android
@@ -77,7 +75,7 @@ android:
 
 The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
 
-#### Dealing with Licenses
+#### Deal with Licenses
 
 By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
 
@@ -99,7 +97,7 @@ android:
 
 For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
 
-### Pre-installed components
+### Pre-installed Components
 
 While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
 
@@ -111,7 +109,7 @@ While the following components are preinstalled, the exact list may change witho
 - extra-google-m2repository
 - extra-android-m2repository
 
-### How to Create and Start an Emulator
+### Create and Start an Emulator
 
 **Warning:** At the moment, these steps are not fully supported by Travis CI Android builder.
 
@@ -184,7 +182,7 @@ cache:
 
 ## Default Test Command
 
-If Travis CI could not detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default it will use
+If Travis CI cannot detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default, it will use
 
 ```bash
 ant debug install test
@@ -192,7 +190,7 @@ ant debug install test
 
 to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
 
-## Testing Against Multiple JDKs
+## Test against Multiple JDKs
 
 As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
@@ -200,7 +198,7 @@ As for any JVM language, it is also possible to [test against multiple JDKs](/us
 
 For Android projects, `env` and `jdk` can be given as arrays to construct a build matrix.
 
-## Building Android projects on new build environments
+## Build Android projects on new build environments
 
 The `dist: trusty` build environment is the only supported build environment for Android but if you would like to build on newer build environments e.g. `dist: jammy`, you can exercise your access to the Travis CI build environments and install required packages and tools. An example .travis.yml config can be reviewed below:
 
@@ -220,7 +218,7 @@ before_install:
  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
  - unzip -q commandlinetools.zip && cd cmdline-tools
  - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
- 
+
  # SETUP PATH(s)
  - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
  - export PATH=$ANDROID_HOME/emulator/:$PATH
@@ -245,6 +243,7 @@ script:
  - adb devices
  - .....
 ```
+{: data-file=".travis.yml"}
 
 ## Examples
 

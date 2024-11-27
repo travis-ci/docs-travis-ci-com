@@ -9,7 +9,7 @@ Travis CI can automatically deploy to [OpenShift](https://www.openshift.com/) af
 
 {% include deploy/providers/openshift.md %}
 
-## Specifying the application name
+## Specify the application name
 
 By default, your repository name will be used as the application name.
 
@@ -23,7 +23,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploying branches to different projects
+### Deploy branches to different projects
 
 In order to choose projects based on the current branch use separate deploy
 configurations:

@@ -1,16 +1,14 @@
 ---
-title: Building a Nix Project
+title: Build a Nix Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
-
+This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 
-### Community-Supported Warning
+## Community-Supported Warning
 
 Travis CI support for Nix is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
@@ -28,7 +26,7 @@ language: nix
 
 The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
-## Provided Tools
+## Tools Available
 
 The following command line tools are available in the Nix environment:
 

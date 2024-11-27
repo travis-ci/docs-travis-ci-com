@@ -1,10 +1,9 @@
 ---
-title: Building a C++ Project
+title: Build a C++ Project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,10 +25,10 @@ language: cpp
 {{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C++
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-## CI environment for C++ Projects
+## CI Environment for C++ Projects
 
 Travis CI VMs are 64-bit and provide versions of:
 
@@ -56,7 +55,7 @@ install: make get-deps
 
 See [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Choosing compilers to test against
+## Test against Compilers
 
 You can test projects against either GCC or Clang, or both. To do so,
 specify the compiler to use using the `compiler:` key in `.travis.yml`. For
@@ -89,12 +88,12 @@ Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
 - [Rubinius](https://github.com/rubinius/rubinius/blob/master/.travis.yml)
 
-## OpenMP projects
+## OpenMP Projects
 
 OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a reasonably small value (say, 4).
 OpenMP detects the cores on the hosting hardware, rather than the VM on which your tests run.
 
-## MPI projects
+## MPI Projects
 
 The default environment variables `$CC` and `$CXX` are known to interfere with MPI projects.
 In this case, we recommend unsetting it:

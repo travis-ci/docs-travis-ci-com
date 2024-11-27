@@ -3,7 +3,7 @@ title: Enterprise Customer Worker Queues
 layout: en_enterprise
 ---
 
-Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images).
+Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images/).
 
 There are two [feature flags](#enable-queues-on-the-platform) required for custom queues. After setting these flags, you can define the configuration for your queues in the [Management Console settings](#define-custom-queues-in-the-management-console) and [allocate workers to the new queues](#define-custom-queues-settings-on-the-workers)
 
@@ -49,7 +49,7 @@ production:
 
 See the [example](#advanced-configuration-yaml-example) for details on syntax. Click 'Save' on the Management Console Settings when you are ready. Travis CI Enterprise will restart with your new queue settings.
 
-### Advanced Configuration YAML Example
+### Advanced Configuration YAML
 
 The syntax for the **Advanced Configuration YAML** field is very important. Incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
 

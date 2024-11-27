@@ -10,7 +10,7 @@ Welcome to Travis CI! This page provides some contexts and terminologies used
 throughout the platform and documentation, which might be helpful, if you are new
 here or new to Continuous Integration (CI).
 
-## What Is Continuous Integration (CI)?
+## What Is Continuous Integration?
 
 Continuous Integration is the practice of merging in small code changes
 frequently - rather than merging in a large change at the end of a development
@@ -22,7 +22,7 @@ process by automatically building and testing code changes, providing immediate
 feedback on the success of the change. Travis CI can also automate other parts
 of your development process by managing deployments and notifications.  
 
-## CI Builds and Automation: Building, Testing, Deploying
+## CI Builds and Automation: Build, Test, and Deploy
 
 When you run a build, Travis CI clones your GitHub repository into a brand-new
 virtual environment, and carries out a series of tasks to build and test your
@@ -36,7 +36,7 @@ you can have jobs depend on each other with [Build Stages](/user/build-stages/),
 set up [notifications](/user/notifications/), prepare
 [deployments](/user/deployment/) after builds and many other tasks.
 
-## Builds, Stages, Jobs and Phases
+## Builds, Stages, Jobs, and Phases
 
 In the Travis CI documentation, some common words have specific meanings:
 
@@ -52,7 +52,7 @@ In the Travis CI documentation, some common words have specific meanings:
   of a *job*. For example, the `install` phase, comes before the `script` phase,
   which comes before the optional `deploy` phase.
 
-## Breaking the Build
+## Broken Builds
 
 The build is considered *broken*, when one or more of its jobs complete with a
 state that is not *passed*:
@@ -77,5 +77,5 @@ the setup that suits your project best:
 
 More details on our build environments are available in our [CI Environment](/user/ci-environment/) documentation.
 
-Now that you've read the basics, head over to our [Tutorial](/user/tutorial/) for details on setting up your first
-build!
+Now that you've read the basics, head over to our [Onboarding](/user/onboarding/) guide for details on setting up your first
+build, or see some [Tutorials](/user/tutorials/tutorials-overview/) to get started.

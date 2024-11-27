@@ -1,20 +1,19 @@
 ---
-title: Building an Objective-C or Swift Project
+title: Build an Objective-C or Swift Project
 layout: en
 
 swiftypetags:
   - swift
 ---
 
-## What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
-Objective-C and Swift projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build
+Objective-C and Swift projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build
 configuration](/user/customizing-the-build/) guides first.
 
 > Objective-C/Swift builds are not available on the Linux environments.
 
-## Supported Xcode versions
+## Xcode Supported versions
 
 Travis CI uses macOS 10.13 (and Xcode 9.4.1) by default. You can use another
 version of Xcode (and macOS) by specifying the corresponding `osx_image` key from
@@ -35,7 +34,7 @@ the following table:
 > Detailed iOS SDK versions are available in the [macOS CI environment
 > reference](/user/reference/osx/#xcode-version)
 
-## Objective-C vs Swift
+## Objective-C vs. Swift
 
 Right now, `language: swift` is just an alias for `language: objective-c`. Said another way, we don't have native support for Swift projects at this time. Swift builds are just routed to our macOS image, the same as Objective-C builds.
 
@@ -65,16 +64,16 @@ key in your .travis.yml instead of `xcode_project`.
 > [xctool](https://github.com/facebook/xctool) by default rather
 > than xcodebuild and xcpretty.
 
-### Shared Schemes
+### Prepare a Share Scheme
 
-In order to your run tests on Travis CI, you also need to create a Shared
+To run tests on Travis CI, you also need to create a Shared
 Scheme for your application target, and ensure that all dependencies (such as
 CocoaPods) are added explicitly to the Scheme. To do so:
 
 1. Open up the **Manage Schemes** sheet by selecting the **Product → Schemes →
    Manage Schemes…** menu option.
 2. Locate the target you want to use for testing in the list. Ensure that the
-   **Shared** checkbox in the far right hand column of the sheet is checked.
+   **Shared** checkbox in the far right-hand column of the sheet is checked.
 3. If your target include cross-project dependencies such as CocoaPods, then
    you will need to ensure that they have been configured as explicit
    dependencies. To do so:
@@ -102,7 +101,7 @@ Device destinations are strings that identify a particular device to use. You ca
 them to xcodebuild by using the `-destination` flag. If you're using the default script
 in your Travis CI build, you can use the `xcode_destination` key in your .travis.yml:
 
-```
+```yaml
 xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
 ```
 {: data-file=".travis.yml"}
@@ -124,11 +123,11 @@ Some examples of valid device destinations include:
 - `platform=tvOS Simulator,OS=11.0,name=Apple TV 4K`
 
 It's important that your device destination uniquely identifies your device among those
-that Xcode knows about. Since Travis CI's build images have many different simulator
+that Xcode knows about. Since Travis CI's build images have many different simulators
 OS versions installed, you should specify the OS version in your device destination, as
 the name alone is not likely to uniquely identify a single simulator.
 
-You can learn more about device destinations in the xcodebuild man page. If you're on your
+You can learn more about device destinations on the xcodebuild man page. If you're on your
 Mac, you can [click here](x-man-page://xcodebuild) to view the xcodebuild man page in the
 Terminal app.
 
@@ -181,4 +180,4 @@ You can find more information on the build config format for [Objective-C](https
 
 ## Simulators
 
-A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx#xcode-version).
+A complete list of simulators available in each version of Xcode is shown on the [macOS environment page](/user/reference/osx/#xcode-version).

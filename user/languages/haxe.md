@@ -1,15 +1,14 @@
 ---
-title: Building a Haxe Project
+title: Build a Haxe Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 [Haxe](http://haxe.org/) projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -18,7 +17,7 @@ or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=haxe)
 and cc [@andyli](https://github.com/andyli), [@waneck](https://github.com/waneck), and [@Simn](https://github.com/Simn).
 
-## Choosing Haxe versions to test against
+## Test against Haxe versions
 
 Haxe workers on Travis CI download and install the binary of Haxe.
 To select one or more versions, use the `haxe:`

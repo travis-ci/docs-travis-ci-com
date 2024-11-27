@@ -7,7 +7,7 @@ A build matrix is made up by several multiple jobs that run in parallel.
 
 This can be useful in many cases, but the two primary reasons to use a build matrix are:
 
-* [Reducing the overall build execution time](/user/speeding-up-the-build)
+* [Reducing the overall build execution time](/user/speeding-up-the-build/)
 * Running tests against different versions of runtimes or dependencies
 
 The examples on this page focus on the latter use case.
@@ -42,7 +42,7 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-## Listing individual jobs
+## List individual jobs
 
 In addition, jobs can be specified by adding entries to the key `jobs.include`.
 
@@ -68,7 +68,7 @@ jobs:
 
 > You can also have a look at the [Language](https://config.travis-ci.com/ref/language) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
-## Excluding Jobs
+## Exclude Jobs
 
 The build matrix expansion sometimes produced unwanted combinations. In that
 case it can be convenient to exclude certain combinations using the key
@@ -139,7 +139,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Excluding jobs with `env` value
+### Exclude Jobs with the env value
 
 When excluding jobs with `env` values, the value must match
 _exactly_.
@@ -228,12 +228,12 @@ of Python.
 
 ### Explicitly included jobs inherit the first value in the array
 
-The jobs which are explicitly included inherit the first value of the expansion
+The jobs that are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `jobs.include`
 has the `python` value set to `'3.8'`.
-You can explicitly set the python version for a specific entry:
+You can explicitly set the Python version for a specific entry:
 
 ```yaml
 language: python
@@ -254,7 +254,7 @@ script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ### Explicitly included jobs with only one element in the build matrix
 
 As a special case, if your build matrix has only one element _and_ you have
-explicitly included jobs, matrix expansion is not done and the explicit jobs
+explicitly included jobs, matrix expansion is not done, and the explicit jobs
 _completely_ define your build. For example:
 
 ```yaml
@@ -268,7 +268,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-If you need a (sole) job from the matrix in such case, add a blank job entry with curly brackets to the build instruction 
+If you need a (sole) job from the matrix in such case, add a blank job entry with curly brackets to the build instruction
 (as that instruction would inherit all values from the matrix):
 
 ```yaml
@@ -286,7 +286,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-## Rows that are Allowed to Fail
+## Allow Rows to Fail
 
 You can define rows that are allowed to fail in the build matrix. Allowed
 failures are items in your build matrix that are allowed to fail without causing
@@ -303,14 +303,14 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-### Matching Jobs with `allow_failures`
+### Match Jobs with allow_failures
 
 When matching jobs against the definitions given in `allow_failures`, _all_
 conditions in `allow_failures` must be met exactly, and
 all the keys in `allow_failures` element must exist in the
 top level of the build matrix (i.e., not in `jobs.include`).
 
-#### `allow_failures` Examples
+#### Examples
 
 Consider
 
@@ -355,7 +355,7 @@ jobs:
 
 Without the top-level `env`, no job will be allowed to fail.
 
-## Fast Finishing
+## Use Fast Finish
 
 If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
@@ -369,7 +369,7 @@ jobs:
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
-## Using Different Programming Languages per Job
+## Use Different Programming Languages per Job
 You can also use the `jobs.include` feature to have different languages for each job in your build. For example,
 
 ```yaml
@@ -413,6 +413,7 @@ jobs:
     script: echo "Running job 1"
 
 ```
+{: data-file=".travis.yml"}
 
 This name will appear on the build matrix UI and can be convenient in order to
 quickly identify jobs in a large matrix.
@@ -421,7 +422,7 @@ Jobs generated through the Matrix Expansion feature cannot be named.
 
 ## Job Uniqueness and Duplicate Jobs
 
-Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation)
+Jobs need to be unique, and duplicate jobs are dropped during the [Build Config Validation](/user/build-config-validation/)
 process.
 
 For example, this config would result in only one job using the [YAML anchors and aliases](/user/build-config-yaml#private-keys-as-yaml-anchors-and-aliases-and-external-tooling):
@@ -434,8 +435,9 @@ jobs:
   - <<: *shared_job
   - <<: *shared_job
 ```
+{: data-file=".travis.yml"}
 
-In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g. a job name:
+In rare circumstances it can still be desirable to execute multiple jobs with the same config. In such cases, job uniqueness can be achieved by specifying any additional key, e.g., a job name:
 
 ```yaml
 _shared_job: &shared_job
@@ -447,3 +449,4 @@ jobs:
   - name: Job 2
     <<: *shared_job
 ```
+{: data-file=".travis.yml"}

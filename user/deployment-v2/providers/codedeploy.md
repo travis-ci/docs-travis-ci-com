@@ -57,7 +57,7 @@ of your application is inferred from the file extension of `key` set in your
 If your `.travis.yml` contains both, and they do not match, set `bundle_type`
 explicitly to the correct value.
 
-## Specifying the AWS region
+## Specify the AWS region
 
 You can explicitly specify the AWS region to deploy to with the `region` option:
 

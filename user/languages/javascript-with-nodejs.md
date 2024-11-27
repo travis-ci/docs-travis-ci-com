@@ -1,10 +1,9 @@
 ---
-title: Building a JavaScript and Node.js project
+title: Build a JavaScript and Node.js project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -29,10 +28,10 @@ language: node_js
 {{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to JavaScript and Node.js
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-## Specifying Node.js versions
+## Specify Node.js versions
 
 The easiest way to specify Node.js versions is to use one or more of the latest
 releases in your `.travis.yml`:
@@ -57,13 +56,13 @@ the Environment Reference pages:
 * [Trusty](/user/reference/trusty/#javascript-and-nodejs-images)
 
 If you need more specific control of Node.js versions in your build, use any
-version installable by `nvm`. If your `.travis.yml` contains a version of
+version that is installable by `nvm`. If your `.travis.yml` contains a version of
 Node.js that `nvm` cannot install, such as `0.4`, the job errors immediately.
 
 For a precise list of versions pre-installed on the VM, please consult "Build
 system information" in the build log.
 
-## Specifying Node.js versions using .nvmrc
+## Specify Node.js versions using .nvmrc
 
 Optionally, your repository can contain a `.nvmrc` file in the repository root
 to specify which *single* version of Node.js to run your tests against.
@@ -88,11 +87,11 @@ In the case where no `package.json` file is present in the root folder, the defa
 make test
 ```
 
-### Yarn is supported
+### Yarn Support
 
 If `yarn.lock` exists, the default test command will be `yarn test` instead of `npm test`.
 
-### Using other Test Suites
+### Use other Test Suites
 
 You can tell npm how to run your test suite by adding a line in `package.json`.
 For example, to test using Vows:
@@ -102,8 +101,9 @@ For example, to test using Vows:
   "test": "vows --spec"
 },
 ```
+{: data-file="package.json"}
 
-## Using Gulp
+## Use Gulp
 
 If you already use Gulp to manage your tests, install it and run the default
 `gulpfile.js` by adding the following lines to your `.travis.yml`:
@@ -121,9 +121,9 @@ Travis CI uses [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com) to insta
 
 > Note that there are no npm packages installed by default in the Travis CI environment.
 
-### Using `npm`
+### Use npm
 
-#### Using a specific `npm` version
+#### Use a specific npm version
 
 Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
@@ -133,7 +133,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### `npm ci` support
+### Support for npm ci
 
 If `package-lock.json` or `npm-shrinkwrap.json` exists and your npm version
 supports it, Travis CI will use `npm ci` instead of `npm install`.
@@ -141,7 +141,7 @@ supports it, Travis CI will use `npm ci` instead of `npm install`.
 This command will delete your `node_modules` folder and install all dependencies
 as specified in your lock file.
 
-#### Caching with `npm`
+#### Cache with npm
 
 `npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
 
@@ -149,6 +149,7 @@ as specified in your lock file.
 cache:
   npm: false
 ```
+{: data-file=".travis.yml"}
 
 To explicitly cache your dependencies:
 
@@ -166,9 +167,9 @@ any new packages added to your `package.json` file.
 
 Even when `script` is overridden, this shortcut is effective.
 
-### Using `yarn`
+### Use yarn
 
-Travis CI detects use of [yarn](https://yarnpkg.com/).
+Travis CI detects the use of [yarn](https://yarnpkg.com/).
 
 If both `package.json` and `yarn.lock` are present in the current
 directory, we run the following command _instead of_
@@ -185,7 +186,7 @@ If the job does not meet this requirement, `npm install` is used
 instead.
 
 
-#### Using a specific `yarn` version
+#### Use a specific yarn version
 
 Add the following to the [`before_install` phase](/user/job-lifecycle/) of `.travis.yml`:
 
@@ -196,7 +197,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-#### Caching with `yarn`
+#### Cache with yarn
 
 ```yaml
 cache: yarn
@@ -214,9 +215,9 @@ cache:
 ```
 {: data-file=".travis.yml"}
 
-For more information, refer to [Caching](/user/caching) documentation.
+For more information, refer to [Caching](/user/caching/) documentation.
 
-### Using shrinkwrapped git dependencies
+### Use shrinkwrapped git dependencies
 
 Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a
 branch has its HEAD changed.

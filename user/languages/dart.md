@@ -1,10 +1,9 @@
 ---
-title: Building a Dart Project
+title: Build a Dart Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,8 +25,8 @@ language: dart
 
 This guide covers build environment and configuration topics specific to
 [Dart](https://dart.dev/) projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -36,7 +35,7 @@ or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:dart)
 and cc [@athomas](https://github.com/athomas) and [@a14n](https://github.com/a14n).
 
-## Choosing Dart versions to test against
+## Test against Dart Versions
 
 Dart workers on Travis CI download and install the Dart SDK archives. See
 the [Dart Download Archive](https://www.dartlang.org/install) for the list of
@@ -63,7 +62,7 @@ dart:
 
 [build matrix]: /user/customizing-the-build/#build-matrix
 
-## Running Tests
+## Run Tests
 
 If your package depends on the [`test` package][test], `pub run test` will be
 run by default. This typically only runs tests on the Dart VM, but you can

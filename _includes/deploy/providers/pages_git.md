@@ -24,7 +24,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Pages is *stable**.
+Support for deployments to GitHub Pages is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `token` or `deploy_key` are required.
@@ -56,9 +56,9 @@ Use the following options to further configure the deployment. Either `token` or
 
 All options can be given as environment variables if prefixed with `GITHUB_` or `PAGES_`.
 
-For example, `token` can be given as 
+For example, `token` can be given as
 
-* `GITHUB_TOKEN=<token>` or 
+* `GITHUB_TOKEN=<token>` or
 * `PAGES_TOKEN=<token>`
 ## Interpolation variables
 

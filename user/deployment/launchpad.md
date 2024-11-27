@@ -1,5 +1,5 @@
 ---
-title: Launchpad deployment
+title: Launchpad Deployment
 layout: en
 deploy: v1
 
@@ -30,7 +30,7 @@ The `slug` contains user or team name, project name, and branch name, and is for
   <img alt="Launchpad slug" src="/images/launchpad-slug.png"/>
 </figure>
 
-### Encrypting your OAUTH tokens
+## Encrypt OAUTH tokens
 
 It is recommended that you encrypt both OAUTH tokens using the Travis CI command line client by removing them from your `travis.yml` above and running the following commands:
 

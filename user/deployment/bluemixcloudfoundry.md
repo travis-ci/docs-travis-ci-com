@@ -7,7 +7,7 @@ deploy: v1
 
 You now have the ability to deploy directly to [IBM Bluemix](http://bluemix.net/) after a successful build on Travis CI.
 
-## The Easy Way
+## Grab the code and Deploy
 
 Go grab [the Travis gem from GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
@@ -17,7 +17,7 @@ travis setup bluemixcloudfoundry
 
 You will need the following information about your Bluemix environment: username, password, organization, space, and region. Available Bluemix regions are US South (ng) London (eu-gb), and Sydney (au-syd). Travis offers to encrypt your password, and will take care of the rest. Learn more about [managing organizations and spaces](http://bluemix.net/docs/admin/orgs_spaces.html).
 
-## The Slightly Harder Way
+## Write the code and Deploy
 
 You can also directly edit your `.travis.yml`. Insert the following to get up and running:
 

@@ -1,11 +1,10 @@
 ---
-title: Building a MATLAB Project
+title: Build a MATLAB Project
 layout: en
 
 ---
 
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -28,14 +27,14 @@ language: matlab
 
 This guide covers build environment and configuration topics specific to
 [MATLAB&reg;](https://www.mathworks.com/products/matlab.html) and [Simulink&reg;](https://www.mathworks.com/products/simulink.html) projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 {: .warning}
 > Currently, MATLAB builds are available only for public projects in Linux&reg; environments.
 
 
-### Community-Supported Language
+## Community-Supported Language
 
 The MATLAB language is maintained by MathWorks&reg;. If you have any questions or suggestions, please contact MathWorks at [continuous-integration@mathworks.com](mailto:continuous-integration@mathworks.com).
 
@@ -93,7 +92,7 @@ script: matlab -batch 'myscript'
 MATLAB exits with exit code 0 if the specified script, function, or statement executes successfully without error. Otherwise, MATLAB terminates with a nonzero exit code, which causes the build to fail. You can use the [`assert`](https://www.mathworks.com/help/matlab/ref/assert.html) or [`error`](https://www.mathworks.com/help/matlab/ref/error.html) functions in your code to ensure that builds fail when necessary.
 
 
-## See Also
+## Further Reading
 [Continuous Integration with MATLAB and Simulink](https://www.mathworks.com/solutions/continuous-integration.html)<br/>
 [Continuous Integration (MATLAB)](https://www.mathworks.com/help/matlab/continuous-integration.html)<br/>
 [Continuous Integration (Simulink Test)](https://www.mathworks.com/help/sltest/continuous-integration.html)

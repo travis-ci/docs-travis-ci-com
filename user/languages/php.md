@@ -1,10 +1,9 @@
 ---
-title: Building a PHP project
+title: Build a PHP project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,12 +25,12 @@ language: php
 {{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to PHP
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 PHP builds are not available on the macOS environment.
 
-## Choosing PHP versions to test against
+## Test against PHP versions
 
 Travis CI provides several PHP versions, all of which include XDebug and
 PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the
@@ -63,37 +62,39 @@ php:
 {: data-file=".travis.yml"}
 
 {% if site.data.language-details.php-versions.size > 0 %}
-### Supported PHP versions
+
+### PHP Supported versions
 
 The list of PHP versions available for on-demand installation can be found in
 [the table below](#php-versions).
 
 {% else %}
-### PHP 5.2(.x) - 5.3(.x) support is available on Precise only
 
-We do not support these versions on Trusty or Xenial or Bionic.
+### Support for PHP version 5.2(.x) and 5.3(.x) are available on Precise only
+
+We do not support these versions on Trusty, Xenial, or Bionic.
 If you need to test them, please use Precise.
-See [this page](/user/reference/trusty#php-images) for more information.
+See [this page](/user/reference/trusty/#php-images) for more information.
 
-### PHP 5.4(.x) - 5.5(.x) support is available on Precise and Trusty only
+### Support for PHP versions 5.4(.x) - 5.5(.x) are available on Precise and Trusty 
 
 We do not support these versions on Xenial or Bionic.
 If you need to test them, please use Precise or Trusty.
-See [this page](/user/reference/xenial#php-images) for more information.
+See [this page](/user/reference/xenial/#php-images) for more information.
 
-### PHP 5.6(.x) - 7.0(.x) support is available on Precise, Trusty and Xenial only
+### Support for PHP versions 5.6(.x) - 7.0(.x) are available on Precise, Trusty, and Xenial 
 
 We do not support these versions on Bionic.
-If you need to test them, please use Precise or Trusty or Xenial.
-See [this page](/user/reference/bionic#php-support) for more information.
+If you need to test them, please use Precise, Trusty, or Xenial.
+See [this page](/user/reference/bionic/#php-support) for more information.
 
-### PHP 7.4(.x) onwards support is available on Trusty, Xenial and Bionic only
+### Support for PHP versions 7.4(.x) and onwards are available on Trusty, Xenial, and Bionic 
 
 We do not support these versions on Precise.
 If you need to test them, please use Trusty, Xenial, or Bionic.
 {% endif %}
 
-### HHVM versions are available on Trusty only
+### Test HHVM versions with Trusty
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
@@ -144,7 +145,7 @@ and uses the first one found.
 
 If your project uses something other than PHPUnit, you can [override the default build script](/user/customizing-the-build/).
 
-### Working with atoum
+### Work with atoum
 
 Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
@@ -175,7 +176,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-### Testing Against Multiple Versions of Dependencies
+### Test against Multiple Versions of Dependencies
 
 If you need to test against multiple versions of, say, Symfony, you can instruct
 Travis CI to do multiple runs with different sets or values of environment
@@ -201,7 +202,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-Here we use DB variable value to pick phpunit configuration file:
+Here, we use DB variable value to pick phpunit configuration file:
 
 ```yaml
     script: phpunit --configuration $DB.phpunit.xml
@@ -210,13 +211,13 @@ Here we use DB variable value to pick phpunit configuration file:
 
 The same technique is often used to test projects against multiple databases and so on.
 
-To see real world examples, see:
+To see real-world examples, see:
 
 - [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
 - [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
 - [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
-### Installing Composer packages
+### Install Composer packages
 
 <div class="note-box">
 <p>
@@ -241,7 +242,7 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://travis-ci.com/blog/upcoming_ubuntu_11_10_migration/).
 - Different SAPIs:
 
   - 5.3.3 comes with php-cgi only.
@@ -267,6 +268,7 @@ date.timezone = "Europe/Paris"
 default_socket_timeout = 120
 # some other configuration directives...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command in your `.travis.yml`:
 
@@ -275,7 +277,7 @@ before_script: echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(php
 ```
 {: data-file=".travis.yml"}
 
-## Enabling preinstalled PHP extensions
+## Enable preinstalled PHP extensions
 
 You need to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version).
 The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
@@ -294,6 +296,7 @@ extension="mongo.so"
 # some other mongo specific configuration directives
 # or general custom PHP settings...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command:
 
@@ -302,7 +305,7 @@ before_install: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv
 ```
 {: data-file=".travis.yml"}
 
-## Disabling preinstalled PHP extensions
+## Disable preinstalled PHP extensions
 
 To disable xdebug, add this to your configuration:
 
@@ -312,7 +315,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-## Installing additional PHP extensions
+## Install additional PHP extensions
 
 It is possible to install custom PHP extensions into the Travis CI environment
 using [PECL](http://pecl.php.net/), but they have to be built against the PHP
@@ -345,15 +348,14 @@ install specific version with the `-f` flag. For example:
 pecl install -f mongo-1.2.12
 ```
 
-### Note on `pecl install`
+### Note on pecl install
 
 Note that `pecl install` can fail if the requested version of the package is already installed.
 
 
-
 ### Apache + PHP
 
-Currently Travis CI does not support `mod_php` for apache, but you can configure
+Currently, Travis CI does not support `mod_php` for apache, but you can configure
 `php-fpm` for your integration tests:
 
 ```yaml
@@ -406,6 +408,7 @@ virtual host as usual, the important part for php-fpm is this:
   # [...]
 </VirtualHost>
 ```
+{: data-file="travis-ci-apache"}
 
 ## Build Config Reference
 
@@ -416,6 +419,7 @@ You can find more information on the build config format for [PHP](https://confi
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
 
 {% if site.data.language-details.php-versions.size > 0 %}
+
 ## PHP versions
 These archives are available for on-demand installation.
 

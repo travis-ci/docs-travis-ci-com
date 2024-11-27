@@ -1,15 +1,14 @@
 ---
-title: Building an Elm Project
+title: Build an Elm Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to
 [Elm](https://elm-lang.org/) projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 <aside markdown="block" class="ataglance">
 
@@ -35,7 +34,7 @@ Travis CI support for Elm is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI Community Forum](https://travis-ci.community/c/languages/elm).
 
-## Choosing Elm versions to test against
+## Test against Elm versions
 
 You can specify the Elm language versions to test your project against with the
 `elm` key.
@@ -51,7 +50,7 @@ elm:
 ```
 {: data-file=".travis.yml"}
 
-### Support tools `elm-test` and `elm-format`
+### Elm Support tools
 
 Elm jobs will also install `elm-test` and `elm-format`.
 By default, these tools correspond to the `elm` version specified, with the
@@ -73,7 +72,7 @@ or a tag (e.g., `elm0.19.0`).
 `elm-test` and `elm-format` default to tags with `elm` prefix, derived from the
 `elm` value.
 
-### Choosing Node.js version to test against
+### Test against Node.js versions
 
 Elm projects may also specify Node.js version, as done for
 [Node.js](/user/languages/javascript-with-nodejs/) projects.
