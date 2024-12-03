@@ -9,7 +9,7 @@ layout: en_enterprise
 > The tool is only accessible via a web browser.
 
 ## Log out users Forcefully from Travis
-To increase security and prevent unauthorized access, Travis CI introduces the new **“Log out user and revoke all tokens”** option, which allows admin users to manually log out of any unwanted user. 
+To increase security and prevent unauthorized access, Travis CI introduces the new **“Log out user and revoke all tokens”** option, which allows admin users to log out of any unwanted user manually. 
 
 ### Log out Users
 Travis CI admin users can now click the **“Logout”** button next to the **“Log out user and revoke all tokens”** option in the User view to log out specific users manually.
@@ -24,7 +24,7 @@ Consider the following: The user gets suspended, e.g., in the GHE server (3rd-pa
 
 Such a situation may be valid and desired. However, there are cases, like a person leaving a company or team, when it is simply a security matter to revoke all accesses for such users. Travis CI cannot react automatically since no automated notification has been sent out, e.g., the GHE server account is suspended. If you are considering a less drastic approach, consider manually [suspending a user](/user/enterprise/user-management/) instead of logging out and revoking all tokens. 
 
-Suspended users still have access to Travis CI via browser or travis-cli (assuming they have valid Travis access tokens present in these tools) but cannot trigger builds.
+Suspended users still have access to Travis CI via browser or travis-cli (assuming they have valid Travis access tokens in these tools) but cannot trigger builds.
 
 ### Auth tokens
 
