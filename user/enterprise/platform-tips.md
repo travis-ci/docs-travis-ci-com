@@ -9,39 +9,29 @@ and tools.
 
 **TCIE 3.x**: Please use `kubectl` *on your local machine* to access your Platform pods
 
-**TCIE 2.x**: Please connect to your Platform machine via SSH before getting
-started.
-
 ## Inspect Logs and Run Services
 
 The following section describes how to inspect logs on different platforms and how to run the services. 
 
-### Platform logs
+### Platform logs in TCIE 3.x
 
-#### Logs in TCIE 3.x
-
-In TCIE 3.x each service is deployed in separate pod. The service logs are
+In TCIE 3.x, each service is deployed in a separate pod. The service logs are
 not stored within a pod and are delivered to stdout.
 
-In order to obtain live logs from specific running pod, one can run *on your local machine*
+In order to obtain live logs from a specific running pod, one can run *on your local machine*
 
 `kubectl logs [pod-name]`
 
-> We strongly recommend to set up an instance grabbing live logs from pods stdout and storing them in logging storage of your choice. These stored logs can be useful when diagnosing or troubleshooting situations for pods which were killed and/or re-deployed. The size of the logs depends strictly on your usage, thus please adjust to your needs. As a rule of thumb, a 4-weeks of log storage would be recommended.
+> We strongly recommend setting up an instance of grabbing live logs from pods stdout and storing them in the logging storage of your choice. These stored logs can be useful when diagnosing or troubleshooting situations for pods that were killed and/or re-deployed. The size of the logs depends strictly on your usage, thus please adjust to your needs. As a rule of thumb, a 4-weeks of log storage would be recommended.
 
-
-#### Logs in TCIE 2.x
-
-On the Platform you can find the main log file at
-`/var/travis/log/travis.log`. They are also symlinked to
-`/var/log/travis.log` for convenience.
 
 ### Worker logs
 
 This section describes how to obtain worker logs with Ubuntu as the host operating system. 
+
 #### With Ubuntu 16.04 and higher 
 
-On the Worker you can obtain the worker logs by running:
+On the Worker, you can obtain the worker logs by running:
 
 ```sh
 $ sudo journalctl -u travis-worker
@@ -49,7 +39,7 @@ $ sudo journalctl -u travis-worker
 
 #### With Ubuntu 14.04 
 
-On the Worker you can find the main log file at
+On the Worker, you can find the main log file at
 `/var/log/upstart/travis-worker.log`
 
 ## Access Travis Container and Console on the Platform
@@ -57,18 +47,10 @@ On the Worker you can find the main log file at
 ### Console access in TCIE 3.x
 
 For TCIE 3.x, you gain access to individual pods through the `kubectl` command (The equivalent to `travis bash` in Enterprise 2.x versions)
-In order to run console commands, run console in `travis-api-pod` :
+In order to run console commands, run console in `travis-api-pod`:
 
 `kubectl exec -it [travis-api-pod] /app/script/console`
 
-
-### Container and Console access in TCIE 2.x 
-
-`travis bash`: This will get you into the running container on the
-Platform.
-
-`travis console`: This will get you into a Ruby IRB session on the
-Platform.
 
 ## Cancel or Reset Stuck Jobs
 
