@@ -8,7 +8,7 @@ This document describes the steps necessary for database migration from an exist
 
 ## Overview
 
-The TCIE 3.x runs over Postgresql v11 and features a bit different database schema, synchronized with Travis CI Hosted solution. Since TCIE 3.x is deployed as Kubernetes cluster, PostgreSQL is now one of the pods (TCIE 2.x had every dependency embedded in one large Docker image).
+The TCIE 3.x runs over Postgresql v11 and features a slightly different database schema, synchronized with the Travis CI Hosted solution. Since TCIE 3.x is deployed as a Kubernetes cluster, PostgreSQL is now one of the pods (TCIE 2.x had every dependency embedded in one large Docker image).
 
 The main schema differences are:
 * In TCIE 3 databases for *logs* and *main* are now separated.
@@ -16,27 +16,27 @@ The main schema differences are:
 
 ## Migration Preparation
 
-1. First, but optional step is removing unnecessary data to make your dump lighter. You can do it using [travis-backup gem](https://rubygems.org/gems/travis-backup). We recommend running the following commands after installing the gem:
+1. The first but optional step is removing unnecessary data to make your dump lighter. You can do it using [travis-backup gem](https://rubygems.org/gems/travis-backup). We recommend running the following commands after installing the gem:
     - to remove orphaned data: `travis_backup 'postgres://your_db_url' --remove_orphans`
     - to remove requests, builds, jobs, and logs older than 6 months: `travis_backup 'postgres://your_db_url' --threshold 6`
-2. You will need to dump existing TCIE 2.x (single docker image) PostgreSQL database into two files:
-   1. main database which should be a copy of current existing DB from Travis CI Enterprise 2.2.x (TCI E 2.2.x - one docker solution)
-   2. logs database which should contain only two tables: logs and log_parts from the main database
+2. You will need to dump the existing TCIE 2.x (single docker image) PostgreSQL database into two files:
+   1. main database, which should be a copy of the current existing DB from Travis CI Enterprise 2.2.x (TCI E 2.2.x - one docker solution)
+   2. logs database, which should contain only two tables: logs and log_parts from the main database
 3. For both aforementioned databases you need to have following credentials which will be used during Travis CI Enterprise 3.0.x (TCI E 3.0.x - k8s solution) installation process:
     - DB name
     - DB user
     - DB password
     - DB host
     - DB port
-4. You will need encryption key which can be found in current TCI E 2.2.x installation:
+4. You will need an encryption key, which can be found in the current TCI E 2.2.x installation:
     - ssh to platform
     - call: 
     ```bash
     travis bash call: cat /usr/local/travis/etc/travis/config/travis.yml | grep -A 1 "encryption:"
     ```
-    - note it down on a piece of paper or at different computer
+    - note it down on a piece of paper or a different computer
 
-> Before migrating the DB, we **strongly recommend** to store a DB snapshot or make additional copy of DB dump.
+> Before migrating the DB, we **strongly recommend** storing a DB snapshot or making an additional copy of the DB dump.
 
 ## Migration Example
 
@@ -68,7 +68,7 @@ scp yourusername@travis-host.yourdomain.com:/TCI_E_2_0_db_schema_dump_logs_table
 
 As a result, you should have both database files available for further processing.
 
-> This is the last moment you can make a backup of the dump files!
+> This is the last moment you can back up the dump files!
 
 ### Alter the Database Dumps
 
@@ -80,9 +80,9 @@ sed -i '' 's/OWNER TO travis/OWNER TO postgres/g' TCI_E_2_0_db_schema_dump_main_
 ```
 
 **PLEASE NOTE**: 
-1. Please reconfirm existing database owner name directly via PSQL query or command line tool. If required, unify/change it to a single user using psql tooling/queries before any further operation is executed.
-1. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to continue so: you do not have to perform above step. Just use the database owner credentials from Travis CI Enterprise 2.2 in Travis Ci Enterprsie 3.x configuration.
-2. If you use external database (not from the Travis CI Enterprise 2.2 release) and wish to cease to do so and use database delivered as a pod in Travis CI Enterprsie 3.3, in above bash commands change following fragments
+1. Please reconfirm the existing database owner name directly via PSQL query or command line tool. If required, unify/change it to a single user using psql tooling/queries before any further operation is executed.
+1. If you use an external database (not from the Travis CI Enterprise 2.2 release) and wish to continue so you do not have to perform the above step. Just use the database owner credentials from Travis CI Enterprise 2.2 in Travis CI Enterprise 3.x configuration.
+2. If you use an external database (not from the Travis CI Enterprise 2.2 release) and wish to cease to do so and use a database delivered as a pod in Travis CI Enterprise 3.3, in the above bash commands, change the following fragments
 
 `Owner: travis` to `Owner: {your external tcie 2.2 database owner}`
 
@@ -96,7 +96,7 @@ Make your dump files available under any `http` address visible for your target 
 
 ### Install TCIE 3.x Providing the Dumps and Key
 
-Make sure you have provided the encryption key from existing TCIE 2.x installation in the TCIE 3.x GUI:
+Make sure you have provided the encryption key from the existing TCIE 2.x installation in the TCIE 3.x GUI:
 
 ![TCIE 3.X Install GUI: Encryption key input](/images/tcie-3.x-input-for-encryption-key.png)
 
@@ -111,11 +111,11 @@ SQL Schema from 2.2 -> set to yes ->
 Once the installer completes the work, your database should be successfully migrated.
 
 > Important!
-Due to the fact that TCIE 3.x uses original configs `raw_configs` (as in `.travis.yml`) and there is no way to restore such `raw_configs` from the old normalized versions from  `[request|build|job]_configs` - these will be not migrated. The drawback is that no historical configs are available in the travis-web app for the end user.
+Because TCIE 3.x uses original configs `raw_configs` (as in `.travis.yml`) and there is no way to restore such `raw_configs` from the old normalized versions from  `[request|build|job]_configs` - these will be not migrated. The drawback is that no historical configs are available for the end user in the travis-web app.
 
 ## Summary
-- main DB from TCI E 2.X is split into two databases in TCIE 3.x: *main* and *logs*
-- old configs from logs, builds, requests (column: `config`) are not migrated into new tables `[request|build|job]_configs`
-- old not used config columns from `[requests|builds|jobs]` are dropped
-- new tables are created for configs for future build runs: `[request|build|job]_configs`
-- new table for raw config is created for future build runs `request_raw_configs`
+- main DB from TCI E 2.X is split into two databases in TCIE 3.x: *main* and *logs*.
+- old configs from logs, builds, and requests (column: `config`) are not migrated into new tables `[request|build|job]_configs`.
+- old not used config columns from `[requests|builds|jobs]` are dropped.
+- new tables are created for configs for future build runs: `[request|build|job]_configs`.
+- new table for raw config is created for future build runs `request_raw_configs`.
