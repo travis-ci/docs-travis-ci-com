@@ -12,7 +12,7 @@ This feature allows Travis CI administrators to execute permission limits on use
 
 ## Enable User Role Management
 
-From the Travis CI Enterprise admin console, open the `Config` menu, expand the `Advanced Settings` menu on the left and click on the `Users Roles Management`.
+From the Travis CI Enterprise admin console, open the `Config` menu, expand the `Advanced Settings` menu on the left, and click on the `Users Roles Management`.
 
 ![Member Management menu](/images/enterprise-user-management-menu.png)
 
@@ -113,7 +113,7 @@ The process for the new permission system is as follows:
 5. The new roles and permissions service creates or updates the new roles and permissions.  
 
 
-> **Note**: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are registered.  
+> **Note**: If errors occur, unprocessed requests are queued to retry sync with VCS, and error logs are recorded.  
 
 > **Note**: Suspending or unsuspending a user’s repository access removes the user’s build-triggering access and assigns the respective Repository Reader role.
 
