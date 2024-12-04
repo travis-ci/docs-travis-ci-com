@@ -69,19 +69,17 @@ Then, please run:
 
 ## Clear Redis Archive Queue (V2.1.7 and prior)
 
-In releases of Enterprise before 2.1.7, jobs where enqueued in the archive queue
+In Enterprise releases before 2.1.7, jobs were enqueued in the archive queue
 for log aggregation. Currently, this feature is available only for the hosted
 versions of Travis CI.
 
-This results in the queue growing bigger and bigger, but not getting worked
-off. Because of that, Redis' memory consumption increases over the time and can
+This results in the queue growing bigger and bigger but not getting worked
+off. Because of that, Redis' memory consumption increases over time and can
 lead to decreased performance of the whole platform. The solution is to clear the `archive` queue to free system resources.
 
-To clear it, please execute the following commands:
+To clear it, please execute the following command:
 
 **TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
-
-**TCIE 2.x**: `$ travis console` *on Platform host*
 
 Then, please run:
 
@@ -107,8 +105,6 @@ The RabbitMQ management UI is available under `https://[platform-hostname]/amqp_
 In the past, there have been reported cases where the system became unresponsive. It took quite a while until jobs were worked off, or they weren't picked up at all. We found out that full Sidekiq queues often played a part in this. To get some insight, it helps to retrieve some basic statistics in the Ruby console:
 
 **TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
-
-**TCIE 2.x**: `$ travis console` *on Platform host*
 
 Then, please run:
 
@@ -147,69 +143,12 @@ On the worker machine, you need to run this command to remove travis-worker and 
 $ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
 ```
 
-
-## Uninstall Travis CI Enterprise 2.x
-
-If you wish to uninstall Travis CI Enterprise 2.x from your platform and worker
-machines, please follow the instructions below. On the platform machine, you
-need to run the following commands in order. <small>(Instructions copied over
-from <a href="https://help.replicated.com/docs/native/customer-installations/installing-via-script/">Replicated</a>)</small>
-
-### With Ubuntu 16.04 as host operating system
-
-```sh
-sudo systemctl stop replicated
-sudo systemctl stop replicated-ui
-sudo systemctl stop replicated-operator
-sudo docker ps | grep "replicated" | awk '{print $1}' | xargs sudo docker stop
-sudo docker ps | grep "quay.io-travisci-te-main" | awk '{print $1}' | xargs sudo docker stop
-sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
-sudo docker images | grep "replicated" | awk '{print $3}' | xargs sudo docker rmi -f
-sudo docker images | grep "te-main" | awk '{print $3}' | xargs sudo docker rmi -f
-sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
-```
-
-On the worker machine, you need to run this command to remove travis-worker and all build images:
-
-```sh
-$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
-```
-
-### With Ubuntu 14.04 as host operating system
-
-```sh
-sudo service replicated stop
-sudo service replicated-ui stop
-sudo service replicated-operator stop
-sudo docker stop replicated-premkit
-sudo docker stop replicated-statsd
-sudo docker rm -f replicated replicated-ui replicated-operator replicated-premkit replicated-statsd
-sudo docker images | grep "quay\.io/replicated" | awk '{print $3}' | xargs sudo docker rmi -f
-sudo apt-get remove -y replicated replicated-ui replicated-operator
-sudo apt-get purge -y replicated replicated-ui replicated-operator
-sudo rm -rf /var/lib/replicated* /etc/replicated* /etc/init/replicated* /etc/init.d/replicated* /etc/default/replicated* /var/log/upstart/replicated* /etc/systemd/system/replicated*
-```
-
-On the worker machine, you need to run this command to remove travis-worker:
-
-```
-$ sudo apt-get autoremove travis-worker
-```
-
-Additionally, please use the following command to clean up all Docker build images:
-
-```
-$ sudo docker images | grep travis | awk '{print $3}' | xargs sudo docker rmi -f
-```
-
 ## Discover the Maximum Available Concurrency
 
 To find out how much concurrency is available in your Travis CI Enterprise setup:
 
 
 **TCIE 3.x**: `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash` *on your local machine*
-
-**TCIE 2.x**: connect to your platform machine via SSH and run `$ travis bash`
 
 Then, please run:
 
@@ -225,8 +164,6 @@ If you wish to find out how many worker machines are currently connected, please
 
 **TCIE 3.x**: `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash`
 
-**TCIE 2.x**: connect to your platform machine via SSH and run: `$ travis bash`
-
 Then, please run:
 
 ```
@@ -237,7 +174,7 @@ If you need to boot more worker machines, please see our docs about [installing 
 
 ## Integrate Travis CI Enterprise into your Monitoring
 
-To check if your Travis CI Enterprise 2.x/3.x installation is up and running, query the `/api/uptime` endpoint of your instance.
+To check if your Travis CI Enterprise 3.x installation is up and running, query the `/api/uptime` endpoint of your instance.
 
 ```
 $ curl -H "Authorization: token XXXXX" https://<your-travis-ci-enterprise-domain>/api/uptime
@@ -248,16 +185,16 @@ If everything is up and running, it answers with a `HTTP 200 OK`, or in case of 
 
 ## Configure Backups
 
-This section explains how you integrate Travis CI Enterprise in your backup strategy. Here, we'll talk about two topics:
+This section explains how you integrate Travis CI Enterprise into your backup strategy. Here, we'll talk about two topics:
 
 - [The encryption key](#encryption-key)
 - [The data directories](#create-a-backup-of-the-data-directories)
 
 ### Encryption key
 
-Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+Without the encryption key, you cannot access the information in your production database. To ensure you can always recover your database, make a backup of this key.
 
-> Without the encryption key the information in the database is not recoverable.
+> Without the encryption key, the information in the database is not recoverable.
 
 {{ site.data.snippets.enterprise_3_encryption_key_backup }}
 
@@ -265,9 +202,7 @@ Without the encryption key you cannot access the information in your production 
 
 ### Create a backup of the data directories
 
-#### Data backup in TCIE 3.x
-
-Unless you are running self-hosted instances of PostgreSQL, RabbitMQ and Redis, the respective data is held in pods hosting these services.
+Unless you run self-hosted PostgreSQL, RabbitMQ, and Redis instances, the respective data is held in pods hosting these services.
 
 In order to back up the Postgres database, you need the database credentials and connection string. On the TCIE 3.x Platform pod, please run:
 
@@ -308,62 +243,37 @@ kubectl cp [travis-api-pod]:/[location of [Logs DB].sql] [local_file]
 
 > In case you would like to run pg_dump straight from the DB pod: Database pods in TCIE 3.x cluster in non-HA deployment should be named `travisci-platform-platform-postgresql-0` and `travisci-platform-logs-postgresql-0`
 
-Also, you need to connect to the **Redis** and **RabbitMQ** pods, perform data dumps and copy them out of the cluster in a similar way, using tools available for these services. See the respective parts of [Redis documentation](https://redis.io/documentation) and [RabbitMQ Backup & Restore guide](https://www.rabbitmq.com/backup.html) for exact instructions on how to snapshot/backup current state of data.
+Also, you need to connect to the **Redis** and **RabbitMQ** pods, perform data dumps, and copy them out of the cluster in a similar way, using tools available for these services. See the respective parts of [Redis documentation](https://redis.io/documentation) and [RabbitMQ Backup & Restore guide](https://www.rabbitmq.com/backup.html) for exact instructions on how to snapshot/backup the current state of data.
 
-
-#### Data backup in TCIE 2.x
-The data directories are located on the platform machine and are mounted into the Travis CI container. In these directories you'll find files from RabbitMQ, Postgres, Slanger, Redis, and also log files from the various applications inside the container.
-
-The files are located at `/var/travis` on the platform machine. Please run `sudo tar -czvf travis-enterprise-data-backup.tar.gz /var/travis` to create a compressed archive from this folder. After this has finished, copy this file off the machine to a secure location.
 
 ## Migrate from GitHub Services to Webhooks
 
-Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019 [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
+Travis CI Enterprise initially used GitHub Services to connect your repositories with GitHub.com (or GitHub Enterprise). As of January 31st, 2019, [services have been disabled on github.com](https://developer.github.com/changes/2019-01-29-life-after-github-services/). Services will also be disabled on GitHub Enterprise starting with GitHub Enterprise v2.17.0.
 
 Starting with [Travis CI Enterprise v2.2.5](https://enterprise-changelog.travis-ci.com/release-2-2-5-77988), all repositories that are activated use [webhooks](https://developer.github.com/webhooks/) to connect and manage communication with GitHub.com/GitHub Enterprise.
 
-> Repositories that were activated prior to Travis CI Enterprise v2.2.5 may need to be updated.
+> Repositories activated before Travis CI Enterprise v2.2.5 may need to be updated.
 
-Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update repositories that are using the deprecated GitHub services instead of webhooks.
+Starting with Travis CI Enterprise v2.2.8, a migration tool to automatically update repositories is available. The migration tool will update repositories using the deprecated GitHub services instead of webhooks.
 
 To perform an automatic migration, please follow these steps:
-
-1. **TCIE 2.x only**: Open an SSH connection to the platform machine.
-2. Run the following command:
-
-**TCIE 3.x**:
 
 ```bash
 kubectl exec -it [travis-api-pod] bash
 root@[travis-api-pod]:/# bundle exec /app/bin/migrate_hooks <optional-year>
 ```
 
-**TCIE 2.x**:
-```
-travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks <optional-year>"
-```
+This will search for all active repositories still using GitHub Services and migrate them to webhooks instead.
 
-
-This will search for all active repositories that are still using GitHub Services and migrate them to use webhooks instead.
-
-You can provide a year argument (e.g. `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year.
+You can provide a year argument (e.g., `2017`) in the above command to only migrate repositories activated on Travis CI Enterprise during that year.
 
 If you have a large number of repositories activated on your Travis CI Enterprise installation, please run the migration several times, breaking it down per year. For example:
-
-**TCIE 3.x**:
 
 ```bash
 kubectl exec -it [travis-api-pod] bash
 root@[travis-api-pod]:/# bundle exec /app/bin/migrate_hooks 2019
 root@[travis-api-pod]:/# bundle exec /app/bin/migrate_hooks 2018
 root@[travis-api-pod]:/# bundle exec /app/bin/migrate_hooks 2017
-```
-
-**TCIE 2.x**:
-```
-travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2019"
-travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2018"
-travis bash -c ". /etc/profile; cd /usr/local/travis-api && ENV=production bundle exec ./bin/migrate-hooks 2017"
 ```
 
 You should not experience any behavior change with your repositories after the migration is complete.
