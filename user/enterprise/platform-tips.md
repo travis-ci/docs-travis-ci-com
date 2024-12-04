@@ -24,7 +24,6 @@ In order to obtain live logs from a specific running pod, one can run *on your l
 
 > We strongly recommend setting up an instance of grabbing live logs from pods stdout and storing them in the logging storage of your choice. These stored logs can be useful when diagnosing or troubleshooting situations for pods that were killed and/or re-deployed. The size of the logs depends strictly on your usage, thus please adjust to your needs. As a rule of thumb, a 4-weeks of log storage would be recommended.
 
-
 ### Worker logs
 
 This section describes how to obtain worker logs with Ubuntu as the host operating system. 
@@ -47,10 +46,9 @@ On the Worker, you can find the main log file at
 ### Console access in TCIE 3.x
 
 For TCIE 3.x, you gain access to individual pods through the `kubectl` command (The equivalent to `travis bash` in Enterprise 2.x versions)
-In order to run console commands, run console in `travis-api-pod`:
+In order to run console commands, run the console in `travis-api-pod`:
 
 `kubectl exec -it [travis-api-pod] /app/script/console`
-
 
 ## Cancel or Reset Stuck Jobs
 
@@ -58,8 +56,6 @@ Occasionally, jobs can get stuck in a `queued` state on the worker. To cancel or
 reset a large number of jobs, please execute the following steps:
 
 **TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
-
-**TCIE 2.x**: `$ travis console` *on Platform host*
 
 Then, please run:
 
@@ -96,8 +92,8 @@ Then, please run:
 
 ## Manage RabbitMQ in TCIE 3.x
 
-RabbitMQ is now deployed in separate pod named `travisci-platform-rabbitmq-ha-0` and all Rabbit-related maintenance should be done there.
-In order to access RabbitMQ pod execute 
+RabbitMQ is now deployed in a separate pod named `travisci-platform-rabbitmq-ha-0`, and all Rabbit-related maintenance should be done there.
+In order to access the RabbitMQ pod, execute 
 
 `kubectl exec -it travisci-platform-rabbitmq-ha-0 bash`
 
@@ -105,37 +101,10 @@ and perform any necessary actions.
 
 The RabbitMQ management UI is available under `https://[platform-hostname]/amqp_ui`.
 
-## Reset the RabbitMQ Certificate in TCIE 2.x
-
-After an upgrade of Replicated 2.8.0 to a newer version, occasionally the service
-restarts with the following error:
-
-```
-$ docker inspect --format '{% raw  %}{{.State.Error}}{% endraw  %}' focused_yalow
-oci runtime error: container_linux.go:247: starting container process
-caused "process_linux.go:359: container init caused
-\"rootfs_linux.go:54: mounting
-\\\"/var/lib/replicated-operator/44c648980d1e4b1c5a97167046f32f11/etc/travis/ssl/rabbitmq.cert\\\"
-to rootfs
-\\\"/var/lib/docker/aufs/mnt/a00833d25e72b761e2a0e72b1015dd2b2f3a32cafd2851ba408b298f73b37d37\\\"
-at
-\\\"/var/lib/docker/aufs/mnt/a00833d25e72b761e2a0e72b1015dd2b2f3a32cafd2851ba408b298f73b37d37/etc/travis/ssl/rabbitmq.cert\\\"
-caused \\\"not a directory\\\"\""
-: Are you trying to mount a directory onto a file (or vice-versa)? Check
-if the specified host path exists and is the expected type
-```
-
-To address this, remove the RabbitMQ cert from `/etc/travis/ssl/`:
-
-```
-$ sudo rm -r /etc/travis/ssl/rabbitmq.cert
-```
-After this, do a full reboot of the system and everything should start again properly.
-
 
 ## View Sidekiq Queue Statistics
 
-In the past there have been reported cases where the system became unresponsive. It took quite a while until jobs where worked off or they weren't picked up at all. We found out that often full Sidekiq queues played a part in this. To get some insight, it helps to retrieve some basics statistics in the Ruby console:
+In the past, there have been reported cases where the system became unresponsive. It took quite a while until jobs were worked off, or they weren't picked up at all. We found out that full Sidekiq queues often played a part in this. To get some insight, it helps to retrieve some basic statistics in the Ruby console:
 
 **TCIE 3.x**: `kubectl exec -it [travis-api-pod]j /app/script/console` *on your local machine*
 
