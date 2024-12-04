@@ -20,7 +20,7 @@ Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_fo
 
 ## Define Custom Queues in the Management Console
 
-After enabling the feature flags for custom queues, configure the job routing in the management console. This is defined in YAML, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g. `https://<your-travis-ci-enterprise-domain>:8800/settings`.
+Configure the job routing in the management console after enabling the feature flags for custom queues. This is defined in YAML, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g., `https://<your-travis-ci-enterprise-domain>:8800/settings`.
 
 There are a number of options/selectors used to define routing to a custom queue. Repos that match _all_ of the selectors for a custom queue will be built on that custom queue. We recommend using the following selectors:
 
@@ -51,7 +51,7 @@ See the [example](#advanced-configuration-yaml-example) for details on syntax. C
 
 ### Advanced Configuration YAML
 
-The syntax for the **Advanced Configuration YAML** field is very important. Incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
+The syntax for the **Advanced Configuration YAML** field is very important. An incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
 
 ```yaml
 production:
