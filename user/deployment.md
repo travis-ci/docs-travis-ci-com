@@ -2,12 +2,11 @@
 title: Deployment
 layout: en
 swiftypetags: 'skip_cleanup'
-deploy: v1
 ---
-<!--
+
 > This page documents deployments using dpl v1 which is the
 > default version. The next major version dpl v2 will be released soon. Please
-> see [the announcement blog post](https://travis-ci.com/blog/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2/). -->
+> see [the announcement blog post](https://travis-ci.com/blog/2019-08-27-deployment-tooling-dpl-v2-preview-release) on details about the release process. [Documentation for dpl v2 can be found here](/user/deployment-v2/).
 
 ## Supported Providers
 
