@@ -4,8 +4,8 @@ layout: en_enterprise
 
 ---
 
-The Travis CI Enterprise Worker machine manages build containers and reports build
-statuses back to the platform. It must be installed on a separate machine
+The Travis CI Enterprise Worker machine manages build containers, and reports build
+statuses to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using **compute optimized** instance 
 with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 
@@ -23,7 +23,7 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 
     | Port | Service | Description |
     |:-----|:--------|:------------|
-    | 22   | SSH     | Allow inbound SSH traffic in order to access Worker Machine from your local machine. |
+    | 22   | SSH     | Allow inbound SSH traffic in order to access the Worker Machine from your local machine. |
 
 1. *On your new virtual machine*, download and run the following installation script:
 
@@ -35,7 +35,7 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
 ### Install Workers behind a web proxy
 
 If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
-Then rerun the installation script.  
+Then, rerun the installation script.  
 
 If you need Docker itself to use an HTTP proxy, export it before each docker command:
 
@@ -63,7 +63,7 @@ After setting up a new instance for the worker, please follow the respective gui
 
     | Port | Service | Description |
     |:-----|:--------|:------------|
-    | 22   | SSH     | Allow inbound SSH traffic in order to access Worker Machine from your local machine. |
+    | 22   | SSH     | Allow inbound SSH traffic in order to access the Worker Machine from your local machine. |
     
 1. *On your new virtual machine*, download and run the following installation script:
  
@@ -71,7 +71,7 @@ After setting up a new instance for the worker, please follow the respective gui
     $ curl -sSL -o /tmp/lxd_install.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/lxd/lxd_install.sh
     $ sudo bash /tmp/lxd_install.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>" --travis_build_images_arch=”<architecture>”
      ```
-Focal images are installed by default, you can change this by providing a `--travis_build_images` parameter.
+Focal images are installed by default; you can change this by providing a `--travis_build_images` parameter.
     
 ### Advanced Configuration
 

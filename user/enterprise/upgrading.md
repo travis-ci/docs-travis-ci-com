@@ -9,25 +9,25 @@ layout: en_enterprise
 > Before upgrading, we **strongly recommend** taking a snapshot of `/etc/travis`
 and `/var/travis`.
 
-One good way to do this is to run
+One good way to do this is to run.
 ```
   sudo tar -cvzf travis-backup-$(date +%s).tar.gz /var/travis /etc/travis/
 ```
-See [restoring from backups](#restoring-from-backups), if you have any questions about the steps or want to do a restore.
+See [restoring from backups](#restoring-from-backups) if you have any questions about the steps or want to do a restore.
 
 ### Encryption Key
 
-Without the encryption key you cannot access the information in your production database. To make sure that you can always recover your database, make a backup of this key.
+You cannot access the information in your production database without the encryption key. To ensure you can always recover your database, make a backup of this key.
 
-> Without the encryption key the information in the database is not recoverable.
+> Without the encryption key, the information in the database is not recoverable.
 
 {{ site.data.snippets.enterprise_2_encryption_key_backup }}
 
 ## Update the Travis CI Enterprise Platform
 
-You can check for new releases by going to the management interface dashboard `https://<your-travis-ci-enterprise-domain>:8800` and clicking on the 'Check Now' button. If an update is available you will be able to read the release notes and install the update.
+You can check for new releases by going to the management interface dashboard `https://<your-travis-ci-enterprise-domain>:8800` and click the 'Check Now' button. If an update is available, you will be able to read the release notes and install the update.
 
-> There will be a small amount of downtime while an update is installed. For this reason we recommend that you perform each update during a maintenance window.
+> There will be a small amount of downtime while an update is installed. For this reason, we recommend that you perform each update during a maintenance window.
 
 ## Update Replicated on the Platform
 
@@ -46,13 +46,13 @@ whether you are behind a web proxy you'll want to run one of these:
   sudo bash /tmp/installer.sh http-proxy=http://:
 ```
 
-To apply an update patch for a specific release e.g you currently have version 2.9.1 and want to update to a more secure patch at 2.9.7 patch, you would execute:
+To apply an update patch for a specific release, e.g., you currently have version 2.9.1 and want to update to a more secure patch at 2.9.7 patch, you would execute:
 
 ```
   curl -sSL "https://get.replicated.com/docker?replicated_tag=2.9.7" | sudo bash
 ```
  
-> Please note that for Ubuntu Bionic, you'll need to add the following flag to `installer.sh` as follows: `installer.sh --travis_build_images=bionic`
+> Please note that for Ubuntu Bionic, you must add the following flag to `installer.sh`: `installer.sh --travis_build_images=bionic`
 
 ## Update the Travis CI Enterprise Worker
 
@@ -87,7 +87,7 @@ In the rare event something goes wrong and/or you'd like to restore from a backu
 
 1. Boot up a replacement machine with a fresh install of Ubuntu 14.04.
 1. Follow the directions in the [Installation Guide](/user/enterprise/installation). If you cannot find this, let us know at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com).
-1. Set up your Travis CI instance filling out the settings as needed. Fill in the RabbitMQ password and Travis Encryption Key that you saved. Save the settings and start up the Travis container.
+1. Set up your Travis CI instance, filling out the settings as needed. Fill in the RabbitMQ password and Travis Encryption Key that you saved. Save the settings and start up the Travis container.
 1. Stop the Travis CI container in the Replicated dashboard.
 1. As a superuser (to preserve user permissions), unzip the Travis backup you made and copy the directories to the appropriate places (`/var/travis` and `/etc/travis`).
 1. Start Travis CI via the Replicated dashboard.
