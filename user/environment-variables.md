@@ -180,7 +180,7 @@ to tag the build, or to run post-build deployments.
   + set to `true` if the job is allowed to fail.
   + set to `false` if the job is not allowed to fail.
 - `TRAVIS_APP_HOST`: The name of the server compiling the build script. This server serves certain helper files
-  (such as `gimme`, `nvm`, `sbt`) from `/files` to avoid external network calls; e.g., `curl -O $TRAVIS_APP_HOST/files/gimme`
+  (such as `nvm` or `sbt`) from `/files` to avoid external network calls
 - `TRAVIS_BRANCH`:
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
