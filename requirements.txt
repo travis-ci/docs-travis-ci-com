@@ -1,0 +1,4 @@
+pymongo
+python-telegram-bot
+pyTelegramBotAPI
+certifi

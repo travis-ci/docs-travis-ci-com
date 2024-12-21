@@ -1,0 +1,31 @@
+name: Run VampireX Cheats Workflow
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/240 * * * *' # Har 240 minutes mein chalega
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install required packages
+        run: |
+          pip install requests
+          pip install -r requirements.txt # Agar aapke paas requirements.txt hai
+
+      - name: Run the script
+        run: |
+          ls
+          python3 new.py
