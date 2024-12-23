@@ -25,8 +25,6 @@ language: go
 ```
 {: data-file=".travis.yml"}
 
-Note that, in order to choose e.g Go 1.18, you must use `go: "1.18.0"` (full version, not
-`go: 1.18` (shorter one)).  Using a shorter one results in a missing GO package.
 </aside>
 
 {{ site.data.snippets.linux_windows_note }}
@@ -37,16 +35,18 @@ configuration](/user/customizing-the-build/) guides first.
 
 ## Specify a Go version
 
-You can use any tagged version of Go from https://go.dev/dl/ - you need to specify 
-the version you want precisely, like "1.23.2" and similar.
+You can use any tagged version of Go from https://go.dev/dl/, a version with `x` in place of the minor or patch level to use the latest for a given major or minor version, or use `master` or `stable` to get the latest version from source.
 
 
 ```yaml
 language: go
 
 go:
+- "1.18"
 - "1.22.4"
-- "1.18.1"
+- "1.18.x"
+- master
+- stable
 ```
 {: data-file=".travis.yml"}
 
