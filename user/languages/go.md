@@ -37,7 +37,7 @@ configuration](/user/customizing-the-build/) guides first.
 
 ## Specify a Go version
 
-You can use any tagged version of Go, a version with `x` in place of the minor or patch level to use the latest for a given major or minor version, or use `master` or `latest` to get the latest version from source.
+You can use any tagged version of Go, a version with `x` in place of the minor or patch level to use the latest for a given major or minor version, or use `master` or `stable` to get the latest version from source.
 
 
 ```yaml
