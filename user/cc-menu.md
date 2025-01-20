@@ -1,5 +1,5 @@
 ---
-title: Using CCMenu with Travis CI
+title: Use CCMenu with Travis CI
 layout: en
 
 ---
@@ -13,9 +13,9 @@ layout: en
 They were originally built for use with CruiseControl, but they work just as well with Travis CI, and you can use either to poll your Travis CI repositories and have their status
 show in the menu bar or tray.
 
-### Using the CC feed with repositories
+## Use CC feed with repositories
 
-Open source repositories use the URL scheme `https://api.travis-ci.org/repos/<owner>/<repository>/cc.xml` to access the CruiseControl feed. They're served directly from our API.
+Open-source repositories use the URL scheme `https://api.travis-ci.org/repos/<owner>/<repository>/cc.xml` to access the CruiseControl feed. They're served directly from our API.
 
 ![Screenshot of public CC feed](/images/Projects_20140305_165324_20140305_165329.jpg "Screenshot of public CC feed")
 
@@ -43,7 +43,7 @@ must have the following form:
 - For closed source projects use `https://api.travis-ci.com/repos/<owner>/<repository>/cc.xml?token=<token>&branch=<branch>`.
 
 
-### Using the CC feed with accounts
+## Use CC feed with accounts
 
 The above technique only allows you to add one repository at a time, which can be unwieldy for team members of organizations with several repositories they're working on. Rather than specify the owner and the repository, you can simply specify the owner and select a subset of projects.
 
