@@ -164,7 +164,7 @@ Trigger Travis CI builds using the API on your Travis CI Enterprise instance by 
    `.travis.yml` file present in the repository is *not* merged with the values contained in the request.
 
 
-## Customize Commit Messages
+# Customize Commit Messages
 
 You can specify a commit message in the request body:
 
