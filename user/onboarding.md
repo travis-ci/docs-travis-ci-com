@@ -67,6 +67,13 @@ Click the **Manage Repositories** button. Once directed to your chosen platform,
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
 
 
+### GitHub Student Developer Pack users
+
+If you use a GitHub account and are eligible for the GitHub Student Developer Pack, the Travis CI plan might not be assigned automatically. This occurs because the user already has a plan assigned in Travis CI. 
+
+If you wish to use the free allowance for the GitHub Student Developer Pack instead, please [contact our support team](mailto:support@travis-ci.com), provide your GitHub handle, and request the assignment of the respective plan.
+
+
 ## Add a .travis.yml File
 
 The next step is to add a `.travis.yml` file to your repository to tell Travis CI what to do. The following example specifies a Ruby project built with Ruby 2.2 and the latest version of JRuby.
