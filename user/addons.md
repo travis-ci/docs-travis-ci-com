@@ -9,7 +9,7 @@ moved:
 
 - [Sauce Connect](/user/sauce-connect/)
 - [Custom Host Names](/user/hosts/)
-- [MariaDB](/user/database-setup/#MariaDB)
-- [PostgreSQL](/user/database-setup/#PostgreSQL)
-- [RethinkDB](/user/database-setup/#RethinkDB)
+- [MariaDB](/user/database-setup/#mariadb)
+- [PostgreSQL](/user/database-setup/#postgresql)
+- [RethinkDB](/user/database-setup/#rethinkdb)
 - [Firefox](/user/firefox/)
