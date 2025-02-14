@@ -11,14 +11,17 @@ This example has 2 build stages:
 Here's what the `.travis.yml` config could look like:
 
 ```yaml
+dist: xenial
+
 env:
   global:
     # include $HOME/.local/bin for `aws`
     - PATH=$HOME/.local/bin:$PATH
 
 before_install:
-  # set up awscli packages
-  - pip install --user awscli
+  - pyenv global 3.7.1
+  - pip install -U pip
+  - pip install awscli
   - mkdir -p ~/$TRAVIS_BUILD_NUMBER
   - aws s3 sync s3://travis-build-stages-shared-storage-test/$TRAVIS_BUILD_NUMBER ~/$TRAVIS_BUILD_NUMBER
 
