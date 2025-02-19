@@ -29,7 +29,7 @@ Add this file as an [encrypted file](/user/encrypting-files/) to your repository
 ### Project to deploy
 
 By default, the project will be deployed with the same name as the repository.
-Usually, you will want to explicilty configure the **project** option to match
+Usually, you will want to explicitly configure the **project** option to match
 the project ID found in your Cloud console (note that this is sometimes, but
 not always, the same as the project name).
 
@@ -45,12 +45,12 @@ deploy:
 
 ### Version to deploy
 
-Either the `version` flag or the `default` option must be set. If default
+Either the `version` flag or the `default` option must be set. If the default
 is true, the default version will be deployed to, which will be
 `http://project-id.appspot.com`. If the `version` flag is set instead, it will
 deploy to `http://version.project-id.appspot.com`.
 
-### Deploying without Promoting
+### Deploy without Promoting
 
 By default, when your application is deployed it will be promoted to receive
 all traffic. You can disable that using the `no_promote` option:

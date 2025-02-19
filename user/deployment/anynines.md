@@ -7,11 +7,11 @@ deploy: v1
 
 You now have the amazing ability to deploy directly to [anynines](http://www.anynines.com/) after a successful build on Travis CI
 
-## Getting on the Edge
+## Enable Edge Version
 
 Proper anynines support is currently included only in the edge version of Travis.  See how to enable it via the `.travis.yml` below.
 
-## The Easy Way
+## Grab the code and Deploy
 
 Go Grab the Travis gem from [GitHub](https://github.com/travis-ci/travis.rb) and run this command:
 
@@ -21,7 +21,7 @@ You will be asked to answer a few simple questions about your anynines setup and
 
 Open up your newly created `.travis.yml` and add `edge: true` to enable the deploy tool.  See yml below for an example of how to do this.
 
-## The Slightly Harder Way
+## Write the code and Deploy
 
 So you want to write your own `.travis.yml`, fine.  Here is the minimum required to get up and running
 

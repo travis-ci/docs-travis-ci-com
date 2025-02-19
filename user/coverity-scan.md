@@ -1,5 +1,5 @@
 ---
-title: Using Coverity Scan with Travis CI
+title: Use Coverity Scan with Travis CI
 layout: en
 
 ---
@@ -14,13 +14,13 @@ Static analysis is a set of processes for finding source code defects and vulner
 
 In static analysis, the code under examination is not executed. As a result, test cases and specially designed input datasets are not required. Examination for defects and vulnerabilities is not limited to the lines of code that are run during some number of executions of the code, but can include all lines of code in the codebase.
 
-Additionally, Coverity's implementation of static analysis can follow all the possible paths of execution through source code (including interprocedurally) and find defects and vulnerabilities caused by the conjunction of statements that are not errors independent of each other.
+Additionally, Coverity's implementation of static analysis can follow all the possible paths of execution through source code (including interprocedural) and find defects and vulnerabilities caused by the conjunction of statements that are not errors independent of each other.
 
 See more details about Coverity Scan in the [FAQ](https://scan.coverity.com/faq).
 
 ## Build Submission Frequency
 
-It's probably overkill to run static analysis on each and every commit of your project. To increase availability of the free service to more projects, the addon is designed by default to run analysis on a per-branch basis. We recommend you create a branch named `coverity_scan`, which you can merge into whenever you would like to trigger analysis. See the [FAQ](https://scan.coverity.com/faq#frequency) for information about build submission frequency.
+It's probably overkill to run static analysis on each and every commit of your project. To increase the availability of the free service to more projects, the addon is designed by default to run analysis on a per-branch basis. We recommend you create a branch named `coverity_scan`, which you can merge into whenever you would like to trigger analysis. See the [FAQ](https://scan.coverity.com/faq#frequency) for information about build submission frequency.
 
 ## macOS support
 
@@ -32,7 +32,7 @@ The Coverity Scan addon doesn't work on macOS versions with the SIP feature enab
 
 2. If necessary, create a public repo on [GitHub](https://github.com) for your project.
 
-3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Getting Tutorial](/user/tutorial/) guide.
+3. If necessary, register for [Travis CI](https://travis-ci.org/) and configure your project by following the [Onboarding](/user/onboarding/) guide.
 
 4. Sign in to Scan, and then add your project. Be sure to add it as a [GitHub Project](https://scan.coverity.com/projects/new?tab=github).
 
@@ -54,9 +54,9 @@ The Coverity Scan addon doesn't work on macOS versions with the SIP feature enab
 
 13. Visit [Travis CI](https://travis-ci.org) directly, or by clicking the button on your `Project Settings` page, which will appear once the project is activated on Travis CI.
 
-### travis.yml
+### The travis.yml file
 
-From your project page on Coverity Scan, select the Travis CI tab. You'll see a snippet of YAML to be copied over to your `.travis-ci` file. Note that this is an example, and might require some tweaking for the build to run properly.
+From your project page on Coverity Scan, select the Travis CI tab. You'll see a snippet of YAML that will be copied over to your `.travis-ci` file. Note that this is an example, and might require some tweaking for the build to run properly.
 
 ```yaml
 env:
@@ -103,11 +103,11 @@ cd my_project
 travis encrypt COVERITY_SCAN_TOKEN=project_token_from_coverity_scan
 ```
 
-Then copy the resulting line as shown in the YAML example.
+Then, copy the resulting line as shown in the YAML example.
 
 ## Environment Variables
 
-When defined, the following environment variables overrides their
+When defined, the following environment variables override their
 corresponding configuration values in `.travis.yml`:
 
 1. `COVERITY_SCAN_NOTIFICATION_EMAIL`
@@ -119,9 +119,9 @@ corresponding configuration values in `.travis.yml`:
 
 The next time you commit to the appropriate branch, the Coverity Scan build process will automatically run analysis and upload the results. Please note that this analysis takes the place of the normal CI run. You should merge the same changes to another branch to run your tests.
 
-### Disabling the Subsequent Test Run
+### Disable the Subsequent Test Run
 
-Due to the way that Travis CI addons operate, your standard script stage (i.e. your tests) will run after the Coverity Scan analysis completes. In order to avoid this, you can modify your `script` directive in `.travis.yml`.
+Due to the way that Travis CI addons operate, your standard script stage (i.e., your tests) will run after the Coverity Scan analysis completes. In order to avoid this, you can modify your `script` directive in `.travis.yml`.
 
 The `COVERITY_SCAN_BRANCH` environment variable will be set to `1` when the Coverity Scan addon is in operation. Therefore, you might change your script from
 
@@ -132,8 +132,8 @@ script: make
 
 to
 
-```bash
+```yaml
 script: if [ ${COVERITY_SCAN_BRANCH} != 1 ]; then make ; fi
 ```
-
+{: data-file=".travis.yml"}
 Be sure to replace `make` with your standard CI build command.

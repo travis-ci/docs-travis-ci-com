@@ -8,7 +8,7 @@ master, Travis CI Enterprise supports your way of shipping code. Travis CIs’
 integration with GitHub gives your team the highest confidence with every change
 made.
 
-Summary: This page will give you a brief overview of what Travis CI Enterprise is and its capabilities, basic usage, rules of thumb for sizing, and calculations for necessary infrastructure. 
+Summary: This page will give you a brief overview of what Travis CI Enterprise is and its capabilities, basic usage, rules of thumb for sizing, and calculations for necessary infrastructure.
 
 ## What is Travis CI Enterprise
 
@@ -24,7 +24,7 @@ integrates with GitHub.com, enabling you to have greater control over your secur
 to scale out your build infrastructure as needed.
 
 
-## Why choose Enterprise over travis-ci.com?
+## Why Enterprise over travis-ci.com
 
 Travis CI Enterprise is built to bring the features of the [hosted
 platform](/user/travis-pro) to different development processes. So whether you
@@ -35,7 +35,7 @@ Enterprise-specific features include:
 installation as the authentication and authorization layer for Travis CI
 Enterprise, allowing you to leverage your existing LDAP or SAML with no
 extra configuration.
-* **Support for multiple Version Control Systems:** Starting from Travis CI 
+* **Support for multiple Version Control Systems:** Starting from Travis CI
 Enterprise 3.x, you can use different source code management solutions
 together with Travis CI. For more details, see [Travis CI Enterprise 3.x Overview](/user/enterprise/tcie-3.x-overview/).
 * **Meets security and regulatory requirements:**  With your servers and hosts
@@ -71,7 +71,7 @@ team.
 
 If you're interested in getting started, let us know at [sales@travis-ci.com](mailto:sales@travis-ci.com). We'd love to figure out how Travis CI Enterprise can support your development workflow best. Or, if you'd like to talk more about support and onboarding, please email us at [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com). Our team looks forward to hearing from you!
 
-## Prerequisites 
+## Prerequisites
 
 To start using Travis CI Enterprise, make sure you have:
 * A GitHub.com or GitHub Enterprise Server account.
@@ -82,24 +82,24 @@ Much like Travis CI, it’s enough to sign in to Travis CI Enterprise using the 
 
 After that, the team working on the source code in the activated repository can start migrating or building from scratch instructions in the `.travis.yml` file. These instructions constitute the build and testing recipe for the source code. Travis CI will trigger a build once the instructions are done and changes are committed. Each build can consist of one or many jobs. Jobs can run in parallel or in a pre-defined sequence (or even both!), which enables building a sort of pipeline for your project building, testing, and deploying process.
 
-## Product Requirements 
+## Product Requirements
 
 Travis CI Enterprise requires a certain infrastructure for deployment. It currently works with GitHub.com and GitHub Enterprise as the version control systems and external identity providers.
 
 ![Travis CI Enterprise About page](/images/TCIE-architecture1.png)
 
-### Travis CI Enterprise consists of two major parts:
+### Travis CI Enterprise Core Services and Worker
 
 1. TCI services (or TCI Core Services), responsible for integration with version control systems, authorizing builds, scheduling build jobs, etc.
 2. TCI Worker and build environment images (also called OS images).
 
-#### TCI Core services require the following:
+#### TCI Enterprise Core Services 
 
 1. A PostgreSQL11 (or later) database.
 2. An infrastructure to deploy a Kubernetes cluster; it can be deployed in a server cluster or in a single machine if required
 3. Depending on your setup, you may want to deploy and configure some of the components on your own, e.g., RabbitMQ - see the [Setting up Travis CI Enterprise](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) for more details.
 
-#### TCI Worker requires the following:
+#### TCI Enterprise Worker
 
 1. An infrastructure where a docker image containing the Worker and a linked build image can be deployed.
 2. Connectivity to certain Travis CI Core Services components - see the [Setting Up Worker](/user/enterprise/setting-up-worker/) for more details.
@@ -126,16 +126,16 @@ Detailed deployment requirements can be found in **‘Setting up’** and subseq
 
 ### Get Started
 
-Set up Travis CI Enterprise by heading over our [set up](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) page. 
+Set up Travis CI Enterprise by heading over our [set up](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) page.
 
-Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/) and [tutorials](/user/tutorial/).  
+Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/), the [Onboarding](/user/onboarding/) guide, or the [tutorials](/user/tutorials/tutorials-overview/).
 
-## Contact
+## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
 
 ## Further Reading
   * [Travis CI Enterprise 3 Overview](/user/enterprise/tcie-3.x-overview/)
-  * [Setting up Travis CI Enterprise](/user/enterprise/setting-up-travis-ci-enterprise)
-  * [Setting Up Worker](/user/enterprise/setting-up-worker/) 
-  * [Customizing Build Images](/user/enterprise/build-images)
+  * [Setting up Travis CI Enterprise](/user/enterprise/setting-up-travis-ci-enterprise/)
+  * [Setting Up Worker](/user/enterprise/setting-up-worker/)
+  * [Customizing Build Images](/user/enterprise/build-images/)

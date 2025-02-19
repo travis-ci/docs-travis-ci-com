@@ -1,5 +1,5 @@
 ---
-title: Using SonarCloud with Travis CI
+title: Use SonarCloud with Travis CI
 layout: en
 redirect_from:
   - /user/sonarqube/
@@ -20,11 +20,11 @@ jdk: openjdk17
 {: data-file=".travis.yml"}
 to use Java 17 JRE/JDK as default.
 
-## Inspecting code with the SonarQube Scanner
+## Inspect the code with the SonarQube Scanner
 
 Before inspecting your code, you need to:
 
-1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Tutorial](https://docs.travis-ci.com/user/tutorial/).
+1. Make sure that your repository is correctly activated on Travis CI. See [Travis CI Onboarding](/user/onboarding/).
 2. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
 3. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
@@ -56,7 +56,7 @@ addons:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token: "*********" # encrypted value of your token
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  # the following command line builds the project, runs the tests with coverage, and then executes the SonarCloud analysis
   - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
 ```
 {: data-file=".travis.yml"}
@@ -76,9 +76,9 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-## Analysis of internal pull requests
+## Internal Pull Request Analysis
 
-SonarCloud can inspect internal pull requests of your repository and write comments on each line where issues are found.
+SonarCloud can inspect your repository's internal pull requests and write comments on each line where issues are found.
 
 > For security reasons, this advanced feature works only for **internal** pull requests. In other words, pull requests built from forks won't be inspected.
 
@@ -86,13 +86,11 @@ To activate analysis on pull requests, you need to [install the SonarCloud appli
 
 Note that if you used SonarCloud before the GitHub application and therefore configured GitHub tokens on your projects, you should now delete those tokens from the "Administration > General Settings > Pull Requests" page of your projects.
 
-## Upcoming improvements
-
 Future versions of this add-on will provide the following features:
 
 - Support for external pull requests.
 
-## Accessing full SCM history
+## Access full SCM history
 
 Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-build/#git-clone-depth) to speed up build times, but a truncated SCM history may cause issues when SonarCloud computes blame data. To avoid this, you can access the full SCM history with:
 
@@ -100,14 +98,15 @@ Travis CI uses [shallow clone](https://docs.travis-ci.com/user/customizing-the-b
 git:
   depth: false
 ```
+{: data-file=".travis.yml"}
 
-## Deprecated features
+## Deprecated Features
 
 If you are a long-time SonarCloud user, you might have the following entries in your `.travis.yml` file:
 - "branches"
 - "github_token"
 
-If this is the case, you will get warnings in the log, telling you that this behaviour will be removed soon. You should get rid of those entries in your `.travis.yml` file to benefit from the latest features of SonarCloud.
+If this is the case, you will receive warnings in the log telling you that this behavior will be removed soon. You should remove those entries in your `.travis.yml` file to benefit from SonarCloud's latest features.
 
 ## Note for SonarQube users
 

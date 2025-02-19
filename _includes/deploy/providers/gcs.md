@@ -27,7 +27,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Google Cloud Store is *stable**.
+Support for deployments to Google Cloud Store is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `key_file` or `access_key_id` and `secret_access_key` are required.

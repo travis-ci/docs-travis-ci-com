@@ -4,7 +4,7 @@ layout: en
 
 ---
 
-Knowing the IP addresses of the build machines which Travis CI uses can be helpful
+Knowing the IP addresses of the build machines that Travis CI uses can be helpful
 when you need them safelisted to access your internal resources. Since builds
 run in a variety of different infrastructures, the IP ranges to safelist depend
 on the infrastructure your builds are running on.
@@ -32,7 +32,7 @@ JSON:
 curl -s https://dnsjson.com/nat.travisci.net/A.json | jq '.results.records|sort'
 ```
 
-Note that the IP addresses used for [notifications](/user/notifications) are
+Note that the IP addresses used for [notifications](/user/notifications/) are
 different.
 
 More details about our different infrastructures are available on the
@@ -47,7 +47,7 @@ If this occurs, reconfigure your servers to allow for connections from multiple 
 
 ## Notification
 
-We will announce changes to this set of IP addresses with a 24 hour notice period. We recommend you use the DNS record to keep track automatically, but if you require a manual notification, you can subscribe to the mailing list:
+We will announce changes to this set of IP addresses with a 24-hour notice period. We recommend you use the DNS record to keep track automatically, but if you require a manual notification, you can subscribe to the mailing list:
 
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">

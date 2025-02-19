@@ -1,5 +1,5 @@
 ---
-title: Script deployment
+title: Script Deployment
 layout: en
 deploy: v1
 
@@ -24,7 +24,7 @@ If you need to run multiple commands, write a executable wrapper script that run
 If the script returns a nonzero status, deployment is considered
 a failure, and the build will be marked as "errored".
 
-## Passing Arguments to the Script
+## Pass Arguments to the Script
 
 It is possible to pass arguments to a script deployment.
 
@@ -55,7 +55,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Ruby version
+## Ruby Version
 
 To ensure that deployments run consistently, we use the version of Ruby that is
 pre-installed on all of our build images, which may change when images are updated.

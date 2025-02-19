@@ -1,5 +1,5 @@
 ---
-title: Encryption keys
+title: Encryption Keys
 layout: en
 
 ---
@@ -8,7 +8,7 @@ layout: en
 
 A repository's `.travis.yml` file can have "encrypted values", such as [environment variables](/user/environment-variables/), notification settings, and deploy api keys. These encrypted values can be added by anyone, but are only readable by Travis CI. The repository owner does not keep any secret key material.
 
-### Repository settings - forks
+## Fork Repository settings
 
 {{ site.data.snippets.git_repository_settings_forks_general }}
 
@@ -16,7 +16,7 @@ A repository's `.travis.yml` file can have "encrypted values", such as [environm
 
 > Please Note: In the [travis-ci.com](https://app.travis-ci.com) environment, Custom SSH keys are only available for private repositories. Read more about [custom SSH keys](/user/private-dependencies/#user-key).
 
-> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com. 
+> Starting June 2021 travis-ci.org is disabled and therefore no longer supported. Please use travis-ci.com.
 
 ## Encryption scheme
 
@@ -27,7 +27,7 @@ Once the public key is available, anyone (including those without push access to
 your repository) can encrypt data which can only be decrypted by Travis CI,
 using the corresponding private key.
 
-### Obtaining the public keys
+### Obtain public keys
 
 The method to obtain the public key depends on where the target repository
 exists, and the API version you are using.
@@ -131,10 +131,10 @@ Please note that the name of the environment variable and its value are both enc
 You may add multiple entries to your .travis.yml with key "secure." They will all be available to your program.
 
 Encrypted values can be used in
-[secure environment variables in the build matrix](/user/environment-variables#defining-encrypted-variables-in-travisyml)
-and [notifications](/user/notifications).
+[secure environment variables in the build matrix](/user/environment-variables/#defining-encrypted-variables-in-travisyml)
+and [notifications](/user/notifications/).
 
-### Note on escaping certain symbols
+### Escape Symbols
 
 When you use `travis encrypt` to encrypt sensitive data, it is important to note that it will
 be processed as a `bash` statement.
@@ -261,9 +261,9 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-## Fetching the public key for your repository
+## Fetch the public key
 
-You can fetch the public key with Travis API, using `/repos/:owner/:name/key` or
+You can fetch the public key for your repository with Travis API, using `/repos/:owner/:name/key` or
 `/repos/:id/key` endpoints, for example:
 
 ```

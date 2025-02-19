@@ -10,7 +10,7 @@ some of your data on Assembla. Read the
 [Scopes for the Assembla REST API](https://api-docs.assembla.cc/)
 for general information about this, or pick an explanation of what data we need and why we need it.
 
-## Travis CI for Open Source and Private Projects
+## Travis CI for Open-Source and Private Projects
 
 On <https://travis-ci.com>, via our Assembla integration, we ask for the following permissions:
 
@@ -24,6 +24,8 @@ We use scoped OAuth tokens to integrate with Assembla.
 
 ## Used Scopes
 
+The following sections show the different scopes used.
+
 ### repository
 It gives the app read access to all the repositories the authorizing user has access to.
 > This scope does not give access to a repository's pull requests.
@@ -32,7 +34,7 @@ It gives the app read access to all the repositories the authorizing user has ac
 It gives the app admin access to all the repositories the authorizing user has access to. This permission is needed to add the access key. Travis CI uses the key to read the travis.yml file content.
 
 
-### pullrequest
+### pull-request
 It gives the app read access to pull requests and collaborate on them. This scope implies a repository giving read access to the pull request's destination repository.
 
 ### email

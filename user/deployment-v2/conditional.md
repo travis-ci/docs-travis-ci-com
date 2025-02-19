@@ -21,7 +21,7 @@ If *all* conditions specified in the `on` section are met, your build will deplo
 
 The following conditions are available:
 
-### Repo
+## Repo
 
 To deploy only when the build occurs on a particular repository, add `repo` in the form `owner_name/repo_name`:
 
@@ -34,7 +34,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch
+## Branch
 
 By default, deployments will only happen on the `master` branch. You can overwrite this by using the `branch` and `all_branches` options.
 
@@ -60,7 +60,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Condition
+## Condition
 
 You can specify a single Bash `condition` that needs to evaluate to `true` in
 order for the deployment to happen.
@@ -78,7 +78,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Tag
+## Tag
 
 You can specify whether or not to deploy on tag builds using the option `tags`.
 If set to to `true` the deployment will only happen on tag builds, if set to
@@ -104,7 +104,7 @@ build when it was initiated.
 Setting `tags` to `true` causes the `branch` condition to be ignored, otherwise
 `$TRAVIS_TAG` is ignored, and the `branch` condition is considered.
 
-### Examples for conditional deployments
+## Examples for conditional deployments
 
 This deploys using a custom script `deploy.sh`, only for builds on the branches
 `staging` and `production`.
