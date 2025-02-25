@@ -1,0 +1,61 @@
+User
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>轉變未來：在九紫離火運下開啟您的線上商業之旅</title>
+</head>
+<body>
+    <!-- 導航欄，使用語義化標籤提升SEO和可訪問性 -->
+    <nav class="container-fluid">
+        <div><strong>九紫離火運線上研討會</strong></div>
+        <ul>
+            <li><a href="#program">課程概述</a></li>
+            <li><a href="#highlights">課程亮點</a></li>
+            <li><a href="#register">註冊</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <article class="grid">
+            <header>
+                <h2>轉變未來：在九紫離火運下開啟您的線上商業之旅</h2>
+                <h3>專為勇敢的女性創業家設計：利用自動化和AI技術實現事業蛻變</h3>
+            </header>
+            <p>加入我們的線上招商會...</p>
+            <figure>
+                <img src="https://example.com/path/to/image.jpg" alt="線上學習的女性" />
+                <figcaption>圖片來源：Unsplash</figcaption>
+            </figure>
+            <section id="highlights">
+                <h3>課程亮點</h3>
+                <ul>
+                    <li>建構自動化網路創業系統...</li>
+                </ul>
+            </section>
+            <section>
+                <h3>誰應該參加</h3>
+                <p>針對那些想要抓住九紫離火運良機...</p>
+            </section>
+        </article>
+    </main>
+    <section aria-label="Subscribe example" class="container">
+        <article>
+            <header>
+                <h2>立即註册：開始您的事業蛻變之旅</h2>
+                <h3>抓住這次獨一無二的機會...</h3>
+            </header>
+            <form class="grid">
+                <input type="text" id="firstname" name="firstname" placeholder="姓名" aria-label="姓名" required />
+                <input type="email" id="email" name="email" placeholder="電子郵件" aria-label="電子郵件" required />
+                <!-- 移除inline JavaScript，推薦使用外部JavaScript文件來處理表單提交 -->
+                <button type="submit">立即註册</button>
+            </form>
+        </article>
+    </section>
+    <footer class="container">
+        <small><a href="#">隱私政策</a> • <a href="#">條款與條件</a></small>
+    </footer>
+</body>
+</html>
