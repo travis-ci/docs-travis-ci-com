@@ -1,23 +1,22 @@
 ---
-title: Building an R Project
+title: Build an R Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
 projects.
-Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
+Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community-Supported Warning
+## Community-Supported Warning
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
-[Travis CI issue tracker][github] and cc [@jeroen][github 2]
+[R section of our forums](https://travis-ci.community/c/languages/r) and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
-## Basic configuration
+## Basic configurations
 
 R support in Travis CI is designed to make it easy to test [R
 packages][r-project]. If your R package doesn't need any system dependencies
@@ -39,7 +38,7 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.0.3` and above on Linux Precise, Trusty and macOS.
+Travis CI supports R versions `3.0.3` and above on Ubuntu Precise, Ubuntu Trusty and macOS.
 Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
 name `oldrel` is aliased to the previous major release and `release` is aliased to the
 latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
@@ -76,7 +75,7 @@ information on using development remotes in your package.
 Most of the time you should not need to specify any additional dependencies in
 your `.travis.yml`.
 
-### LaTeX/TexLive Packages
+### LaTeX and TexLive Packages
 
 The included TexLive distribution contains only a limited set of default
 packages. If your vignettes require additional TexLive packages you
@@ -265,23 +264,27 @@ processed in order, so entries can depend on dependencies in a previous list.
   An alternative is to add `user/repo` or `user/repo/folder` to
   the `Remotes` section of the `DESCRIPTION` file of your package
 
-### Customizing the Travis build steps
+### Customize the Travis build steps
 
 For some advanced use cases, it makes sense to override the default steps used
 for building R packages. The default rules roughly amount to:
 
 ```yaml
 install:
-- R -e 'devtools::install_deps(dep = T)'
+- R -e 'remotes::install_deps(dep = T)'
 
 script:
 - R CMD build .
-- R CMD check *tar.gz
+- R CMD check *tar.gz --as-cran
 ```
 {: data-file=".travis.yml"}
 
 If you'd like to see the full details, see
 [the source code](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/script/r.rb).
+
+## Build Config Reference
+
+You can find more information on the build config format for [R](https://config.travis-ci.com/ref/language/r) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
@@ -334,7 +337,7 @@ Remotes: user/repo/folder
 ```
 {: data-file="DESCRIPTION"}
 
-## Converting from r-travis
+## Convert from r-travis
 
 If you've already been using [r-travis][] to test your R package, you're
 encouraged to switch to using the native support described here. We've written
