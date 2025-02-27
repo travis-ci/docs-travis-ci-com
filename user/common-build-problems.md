@@ -646,3 +646,27 @@ env:
     - NODE_OPTIONS="--dns-result-order=ipv4first"
 ```
 {: data-file=".travis.yml"}
+
+## **NPM Semantic Release Issue**: Fixes semantic-release `EGITNOPERMISSION` from GitHub
+
+If you're using NPM and you're deploying with semantic-release and you get the `EGITNOPERMISSION` error at the end of your build, you may want to try and add the following to your build definition:
+
+The first example is if you're using `npx semantic-release` within the deploy phase in the `.travis.yml` definition: 
+
+```yml
+before_deploy:
+  - git config --global credential.helper store
+  - git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+```
+
+The second example would be if you're using `npx semantic-release` directly in your script phase of your `.travis.yml` build definition: 
+
+```yml
+before_script:
+  - git config --global credential.helper store
+  - git config --global url."https://x-access-token:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+```
+For more information please look at this [GitHub Issue](https://github.com/semantic-release/semantic-release/issues/3590).
+
+{: data-file=".travis.yml"}
+
