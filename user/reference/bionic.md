@@ -1,4 +1,3 @@
-```markdown
 ---
 title: The Ubuntu 18.04 Build Environment
 layout: en

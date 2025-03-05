@@ -1,4 +1,3 @@
-```markdown
 ---
 title: The Ubuntu 20.04 (Focal Fossa) Build Environment
 layout: en
