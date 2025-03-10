@@ -20,7 +20,7 @@ dist: bionic
 
 ## Environment Common to All Ubuntu 18.04 Images
 
-The following versions of Docker, version control software, compilers, and language support are available on all Ubuntu 18.04 builds. All preinstalled software not provided by the distro is installed from an official release — either a prebuilt binary if available, or a source release built with default options.
+All Ubuntu 18.04 builds include the following versions of Docker: version control software, compilers, and language support. All preinstalled software not provided by the distro is installed from an official release—either a prebuilt binary, if available, or a source release built with default options.
 
 ### Version Control
 
@@ -56,7 +56,7 @@ The following versions of Docker, version control software, compilers, and langu
 
 * **Pre-installed Ruby**:  
   * `ruby 3.3.5`
-* Other Ruby versions (e.g. 2.7.x, 3.1.x) can be installed during build time.
+* Other Ruby versions (e.g., 2.7.x, 3.1.x) can be installed during build time.
 
 ### Python Support
 
