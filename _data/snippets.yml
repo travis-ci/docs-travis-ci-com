@@ -32,6 +32,7 @@ all_note: |
   >  * [Bionic](/user/reference/bionic/)
   >  * [Focal](/user/reference/focal/)
   >  * [Jammy](/user/reference/jammy/)
+  >  * [Noble](/user/reference/noble/)
   >  * [macOS](/user/reference/osx/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
@@ -44,6 +45,7 @@ unix_note: |
   >  * [Bionic](/user/reference/bionic/)
   >  * [Focal](/user/reference/focal/)
   >  * [Jammy](/user/reference/jammy/)
+  >  * [Noble](/user/reference/noble/)
   >  * [macOS](/user/reference/osx/)
   >  * [FreeBSD](/user/reference/freebsd/)
 linux_note: |
@@ -55,6 +57,7 @@ linux_note: |
   >  * [Bionic](/user/reference/bionic/)
   >  * [Focal](/user/reference/focal/)
   >  * [Jammy](/user/reference/jammy/)
+  >  * [Noble](/user/reference/noble/)
 linux_windows_note: |
   > For Language versions and other build-environment specific
   > information visit our reference pages:
@@ -64,6 +67,7 @@ linux_windows_note: |
   >  * [Bionic](/user/reference/bionic/)
   >  * [Focal](/user/reference/focal/)
   >  * [Jammy](/user/reference/jammy/)
+  >  * [Noble](/user/reference/noble/)
   >  * [Windows](/user/reference/windows/)
   >  * [FreeBSD](/user/reference/freebsd/)
 concurrent_jobs: |
