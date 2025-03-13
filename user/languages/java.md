@@ -181,6 +181,8 @@ details.
 
 The list of available JVMs for different dists are at
 
+  * [JDKs installed for **Noble**](/user/reference/noble/#jvm-clojure-groovy-java-scala-support)
+  * [JDKs installed for **Jammy**](/user/reference/jammy/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Focal**](/user/reference/focal/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Bionic**](/user/reference/bionic/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Xenial**](/user/reference/xenial/#jvm-clojure-groovy-java-scala-support)
