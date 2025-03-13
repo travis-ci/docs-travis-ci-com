@@ -1,0 +1,10 @@
+.dockerignore
+.env
+.env.*
+.git
+.gitignore
+.travis.yml
+Dockerfile
+spec
+#IDEs folders
+.idea
