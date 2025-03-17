@@ -180,6 +180,12 @@ end
 
 ## **Mac**: macOS Mavericks (10.9) Code Signing Errors
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
 
 Signs of issues can be error messages stating that an identity can't be found and that "User
@@ -200,6 +206,12 @@ security set-keychain-settings -t 3600 -u $KEY_CHAIN
 ```
 
 ## **Mac**: macOS Sierra (10.12) Code Signing Errors
+
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
 
@@ -311,6 +323,12 @@ You can also have more details in [this GitHub issue](https://github.com/travis-
 
 
 ## **Mac**: Errors running CocoaPods
+
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 CocoaPods usage can currently fail for a few reasons.
 
