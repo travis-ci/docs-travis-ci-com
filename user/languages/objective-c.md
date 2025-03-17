@@ -6,6 +6,11 @@ swiftypetags:
   - swift
 ---
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 This guide covers build environment and configuration topics specific to
 Objective-C and Swift projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build
