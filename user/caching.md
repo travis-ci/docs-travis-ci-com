@@ -204,7 +204,13 @@ to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`
 
 #### ccache on macOS
 
-ccache is not installed on macOS environments but you can install it by adding
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
+ccache is not installed on macOS environments, but you can install it by adding:
 
 ```yaml
 install:
