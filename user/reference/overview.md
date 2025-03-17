@@ -45,6 +45,8 @@ The table below sums up the available Ubuntu environments and virtualization typ
 
 | Ubuntu version       | Linux Virtualization Type    |
 | :------------------- | :---------------------       |
+| [Ubuntu Noble 24.04](/user/reference/noble/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
+| [Ubuntu Jammy 22.04](/user/reference/jammy/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
 | [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
@@ -80,7 +82,7 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
+|                      | Ubuntu Linux  ([Noble](/user/reference/noble/), Ubuntu Linux  ([Jammy](/user/reference/jammy/), Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Current                       | Early release                      | Beta                                          |
@@ -162,7 +164,7 @@ With the introduction of a new billing system in Travis CI, the IBM and part of 
 ```yaml
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
-dist: focal          # or bionic | xenial | trusty | precise with xenial as default
+dist: noble          # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
@@ -171,7 +173,7 @@ dist: focal          # or bionic | xenial | trusty | precise with xenial as defa
 ```yaml
 arch: arm64           # LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
@@ -198,14 +200,14 @@ group: edge
 ```yaml
 arch: ppc64le         # The IBM Power LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
 arch: s390x           # The IBM Z LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 

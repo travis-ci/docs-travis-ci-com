@@ -25,7 +25,7 @@ Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferr
 
    ![Travis CI Sign-in](/user/images/onboarding-travis-sign-in.png)
 
-2. **Accept Travis CI Authorization**. 
+1. **Accept Travis CI Authorization**. 
 
 Once redirected to your chosen platform, log into your account and accept Travis CI’s authorization request. 
 
@@ -36,17 +36,13 @@ Once redirected to your chosen platform, log into your account and accept Travis
    * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
    * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
 
-3. **Verify your email account**. 
-
-Travis CI sends a verification email. Check your email and verify your account to continue. Otherwise, you will have limited build functions.
-
-4. **Select a Plan**. 
+1. **Select a Plan**. 
 
 Choose the best plan for you, or get started with our Trial Plan.
 
    ![Plan Selection](/user/images/onboarding-select-plan.png)
 
-5. **Credit Card Validation**. 
+1. **Credit Card Validation**. 
 
 To commence the selected plan, you must first insert your billing information and a valid Credit Card.
 
@@ -54,17 +50,24 @@ To commence the selected plan, you must first insert your billing information an
 
    > **Note**: For Trial Plans, credit card authorization may result in a small fee being held on the card for a short duration. Trial Plan users are granted a small allotment of trial credits to be used within the next 14 days.
 
-6. **Settings configurations**.
+1. **Settings configurations**.
 
 In your Travis Dashboard, click on your profile picture at the top right and select the Settings option to see a list of your available repositories.
 
-7. **Select repositories**.
+1. **Select repositories**.
 
 Click the **Manage Repositories** button. Once directed to your chosen platform, select the repositories you want to use with Travis CI. 
 
 ![Manage Repositories](/user/images/onboarding-manage-repositories.png)
 
 > Depending on your chosen platform, you can also make this selection with the authorization message by clicking the *Activate all repositories* button on the Getting Started page to activate all your repos.
+
+
+### GitHub Student Developer Pack users
+
+If you use a GitHub account and are eligible for the GitHub Student Developer Pack, the Travis CI plan might not be assigned automatically. This occurs because the user already has a plan assigned in Travis CI. 
+
+If you wish to use the free allowance for the GitHub Student Developer Pack instead, please [contact our support team](mailto:support@travis-ci.com), provide your GitHub handle, and request the assignment of the respective plan.
 
 
 ## Add a .travis.yml File
