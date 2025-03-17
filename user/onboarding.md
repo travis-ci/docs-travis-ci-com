@@ -167,6 +167,11 @@ language: go
 ```
 {: data-file=".travis.yml"}
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 If you have tests that need to run on macOS or your project uses Swift or
 Objective-C, use our macOS environment:
 
