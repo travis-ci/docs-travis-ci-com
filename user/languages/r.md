@@ -9,6 +9,12 @@ This guide covers build environment and configuration topics specific to R
 projects.
 Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 ## Community-Supported Warning
 
 Travis CI support for R is contributed by the community and may be removed or
