@@ -194,6 +194,12 @@ Deploy keys are not currently supported by LFS, so you should use a Assembla OAu
 
 ### macOS
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 Installing `git-lfs` via brew is the recommended way to get Git LFS in [macOS](/user/reference/osx/).
 
 ```yaml
