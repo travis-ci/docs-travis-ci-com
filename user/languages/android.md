@@ -4,203 +4,205 @@ layout: en
 
 ---
 
+This guide covers the build environment and configuration topics specific to Android projects targeting API level 30 and above. Please review our [Onboarding](/user/onboarding/) and [General Build Configuration](/user/customizing-the-build/) guides before proceeding.
 
-This guide covers build environment and configuration topics specific to Android projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
+> **Note:** Android builds are not available on macOS environments.
 
-Android builds are not available on the macOS environment.
-
+---
 
 ## CI Environment for Android Projects
 
-### Overview
-
-> Android builds are officially supported on our Bionic, Focal, and Jammy build environments; hence, you'll need to explicitly specify `dist: bionic`, `dist: focal`, or `dist: jammy` in your .travis.yml file.
-
-Travis CI environment provides a large set of build tools for JVM languages with [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview), [sbt](/user/languages/scala/#projects-using-sbt) and [Leiningen](/user/languages/clojure/).
-
-By setting
+Android builds are supported on our Bionic, Focal, and Jammy build environments. Specify one of these in your `.travis.yml`:
 
 ```yaml
 language: android
-dist: focal  # or dist: jammy, dist: bionic
+dist: focal  # Options: focal, jammy, or bionic
 ```
-{: data-file=".travis.yml"}
 
-in your `.travis.yml` file, your project will be built in the Android environment which provides [Android SDK Tools](http://developer.android.com/tools/sdk/tools-notes.html).
+Travis CI provides a full suite of tools for JVM-based projects, including multiple JDKs, Ant, Gradle, Maven, sbt, and Leiningen.
 
-Here is an example `.travis.yml` for an Android project:
+---
+
+## Sample Configuration for API Level 30+
+
+Below is an example `.travis.yml` configured for Android projects targeting API level 30 and above. Notice that only the required extras (listed later) are included:
 
 ```yaml
 language: android
 dist: focal
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
+    # Uncomment these if you need the latest SDK tools:
     # - tools
     # - platform-tools
 
-    # The BuildTools version used by your project
-    - build-tools-30.0.0
+    # Build Tools for API 30
+    - build-tools;30.0.0
 
-    # The SDK version used to compile your project
-    - android-30
+    # Android SDK Platform for API 30
+    - platforms;android-30
 
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
+    # Android system image for API 30 with Google APIs (x86_64)
+    - system-images;android-30;google_apis;x86_64 
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    - sys-img-x86-android-30
-    - sys-img-armeabi-v7a-android-17
+    # Required extras
+    - extras;android;m2repository         # Android Support Repository (v47.0.0)
+    - extras;google;auto                  # Android Auto Desktop Head Unit Emulator (v2.0)
+    - extras;google;google_play_services  # Google Play services (v49)
+    - extras;google;instantapps           # Google Play Instant Development SDK (v1.9.0)
+    - extras;google;m2repository          # Google Repository (v58)
+    - extras;google;market_apk_expansion  # Google Play APK Expansion library (v1)
+    - extras;google;market_licensing      # Google Play Licensing Library (v1)
+    - extras;google;simulators            # Android Auto API Simulators (v1)
+    - extras;google;webdriver             # Google WebDriver
 ```
-{: data-file=".travis.yml"}
 
-### Install Android SDK Components
+---
 
-In your `.travis.yml`, you can define the list of SDK components to be installed, as illustrated in the following example:
+## Installing Android SDK Components
+
+In your `.travis.yml`, specify the exact SDK components to install:
 
 ```yaml
 language: android
 dist: focal
 android:
   components:
-    - build-tools-30.0.0
-    - android-30
-    - extras;google;google_play_services
-    - extras;google;m2repository
+    - build-tools;30.0.0
+    - platforms;android-30
+    - system-images;android-30;google_apis;x86_64 
     - extras;android;m2repository
-```
-{: data-file=".travis.yml"}
-
-The exact component names must be specified (filter aliases like `add-on` or `extra` are also accepted). To get a list of available exact component names and descriptions run the command `sdkmanager --list` (preferably in your local development machine).
-
-Here are specific extra components you can install:
-
-```yaml
-android:
-  components:
-    # Google Play services
+    - extras;google;auto
     - extras;google;google_play_services
-    
-    # Google Repository
+    - extras;google;instantapps
     - extras;google;m2repository
-    
-    # Android Support Repository
-    - extras;android;m2repository
-    
-    # Android Support Library
-    - extras;android;support
-    
-    # Google Analytics libraries
-    - extras;google;analytics_sdk_v2
-    
-    # Google Cloud Messaging libraries
-    - extras;google;gcm
-    
-    # Google USB Driver (Windows only)
-    - extras;google;usb_driver
-    
-    # Intel x86 Emulator Accelerator (HAXM installer)
-    - extras;intel;Hardware_Accelerated_Execution_Manager
+    - extras;google;market_apk_expansion
+    - extras;google;market_licensing
+    - extras;google;simulators
+    - extras;google;webdriver
 ```
 
-#### Deal with Licenses
+> **Tip:** Run `sdkmanager --list` on your local machine to view all available components and their exact names.
 
-By default, Travis CI will accept all the requested licenses, but it is also possible to define a white list of licenses to be accepted, as shown in the following example:
+---
+
+## Dealing with Licenses
+
+Travis CI accepts requested licenses by default. To explicitly whitelist licenses, add the `licenses` key:
 
 ```yaml
 language: android
 dist: focal
 android:
   components:
-    - build-tools-30.0.0
-    - android-30
-    - add-on
-    - extra
+    - build-tools;30.0.0
+    - platforms;android-30
+    - extras;android;m2repository
+    - extras;google;auto
+    - extras;google;google_play_services
+    - extras;google;instantapps
+    - extras;google;m2repository
+    - extras;google;market_apk_expansion
+    - extras;google;market_licensing
+    - extras;google;simulators
+    - extras;google;webdriver
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 ```
-{: data-file=".travis.yml"}
 
-For more flexibility, the licenses can also be referenced with regular expressions (using Tcl syntax as `expect` command is used to automatically respond to the interactive prompts).
+Licenses can also be referenced using regular expressions.
 
-### Pre-installed Components
+---
 
-While the following components are preinstalled, the exact list may change without prior notice. To ensure the stability of your build environment, we recommend that you explicitly specify the required components for your project.
+## Pre-installed Components
 
-- tools
-- platform-tools
-- build-tools;30.0.0
-- platforms;android-30
-- extras;google;google_play_services
-- extras;google;m2repository
-- extras;android;m2repository
+The following components are pre-installed in the Travis CI Android build environments. However, for stable builds, explicitly list all required components:
 
-### Create and Start an Emulator
+- `tools`
+- `platform-tools`
+- `build-tools;30.0.0`
+- `platforms;android-30`
+- `extras;android;m2repository`
+- `extras;google;m2repository`
+- `extras;google;google_play_services`
+---
 
-If you need to use an emulator for your tests, you can use the script [`/usr/local/bin/android-wait-for-emulator`](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/android-sdk/files/default/android-wait-for-emulator) and adapt your `.travis.yml` to make this emulator available for your tests. For example:
+## Creating and Starting an Emulator
+
+If your tests require an emulator, use `avdmanager` to create an AVD and start the emulator:
 
 ```yaml
-# Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test -t android-30 --abi armeabi-v7a -c 100M
+  # Create an AVD named "test" using a system image for API 30
+  - echo no | avdmanager create avd -n test -k "system-images;android-30;google_apis;x86_64" --force
+  # Start the emulator without audio or window
   - emulator -avd test -no-audio -no-window &
-  - android-wait-for-emulator
+  # Unlock the emulator screen
   - adb shell input keyevent 82 &
 ```
-{: data-file=".travis.yml"}
+
+Adjust sleep durations as necessary.
+
+---
 
 ## Dependency Management
 
-Travis CI Android builder assumes that your project is built with a JVM build tool like Maven or Gradle that will automatically pull down project dependencies before running tests without any effort on your side.
-
-If your project is built with Ant or any other build tool that does not automatically handle dependencies, you need to specify the exact command to run using `install:` key in your `.travis.yml`, for example:
+Travis CI assumes that your project uses a JVM build tool (e.g., Gradle, Maven) that automatically manages dependencies.  
+For projects using Ant or other tools, specify your dependency command:
 
 ```yaml
 language: android
 dist: focal
 install: ant deps
 ```
-{: data-file=".travis.yml"}
 
-## Default Test Command for Maven
+---
 
-If your project has `pom.xml` file in the repository root but no `build.gradle`, Maven 3 will be used to build it. By default it will use
+## Default Test Commands
+
+### Maven Projects
+
+If your repository contains a `pom.xml` (and no `build.gradle`), Maven 3 is used with:
 
 ```bash
 mvn install -B
 ```
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+### Gradle Projects
 
-## Default Test Command for Gradle
-
-If your project has `build.gradle` file in the repository root, Gradle will be used to build it. By default it will use
+For repositories with a `build.gradle` file, Travis runs:
 
 ```bash
 gradle build connectedCheck
 ```
 
-to run your test suite. If your project also includes the `gradlew` wrapper script in the repository root, Travis Android builder will try to use it instead. The default command will become:
+If a Gradle wrapper (`gradlew`) exists, it uses:
 
 ```bash
 ./gradlew build connectedCheck
 ```
 
-This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
+### Ant Projects
 
-### Caching
+If neither Maven nor Gradle files are found, Travis defaults to:
 
-A peculiarity of dependency caching in Gradle means that to avoid uploading the cache after every build you need to add the following lines to your `.travis.yml`:
+```bash
+ant debug install test
+```
+
+Override these defaults using our [General Build Configuration](/user/customizing-the-build/) guide if needed.
+
+---
+
+## Caching
+
+To optimize builds and avoid uploading cache after every build, add:
 
 ```yaml
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
@@ -208,29 +210,24 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 ```
-{: data-file=".travis.yml"}
 
-## Default Test Command
+---
 
-If Travis CI cannot detect Maven or Gradle files, Travis CI Android builder will try to use Ant to build your project. By default, it will use
+## Testing Against Multiple JDKs
 
-```bash
-ant debug install test
-```
+You can test against multiple JDKs as described in our [Testing Against Multiple JDKs](/user/languages/java/#testing-against-multiple-jdks) guide.
 
-to run your test suite. This can be overridden as described in the [general build configuration](/user/customizing-the-build/) guide.
-
-## Test against Multiple JDKs
-
-As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
+---
 
 ## Build Matrix
 
-For Android projects, `env` and `jdk` can be given as arrays to construct a build matrix.
+For Android projects, you can create a build matrix by providing arrays for both `env` and `jdk`.
 
-## Build Android projects on different build environments
+---
 
-Android projects are supported on `dist: bionic`, `dist: focal`, and `dist: jammy` build environments. If you have specific requirements for other build environments, you can install required packages and tools as shown in this example:
+## Building on Different Environments
+
+Android projects are supported on `dist: bionic`, `dist: focal`, and `dist: jammy`. To build on a different environment, install the necessary packages and tools. For example:
 
 ```yaml
 os: linux
@@ -238,52 +235,57 @@ language: java
 jdk: openjdk17
 
 env:
- global:
-  - ANDROID_HOME=$HOME/travis-tools/android
-  - ANDROID_SDK_ROOT=$HOME/travis-tools/android
+  global:
+    - ANDROID_HOME=$HOME/travis-tools/android
+    - ANDROID_SDK_ROOT=$HOME/travis-tools/android
 
 before_install:
- # PREPARE FOR ANDROID SDK SETUP
- - mkdir -p $HOME/travis-tools/android && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
- - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
- - unzip -q commandlinetools.zip && cd cmdline-tools
- - mv * tools | mkdir tools && cd $TRAVIS_BUILD_DIR
+  # Set up the Android SDK command line tools
+  - mkdir -p $ANDROID_HOME && mkdir $HOME/.android && touch $HOME/.android/repositories.cfg
+  - cd $ANDROID_HOME && wget -q "https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip" -O commandlinetools.zip
+  - unzip -q commandlinetools.zip && mkdir -p cmdline-tools && mv cmdline-tools/* cmdline-tools/tools
+  - cd $TRAVIS_BUILD_DIR
 
- # SETUP PATH(s)
- - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
- - export PATH=$ANDROID_HOME/emulator/:$PATH
- - export PATH=$ANDROID_HOME/platform-tools/:$PATH
+  # Update PATH for command line tools, emulator, and platform-tools
+  - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+  - export PATH=$ANDROID_HOME/emulator/:$PATH
+  - export PATH=$ANDROID_HOME/platform-tools/:$PATH
 
 install:
- # INSTALL REQUIRED ANDROID SDK TOOLS
- - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.0" "emulator" "system-images;android-30;google_apis;x86_64"
- - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- # CREATE AVD
- - echo "no" | avdmanager --verbose create avd --force --name "my_android_30" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
- - sudo chmod -R 777 /dev/kvm
- # Start emulator in background and wait for it to start
- - adb kill-server && adb start-server &
- - sleep 15 # sleep values may require adjusting depending on the specific build environment
- - emulator @my_android_30 -no-audio -no-window &
- - sleep 60
+  # Install required SDK components
+  - sdkmanager --sdk_root=$ANDROID_HOME --list | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+  - yes | sdkmanager --sdk_root=$ANDROID_HOME --install "platform-tools" "platforms;android-30" "build-tools;30.0.0" "emulator" "system-images;android-30;google_apis;x86_64"
+  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+  # Create an AVD for testing
+  - echo "no" | avdmanager create avd --verbose --force --name "my_android_30" --package "system-images;android-30;google_apis;x86_64" --tag "google_apis" --abi "x86_64"
+  - sudo chmod -R 777 /dev/kvm
+  # Start the emulator in the background
+  - adb kill-server && adb start-server &
+  - sleep 15
+  - emulator @my_android_30 -no-audio -no-window &
+  - sleep 60
 
 script:
- - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
- - adb devices
- - .....
+  - sdkmanager --list --sdk_root=$ANDROID_HOME | awk '/Installed/{flag=1; next} /Available/{flag=0} flag'
+  - adb devices
+  # ... additional build/test commands
 ```
-{: data-file=".travis.yml"}
+
+---
 
 ## Examples
 
-- [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml) (Google Guide on Android)
-- [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml) (A platform for developing apps using JRuby on Android)
-- [RxJava in Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
+Here are some example projects that use Travis CI with Android:
+
+- [roboguice/roboguice](https://github.com/roboguice/roboguice/blob/master/.travis.yml)
+- [ruboto/ruboto](https://github.com/ruboto/ruboto/blob/master/.travis.yml)
+- [RxJava Android Example Project](https://github.com/andrewhr/rxjava-android-example/blob/master/.travis.yml)
 - [Gradle Example Project](https://github.com/pestrada/android-tdd-playground/blob/master/.travis.yml)
 - [Maven Example Project](https://github.com/embarkmobile/android-maven-example/blob/master/.travis.yml)
 - [Ionic Cordova Example Project](https://github.com/samlsso/Calc/blob/master/.travis.yml)
 
+---
+
 ## Build Config Reference
 
-You can find more information on the build config format for [Android](https://config.travis-ci.com/ref/language/android) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+For more details, see the [Travis CI Build Config Reference for Android](https://config.travis-ci.com/ref/language/android).
