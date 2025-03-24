@@ -1,5 +1,5 @@
 ---
-title: Embedded Builds with PlatformIO
+title: Embed Builds with PlatformIO
 layout: en
 
 ---
@@ -8,7 +8,7 @@ layout: en
 
 ## Overview
 
-[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can compile your code on multiple platforms, frameworks and boards. Unit testing requires a [monthly subscription](http://platformio.org/pricing).
+[PlatformIO](http://platformio.org/) is a cross-platform code-builder and library manager for embedded development with no external dependencies. Using PlatformIO you can compile your code on multiple platforms, frameworks, and boards. Unit testing requires a [monthly subscription](http://platformio.org/pricing).
 
 - *Platforms* - pre-built different development platforms for the most popular host OS (macOS, Windows, Linux 32/64bit, Linux ARMv6+). Each of them
   includes compiler, debugger, uploader, etc:
@@ -31,7 +31,7 @@ layout: en
 
 [Full list](http://platformio.org/#!/boards) at PlatformIO
 
-## .travis.yml Settings
+## .travis.yml file Settings
 
 Please read the official
 [PlatformIO & Travis CI](http://docs.platformio.org/en/latest/ci/travis.html) documentation before using PlatformIO.
@@ -61,7 +61,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-### Testing Libraries
+### Test Libraries
 
 If the project you are testing is a library, please use the  `--lib="."` option for the [platformio ci](http://docs.platformio.org/en/latest/userguide/cmd_ci.html#cmdoption-platformio-ci-l) command
 
@@ -71,7 +71,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-### Managing dependencies
+### Manage dependencies
 
 There are two options for testing projects with external dependencies:
 
@@ -92,7 +92,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-#### Installing dependencies manually
+#### Install dependencies manually
 
 For the dependencies not available in the PlatformIO Library Registry:
 
@@ -126,7 +126,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-More details available at [build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
+More details are available at [build flags/options](http://docs.platformio.org/en/latest/projectconf.html#build-flags).
 
 ### Advanced configuration
 
