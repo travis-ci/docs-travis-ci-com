@@ -24,6 +24,12 @@ layout: en
 
 ## macOS Build Environment Updates
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 <ul class="list--links">
 {% assign reverse_pages = site.pages | reverse %}
 {% for page in reverse_pages %}

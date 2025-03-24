@@ -189,6 +189,12 @@ If you are looking for **desktop notifications**, our command line client [suppo
 
 ## macOS
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 ### CCMenu
 
 ![CCMenu](/images/apps/ccmenu.jpg){:.app}

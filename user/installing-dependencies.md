@@ -210,6 +210,12 @@ of the two possible forms:
 
 ## Install Packages on macOS
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain), use [Homebrew](http://brew.sh).
 
 For convenience, you can use the Homebrew addon in your `.travis.yml`.
@@ -289,6 +295,12 @@ addons:
 {: data-file=".travis.yml"}
 
 ### Use Homebrew without addon on older macOS images
+
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
 

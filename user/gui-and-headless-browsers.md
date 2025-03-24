@@ -150,6 +150,12 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 
 ## Headless mode with the Chrome addon
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
 mode with the [Chrome addon](/user/chrome), which is suitable for driving browser-based tests using Selenium and other tools.
 

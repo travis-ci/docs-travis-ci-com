@@ -5,6 +5,12 @@ permalink: /user/billing-overview/
 
 ---
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 ## Travis CI Plan Types
 
 Travis CI billing system consists of two types of subscriptions: Concurrency (fixed-price) based plans and Usage-based plans.

@@ -3,6 +3,11 @@ title: IP Addresses
 layout: en
 
 ---
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 Knowing the IP addresses of the build machines that Travis CI uses can be helpful
 when you need them safelisted to access your internal resources. Since builds

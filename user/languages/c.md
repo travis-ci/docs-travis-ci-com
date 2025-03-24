@@ -29,6 +29,12 @@ This guide covers build environment and configuration topics specific to C
 projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 ## CI Environment for C Projects
 
 Travis CI VMs are 64-bit and provide versions of:

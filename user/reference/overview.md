@@ -60,6 +60,12 @@ You can select Linux virtualization type by setting a `virt` tag to either `vm` 
 
 ### macOS
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 A [macOS](/user/reference/osx/) environment for Objective-C and other macOS specific projects
 
 ### Windows
@@ -67,6 +73,12 @@ A [macOS](/user/reference/osx/) environment for Objective-C and other macOS spec
 A [Windows](/user/reference/windows/) environment running Windows Server, version 1803.
 
 ### Virtualization Environment vs. Operating System
+
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 The following table summarizes the differences across virtual environments and operating systems:
 
