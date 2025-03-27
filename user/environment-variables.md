@@ -110,7 +110,7 @@ env:
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
-1. If you do not have the `travis` gem installed, run `gem install travis` (or `brew install travis` on macOS).
+1. If you do not have the `travis` gem installed, run `gem install travis`.
 
 2. In your repository directory:
 
@@ -163,7 +163,7 @@ The following default environment variables are available to all builds.
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
 - `USER=travis`
-- `HOME` is set to `/home/travis` on Linux, `/Users/travis` on MacOS, and
+- `HOME` is set to `/home/travis` on Linux, and
     `/c/Users/travis` on Windows.
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
@@ -207,11 +207,9 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are currently `linux`, `osx` and `windows` (beta), to be extended in the future.
+  Values are currently `linux` and `windows` (beta), to be extended in the future.
 - `TRAVIS_CPU_ARCH`: On [multi-arch](https://docs.travis-ci.com/user/multi-cpu-architectures/) builds, this value indicates the CPU architecture the job is running on.
-  Values are currently `amd64`, `arm64`, `ppc64le` and `s390x`.
-- `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
-  it is empty.
+  Values are currently `amd64`, `arm64`, `ppc64le`, and `s390x`.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:
