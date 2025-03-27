@@ -29,12 +29,6 @@ This guide covers build environment and configuration topics specific to C
 projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
 ## CI Environment for C Projects
 
 Travis CI VMs are 64-bit and provide versions of:
@@ -64,7 +58,7 @@ See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
 ## Test against Compilers
 
-You can test projects against either GCC or Clang, or both. To do so, specify
+You can test projects against either GCC or Clang or both. To do so, specify
 the compiler to use using the `compiler:` key in `.travis.yml`. For example, to
 build with Clang:
 
@@ -86,7 +80,6 @@ Testing against two compilers will create (at least) 2 rows in your build
 matrix. For each row, Travis CI C builder will export the `CC` and `CC_FOR_BUILD` env variables to
 point to either `gcc` or `clang`.
 
-On macOS, `gcc` is an alias for `clang`. Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
 ## OpenMP Projects
 
