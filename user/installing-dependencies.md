@@ -7,7 +7,6 @@ redirect_from:
 ---
 
 
-
 ## Install Packages on Standard Infrastructure
 
 To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
@@ -208,114 +207,6 @@ of the two possible forms:
 
     `confinement` and `channel` are optional.
 
-## Install Packages on macOS
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-To install packages that are not included in the [default macOS environment](/user/reference/osx/#compilers-and-build-toolchain), use [Homebrew](http://brew.sh).
-
-For convenience, you can use the Homebrew addon in your `.travis.yml`.
-For example, to install beanstalk:
-
-```yaml
-addons:
-  homebrew:
-    packages:
-    - beanstalk
-```
-{: data-file=".travis.yml"}
-
-By default, the Homebrew addon will not run `brew update` before installing packages. `brew update` can take a long time and slow down your builds. If you need more up-to-date versions of packages than the snapshot on the build VM has, you can add `update: true` to the addon configuration:
-
-```yaml
-addons:
-  homebrew:
-    packages:
-    - beanstalk
-    update: true
-```
-{: data-file=".travis.yml"}
-
-### Install Casks
-
-The Homebrew addon also supports installing [casks][homebrew-cask]. You can add them to the `casks` key in the Homebrew addon configuration to install them:
-
-[homebrew-cask]: https://github.com/Homebrew/homebrew-cask
-
-```yaml
-addons:
-  homebrew:
-    casks:
-    - dotnet-sdk
-```
-{: data-file=".travis.yml"}
-
-### Install From Taps
-
-Homebrew supports installing casks and packages from third-party repositories called [taps][homebrew-tap], and you can use these with the Homebrew addon.
-
-For instance, Homebrew maintains a tap of older versions of certain casks at [`homebrew/cask-versions`][cask-versions]. If you wanted to install Java 8 on an image with Java 10 installed, you can add that tap and then install the `java8` cask:
-
-[homebrew-tap]: https://docs.brew.sh/Taps
-[cask-versions]: https://github.com/Homebrew/homebrew-cask-versions
-
-```yaml
-osx_image: xcode10
-addons:
-  homebrew:
-    taps: homebrew/cask-versions
-    casks: java8
-```
-{: data-file=".travis.yml"}
-
-### Use Brewfile
-
-Under the hood, the Homebrew addon works by creating a `~/.Brewfile` and running `brew bundle --global`. You can also use the addon to install dependencies from your own [Brewfile][] that is checked into your project. By passing `brewfile: true`, the addon will look for a `Brewfile` in the root directory of your project:
-
-[brewfile]: https://github.com/Homebrew/homebrew-bundle
-
-```yaml
-addons:
-  homebrew:
-    brewfile: true
-```
-{: data-file=".travis.yml"}
-
-You can also provide a path if your Brewfile is in a different location.
-
-```yaml
-addons:
-  homebrew:
-    brewfile: Brewfile.travis
-```
-{: data-file=".travis.yml"}
-
-### Use Homebrew without addon on older macOS images
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-If you're running the `brew` command directly in your build scripts, and you're using an older macOS image, you may see a warning such as this:
-
-    Homebrew must be run under Ruby 2.3! You're running 2.0.0.
-
-You'll need to update to Ruby 2.3 or newer:
-
-```
-rvm use 2.3 --install --binary
-brew update
-brew install openssl
-rvm use $TRAVIS_RUBY_VERSION # optionally, switch back to the Ruby version you need.
-```
-
-> You can also have a look at the [Homebrew](https://config.travis-ci.com/ref/job/addons/homebrew) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Install Packages on FreeBSD
 
