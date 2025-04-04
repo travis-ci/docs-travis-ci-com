@@ -202,25 +202,6 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on macOS
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-ccache is not installed on macOS environments, but you can install it by adding:
-
-```yaml
-install:
-  - brew install ccache
-  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
-```
-{: data-file=".travis.yml"}
-
-> Note that this creates wrappers around your default gcc and g++ compilers.
-
 ### R package cache
 
 For caching R packages, use:
@@ -436,12 +417,11 @@ jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux`, `osx`, or `windows`)
+1. OS name (currently, `linux` or `windows`)
 2. OS distribution (for Linux, `noble`, `jammy`, `focal`, `bionic`, `xenial`, `trusty`, or `precise`)
-3. macOS image name (e.g., `xcode7.2`)
-4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
-5. Language runtime version (for the language specified in the `language` key) if applicable
-6. For Bundler-aware jobs, the name of the `Gemfile` used
+3. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+4. Language runtime version (for the language specified in the `language` key) if applicable
+5. For Bundler-aware jobs, the name of the `Gemfile` used
 
 If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.

@@ -175,11 +175,8 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> Note that testing against multiple Java versions is not supported on macOS. See
-the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
-details.
 
-The list of available JVMs for different dists are at
+The list of available JVMs for different dists are at:
 
   * [JDKs installed for **Noble**](/user/reference/noble/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Jammy**](/user/reference/jammy/#jvm-clojure-groovy-java-scala-support)
@@ -230,14 +227,14 @@ script:
 
 ## Current JDK providers
 
-Currently our builds are using Bellsoft and Adoptium JDK providers - they are switched based on the distribution and architecture you are using in your build. Additionally, we've added IBM's Semeru JDK - to use it, instead of using jdk: jdkX or jdk: openjdkX syntax, simply use jdk: semeruX like here:
+Currently, our builds are using Bellsoft and Adoptium JDK providers - they are switched based on the distribution and architecture you are using in your build. Additionally, we've added IBM's Semeru JDK - to use it, instead of using jdk: jdkX or jdk: openjdkX syntax, simply use jdk: semeruX like here:
 ```yaml
 language: java
 jdk: semeru11
 ```
 {: data-file=".travis.yml"}
 
-Available semeru JDKs for AMD, S390X, PPC64LE and ARM architectures: 8, 11, 16, 17, 18, 19, 20, 21, 22
+Available semeru JDKs for AMD, S390X, PPC64LE, and ARM architectures: 8, 11, 16, 17, 18, 19, 20, 21, 22
 
 ## Examples
 

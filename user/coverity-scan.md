@@ -22,15 +22,6 @@ See more details about Coverity Scan in the [FAQ](https://scan.coverity.com/faq)
 
 It's probably overkill to run static analysis on each and every commit of your project. To increase the availability of the free service to more projects, the addon is designed by default to run analysis on a per-branch basis. We recommend you create a branch named `coverity_scan`, which you can merge into whenever you would like to trigger analysis. See the [FAQ](https://scan.coverity.com/faq#frequency) for information about build submission frequency.
 
-## macOS support
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-The Coverity Scan addon doesn't work on macOS versions with the SIP feature enabled i.e. on macOS El Capitan (10.11) and higher. Specifically on Travis CI, it currently only works on our Xcode 6.4 image (i.e. with `osx_image: xcode6.4`). However, it's possible to make it work with custom scripts or commands. Please reach out to [support@travis-ci.com](mailto:support@travis-ci.com) to learn how.
 
 ## Step-by-step Configuration
 

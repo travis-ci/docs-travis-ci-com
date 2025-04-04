@@ -26,7 +26,6 @@ language: smalltalk
 # Select operating system(s)
 os:
   - linux
-  - osx
 
 # Select virtual machine(s)
 smalltalk_vm:

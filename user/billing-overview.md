@@ -5,11 +5,6 @@ permalink: /user/billing-overview/
 
 ---
 
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
 
 ## Travis CI Plan Types
 
@@ -57,7 +52,7 @@ Concurrency-based plans are similar to what Travis CI has been offering for a lo
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | The subscription is charged automatically in advance at the beginning of each billing period. <br /> The optional credits for macOS builds can be purchased anytime and only used when you need them. The charge is applied immediately upon transaction. The subscription price doesn't depend on the number of unique users running builds.|
+| **Payment**                     | The subscription is charged automatically in advance at the beginning of each billing period. <br /> The subscription price doesn't depend on the number of unique users running builds.|
 | **Private/Public repositories** | You can build over both private and public repositories with a paid subscription. |
 | **Build job limits**            | As per Plan |
 
@@ -69,12 +64,10 @@ In Travis CI, builds are executed singularly, without exceeding limitations. The
 >
 > If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
 
-The price of these plans includes Linux, Windows, and FreeBSD builds. The macOS builds are paid separately on concurrency plans and can be run after purchasing the separate credits add-on.
-Credits are used to pay for each build job minute on macOS. Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
+The price of these plans includes Linux, Windows, and FreeBSD builds. 
+Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
 
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
->
-> If a user/organization on the same Plan tries to execute a job for `os: macOS` and has no credits available (see your [Plans](https://app.travis-ci.com/account/plan)), this build will not execute. In order to proceed, an add-on must be purchased, e.g., 25k credits. Now the build can be executed, and a pre-defined amount of [credits will be charged for each build minute of macOS build job](/user/billing-overview/#usage---credits).
 
 
 ### Subscribe to a Concurrency-based Plan
@@ -114,7 +107,6 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 | Build Job: Partner Queues (IBM)       | 0 credits for Open Source / standard Linux rate for rest | 0 credits for Open Source / standard Linux rate for rest |
 | Build Job: Standard Linux/FreeBSD     | 10 credits / minute            | 10 credits / minute |
 | Build Job: Standard Windows           | 20 credits / minute            | 20 credits / minute |
-| Build Job: macOS - legacy Intel       | 50 credits / minute            | 50 credits / minute |
 | Build Job: Linux - large VM size	    | 20 credits / min	             | 20 credits / min	   |
 | Build Job: Linux - x-large VM size    |	40 credits / min	             | 40 credits / min    |
 | Build Job: Linux - 2x-large VM size   |	80 credits / min	             | 80 credits / min    |
@@ -212,13 +204,13 @@ If you wish to switch from your monthly subscription to another plan with a diff
 ### Credits Usage
 
 Credits are purchased at your discretion as an 'addon' (if available in your plan) or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
-Thus whenever you select or are assigned a Usage-based plan:
+Thus, whenever you select or are assigned a Usage-based plan:
 
 * Plan has the default allotment of credits associated (default Credits addon)
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. a plan coming with 25,000 credits will result in an immediate charge according to the enlisted price.
 * If you have the Auto-Refill option enabled, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon successful charge on your credit card; read more about it [here](/user/billing-autorefill/).
 
-You can also purchase credits while on the Concurrency-based Plan. These are used only in scenarios that require credits to start a build job (e.g., building on macOS or using a non-standard VM instance size).
+You can also purchase credits while on the Concurrency-based Plan. These are used only in scenarios that require credits to start a build job (e.g., using a non-standard VM instance size).
 
 Credits are deducted from your balance each time a build job starts a VM instance or an LXD container and is running. Each started build job minute has a credit cost associated with the environment used, as shown in the table below. If your account runs out of credits, there's a slight margin of negative credits you are allowed to exceed in order to finish the job, but if that margin is passed - jobs will be canceled due to insufficient credits balance.
 
@@ -228,7 +220,6 @@ Credits are deducted from your balance each time a build job starts a VM instanc
 | Linux                | 1 x usage credit cost of build minute |
 | Experimental FreeBSD | 1 x usage credit cost of build minute |
 | Windows              | 2 x usage credit cost of build minute |
-| macOS                | 5 x usage credit cost of build minute |
 
 See [credit costs associated with usage-based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
@@ -369,12 +360,12 @@ vm:
 ```
 {: data-file=".travis.yml"}
 
-Instance sizes do not apply to OSX build jobs. Our [CI Environment Overview page](/user/reference/overview/#vm-instance-size) describes the available VM sizes vs. operating system and CPU architecture.
+Our [CI Environment Overview page](/user/reference/overview/#vm-instance-size) describes the available VM sizes vs. operating system and CPU architecture.
 
 To use instance sizes:
 
-* you need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use.
-* you need to add the tags mentioned above to your `.travis.yml`
+* You need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use.
+* You need to add the tags mentioned above to your `.travis.yml`
 
 VM size property impacts the cost of build minutes/credits usage in the following way:
 
@@ -401,13 +392,13 @@ vm:
 ```
 {: data-file=".travis.yml"}
 
-Instance sizes do not apply to Windows and OSX build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
+Instance sizes do not apply to Windows build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
 
 To use instance sizes:
 
-* you need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use.
-* you need to add the tags mentioned above to your `.travis.yml.`
-* you need to select a Linux operating system in your `travis.yml.`
+* You need to have credits under your account, regardless of the plan (Concurrency or Usage-based) you use.
+* You need to add the tags mentioned above to your `.travis.yml.`
+* You need to select a Linux operating system in your `travis.yml.`
 
 GPU VM size property impacts the cost of build minutes/credits usage in the following way:
 

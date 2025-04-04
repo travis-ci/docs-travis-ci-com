@@ -56,7 +56,7 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-Travis CI also supports the [Windows Build Environment](/user/reference/windows/), [macOS Build Environment](/user/reference/osx/) and [FreeBSD Build Environment](/user/reference/freebsd/).
+Travis CI also supports the [Windows Build Environment](/user/reference/windows/) and [FreeBSD Build Environment](/user/reference/freebsd/).
 
 ## Migration Guides
 
