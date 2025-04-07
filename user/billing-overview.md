@@ -28,6 +28,12 @@ A basic usage-based or single concurrency-based plan should be sufficient for mo
 
 ### Free Trial Plan
 
+<blockquote class="beta">
+  <p>
+    Free Trial Plans are currently unavailable. 
+  </p>
+</blockquote>
+
 A free 'Trial' Plan, which any new user can select upon sign-up, is a usage-based plan with an unlimited amount of users, which comes with a pool of 10k trial credits (1k Linux build minutes) to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 14 days.
 
 Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details while selecting the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure. 
@@ -88,7 +94,7 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 
 | Area                            | Details    |
 | :---                            | ---        |
-| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit add-ons, if available, can be purchased anytime, and credits are only used when needed. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding the pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Trial assigned upon sign-up grants you unlimited users for free. |
+| **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit add-ons, if available, can be purchased anytime, and credits are only used when needed. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding the pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Trial assigned upon sign-up grants you unlimited users for free.<br /><br />**Note**: **Free Trial Plans are currently unavailable**. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
 | **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40 concurrent jobs limit. |
 
@@ -262,9 +268,9 @@ The `ppc64le` is also available for private builds at a standard Linux per-minut
 
 #### Negative Credits
 
-By design, the billing system usually allows the build job to finish even if the possible cost of the build job expressed in credits exceeds the available credits balance. Once the build finishes, you may notice your credit balance to be negative. **This is perfectly normal.** The negative balance will be deducted from the newly arriving credit pool whenever your credits get replenished, e.g., after purchasing an addon. What remains is your available credit balance for your builds.
+By design, the billing system usually allows the build job to finish even if the possible cost of the build job expressed in credits exceeds the available credits balance. Once the build finishes, you may notice your credit balance is negative. **This is perfectly normal.** The negative balance will be deducted from the newly arriving credit pool whenever your credits get replenished, e.g., after purchasing an add-on. What remains is your available credit balance for your builds.
 
-Please note: Currently, if the system decides that the build could cause your negative balance to be too high, the job can be canceled mid-flight due to insufficient credits balance. This will be addressed in one of the incoming updates in order to allow fluent processing for your builds.
+Please note: Currently, if the system decides that the build could cause your negative balance to be too high, the job can be canceled mid-flight due to insufficient credits balance. This will be addressed in one of the upcoming updates in order to allow fluent processing for your builds.
 
 
 #### Credits vs. OSS Only Credits
@@ -281,6 +287,7 @@ The OSS credits are a separate pool of credits from regular credits, with separa
 
 Each new user who subscribes to the Free Trial Plan is automatically granted credits to use over a 14-day period. This one-time pool of credits is not renewable. This plan is meant to let you familiarize yourself with our usage-based plans as well as to try out other Travis CI features.
 
+> Free Trial Plans are currently unavailable. 
 
 ### User Licenses for Usage-based Plans
 
