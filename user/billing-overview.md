@@ -384,7 +384,7 @@ VM size property impacts the cost of build minutes/credits usage in the followin
 
 See [credit costs associated with usage-based plan](#credit-costs-associated-with-usage-based-plans) for exact values.
 
-> If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need, in both cases, 20 credits per every started build minutes (2 x 10 credits).
+> If you run a Linux build in usage model, it'll cost you 10 credits. If you run a Linux build under a concurrency plan, you do not need credits, as the subscription covers the cost. However, if you decide to run a Linux build using the `large` instance size, you will need, in both cases, 20 credits per every started build minute (2 x 10 credits).
 
 
 ## GPU VM Instance Sizes and Credit Cost for GPU builds
@@ -399,7 +399,7 @@ vm:
 ```
 {: data-file=".travis.yml"}
 
-Instance sizes do not apply to Windows build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating system, and CPU architecture.
+Instance sizes do not apply to Windows build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating systems, and CPU architecture.
 
 To use instance sizes:
 
@@ -424,6 +424,6 @@ See [credit costs associated with usage-based plan](#credit-costs-associated-wit
 
 ## Contact Support
 
-If you have any questions or issues with the new VCS, please see our [Billing FAQ](/user/billing-faq/) or email [support@travis-ci.com](mailto:support@travis-ci.com) for help.
+If you have any questions or issues with the new VCS, please see our [Billing FAQ](/user/billing-faq/) or feel free to contact the [Travis CI Support](mailto:support@travis-ci.com) team for plan recommendations.
 
 We’d love to hear what you think of our new Pricing and if there’s something that you’d like to see included or improved! Let us know in the Travis CI Community Forum.
