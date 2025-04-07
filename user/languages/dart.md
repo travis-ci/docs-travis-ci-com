@@ -84,8 +84,7 @@ dart_task:
 
 ### Available Browsers
 
-Travis comes with Firefox and Chrome installed by default on Linux, and Safari
-on macOS. However, if you want to run your tests on Dartium, you'll need to
+Travis comes with Firefox and Chrome installed by default on Linux. However, if you want to run your tests on Dartium, you'll need to
 install it by adding `install_dartium: true` either at the top level or for a
 particular task.
 
@@ -116,7 +115,6 @@ dart_task:
 ```
 {: data-file=".travis.yml"}
 
-XVFB is never used on macOS, since it doesn't use the X windows system.
 
 ## Other Tasks
 
@@ -125,7 +123,7 @@ Several tasks are available in addition to running tests.
 ### Analyzer
 
 To run the [Dart analyzer][] to verify that your code doesn't have any static
-errors, add a task with `dartanalyzer: true`. By default it analyzes all Dart
+errors, add a task with `dartanalyzer: true`. By default, it analyzes all Dart
 files in your repository, but you can configure it by providing arguments
 instead of `true`.
 

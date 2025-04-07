@@ -178,103 +178,8 @@ RSpec.configure do |c|
 end
 ```
 
-## **Mac**: macOS Mavericks (10.9) Code Signing Errors
 
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-With Mavericks, quite a lot has changed in terms of code signing and the keychain application.
-
-Signs of issues can be error messages stating that an identity can't be found and that "User
-interaction is not allowed."
-
-The keychain must be marked as the default keychain, must be unlocked explicitly and the build needs to make sure that the keychain isn't locked before the critical point in the build is reached. The following set of commands takes care
-of this:
-
-```
-KEY_CHAIN=ios-build.keychain
-security create-keychain -p travis $KEY_CHAIN
-# Make the keychain the default so identities are found
-security default-keychain -s $KEY_CHAIN
-# Unlock the keychain
-security unlock-keychain -p travis $KEY_CHAIN
-# Set keychain locking timeout to 3600 seconds
-security set-keychain-settings -t 3600 -u $KEY_CHAIN
-```
-
-## **Mac**: macOS Sierra (10.12) Code Signing Errors
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-With the introduction of macOS Sierra (10.12) on our infrastructure, we've seen build jobs that were hanging at the codesigning step of the build process. Here's some information on how to recognize this issue and fix it.
-
-Your build is running on macOS Sierra (10.12), if the `osx_image` in your .travis.yml file is `xcode8.3` or higher. See [the macOS Build Environment documentation](https://docs.travis-ci.com/user/reference/osx/) to know which macOS version is associated with each image.
-
-The following lines in your build log possibly indicate an occurrence of this issue:
-
-**Example: Signing**
-
-```
-▸ Signing /Users/travis/Library/Developer/Xcode/DerivedData/PresenterKit-ggzwtlifkopsnbffbqrmtydtmafv/Build/Intermediates/CodeCoverage/Products/Debug-iphonesimulator/project.xctest
-
-No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
-
-The build has been terminated
-```
-
-**Example: Embed Pods Frameworks**
-
-```
-▸ Running script '[CP] Embed Pods Frameworks'
-
-No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
-Check the details on how to adjust your build configuration on: https://docs.travis-ci.com/user/common-build-problems/#build-times-out-because-no-output-was-received
-
-The build has been terminated
-```
-
-To fix this issue, you will need to add the following command **after** you have imported your certificate:
-
-```
-security set-key-partition-list -S apple-tool:,apple: -s -k keychainPass keychainName
-```
-
-Where:
-
-- `keychainPass` is the password of your keychain
-- `keychainName` is the name of your keychain
-
-Here's an example of where to put the command in context:
-
-```bash
-# Create the keychain with a password
-security create-keychain -p travis ios-build.keychain
-
-# Make the custom keychain default, so xcodebuild will use it for signing
-security default-keychain -s ios-build.keychain
-
-# Unlock the keychain
-security unlock-keychain -p travis ios-build.keychain
-
-# Add certificates to keychain and allow codesign to access them
-security import ./Provisioning/certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./Provisioning/certs/distribution.cer -k ~/Library/Keychains/ios-build.keychain -T /usr/bin/codesign
-security import ./Provisioning/certs/distribution.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_PASSWORD -T /usr/bin/codesign
-
-security set-key-partition-list -S apple-tool:,apple: -s -k travis ios-build.keychain
-```
-
-> IMPORTANT: It's mandatory to create a keychain with a password for the command `security set-key-partition-list` to work.
-
-### Fastlane
+## Fastlane
 
 If you are using [Fastlane](https://fastlane.tools/) to sign your app (e.g. with [Fastlane Match](https://github.com/fastlane/fastlane/tree/master/match)), you will need to do something similar to the following in your `Fastfile`:
 
@@ -296,7 +201,7 @@ If you are using [Fastlane](https://fastlane.tools/) to sign your app (e.g. with
     )
 ```
 
-If you are using `import_certificate` directly to import your certificates, it's mandatory to pass your keychain's password as a parameter e.g.
+If you are using `import_certificate` directly to import your certificates, it's mandatory to pass your keychain's password as a parameter, e.g.
 
 ```
 keychain_name = "ios-build.keychain"
@@ -321,53 +226,6 @@ import_certificate(
 
 You can also have more details in [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/6791) starting at [this comment](https://github.com/travis-ci/travis-ci/issues/6791#issuecomment-261071904).
 
-
-## **Mac**: Errors running CocoaPods
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-CocoaPods usage can currently fail for a few reasons.
-
-### Newer version of CocoaPods required
-
-Most Pods now require CocoaPods 0.32.1, but we still have 0.21 preinstalled. If
-you're seeing this error, add this to your `.travis.yml`:
-
-```yaml
-before_install:
-  - gem install cocoapods -v '0.32.1'
-```
-{: data-file=".travis.yml"}
-
-### CocoaPods cannot be found
-
-CocoaPods isn't currently installed on all available Rubies, which unfortunately
-means it will fail when using the default Ruby, which is 2.0.0.
-
-To work around this issue, you can either install CocoaPods manually as shown
-above, or you can switch to Ruby 1.9.3 in your `.travis.yml`, which should work
-without any issues:
-
-```yaml
-rvm: 1.9.3
-```
-{: data-file=".travis.yml"}
-
-### CocoaPods fails with a segmentation fault
-
-On Ruby 2.0.0, CocoaPods has been seen crashing with a segmentation fault.
-
-You can work around the issue by using Ruby 1.9.3, which hasn't shown these
-issues. Add this to your `.travis.yml`:
-
-```yaml
-rvm: 1.9.3
-```
-{: data-file=".travis.yml"}
 
 ## **System**: Required language pack not installed
 

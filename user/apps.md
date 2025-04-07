@@ -8,7 +8,7 @@ There is a wide range of tools you can use to interact with Travis CI:
 
 - **[Websites](#websites)**: [Full Web Clients](#full-web-clients), [Dashboards](#dashboards), [Tools](#tools)
 - **[Mobile Applications](#mobile)**: [Android](#android), [iOS](#ios), [Windows Phone](#windows-phone)
-- **[Desktop](#desktop)**: [macOS](#macos), [Linux](#linux), [Cross Platform](#cross-platform)
+- **[Desktop](#desktop)**: [Linux](#linux), [Cross Platform](#cross-platform)
 - **[Command Line Tools](#commandline)**: [Full Clients](#full-clients), [Build Monitoring](#build-monitoring), [Generators](#generators)
 - **[Plugins](#plugins)**: [Google Chrome](#google-chrome), [Opera](#opera), [Editors](#editors), [Other](#other)
 - **[Libraries](#libraries)**: [Ruby](#ruby), [JavaScript](#javascript), [PHP](#php), [Python](#python), [Elixir](#elixir), [R](#r), [Go](#go)
@@ -186,25 +186,6 @@ By Tim Felgentreff
 ## Desktop
 
 If you are looking for **desktop notifications**, our command line client [supports them](https://github.com/travis-ci/travis.rb#monitor).
-
-## macOS
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-### CCMenu
-
-![CCMenu](/images/apps/ccmenu.jpg){:.app}
-
-macOS status bar app<br>
-By ThoughtWorks Inc.
-
-- [website](http://ccmenu.org/)
-- [app store](https://itunes.apple.com/us/app/ccmenu/id603117688)
-- [tutorial](/user/cc-menu/)
 
 ## Linux
 

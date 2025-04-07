@@ -14,7 +14,7 @@ Builds on Travis CI are configured mostly through the build configuration
 stored in the file `.travis.yml` in your repository. This allows your
 configuration to be version-controlled and flexible.
 
-For advanced use cases the main build configuration file `.travis.yml` can
+For advanced use cases, the main build configuration file `.travis.yml` can
 import other, shared config sources using the [Build Config Imports](/user/build-config-imports/)
 feature.
 
@@ -39,8 +39,8 @@ Travis CI has specific time limits for each job, and will stop the build and add
 Some common reasons why builds might hang:
 
 - Waiting for keyboard input or other kind of human interaction
-- Concurrency issues (deadlocks, livelocks and so on)
-- Installation of native extensions that take very long time to compile
+- Concurrency issues (deadlocks, livelocks, and so on)
+- Installation of native extensions that take a very long time to compile
 
 > There is no timeout for a build; a build will run as long as needed to complete all the jobs, but will stop immediately if any job hits a timeout limit.
 
@@ -59,7 +59,7 @@ each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
 
-Or using the command line client:
+Or, using the command line client:
 
 ```bash
 $ travis settings maximum_number_of_builds --set 1
@@ -127,7 +127,6 @@ git:
 
 ## Git LFS
 
-
 ### GitHub Authentication
 
 We recommend using a read-only GitHub OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
@@ -191,27 +190,6 @@ Deploy keys are not currently supported by LFS, so you should use a Assembla OAu
 ### Linux
 
 [Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial, and Bionic images.
-
-### macOS
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-Installing `git-lfs` via brew is the recommended way to get Git LFS in [macOS](/user/reference/osx/).
-
-```yaml
-os: osx
-
-before_install:
-- brew install git-lfs
-
-before_script:
-- git lfs pull
-```
-{: data-file=".travis.yml"}
 
 ### Git LFS Skip Smudge
 
