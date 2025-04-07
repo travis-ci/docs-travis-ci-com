@@ -212,7 +212,7 @@ If you wish to switch from your monthly subscription to another plan with a diff
 Credits are purchased at your discretion as an 'addon' (if available in your plan) or via the Auto-Refill option. The Plan you are on determines what selection addons are available for you. Credit addons are paid in advance.
 Thus, whenever you select or are assigned a Usage-based plan:
 
-* Plan has the default allotment of credits associated (default Credits addon)
+* Plan has the default allotment of associated credits (default Credits addon)
 * Only advance charge is related to the allotment of credits available initially in the Plan, e.g. a plan coming with 25,000 credits will result in an immediate charge according to the enlisted price.
 * If you have the Auto-Refill option enabled, whenever the overall balance of purchased credits drops down to a certain level, your account will be refilled with some portion of credits upon successful charge on your credit card; read more about it [here](/user/billing-autorefill/).
 
@@ -234,7 +234,7 @@ Build job minutes are counted from the moment when [VM or LXD container](/user/r
 Your credits remain available until you use them or disband them. At the moment, unused paid credits expire after 12 months.
 You may disband your credits. This happens when
 
-* you switch from the Usage-based plan to a Free Plan (which cancels the paid Plan)
+* You switch from the Usage-based plan to a Free Plan (which cancels the paid Plan)
 
 and is meant to prevent abusive usage of the system.
 
@@ -246,7 +246,7 @@ Partner Queue Solution is a solution for infrastructure sponsored by our Partner
 
 This is available only to Open Source Software repositories.
 
-To run a job using Partner Queue Solution, use the following `.travis.yml` tags in your public repository:
+To run a job using the Partner Queue Solution, use the following `.travis.yml` tags in your public repository:
 
 ```yaml
 os: linux
@@ -258,7 +258,7 @@ arch:
 
 For more details, please see our [Build Environment overview](/user/reference/overview/) and [Building for Multiple CPU architectures](/user/multi-cpu-architectures/) pages.
 
-In order to start a build in the Usage-based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. When introducing Partner Queue Solution, active accounts on the Usage-based Plans, including the Free Plan, with a balance of zero or fewer credits, are updated to hold 1 credit. Thus, everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you must file an additional request.
+In order to start a build in the Usage-based Plan, a positive credits balance is required in the account (at least 1 credit). The build job under Partner Queue Solution costs 0 credits per started minute. When introducing the Partner Queue Solution, active accounts on the Usage-based Plans, including the Free Plan, with a balance of zero or fewer credits, are updated to hold 1 credit. Thus, everybody can use Partner Queues without requesting Travis CI support to grant additional credits. If you run into a negative account balance after that, you must file an additional request.
 
 In the case of Concurrency-based Plans, you can use the above infrastructure for OSS builds without any credits in your account.
 
@@ -282,6 +282,7 @@ The OSS credits may be assigned as a one-time pool or renewable pool, subject to
 
 The OSS credits are a separate pool of credits from regular credits, with separate credit balance tracking.
 
+To request more OSS credits, please contact the [Travis CI Support](mailto:support@travis-ci.com) team.
 
 #### Free Plan Credits
 
@@ -305,7 +306,7 @@ The count of unique users triggering a build is tracked and reset monthly. Uniqu
 
 ### User Licenses for Usage-based Plan with subscription
 
-Usage-based plan with subscription charges you immediately upon build start for the new unique user triggering build within a month.
+A usage-based plan with subscription charges you immediately upon build start for the new unique user triggering build within a month.
 
 Usage-based plans may have or may have not user-license allowance included in the price or available as a pool of user-licenses at a discounted credit cost.
 
@@ -346,7 +347,7 @@ Usage-based plan w/o subscription charges you at the end of each month for the n
 With every build started, Travis CI keeps track of how many unique users triggered a build within a current billing period. At the end of the month, the total amount is used to calculate the user license charge.
 
 #### User License without Subscription Example - Scenario 1
-This scenario is an example of a user with Credits, user licenses counted within a month and charged at the end of the period.The user can build with *n* build jobs.
+This scenario is an example of a user with Credits, user licenses counted within a month and charged at the end of the period. The user can build with *n* build jobs.
 
 > If a build is triggered, the system will check if this is a new unique user triggering build and if any potential included user-license allowance are exceeded:
 > 
@@ -419,7 +420,7 @@ See [credit costs associated with usage-based plan](#credit-costs-associated-wit
 > GPU Support is only available for:
 > * arch: amd64
 > * os: Linux
-> * dist: [focal] # jammy to be added later, xenial EOL, bionic EOL.
+> * dist: [focal] # jammy is to be added later, as well as the xenial EOL and bionic EOL.
 
 
 ## Contact Support
