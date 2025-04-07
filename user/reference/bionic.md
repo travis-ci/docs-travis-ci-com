@@ -44,12 +44,13 @@ All Ubuntu 18.04 builds include the following versions of Docker: version contro
 | **shfmt**      | `3.8.0`    |
 {: style="width: 30%" }
 
-### Docker
+### Docker and Container Tools
 
 | Package            | Version                           |
 |:-------------------|:----------------------------------|
-| **Docker**         | `24.0.2` (build cb74dfc)           |
-| **docker-compose** | `v2.20.3`                        |
+| **Docker**         | `24.0.2` (build cb74dfc)          |
+| **docker-compose** | `v2.20.3`                         |
+| **Podman**         | `3.4.2`                            |
 {: style="width: 30%" }
 
 ### Ruby Support
