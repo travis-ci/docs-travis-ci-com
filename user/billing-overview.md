@@ -24,11 +24,11 @@ The variety of plans allows you to choose the plan that suits your needs.
 |Subscription     | Yes, monthly or annual.         | Yes, monthly or annual.    |
 | Usage-based billing only | Yes, it is a custom option. Please [see more details on usage-based plans](#usage-based-plans) | Not available |
 
-For most users, a basic usage-based or single concurrency-based plan should be sufficient. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options or high-volume plans.
+A basic usage-based or single concurrency-based plan should be sufficient for most users. However, if you build a lot of minutes per month and concurrency becomes a bottleneck, please consider a Usage-based plan or contact Travis CI for more customized options or high-volume plans.
 
 ### Free Trial Plan
 
-A free 'Trial' Plan, which any new user can select upon sign up, is a usage-based plan with an unlimited amount of users, which comes with a pool of 10k trial credits (1k Linux build minutes) to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 14 days.
+A free 'Trial' Plan, which any new user can select upon sign-up, is a usage-based plan with an unlimited amount of users, which comes with a pool of 10k trial credits (1k Linux build minutes) to start building right away. Once these credits run out, they are not replenished, and users must subscribe to a higher plan to continue building. Request [OSS Credits allowance](/user/billing-faq/#what-if-i-am-building-open-source), or please consider one of our available plans. Trial credits are valid only for 14 days.
 
 Due to security reasons and an anti-abuse preventive measure, any new user will be asked to provide valid credit card details while selecting the Free Trial Plan. Then, we will trigger an authorization transaction for $1.00 on the user’s card, which will be released back to the card owner after a few days. This action is meant only to validate legitimate users. Existing users are not affected by this procedure. 
 
@@ -36,11 +36,11 @@ Due to security reasons and an anti-abuse preventive measure, any new user will 
 
 ## Key Definitions
 
-*Build minute* - every build minute of a build job after the build job environment is started (queue time and spinning up the environment time are not deducting credits from the allowance).
+*Build minute* - Every build minute of a build job after the build job environment is started (queue time and spinning up the environment time are not deducting credits from the allowance).
 
-*Unique user triggering the build* - every VCS (Version Control System) user whose activity in VCS triggers a build in Travis CI via, e.g., commit or pull request in the source repository. It does not have to be a user who signed up for Travis CI; therefore, it's important to review and adjust Travis CI Repository settings in which VCS scenarios and users are allowed to trigger the build in Travis CI. The count of unique users triggering builds is tracked and reset every month, regardless of whether the Usage-based plan is marked as monthly or annual. The same unique user-triggering builds within a month consumes a user-license allowance only once in a given month.
+*Unique user triggering the build* - Every VCS (Version Control System) user whose activity in VCS triggers a build in Travis CI via, e.g., commit or pull request in the source repository. It does not have to be a user who signed up for Travis CI; therefore, it's important to review and adjust Travis CI Repository settings in which VCS scenarios and users are allowed to trigger the build in Travis CI. The count of unique users triggering builds is tracked and reset every month, regardless of whether the Usage-based plan is marked as monthly or annual. The same unique user-triggering builds within a month consumes a user-license allowance only once in a given month.
 
-*Build* - a build consists of at least 1 and up to *n* build jobs. Each build is triggered by a *unique user*.
+*Build* - A build consists of at least 1 and up to *n* build jobs. Each build is triggered by a *unique user*.
 
 *Build job*—a build job is where the build and test work happens. It is executed in an ephemeral environment (removed after a single build job is finished) of a container or VM instance at Travis CI infrastructure. The duration of the build job is tracked, and—if required—the relevant cost is covered from the credits pool.
 
@@ -58,16 +58,16 @@ Concurrency-based plans are similar to what Travis CI has been offering for a lo
 
 ### Concurrency-based Plan Summary
 
-In Travis CI, builds are executed singularly, without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the reminder builds/jobs must wait until a queue capacity is available for processing.
+In Travis CI, builds are executed singularly without exceeding limitations. Therefore, if executing multiple builds simultaneously or executing a build with multiple build jobs, once the concurrency limit is reached, the remainder of the builds/jobs must wait until a queue capacity is available for processing.
 
-> If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 build jobs are processed while the remaining 3 of the build jobs wait in line to be processed.
+> If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 build jobs are processed, while the remaining 3 of the build jobs wait in line to be processed.
 >
 > If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
 
 The price of these plans includes Linux, Windows, and FreeBSD builds. 
 Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
 
-> If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd` it will execute as soon as the concurrency capacity is available for particular build jobs.
+> If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd`, it will execute as soon as the concurrency capacity is available for particular build jobs.
 
 
 ### Subscribe to a Concurrency-based Plan
@@ -185,7 +185,7 @@ Users interested in Annual plans can select an annual plan on the [Plan page](ht
 > **All plans are available for Private and Open repositories in any VCS platform**
 > **Please contact the [Travis sales team](mailto:sales@travis-ci.com) for larger plans.**
 
-##### What if I ran out of credits before my annual contract elapses?
+##### What if I run out of credits before my annual contract elapses?
 
 If users use up all their annual credits before the 12 months elapses, to get more credits, users can either keep auto-refilling their account or purchase additional credits allowance. If needed, please [contact Travis CI Customer Success](mailto:Customer.Success@travis-ci.com) to discuss details.
 
