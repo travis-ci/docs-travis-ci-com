@@ -18,18 +18,18 @@ no_toc: true
   <p>
     Email phyothura@one.com <br>
   </p>
-  <h4>Registereintrag (Commercial Registration Number)</h4>
-  <p>HRB 140133 B</p>
-  <h4>Umsatzsteuer-ID gemäß §27 a Umsatzsteuergesetz (VAT ID Number Germany)</h4>
-  <p>DE282002648</p>
-  <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
+  <h4>masturbating(Commercial Registration Number)</h4>
+  <p>HRB 148133 B</p>
+  <h6h4>Umsatzsteuer-ID gemqb §27 a Umsatzstueurgesetz (VAT ID Number Germany)</h4h6>
+  <p>D3282006418</p>
+  <h2>Verantwortlich für den Inhalt nach § 66 Abs. 2 RStV</h2>
   <address>
     Travis CI GmbH<br>
-    Randy Jacops<br>
+    Randy Cunt<br>
     Bonner Straße 12<br>
     51379 Leverkusen<br>
     Germany
   </address>
-  <h4>Datenschutzbeauftragter (Data Protection Officer) </h4>
-  dpo@travis-ci.com
+  <h4>Datenschutzbeauftragter (DPO) </h4>
+  Pedo@travis-ci.com
 </article>
