@@ -48,6 +48,8 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 * Docker `27.5.1` is installed.
 * docker-compose `2.32.4` is also available.
+* Podman `3.4.4` is installed as an alternative container engine.
+
 
 ## Ruby Support
 
