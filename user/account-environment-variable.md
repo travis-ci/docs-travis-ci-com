@@ -29,9 +29,9 @@ Add new account environment variables by following these easy steps:
   - **Name**: Select a name for the account environment variable.
   - **Value**: Enter the value for the account environment variable.
 4. If desired, enable the **Display Value in Build Log** switch. If enabled, the value is visible in the logs. If disabled, it is marked as *“[secure]”*.
-5. Once all fields are filled, click on the **Add New Variable** button. 
+5. Once all fields are filled, click the **Add New Variable** button. 
 
-[img1]
+![Account Variable Screen](/user/images/acct-env-var.png)
 
 After adding a variable, the secret is masked and added to the list of existing variables.
 
@@ -43,4 +43,4 @@ An account variable can be deleted with the Delete option to the right of each k
 
 Builds no longer have access to deleted variables. 
 
-[img2]
+![Account Variable secret](/user/images/account-var-secret.png)
