@@ -43,10 +43,11 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | shfmt      | `3.8.0`   |
 {: style="width: 30%" }
 
-### Docker
+### Docker and Container Tools
 
 * Docker `28.0.1` (build 068a01e) is installed.
 * docker-compose `v2.27.1` is also available.
+* Podman `3.4.4` is installed as an alternative container engine.
 
 ### Ruby Support
 
@@ -138,4 +139,3 @@ To use Android, specify `language: android` in your `.travis.yml` and refer to t
 ## Other Ubuntu Linux Build Environments
 
 For details on other Ubuntu Linux build environments available on Travis CI, please refer to the [Ubuntu Linux overview page](/user/reference/linux/).
-```
