@@ -13,7 +13,11 @@ layout: en
 
 [CCMenu](http://ccmenu.org/) is a little tool for the macOS status bar to keep track of your repositories' latest build status from the convenience of your Mac.
 
-[CCTray](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/) is the equivalent tool for your Windows environment, [BuildNotify](https://bitbucket.org/Anay/buildnotify/wiki/Home) for Linux systems. The general instructions apply to all of them.
+The general instructions also apply to:
+- [CCTray](http://sourceforge.net/projects/ccnet/files/CruiseControl.NET%20Releases/CruiseControl.NET%201.8.4/) for Windows environment.
+- [BuildNotify](https://bitbucket.org/Anay/buildnotify/wiki/Home) for Linux systems. 
+- [Barklarm](https://www.barklarm.com/) is multiplatform and will run in macOS, Windows and Linux.
+- [Nevergreen](https://github.com/build-canaries/nevergreen) is web based service.
 
 They were originally built for use with CruiseControl, but they work just as well with Travis CI, and you can use either to poll your Travis CI repositories and have their status
 show in the menu bar or tray.
