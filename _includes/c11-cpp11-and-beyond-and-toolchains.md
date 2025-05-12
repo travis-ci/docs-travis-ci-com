@@ -65,38 +65,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### GCC on macOS
-
-On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
-So you must set CC and CXX to specific `gcc`/`g++` versions:
-
-```yaml
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
-
-before_install:
-    - eval "${MATRIX_EVAL}"
-```
-{: data-file=".travis.yml"}
 
 ### GCC on FreeBSD
 
@@ -203,23 +171,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Clang on macOS
-
-On macOS, the version of `clang` is controlled by the choice of `osx_image`.
-You can find [here](/user/reference/osx/#macos-version) the list of available `osx_image`.
-
-```yaml
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode10.1
-
-    - os: osx
-      osx_image: xcode9.4
-```
-{: data-file=".travis.yml"}
-
-You can find the `clang` version shipped by Xcode [here](https://trac.macports.org/wiki/XcodeVersionInfo).
 
 ### Clang on FreeBSD
 
@@ -263,4 +214,4 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-On macOS, the version of `cmake` is controlled by the choice of `osx_image`.
+

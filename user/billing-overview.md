@@ -76,6 +76,7 @@ Purchase only the credits you need and use them until you run out. Please see mo
 > If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd`, it will execute as soon as the concurrency capacity is available for particular build jobs.
 
 
+
 ### Subscribe to a Concurrency-based Plan
 
 1. Sign in to Travis CI with the [Version Control System of your choice](/user/onboarding/).
@@ -400,7 +401,7 @@ vm:
 ```
 {: data-file=".travis.yml"}
 
-Instance sizes do not apply to Windows build jobs.  Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating systems, and CPU architecture.
+Instance sizes do not apply to Windows build jobs. Visit our [CI Environment Overview page](/user/reference/overview/#gpu-vm-instance-size) for information on the available GPU VM sizes, operating systems, and CPU architecture.
 
 To use instance sizes:
 

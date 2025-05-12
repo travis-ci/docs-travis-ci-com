@@ -29,12 +29,6 @@ Minimal example:
 {: .warning}
 > Python builds are not available on the macOS and Windows environments.
 
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
 The rest of this guide covers configuring Python projects in Travis CI. If you're
 new to Travis CI, please read our [Onboarding](/user/onboarding/) and
 [General Build configuration](/user/customizing-the-build/) guides first.
@@ -163,25 +157,21 @@ As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs
 
 If you're using tox to test your code against multiple versions of Python, you have two options:
   * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions - 2.7.12 and 3.5.2 for Xenial)
-  * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelize your workload.
+  * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and will parallelize your workload.
 
 ## Run Python tests on multiple Operating Systems
 
-Sometimes it is necessary to ensure that software works the same across multiple Operating Systems.  The following `.travis.yml` file will execute parallel test runs on Linux, macOS, and Windows.
+Sometimes, it is necessary to ensure that software works the same across multiple Operating Systems.  The following `.travis.yml` file will execute parallel test runs on Linux and Windows.
 
 ```yaml
-language: python            # this works for Linux but is an error on macOS or Windows
+language: python            # this works for Linux but is an error on Windows
 jobs:
   include:
     - name: "Python 3.8.0 on Xenial Linux"
-      python: 3.8           # this works for Linux but is ignored on macOS or Windows
+      python: 3.8           # this works for Linux but is ignored on Windows
     - name: "Python 3.6.10 on FreeBSD"
       os: freebsd
       language: python
-    - name: "Python 3.7.4 on macOS"
-      os: osx
-      osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
-      language: shell       # 'language: python' is an error on Travis CI macOS
     - name: "Python 3.8.0 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
@@ -190,8 +180,8 @@ jobs:
         - python -m pip install --upgrade pip
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
-# 'python' points to Python 2.7 on macOS but points to Python 3.8 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
+# 'python' points to Python 3.8 on Linux and Windows
+# 'python3' is a 'command not found' error on Windows, but 'py' works on Windows only
 script: python3 my_app.py || python my_app.py
 ```
 {: data-file=".travis.yml"}

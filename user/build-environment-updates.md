@@ -22,22 +22,6 @@ layout: en
 {% endfor %}
 </ul>
 
-## macOS Build Environment Updates
-
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
-
-<ul class="list--links">
-{% assign reverse_pages = site.pages | reverse %}
-{% for page in reverse_pages %}
-  {% if page.category == 'mac_build_env_updates' %}
-    <li><a href="{{ page.url }}" title="{{ page.title }}">{{ page.url | remove:'/user/build-environment-updates/' | remove: '/' }}</a></li>
-  {% endif %}
-{% endfor %}
-</ul>
 
 ### Atom feed
 
