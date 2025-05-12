@@ -28,11 +28,6 @@ This guide covers build environment and configuration topics specific to C++
 projects. Please make sure to read our [Onboarding](/user/onboarding/)
 and [General Build configuration](/user/customizing-the-build/) guides first.
 
-<blockquote class="beta">
-  <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
-  </p>
-</blockquote>
 
 ## CI Environment for C++ Projects
 
@@ -87,8 +82,6 @@ matrix. For each row, the Travis CI C++ builder will export the `CXX` and
 correspondingly export the `CC` and `CC_FOR_BUILD` env variables to point
 to either `gcc` or `clang`.
 
-On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
-Set a specific [GCC version](#gcc-on-macos) to use GCC on macOS.
 
 ## Examples
 

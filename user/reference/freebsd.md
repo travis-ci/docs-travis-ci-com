@@ -21,9 +21,7 @@ To use FreeBSD, add the following to your `.travis.yml`:
 os: freebsd
 ```
 
-
-Travis CI also supports the [Ubuntu Linux Build Environment](/user/reference/linux/), [Windows Build Environment](/user/reference/windows/) 
-and [macOS Build Environment](/user/reference/osx/).
+Travis CI also supports the [Ubuntu Linux Build Environment](/user/reference/linux/) and [Windows Build Environment](/user/reference/windows/).
 
 > FreeBSD is available on our hosted fully virtualized infrastructure.
 
