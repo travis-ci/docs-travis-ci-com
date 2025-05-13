@@ -1,14 +1,14 @@
 ---
-title: Account Environment Variables
+title: Account Environment Global Variables
 layout: en
 
 ---
 
-## Define Account Environment Variables
+## Define Account Environment Global Variables
 
 Travis CI allows you to create Account Environment variables, which can be used in every build under the account's enabled repositories. 
 
-Account-level variables work similarly to repository-level settings; they can be used to customize your builds and set a list of environment variables and values to be reused across projects. Account environment variables can be used across different repositories. Any account environment variables created are accessible in all available repositories unless explicitly overridden. 
+Account-level variables work similarly to repository-level settings; they can customize your builds and set a list of environment variables and values to be reused across projects. Account environment variables can be used across different repositories. Any account environment variables created are accessible in all available repositories unless explicitly overridden. 
 
 When an account-level variable is created with the same name as an existing repository-level variable, the build log displays the repository-level value instead of the account-level value. This is because the repository-level variable overrides the account-level variable.
 
