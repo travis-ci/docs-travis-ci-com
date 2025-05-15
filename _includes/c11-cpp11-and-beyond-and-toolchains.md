@@ -65,7 +65,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-
 ### GCC on FreeBSD
 
 Travis CI FreeBSD image ships with GCC 10.0.0 (it's not in the base system by default).
