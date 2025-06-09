@@ -40,7 +40,7 @@ travis setup packagecloud
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Branch to release from
+### Release Branch
 
 You can explicitly specify the branch to release from with the **on** option:
 
@@ -68,7 +68,7 @@ By default, Travis CI will only release from the **master** branch.
 
 Builds triggered from Pull Requests will never trigger a release.
 
-### Releasing build artifacts
+### Release build artifacts
 
 After your tests ran and before the release, Travis CI will clean up any additional files and changes you made.
 
@@ -105,17 +105,17 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### A note about Debian source packages
+### Debian Source Packages
 
 If the packagecloud provider finds any `.dsc` files, it will scan it and try to locate it's contents within
 the `local-dir` directory. Ensure the source package and it's contents are output to the same directory for it to work.
 
-### Conditional releases
+## Conditional Releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-### Running commands before and after release
+## Run Commands Before or After Release
 
 Sometimes you want to run commands before or after releasing a package. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 

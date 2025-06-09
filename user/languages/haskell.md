@@ -1,10 +1,9 @@
 ---
-title: Building a Haskell Project
+title: Build a Haskell Project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,11 +25,11 @@ language: haskell
 
 {{ site.data.snippets.linux_note }}
 
-The rest of this guide covers configuring Haskell projects on Travis CI. If
-you're new to Travis CI please read our [Tutorial](/user/tutorial/)
-and [build configuration](/user/customizing-the-build/) guides first.
+This guide covers configuring Haskell projects on Travis CI. If
+you're new to Travis CI. Please read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-## Specifying Haskell compiler versions
+## Specify Haskell compiler versions
 
 The Haskell environment on Travis CI has recent versions of GHC (Glasgow Haskell
 Compiler) pre-installed. For a detailed list of pre-installed versions, please
@@ -51,13 +50,13 @@ ghc:
 
 ## Dependency Management
 
-By default Travis CI uses `cabal` to manage your project's dependencies:
+By default, Travis CI uses `cabal` to manage your project's dependencies:
 
 ```bash
 cabal install --only-dependencies --enable-tests
 ```
 
-### Specifying cabal-install verison
+### Specify cabal-install version
 
 You can specify the version of `cabal` used:
 

@@ -18,7 +18,7 @@ either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on GitLab, there are several different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
-disavantages, so read each method carefully and pick the one that applies best
+disadvantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
@@ -30,7 +30,7 @@ to your situation.
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
 the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that access is read only.
+of repositories, and make sure that access is read-only.
 
 ## Deploy Key
 
@@ -38,7 +38,7 @@ GitLab allows you to set up SSH keys for a repository. These deploy keys have so
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
-- The same key can be used for dependencies not stored on GitLab.
+- The same key can be used for dependencies that are not stored on GitLab.
 
 However, using deploy keys is complicated by the fact that GitLab does not allow you to reuse keys.
 So a single private key cannot access multiple GitLab repositories.
@@ -151,7 +151,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-It is also possible to inject the token into URLs, for instance, in a Gemfile, it would look like this:
+It is also possible to inject the token into URLs. For instance, in a Gemfile, it would look like this:
 
 ```ruby
 source 'https://rubygems.org'
@@ -169,10 +169,10 @@ gem 'lib1', gitlab: "myorg/lib1"
 gem 'lib2', gitlab: "myorg/lib2"
 ```
 
-> In case of private git submodules, be aware that the `git submodule
+> In the case of private git submodules, be aware that the `git submodule
 > update --init --recursive` command runs before the `~/.netrc` credentials
 > are updated. If you are writing credentials to `~/.netrc`, disable the automatic loading of
-> submodules, update the credentials and add an explicit step to update the submodules:
+> submodules, update the credentials, and add an explicit step to update the submodules:
 >
 > ```yaml
 > git:

@@ -1,9 +1,9 @@
 ---
-title: Using Workspaces
+title: Use Workspaces
 layout: en
 ---
 
-# Workspaces
+## Workspaces
 
 Workspaces allow jobs _within_ a build to share files.
 They are useful when you want to use build artifacts from a previous job;
@@ -48,7 +48,9 @@ The workspace is subsequently consumed in the `use_cache` stage.
 
 ## Workspace examples
 
-### Multiple workspaces example
+The following section shows different workspace examples.
+
+### Multiple Workspaces example
 
 You can use multiple workspaces in a build.
 
@@ -148,7 +150,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-In above example:
+In the above example:
 
 1. Build stage "Build and Test" consists of 3 jobs, each of them producing output to a separate workspace
 2. Build stage "Deploy" consists of one job, which
@@ -156,14 +158,14 @@ In above example:
     2. pulls data out of each previously created workspace and echoes it to standard output to demonstrate ability to access workspace
 
 
-## Workspaces and concurrency
+## Workspaces and Concurrency
 Note that workspaces work best if there is no race condition set while
 uploading them.
 Since there is no guarantee in the execution order of jobs within a build
 stage, it is a good idea to assign different workspace names to jobs within
 a build stage.
 
-## Workspace names must be pre-determined
+## Pre-determined Workspace names 
 Due to technical reasons, workspace names will be escaped for shell.
 In other words, given:
 
@@ -193,7 +195,7 @@ workspaces:
 
 even if the consumer is running on a Linux VM.
 
-## How workspaces differ from caches
+## How Workspaces differ from caches
 
 It is worth reiterating that the workspaces are meant for sharing files
 within the same build.
@@ -204,4 +206,4 @@ For files you want to share across builds, use
 
 It is possible to include a single file in the cache and workspaces.
 
-> If you restart some builds within a job, and your workspace isn't working like you expect it to, try restarting the the entire build.
+> If you restart some builds within a job, and your workspace isn't working like you expect it to, try restarting the entire build.

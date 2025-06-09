@@ -49,7 +49,7 @@ travis setup cloudfiles
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Deploy On Tags
+## Deploy On Tags
 
 Often, you want to deploy only when you release a new version of your code.
 
@@ -68,7 +68,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploy To Only One Folder
+## Deploy to one Folder
 
 Often, you don't want to upload your entire project to Cloud Files. You can tell Travis CI to only upload a single folder to Cloud Files. This example uploads the build directory of your project to Cloud Files:
 
@@ -84,7 +84,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploy to Multiple Containers:
+### Deploy to Multiple Containers
 
 If you want to upload to multiple containers, you can do this:
 
@@ -105,7 +105,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Branch to release from
+## Release Branch
 
 You can explicitly specify the branch to release from with the **on** option:
 
@@ -139,14 +139,14 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a release.
 
-### Conditional releases
+### Conditional Releases
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
-### Running commands before and after release
+### Run Commands Before or After Release
 
-Sometimes you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
+Sometimes, you want to run commands before or after releasing a gem. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually pushing a release.
 
 ```yaml
 before_deploy: "echo 'ready?'"

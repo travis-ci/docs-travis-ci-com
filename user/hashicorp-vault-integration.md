@@ -63,9 +63,9 @@ vault:
 
 See usage examples  below:
 
-#### Single `.travis.yml` file 
+### Single .travis.yml file 
 
-**As a data accessible for all jobs in the build definition:**
+**As data accessible for all jobs in the build definition:**
 
 ```yaml
 os: linux
@@ -85,7 +85,7 @@ script:
 ```
 {: data-file=".travis.yml"}
 
-**As a datat accessible only within one of many jobs:**
+**As data accessible only within one of many jobs:**
 
 ```yaml
 os: linux
@@ -109,7 +109,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-#### Imported shared build configuration
+### Import shared build configuration
 
 ```yaml
 vault:

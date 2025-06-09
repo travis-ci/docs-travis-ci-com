@@ -30,9 +30,9 @@ Finally you can also configure Boxfuse by placing a `boxfuse.conf` file in the
 root of your repository. More info about configuration in the
 [Boxfuse Command-line Client documentation](https://boxfuse.com/docs/commandline/).
 
-### Specifying the app and image version
+### Specify the App and image version
 
-By default Boxfuse will detect the app and the version automatically from the
+By default, Boxfuse will detect the app and the version automatically from the
 name of your payload file.
 
 You can override this using the following:
@@ -49,9 +49,9 @@ You can also use Travis CI [environment variables](/user/environment-variables/)
 like `TRAVIS_BUILD_NUMBER` to assign a version to the image, e.g.
 `image: "myapp:$TRAVIS_BUILD_NUMBER"`.
 
-### Specifying the environment
+### Specify the Environment
 
-By default Boxfuse will deploy to your `test` environment.
+By default, Boxfuse will deploy to your `test` environment.
 
 You can override this using the following:
 
@@ -63,7 +63,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Specifying a configuration file
+### Specify a configuration file
 
 You can also fully configure Boxfuse by placing a `boxfuse.conf` file in the
 root of your repository. You can specify an alternative configuration file like
@@ -77,7 +77,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Specifying custom arguments
+### Specify custom arguments
 
 If the [Boxfuse Client](https://boxfuse.com/docs/commandline) functionality you
 need is not included here, you can pass additional arguments to the Boxfuse
@@ -90,7 +90,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Further information
+### Further Information
 
 Go to the [Boxfuse website](https://boxfuse.com) to learn more about Boxfuse
 and how to configure it.

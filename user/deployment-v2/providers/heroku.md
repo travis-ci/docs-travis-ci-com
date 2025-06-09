@@ -10,7 +10,7 @@ application after a successful build.
 
 {% include deploy/providers/heroku_git.md %}
 
-## Specifying the application name
+## Specify the application name
 
 By default, your repository name will be used as the application name.
 
@@ -24,7 +24,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands
+## Run commands
 
 In some setups, you might want to run a command on Heroku after a successful
 deploy. You can do this with the **run** option:
@@ -53,7 +53,7 @@ deploy:
 > requests when we run your commands. To mitigate this situation, you can add a
 > `sleep` statement to add a delay before your commands.
 
-### Deploying branches to different apps
+### Deploy branches to different apps
 
 In order to choose apps based on the current branch use separate deploy
 configurations:
@@ -105,9 +105,9 @@ certain string matches occur in your Heroku logs. For example you could trigger
 an e-mail notification if the log contains "this and all later migrations
 canceled" or similar messages.
 
-### Restarting Applications
+### Restart Applications
 
-Sometimes you want to restart your Heroku application between or after
+Sometimes, you want to restart your Heroku application between or after
 commands. You can easily do so by adding a "restart" command:
 
 ```yaml
@@ -121,7 +121,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploy Strategy
+### Deployment Strategy
 
 Travis CI supports different mechanisms for deploying to Heroku:
 

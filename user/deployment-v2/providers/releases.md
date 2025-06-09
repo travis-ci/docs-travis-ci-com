@@ -25,7 +25,7 @@ specified file (relative to the working directory) on tagged builds.
 
 {% include deploy/providers/releases.md minimal=false %}
 
-## Authenticating with an OAuth token
+## OAuth token Authentication
 
 The recommended way to authenticate is to use a GitHub OAuth token with
 the `public_repo` or `repo` scope to upload assets.
@@ -37,7 +37,7 @@ GitHub releases. The suggested workaround is to create a [machine
 user](https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users)
 — a GitHub account that is granted write access on a per repository basis.
 
-## Authentication with a user name and password
+## Username and password Authentication
 
 You can also authenticate with your GitHub username and password using the
 `user` and `password` options.
@@ -76,7 +76,7 @@ can see.
 
 This gives you an opportunity to examine and edit the draft release.
 
-## Setting the tag at deployment time
+## Set the tag at deployment time
 
 GitHub Releases needs the present commit to be tagged at the deployment time.
 If you set `on.tags: true`, the commit is guaranteed to have a tag.  Depending
@@ -100,7 +100,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### When tag is not set at deployment time
+### When the tag is not set at deployment time
 
 If the tag is still not set at the time of deployment, the deployment provider
 attempts to match the current commit with a tag from remote, and if one is
@@ -134,7 +134,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying to GitHub Enterprise
+## Deploy to GitHub Enterprise
 
 In order to upload assets to a GitHub Enterprise repository, override the
 `$OCTOKIT_API_ENDPOINT` environment variable with your GitHub Enterprise API
@@ -154,7 +154,7 @@ env:
 ```
 {: data-file=".travis.yml"}
 
-## Uploading Multiple Files
+## Upload Multiple Files
 
 You can upload multiple files using yml array notation. This example uploads
 two files.
@@ -181,7 +181,7 @@ deploy:
 
 > Note that all paths in `file` are relative to the current working directory, not to [`$TRAVIS_BUILD_DIR`](/user/environment-variables/#default-environment-variables).
 
-## Troubleshooting Git Submodules
+## Troubleshoot Git Submodules
 
 GitHub Releases executes a number of git commands during deployment. For this
 reason, it is important that the working directory is set to the one for which
