@@ -6,7 +6,7 @@
 
   a
     display: block
-    width: 160px
+    width: 100px
     height: $top-height
     z-index: 999
     outline: none
@@ -14,6 +14,8 @@
     transition: background-color 200ms ease
     background: url(/images/tci-logo.svg) 0 50% no-repeat
     background-size: contain
+    @media #{$medium-up}
+      width: 160px
 
     .enterprise &
       width: 160px
