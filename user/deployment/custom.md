@@ -11,7 +11,7 @@ machine by adding a custom [`after_success`](/user/customizing-the-build/) step.
 You may choose the [Script provider](/user/deployment/script/) instead, as it
 provides conditional deployment.
 
-### SFTP
+## SFTP
 
 ```yaml
 env:
@@ -34,7 +34,7 @@ The env variables `SFTP_USER` and `SFTP_PASSWORD` can also be
 See [curl(1)](http://curl.haxx.se/docs/manpage.html) for more details on how to
 use cURL as an SFTP client.
 
-### Git
+## Git
 
 This should also work with services you can deploy to via git.
 
@@ -48,4 +48,4 @@ after_success:
 ```
 {: data-file=".travis.yml"}
 
-See ["How can I encrypt files that include sensitive data?"](/user/travis-ci-for-private/#how-can-i-encrypt-files-that-include-sensitive-data) if you don't want to commit the private key unencrypted to your repository.
+See ["How can I encrypt files that include sensitive data?"](/user/travis-ci-for-private/#how-can-i-encrypt-files-that-include-sensitive-data) if you don't want to commit the private key to your repository unencrypted.

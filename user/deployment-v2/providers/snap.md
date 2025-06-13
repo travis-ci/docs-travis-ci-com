@@ -19,7 +19,7 @@ with a single artefact.
 
 {% include deploy/providers/snap.md content=content %}
 
-## Obtaining credentials
+## Obtain credentials
 
 If you have not done so already, [enable snap support](https://docs.snapcraft.io/core/install) on your system.
 
@@ -43,7 +43,7 @@ The token will be printed out.
 
 > Note: The `edge` channel is intended for the bleeding edge: your every commit to master will be built and uploaded.
 
-## Using uploaded Snaps
+## Use uploaded Snaps
 
 Your community of early-adopters and testers can install your app in any of the
 [supported Linux distributions](https://docs.snapcraft.io/core/install) with:

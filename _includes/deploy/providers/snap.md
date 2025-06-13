@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Snap is *stable**.
+Support for deployments to Snap is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment.

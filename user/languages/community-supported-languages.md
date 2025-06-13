@@ -9,15 +9,15 @@ There are many programming languages out there, and Travis CI would like
 to support as many as possible.
 
 However, the Travis CI team often lacks the expertise to make this
-a reality, which is where community support come in.
+a reality, which is where community support comes in.
 
-## What does 'community-support' mean?
+## What does community-supported mean?
 
 Support for Community-supported languages are programming languages where
 support is provided by self-identified experts in the languages'
 respective community.
 
-## How do I add a new community-supported language?
+## Add a new community-supported language
 
 1. Gather a group of 3 or more volunteers who will support the new language.
 2. Create pull requests in [travis-build](#adding-a-new-language) and if
@@ -36,7 +36,7 @@ It is important to note that languages are configured at build time,
 so components are downloaded every time a job runs. To save build time, limit
  your language resource usage to a minimum.
 
-### Adding a new language
+### Add a new language
 
 To add support for a new language, edit [travis-build](https://github.com/travis-ci/travis-build)
 and create a new class, inheriting from `Travis::Build::Script`, that implements
@@ -51,7 +51,7 @@ the Travis CI team will work with you to identify and implement the customizatio
 if you think it is appropriate to do so.
 
 > The `configure` phase runs before `sudo` is disabled in the container builds,
-> so if you need to use `sudo` to set up your language environment
+> So if you need to use `sudo` to set up your language environment
 > (e.g., install Ubuntu packages), you should do that in the `configure` phase.
 
 If you want to support build matrix expansion based on various language
@@ -59,26 +59,26 @@ versions (e.g., Ruby 2.2, 2.1, etc.), and you wish to add a convenient way
 to restrict deployments based on the language version, add your language
 to [`Travis::Build::Addons::Deploy::Script::VERSIONED_RUNTIMES`](https://github.com/travis-ci/travis-build/blob/master/lib/travis/build/addons/deploy/script.rb).
 
-### Adding Matrix support
+### Add Matrix support
 
 If the language provides build matrix expansion, make this information visible
 to the end user by editing [travis-web](https://github.com/travis-ci/travis-web).
 
 To make this happen, you need to tell `travis-web` to pick up the value
 from the job's data and display it.  Clone the `travis-web` repository,
-add your language to the `app/utils/keys-map.coffee` file and submit a
+add your language to the `app/utils/keys-map.coffee` file, and submit a
 pull request for this change.
 
 > If you want to support build matrix expansion for various language versions
 > (e.g., Ruby 2.2, 2.1, etc.), please coordinate with the Travis CI team to
 > find out exactly what is required.
 
-### Testing `travis-build` changes
+### Test travis-build changes
 
 Testing happens in our staging environment, which is a shared resource.Testing
 the proposed changes could take some coordination between you and the Travis CI team.
 
-#### Testing your code locally
+#### Test code locally
 
 Optionally, you can use
 [`travis-build` as an addon](https://github.com/travis-ci/travis-build/blob/master/README.md#use-as-addon-for-cli)
