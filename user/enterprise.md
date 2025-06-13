@@ -24,7 +24,7 @@ integrates with GitHub.com, enabling you to have greater control over your secur
 to scale out your build infrastructure as needed.
 
 
-## Why choose Enterprise over travis-ci.com?
+## Why Enterprise over travis-ci.com
 
 Travis CI Enterprise is built to bring the features of the [hosted
 platform](/user/travis-pro) to different development processes. So whether you
@@ -88,18 +88,18 @@ Travis CI Enterprise requires a certain infrastructure for deployment. It curren
 
 ![Travis CI Enterprise About page](/images/TCIE-architecture1.png)
 
-### Travis CI Enterprise consists of two major parts:
+### Travis CI Enterprise Core Services and Worker
 
 1. TCI services (or TCI Core Services), responsible for integration with version control systems, authorizing builds, scheduling build jobs, etc.
 2. TCI Worker and build environment images (also called OS images).
 
-#### TCI Core services require the following:
+#### TCI Enterprise Core Services 
 
 1. A PostgreSQL11 (or later) database.
 2. An infrastructure to deploy a Kubernetes cluster; it can be deployed in a server cluster or in a single machine if required
 3. Depending on your setup, you may want to deploy and configure some of the components on your own, e.g., RabbitMQ - see the [Setting up Travis CI Enterprise](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) for more details.
 
-#### TCI Worker requires the following:
+#### TCI Enterprise Worker
 
 1. An infrastructure where a docker image containing the Worker and a linked build image can be deployed.
 2. Connectivity to certain Travis CI Core Services components - see the [Setting Up Worker](/user/enterprise/setting-up-worker/) for more details.
@@ -128,9 +128,9 @@ Detailed deployment requirements can be found in **‘Setting up’** and subseq
 
 Set up Travis CI Enterprise by heading over our [set up](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/) page.
 
-Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/) and [tutorials](/user/tutorial/).
+Or if you need more information on Travis CI, head back and view our [core concepts](/user/for-beginners/), the [Onboarding](/user/onboarding/) guide, or the [tutorials](/user/tutorials/tutorials-overview/).
 
-## Contact
+## Contact Enterprise Support
 
 {{ site.data.snippets.contact_enterprise_support }}
 

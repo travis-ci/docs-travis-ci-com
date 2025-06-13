@@ -12,18 +12,18 @@ Integration between Travis-CI and third-party services like Sauce Labs relies
 on [encrypted variables](/user/environment-variables/#encrypting-environment-variables)
 which works well for trusted branches and committers.
 For security reasons, encrypted variables are not exposed to untrusted pull requests,
-so builds of pull requests do not have access to third party integrations.
+so builds of pull requests do not have access to third-party integrations.
 
 The JWT addon replaces encrypted variables with a time-limited authentication
 token, which is exposed to pull requests without security consequences.
 
 For this to work the JWT addon needs to be enabled in the `.travis.yml` file,
-and the third-party need to have integrated with the JWT service and allow
+and the third-party needs to have integrated with the JWT service and allow
 token-based authentication.
 
 <img src="/user/images/travis_jwt.svg" alt="JWT Travis Flow Diagram">
 
-### .travis.yml
+### .travis.yml file
 
 Add the encrypted key to the `jwt` section of the `.travis.yml` file.
 This can be done manually or using the `travis encrypt` command
@@ -67,7 +67,7 @@ environment variables containing the JWT tokens instead of the original values.
 For example, using the previous configuration `SAUCE_ACCESS_KEY` and
 `THIRDPARTY_SHARED_SECRET` will be available as environment variables.
 
-### How secure is this addon?
+### Secure the addon
 
 The JWT token is only valid for 90 minutes. It is signed in a way that lets you securely
 transmit your secret information without worrying that it is leaked.
@@ -106,7 +106,7 @@ Where:
 - `exp` will be when the token expires (now + 5400 seconds, so 90 minutes)
 - `iat` is the issued at time (now)
 
-### Third Party Service Provider Code Sample
+### Third-Party Service Provider Code Sample
 
 A code sample which illustrates how to add JWT token authentication to third party services.
 
@@ -125,7 +125,7 @@ The HTTP BASIC AUTH header's payload is base64 encoded which will decode to stri
 johndoe:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0cmF2aXMtY2kub3JnIiwic2x1ZyI6InRyYXZpcy1jaS90cmF2aXMtY2kiLCJwdWxsLXJlcXVlc3QiOiIiLCJleHAiOjU0MDAsImlhdCI6MH0.soQJgHR6cGNr9Lj_N6yL2Nk5SQug-hXGUPenJy1QTVc
 ```
 
-The colon separated string contains the username before the colon and the JWT
+The colon-separated string contains the username before the colon and the JWT
 token after the colon. The username is used to retrieve the user object from
 the user database. Below is a function which is executed against the user
 object and the token to validate them for authentication. Please note that the
@@ -154,7 +154,7 @@ def authenticate(user, access_key):
         return False
 ```
 
-## List of Third-Party Services Integrated with the JWT Addon
+## Third-Party Services Integrated with the JWT Addon
 
 ### Sauce Labs
 

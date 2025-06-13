@@ -32,7 +32,7 @@ artifacts to [packagecloud.io](https://packagecloud.io/) after a successful buil
 
 {% include deploy/providers/packagecloud.md content=content %}
 
-### Specifying a package folder
+### Specify a package folder
 
 By default, the packagecloud provider will scan the current directory and push
 all supported packages.
@@ -48,11 +48,11 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-Alternately, you can specify the `package_glob` argument to restrict
+Alternatively, you can specify the `package_glob` argument to restrict
 which files to scan. It defaults to `**/*` (recursively finding all package
 files) but this may pick up other artifacts you don't want to release.
 
-For example, if you only want to push gems in the top level directory:
+For example, if you only want to push gems in the top-level directory:
 
 ```yaml
 deploy:
@@ -62,10 +62,10 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### A note about Debian source packages
+### Note on Debian source packages
 
-If the packagecloud provider finds any `.dsc` files, it will scan it and try to
-locate it's contents within the `local_dir` directory. Ensure the source
-package and it's contents are output to the same directory for it to work.
+If the packagecloud provider finds any `.dsc` files, it will scan them and try to
+locate their contents within the `local_dir` directory. Ensure the source
+package and its contents are output to the same directory for it to work.
 
 {% include deploy/shared.md %}

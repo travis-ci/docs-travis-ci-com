@@ -1,23 +1,23 @@
 ---
-title: Building an R Project
+title: Build an R Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to R
 projects.
-Please make sure to read our [Tutorial](/user/tutorial/) and [build configuration](/user/customizing-the-build/) guides first.
+Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community-Supported Warning
+
+## Community-Supported Warning
 
 Travis CI support for R is contributed by the community and may be removed or
 altered at any time. If you run into any problems, please report them in the
 [R section of our forums](https://travis-ci.community/c/languages/r) and cc [@jeroen][github 2]
 and [@jimhester][github 4].
 
-## Basic configuration
+## Basic configurations
 
 R support in Travis CI is designed to make it easy to test [R
 packages][r-project]. If your R package doesn't need any system dependencies
@@ -39,13 +39,13 @@ Travis CI supports a number of configuration options for your R package.
 
 ### R Versions
 
-Travis CI supports R versions `3.0.3` and above on Ubuntu Precise, Ubuntu Trusty and macOS.
-Aliases exist for each major release, e.g `3.1` points to `3.1.3`. In addition the
+Travis CI supports R versions `3.0.3` and above on Ubuntu Precise and Ubuntu Trusty.
+Aliases exist for each major release, e.g, `3.1` points to `3.1.3`. In addition, the
 name `oldrel` is aliased to the previous major release and `release` is aliased to the
 latest minor release. `devel` is built off of the [R git mirror](https://travis-ci.org/wch/r-source)
 of the R SVN trunk (updated hourly).
 
-Matrix builds *are* supported for R builds, however both instances of `r` must
+Matrix builds *are* supported for R builds, however, both instances of `r` must
 be in *lowercase*.
 
 ```yaml
@@ -76,7 +76,7 @@ information on using development remotes in your package.
 Most of the time you should not need to specify any additional dependencies in
 your `.travis.yml`.
 
-### LaTeX/TexLive Packages
+### LaTeX and TexLive Packages
 
 The included TexLive distribution contains only a limited set of default
 packages. If your vignettes require additional TexLive packages you
@@ -201,7 +201,7 @@ cache:
   `https://cloud.r-project.org`.
 
 - `repos`: Dictionary of repositories to pass to `options(repos)`. If `CRAN` is
-  not given in the dictionary the value of the `cran` option is used.
+  not given in the dictionary, the value of the `cran` option is used.
   Example:
 
 ```yaml
@@ -210,10 +210,6 @@ repos:
   ropensci: http://packages.ropensci.org
 ```
 {: data-file=".travis.yml"}
-
-- `disable_homebrew`: if `true` this removes the preinstalled homebrew
-  installation on macOS. Useful to test if the package builds on a vanilla macOS
-  machine, such as the CRAN mac builder.
 
 ### Environment Variables
 
@@ -231,8 +227,8 @@ defaults](/user/environment-variables/#default-environment-variables).
 
 ### Additional Dependency Fields
 
-For most packages you should not need to specify any additional dependencies in
-your `.travis.yml`. However for rare cases the following fields
+For most packages, you should not need to specify any additional dependencies in
+your `.travis.yml`. However, for rare cases, the following fields
 are supported.
 
 Each of the names below is a list of packages you can optionally specify as a
@@ -242,15 +238,12 @@ processed in order, so entries can depend on dependencies in a previous list.
 
 - `apt_packages`: See above
 
-- `brew_packages`: A list of packages to install via `brew`. This option is
-  ignored on non-macOS builds.
-
 - `r_binary_packages`: A list of R packages to install as binary packages on
   linux builds, via Michael Rutter's
   [cran2deb4ubuntu PPA][launchpad].
-  These installs will be faster than source installs, but may not always be
+  These installs will be faster than source installs but may not always be
   the most recent version. Specify the name just as you would when installing
-  from CRAN. On macOS builds these packages are installed from source.
+  from CRAN. 
 
 - `r_packages`: A list of R packages to install via `install.packages`.
 
@@ -263,9 +256,9 @@ processed in order, so entries can depend on dependencies in a previous list.
   here should be of the form `user/repo`.
   If the package is installed in a subdirectory, use `user/repo/subdirectory`.
   An alternative is to add `user/repo` or `user/repo/folder` to
-  the `Remotes` section of the `DESCRIPTION` file of your package
+  the `Remotes` section of the `DESCRIPTION` file of your package.
 
-### Customizing the Travis build steps
+### Customize the Travis build steps
 
 For some advanced use cases, it makes sense to override the default steps used
 for building R packages. The default rules roughly amount to:
@@ -338,7 +331,7 @@ Remotes: user/repo/folder
 ```
 {: data-file="DESCRIPTION"}
 
-## Converting from r-travis
+## Convert from r-travis
 
 If you've already been using [r-travis][] to test your R package, you're
 encouraged to switch to using the native support described here. We've written

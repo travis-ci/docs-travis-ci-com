@@ -25,7 +25,7 @@ travis setup cloud66
 
 Keep in mind that the above command has to run in your project directory, so it can modify the `.travis.yml` for you.
 
-### Branch to deploy from
+## Deployment Branch
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -52,14 +52,14 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Conditional Deploys
+## Conditional Deploys
 
 You can deploy only when certain conditions are met.
 See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
 
-### Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+Sometimes, you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
 ```yaml
 before_deploy: "echo 'ready?'"

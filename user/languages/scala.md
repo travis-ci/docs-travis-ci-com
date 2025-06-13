@@ -1,10 +1,9 @@
 ---
-title: Building a Scala project
+title: Build a Scala project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -27,9 +26,9 @@ Minimal example:
 
 Scala builds are not available on the macOS environment.
 
-The rest of this guide covers configuring Scala projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+This guide covers configuring Scala projects in Travis CI. If you're
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
@@ -37,7 +36,7 @@ Travis CI environment provides a large set of build tools for JVM languages with
 [multiple JDKs, Ant, Gradle, Maven](/user/languages/java/#overview) and
 [sbt](http://www.scala-sbt.org).
 
-## Specifying Scala versions
+## Specify Scala versions
 
 To specify Scala versions in your build:
 
@@ -53,7 +52,7 @@ scala:
 
 On Ubuntu Precise, to use Scala 2.12.X you need to enable Oracle JDK 8 by adding `jdk: oraclejdk8` to your `.travis.yml`.
 
-## Projects using sbt
+## sbt Projects
 
 If your project has a `project` directory or `build.sbt` file in the repository
 root, the Travis CI uses `sbt` to build it.
@@ -110,17 +109,17 @@ will generate
 script: sbt -no-colors -J-Xss2m ++$TRAVIS_SCALA_VERSION test
 ```
 
-## Projects Using Gradle, Maven or Ant
+## Gradle, Maven, or Ant Projects
 
 If your project is not configured for sbt, the build process behaves like a
 typical [Java Project](/user/languages/java/).
 
-## Testing Against Multiple JDKs
+## Test against Multiple JDKs
 
 As for any JVM language, it is also possible to [test against multiple
 JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
-### Using Java 10 and Up
+### Use Java 10 and higher
 
 For testing with OpenJDK and OracleJDK 10 and up, see
 [Java documentation](/user/languages/java/#using-java-10-and-later).
