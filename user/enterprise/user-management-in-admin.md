@@ -4,7 +4,7 @@ layout: en_enterprise
 
 ---
 
-Travis CI Enterprise (TCIE)
+Travis CI Enterprise (TCIE) offers a new tab for admin users, the **User Activity** tab, where admin users can see active users and suspend or unsuspend specific users. This section describes how to obtain and use an Organizational-level token.
 
 ## Obtain Organization-level token
 
