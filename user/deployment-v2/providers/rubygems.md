@@ -28,7 +28,7 @@ s.version = "#{s.version}-alpha-#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
 If your gem's current version is `1.0.0`, the prerelease version will be
 1.0.0-alpha-20, where `20` is the build number.
 
-### Specifying the gem name
+### Specify the gem name
 
 By default, we will try to release a gem by the same name as the repository name.
 
@@ -77,7 +77,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Specifying the gemspec
+### Specify the gemspec
 
 You can specify the gemspec with the `gemspec` option:
 

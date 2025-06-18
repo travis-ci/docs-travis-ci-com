@@ -1,5 +1,5 @@
 ---
-title: Running Build in Debug Mode
+title: Run Builds in Debug Mode
 layout: en
 
 ---
@@ -13,7 +13,7 @@ significant differences between your local development environment and
 the Travis CI build environment, you can restart builds in debug mode
 to get shell access to the virtual machine or container.
 
-## Enabling debug mode
+## Enable debug mode
 
 Private repositories have debug mode enabled by default, and no changes need to be made.
 To limit access to debug, grant users only *read access* to the repo, and use a fork + PR workflow.
@@ -21,7 +21,7 @@ For public repositories, we have to enable it on a repository basis.
 To enable debug for your public repositories, please email us at
 support@travis-ci.com and let us know which repositories you want activated.
 
-## Restarting a job in debug mode
+## Restart a job in debug mode
 
 The "Debug build" or "Debug job" button is available on the upper right corner of
 the build and job pages for private repositories. For open source repositories,
@@ -29,7 +29,7 @@ this button is not available and you will need to use an API call instead.
 
 ![Screenshot of debug build/job buttons](/images/debug_buttons.png)
 
-### Restarting a job in debug mode via API
+### Restart a job in debug mode via API
 
 To restart a job in debug mode via API, send a `POST` request to the job's `debug` endpoint.
 This request needs to be authenticated by adding your [Travis CI API token](/user/triggering-builds/)
@@ -70,7 +70,7 @@ $ curl -s -X POST \
   https://api.travis-ci.org/job/${id}/debug
 ```
 
-#### Finding the job ID
+#### Find the job ID
 
 The `${id}` is a job ID, not a build ID. For example, the ID `248927956` in the URL [`https://travis-ci.org/travis-ci/docs-travis-ci-com/builds/248927956`](https://travis-ci.org/travis-ci/docs-travis-ci-com/builds/248927956) is a build ID. To obtain the corresponding job ID, click the _View config_ button on that page, and the URL will change into [`https://travis-ci.org/travis-ci/docs-travis-ci-com/jobs/248927957/config`](https://travis-ci.org/travis-ci/docs-travis-ci-com/jobs/248927957/config), showing the job ID `248927957`. Alternatively, you can obtain job IDs corresponding to a build ID [via the API](https://docs.travis-ci.com/api/#builds).
 
@@ -79,10 +79,10 @@ The `${id}` is a job ID, not a build ID. For example, the ID `248927956` in the 
 To show any command input and output you see while connected to the VM running in the debug
 mode, pass an empty JSON object (`{}`) in the payload instead.
 
-## Connecting to the job running in the debug mode
+## Connect to the job running in the debug mode
 
 When the job starts in the debug mode, it will go through the initial steps, including setting up language
-run times and caches (if applicable) and installing debug utilities.
+run times and caches (if applicable) and install debug utilities.
 
 When it is ready for your connection, you will see:
 
@@ -140,7 +140,7 @@ Permission denied (publickey).
 
 If you see this, run the command `ssh-keygen` (go through the prompts), and try again.
 
-## Things to do once you are inside the debug VM
+## Things to do once inside the debug VM
 
 Once inside the debug VM, you are able to explore.
 
@@ -148,7 +148,7 @@ You are in a [`tmate`](https://tmate.io/) session, at the point
 where your `before_install` (even if it is not defined) phase is about to
 start.
 
-### Convenience `bash` functions
+### Convenience bash functions
 
 Various build phases are defined in convenience `bash` functions named
 `travis_run_*` (e.g., `travis_run_before_install`, `travis_run_install`).
@@ -185,7 +185,7 @@ travis_run_script ()
 ```
 `travis_cmd` basically executes the string argument (with escaped white spaces in the example above) and adds some decorations so that the output looks nice. In the debug sessions, you can run the string argument (unescaped) instead.
 
-### Basic `tmate` features
+### Basic tmate features
 
 `tmate` is a fork of [`tmux`](https://tmux.github.io/).
 Your debug VM session uses the default configuration; thus, the command prefix is
@@ -193,7 +193,7 @@ Your debug VM session uses the default configuration; thus, the command prefix i
 
 A subset of functionalities are available for you in this debug session.
 
-#### Creating a new window
+#### Create a new window
 
 ```
 ctrl-b c
@@ -202,7 +202,7 @@ ctrl-b c
 The first window is indexed 0. So repeating command will give you windows
 1, 2, and so on.
 
-#### Switching to a different window
+#### Switch to a different window
 
 ```
 ctrl-b 0
@@ -227,7 +227,7 @@ Switch to the previous window.
 Switching between windows can be helpful if you want to run long-running process in
 one window while looking at the debug VM in another.
 
-#### Scrolling up and down the terminal history
+#### Scroll up and down the terminal history
 
 ```
 ctrl-b [
@@ -238,7 +238,7 @@ log history.
 
 Press `q` to exit the log scroll mode.
 
-### Capturing the debug session output
+### Capture the debug session output
 
 Before you end the debug session, you may wish to copy the output. By default, when you exit your
 `tmate` session the terminal is cleared immediately, without a chance to save it.
@@ -254,7 +254,7 @@ In order to save the output, follow these steps:
      1. cancel the debug session from the web UI (this leaves the job in "Canceled" state regardless of the result of the previous execution), or
      1. open a new window (`ctrl-b c`), kill the first window (`tmate killw -t 0`), and exit the new window (`exit`).
 
-### Getting out of the debug VM
+### Get out of the debug VM
 
 Once you exit from all the live `tmate` windows, the debug VM will terminate
 after resetting the job's status to the original status before you restarted it.
@@ -262,7 +262,7 @@ No more phases (`before_install`, `install`, etc.) will be executed.
 
 ## Known issues
 
-### In a Node.js debug session, the `node` and `npm` versions differ from what is defined in the configuration
+### In a Node.js debug session, the node and npm versions differ from what is defined in the configuration
 
 To set up the debug environment in the same ways as the Node.js job,
 run the following command when you log in to your debug session before
@@ -271,7 +271,7 @@ executing any other command:
 ```
 nvm install $TRAVIS_NODE_VERSION
 ```
-### If the debug VM crashes when running one of the `travis_run_*` functions
+### If the debug VM crashes when running one of the travis_run_* functions
 
 If your debug build crashes when running any of the specified commands, we suggest narrowing down
 the issue as follows:

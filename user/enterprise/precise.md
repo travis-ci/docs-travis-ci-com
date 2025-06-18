@@ -12,9 +12,9 @@ layout: en_enterprise
 To Legacy workers as default on Travis CI Enterprise 2.2+, override the fault behavior in the Admin Dashboard at `https://<your-travis-ci-enterprise-domain>:8800/settings#override_default_dist_enable`
 
 **Worker Requirements**:
-The Legacy worker must be running Ubuntu 14.04 LTS as an underlying operating system. We recommend using AWS's `c3.2xlarge` as the instance type. Port 22 must be open for SSH during installation and operation.
+The Legacy worker must run Ubuntu 14.04 LTS as an underlying operating system. We recommend using AWS's `c3.2xlarge` as the instance type. Port 22 must be open for SSH during installation and operation.
 
-In addition, _Precise build containers and Trusty build containers must be on different instances_. To run both Precise and Trusty builds, at least two worker instances are required.
+In addition, _Precise build containers and Trusty build containers must be on different instances_. To run Precise and Trusty builds, at least two worker instances are required.
 
 ## Precise (Legacy) Worker Installation
 
@@ -43,7 +43,7 @@ sudo bash /tmp/installer.sh \
 
 This installer uses Docker's `aufs` storage driver. If you have any questions or concerns, please [get in touch with us](mailto: enterprise@travis-ci.com?subject=Precise%20Workers) to discuss alternatives.
 
-## Restarting `travis-worker`
+## Restart the travis-worker
 
 After installation, or when configuration changes are applied to the worker, restart the worker as follows:
 

@@ -25,7 +25,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Rubygems is *stable**.
+Support for deployments to Rubygems is **stable**.
 ## Known options
 
 Use the following options to further configure the deployment. Either `api_key` or `username` and `password` are required.

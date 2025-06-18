@@ -1,10 +1,9 @@
 ---
-title: Building a C#, F#, or Visual Basic Project
+title: Build a C#, F#, or Visual Basic Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -25,18 +24,18 @@ language: csharp
 </aside>
 
 This guide covers build environment and configuration topics specific to C#, F#, and Visual Basic
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community Supported Language
+### Community-Supported Language
 
- C#, F#, and Visual Basic support is community-supported in Travis CI.
+C#, F#, and Visual Basic support is community-supported in Travis CI.
 If you run into any problems, please report them in the [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new)
 and cc [@joshua-anderson](https://github.com/joshua-anderson), [@akoeplinger](https://github.com/akoeplinger) and [@nterry](https://github.com/nterry).
 
 ### Build Environment
 
-Currently, Travis builds your C#, F#, and Visual Basic project with the either the [Mono](http://www.mono-project.com/) or the [.NET Core](https://github.com/dotnet/core) runtimes on Linux or macOS. Note that these runtimes do not implement the entire .NET framework, so Windows .NET framework programs may not be fully compatible and require porting.
+Currently, Travis builds your C#, F#, and Visual Basic project with either the [Mono](http://www.mono-project.com/) or the [.NET Core](https://github.com/dotnet/core) runtimes on Linux. Note that these runtimes do not implement the entire .NET framework, so Windows .NET framework programs may not be fully compatible and require porting.
 
 ### Overview
 
@@ -50,11 +49,11 @@ solution: solution-name.sln
 
 When the optional `solution` key is present, Travis will run NuGet package restore and build the given solution.
 
-## Choosing Runtime and Version to Test Against
+## Test against Runtime and Version 
 
 ### Mono
 
-By default Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against latest, 3.12.0 and 3.10.0:
+By default, Travis CI will use the latest Mono release. It is also possible to test projects against specific versions of Mono. To do so, specify the version using the `mono` key in `.travis.yml`. For example, to test against the latest, 3.12.0 and 3.10.0:
 
 ```yaml
 language: csharp
@@ -68,7 +67,7 @@ mono:
 
 You can choose from the following Mono versions:
 
-| Version          | Installed Packages (Linux only, macOS always includes everything) |
+| Version          | Installed Packages (Linux only) |
 |:-----------------|:------------------------------------------------------------------|
 | 3.10.0 and later | mono-complete, mono-vbnc, fsharp, nuget, referenceassemblies-pcl  |
 | 3.8.0            | mono-complete, mono-vbnc, fsharp, nuget                           |
@@ -76,9 +75,9 @@ You can choose from the following Mono versions:
 | 2.10.8           | mono-complete, mono-vbnc                                          |
 | none             | *disables Mono (use this if you only want .NET Core, see below)*  |
 
-> *Note*: even if you specify e.g. 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
+> *Note*: even if you specify, e.g., 3.12.0 the version used by your build may actually be 3.12.1 depending on what the latest version in the 3.12.x series is (it's a limitation of the Xamarin repositories right now).
 
-**Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
+**Alpha, Beta, and Weekly Channel**: To install and test against upcoming Mono versions, specify `alpha`, `beta`, or `weekly` as the version number. Please report bugs you encounter on these channels to the Mono project so they can be fixed before release.
 
 ### .NET Core
 
@@ -92,12 +91,13 @@ script:
  - dotnet restore
 ...
 ```
+{: data-file=".travis.yml"}
 
-> *Note*: you need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
+> *Note*: You need to specify the version number of the .NET Core SDK (_not_ the .NET Core Runtime).
 
 The version numbers of the SDK can be found on the [.NET Core website](https://dot.net/core).
 
-## Testing Against Mono and .NET Core
+## Test against Mono and .NET Core
 
 You can test against both Mono and .NET Core by using `matrix.include`. This example tests against both the latest mono and .NET Core:
 
@@ -119,7 +119,7 @@ jobs:
 
 The [Coverity Scan](/user/coverity-scan/) addon is not supported because it only works with msbuild on Windows right now.
 
-## Running Unit Tests (NUnit, xUnit, etc.)
+## Run Unit Tests for NUnit and xUnit
 
 To run your unit test suite, you'll need to install a test runner first. The recommended approach is to install it from NuGet, as this also works on the [container-based](/user/workers/container-based-infrastructure/) Travis infrastructure (i.e. it doesn't need `sudo`).
 
@@ -155,7 +155,7 @@ script:
 
 > *Note:* There's [a bug](https://github.com/mono/mono/pull/1654) in Mono that makes xUnit 2.0 hang after test execution, we recommended you stick with 1.9.2 until it is fixed.
 
-### Using Solution-Level NuGet Packages
+### Use Solution-Level NuGet Packages
 
 Another way is to add the console testrunner of your choice as a solution-level NuGet package.
 
