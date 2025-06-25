@@ -4,15 +4,17 @@ layout: en_enterprise
 
 ---
 
-Travis CI Enterprise (TCIE) offers a new tab for admin users, the **User Activity** tab, where admin users can see active users and suspend or unsuspend specific users. This section describes how to obtain and use an Organizational-level token.
+Travis CI Enterprise (TCIE) offers a new tab for admin users utilizing `admin-v2`, the **User Activity** tab, where admin users can see `active` or `inactive` users and suspend or unsuspend specific users. 
+
+> Note: An `active` user is a user who utilizes the system and not necessarily a user consuming a license. 
+
+This section describes how to obtain and use an Organizational-level token.
 
 ## Obtain Organization-level token
 
 A new token authorization method was introduced in Travis API **org.token**. An organization-level access token that grants permissions to perform platform-level administrative commands via APIs.
 
 Travis CI Enterprise platform admin users require a list of active and inactive user accounts to make informed decisions about whether to suspend accounts. TCIE admin users can now obtain and regenerate organization-level tokens (OTP secured). Each token has a predefined permission. Currently, there are two possible usages for Organization-level tokens: checking user activity and suspending or unsuspending users in the organization. 
-
-## How to use Organization-level tokens
 
 Navigate to the API Tokens section at the bottom of the Travis admin V2 Organization page. Under the Organization tab, scroll down to the **API** section.
 
@@ -23,6 +25,8 @@ Click the “Re-generate” button to generate a new token.
 The token is hidden by default, and by clicking the **View** button, the token is displayed. 
 
 > Note: This section is for admin users only. 
+
+## How to use Organization-level tokens
 
 Users can now use the following new API endpoint:
 ```
@@ -35,8 +39,8 @@ curl -L -v -s -k -X GET \
      -H "Content-Type: application/json" \
      -H "Accept: application/json" \
      -H "Travis-API-Version: 3" \
-     -H "Authorization: org.token 89:xxxxxxx" \
-     "https://[instance]org/89/user_activity?date=2025-02-21&status=active"
+     -H "Authorization: org.token <organization id in admin-v2>:<paste your org.token here>"  \
+     "https://[instance]/org/:[org id]/user_activity?date=2025-02-21&status=active"
 ```
 
 Using a GET request allows users to retrieve a list of active and inactive users for a specified time between the current date and any specified date.
