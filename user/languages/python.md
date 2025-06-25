@@ -27,7 +27,7 @@ Minimal example:
 {{ site.data.snippets.unix_note }}
 
 {: .warning}
-> Python builds are not available on the macOS and Windows environments.
+> Python builds are not available on Windows environments.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
 new to Travis CI, please read our [Onboarding](/user/onboarding/) and
@@ -36,7 +36,7 @@ new to Travis CI, please read our [Onboarding](/user/onboarding/) and
 ## Specify Python versions
 
 Specify Python versions using the `python` key. As we update the Python build
-images, aliases like `3.6` will point to different exact versions or patch
+images, aliases like `3.10` will point to different exact versions or patch
 levels.
 
 ```yaml
@@ -45,11 +45,15 @@ python:
   - "2.7"
   - "3.4"
   - "3.5"
-  - "3.6"      # current default Python on Travis CI
+  - "3.6"
   - "3.7"
   - "3.8"
   - "3.9"
-  - "3.9-dev"  # 3.9 development branch
+  - "3.9-dev"  # 3.9 development branch. similarly 3.10-dev, 3.11-dev, etc.
+  - "3.10" # current default Python in Travis CI, if `language: python` is specified
+  - "3.11"
+  - "3.12"
+  - "3.13"
   - "nightly"  # nightly build
 # command to install dependencies
 install:
@@ -103,8 +107,8 @@ python:
   - "2.7"
   - "3.8"
   # PyPy versions
-  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
-  - "pypy3"  # currently Python 3.6.9,  PyPy 7.3.1
+  - "pypy"   # currently Python 2.7.18, PyPy 7.3.19
+  - "pypy3"  # currently Python 3.10.16,  PyPy 7.3.19
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -124,7 +128,7 @@ a recent development version of [CPython](https://github.com/python/cpython) bui
 From Python 3.5 and later, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev`,
-`3.7-dev`, `3.8-dev`, `3.9-dev`, `3.10-dev` or `3.11-dev`
+`3.7-dev`, `3.8-dev`, `3.9-dev`, `3.10-dev`, `3.11-dev`, `3.12-dev`, `3.13-dev` or `3.14-dev`.
 
 ## Default Build Script
 
@@ -156,7 +160,7 @@ Due to the way Travis is designed, interaction with [tox](https://tox.readthedoc
 As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
 
 If you're using tox to test your code against multiple versions of Python, you have two options:
-  * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions - 2.7.12 and 3.5.2 for Xenial)
+  * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions in a chosen distribution)
   * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and will parallelize your workload.
 
 ## Run Python tests on multiple Operating Systems
