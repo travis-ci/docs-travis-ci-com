@@ -1,4 +1,4 @@
-FROM ruby:2.7-slim
+FROM ruby:2.6.10-bullseye
 LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 
 # packages required for bundle install
@@ -17,7 +17,7 @@ ENV LANGUAGE en_US.UTF-8
 ENV WEBHOOK_PAYLOAD_GIST_ID 4e317d6e71be6d0278be46bb751b2f78
 
 # throw errors if Gemfile has been modified since Gemfile.lock
-# RUN bundle config --global frozen 1
+RUN bundle config --global frozen 1
 RUN mkdir -p /app
 
 WORKDIR /app
