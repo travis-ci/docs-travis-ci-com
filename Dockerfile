@@ -5,13 +5,11 @@ LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
-        make \
-        gcc \
-        g++ \
+        build-essential \
         libpq-dev \
         libcurl4-openssl-dev \
-        curl \
-        build-essential && \
+        curl && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # ------
