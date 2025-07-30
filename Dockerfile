@@ -2,15 +2,11 @@ FROM ruby:2.6.3-slim
 LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 
 # packages required for bundle install
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-        git \
-        build-essential \
-        libpq-dev \
-        libcurl4-openssl-dev \
-        curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN ( \
+   apt-get update ; \
+   apt-get install -y --no-install-recommends git make gcc g++ libpq-dev libcurl4-openssl-dev curl \
+   && rm -rf /var/lib/apt/lists/* \
+)
 
 # ------
 # Set the encoding to UTF-8
