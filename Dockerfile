@@ -1,4 +1,4 @@
-FROM ruby:3.0-slim-bookworm
+FROM ruby:3.2-slim
 LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 
 # packages required for bundle install
