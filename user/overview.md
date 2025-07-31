@@ -7,7 +7,7 @@ layout: en
 ### Travis CI Overview
 
 Travis CI is a hosted continuous integration service. It is integrated with
-GitHub and offers first class support for many programming languages and
+GitHub and offers first-class support for many programming languages and
 hosting environments.
 
 Travis CI's build environment provides different runtimes for different
