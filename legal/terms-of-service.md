@@ -16,23 +16,23 @@ as of 05/2018
 ### Subject matter
 
 1. The subject matter of these terms and conditions (hereinafter **“Terms and Conditions”**) is the use of Travis CI Software. The Terms and Conditions regulate all relations between Travis CI and Travis CI’s customer (hereinafter **“Customer”**) regarding the use of Travis CI Software and are part of the Agreement as defined below. Standard business conditions and/or general terms and conditions of the Customer do not apply, regardless of whether or not Travis CI has expressly objected to them in a particular case.
-2. Travis CI communicates with the GitHub hosting service (hereinafter **“GitHub”**), which is offered by GitHub Inc. on the Customer’s behalf. Condition to the proper use of Travis CI Software is a valid contract with GitHub Inc. on the use of GitHub, which may lead to costs on the Customer’s sole responsibility. The Customer will provide Travis CI with his GitHub account information (hereinafter **“GitHub Sign-In”**) when signing in through GitHub via travis CI-ci.com (hereinafter the **“Website”**) automatically. He allows Travis CI to access the Customer’s GitHub account. Travis CI will directly communicate in the name of the Customer with GitHub and the Customer authorizes Travis CI to act on his behalf towards GitHub Inc. The Customer is solely liable for any costs or damages that GitHub Inc. associates with the GitHub Sign-In.
+2. Travis CI communicates with several hosting services such as GitHub (hereinafter **“GitHub”**), which is offered by GitHub Inc. on the Customer’s behalf or Atlassian Corporation Plc (hereinafter **“Atlassian”**), which is offered by Atlassian on the Customer’s behalf or GitLab Inc (hereinafter **“GitLab”**), which is offered by GitLab on the Customer’s behalf or Assembla, An Idera, Inc. Company (hereinafter **“Assembla”**), which is offered by Assembla on the Customer’s behalf. Condition to the proper use of Travis CI Software is a valid contract with GitHub Inc. on the use of GitHub or Atlassian on the use of Atlassian Bitbucket or GitLab on the use of GitLab or Assembla on the use of Assembla, which may lead to costs on the Customer’s sole responsibility. The Customer will provide Travis CI with his GitHub/Bitbucket/GitLab/Assembla account information (hereinafter **“GitHub/Bitbucket/GitLab/Assembla Sign-In”**) when signing in through GitHub/Bitbucket/GitLab/Assembla via travis CI-ci.com (hereinafter the **“Website”**) automatically. He allows Travis CI to access the Customer’s GitHub/Bitbucket/GitLab/Assembla account. Travis CI will directly communicate in the name of the Customer with GitHub/Bitbucket/GitLab/Assembla and the Customer authorizes Travis CI to act on his behalf towards GitHub Inc./Atlassian Corporation Plc. The Customer is solely liable for any costs or damages that GitHub Inc./Atlassian Corporation Plc associates with the GitHub/Bitbucket/GitLab/Assembla Sign-In.
 
 ### Scope of services
 
 1. Travis CI provides Travis CI Software as a service. This means, that Travis CI Software may be used via the internet only.
 2. The Travis CI Software is a hosted continuous integration service that provides the infrastructure for testing software projects subject to downtime and service suspensions as described below. The functional range of the service is dependent on the package the Customer chooses and will be displayed on the Website.
 3. Travis CI offers its services for (i) closed software projects, where the projects cannot be viewed publicly and (ii) open software projects, where the projects including their source codes can be viewed publicly.
-4. The Travis CI Software is integrated with GitHub and offers support for several programming languages. The entire list of supported programming languages is available at about.travis CI-ci.org.
+4. The Travis CI Software is integrated with GitHub/Atlassian Bitbucket/GitLab/Assembla and offers support for several programming languages. The entire list of supported programming languages is available at about.travis CI-ci.org.
 5. No consultancy, training, trouble shooting or support is within the scope of the services offered by Travis CI under this Agreement if and to the extent they are not part of the agreed warranty as set out in section 9 hereunder.
 6. Travis CI offers unpaid and paid services. If a service by Travis CI is offered free of charge, section 8 shall apply.
 
 ### Concluding of the Agreement
 
-1. Using the Travis CI Software requires the opening of an account via the Website by using the Customer’s GitHub Sign-In (hereinafter the **“Account”**). Travis CI offers the use of the Travis CI Software only to entrepreneurs within the meaning of section 14 (1) of the German Civil Code.
+1. Using the Travis CI Software requires the opening of an account via the Website by using the Customer’s GitHub/Atlassian Bitbucket/GitLab/Assembla Sign-In (hereinafter the **“Account”**). Travis CI offers the use of the Travis CI Software only to entrepreneurs within the meaning of section 14 (1) of the German Civil Code.
 2. The opening of an Account by the Customer is deemed an offer to conclude an agreement under these Terms and Conditions with Travis CI (hereinafter the **“Agreement”**). Travis CI may at its own discretion accept this offer by explicitly accepting it or rendering services under this Agreement.
 3. An Account may only be used by one single person. The Customer is entitled to create separate Accounts for his employees.
-4. The person opening the Account represents that he/she has the legal authority to bind the legal entity he/she acts for to this Agreement and may in knowledge of this Agreement provide the GitHub Sign-Ins to Travis CI.
+4. The person opening the Account represents that he/she has the legal authority to bind the legal entity he/she acts for to this Agreement and may in knowledge of this Agreement provide the GitHub/Atlassian Bitbucket/GitLab/Assembla Sign-Ins to Travis CI.
 5. In connection with the registration the customer is obliged to
   - make precise and correct allegations and to correct the data if changes accrue;
   - keep Account data confidential at all times and to do everything to avoid any third party getting hold of the data. In this respect ‘third party’ also includes all employees of the Customer that are not designated to use the Travis CI Software;
@@ -52,7 +52,7 @@ as of 05/2018
 
 1. Adjustments, changes and updates of the Travis CI Software that help to avoid or maintain dysfunctions of the Travis CI Software may lead to temporary service suspensions. Travis CI will try to limit downtime of the service or restrictions of accessibility to 10 hours a month. Travis CI will try to do regular maintenance works during the weekend or at times between 10 p.m. and 6 a.m. (CET). Outside of the said hours, Travis CI will inform the Customer about upcoming maintenance works.
 2. The Customer is aware that the service relies on a working internet infrastructure. Additional downtime of the service can occur if the website is not available and at any other time with restrictive access to the internet of the Customer.
-3. The Customer is aware that the Travis CI Software does not work if GitHub is not properly available (be it to Travis CI or the Customer).
+3. The Customer is aware that the Travis CI Software does not work if GitHub/Atlassian Bitbucket/GitLab/Assembla is not properly available (be it to Travis CI or the Customer).
 4. For the avoidance of doubt, in case of dysfunctions of the Travis CI Software caused by Travis CI through willful intent or gross negligence, Travis CI’s liability for such dysfunctions is not excluded by this section 5
 
 ### Rights to use
@@ -68,6 +68,7 @@ as of 05/2018
 2. Invoices will be issued via email. Payments shall become due immediately upon issuance of the invoice. Payment must be made using the payment methods provided by Travis CI from time to time and chosen by the Customer in his Account settings.
 3. All prices in the price list are net-price. Value Added Tax will be added in the invoice if applicable.
 4. Travis CI may alter the current price list and/or the structuring of prices with at least one month notice to the end of each quarter. Travis CI will inform the Customer via email about the price change. If the Customer does not expressly disagree in writing within a month from the notification of change this is deemed to be his acceptance of the change. The Customer will be informed about this circumstance in the notification of change.
+5. The customer authorizes Travis CI to send instructions to the financial institution that issued their card to take payments from the card account in accordance with the terms of agreement.
 
 ### Free Services
 
@@ -107,8 +108,8 @@ For any services offered by Travis CI free of charge (**“Free Services”**), 
 - an attempt a denial of service attack on any of the Services by the Customer or any attempt to hack or break any security mechanism on any of the services;
 - determination that the Customer’s use of the services poses a security or service risk to Travis CI, or to any user of services offered by Travis CI;
 - inappropriate use of the Travis CI Software and/or services, including but not limited to Bitcoin-Mining;
-- a major change in the working of GitHub that makes it unreasonable for Travis CI to adapt the Travis CI Software accordingly;
-- a major change in the co-operation of GitHub and Travis CI that makes the further offering of Travis CI unreasonable for Travis CI;
+- a major change in the working of GitHub/Atlassian Bitbucket/GitLab/Assembla that makes it unreasonable for Travis CI to adapt the Travis CI Software accordingly;
+- a major change in the co-operation of GitHub/Atlassian Bitbucket/GitLab/Assembla and Travis CI that makes the further offering of Travis CI unreasonable for Travis CI;
 - an application for the initiation of insolvency proceedings concerning the Customer, as well as the refusal to open insolvency proceedings for lack of assets, or the issue of a declaration in lieu of an oath, or any similar proceedings.
 4. In case of the termination of the Agreement, any rights of use granted to Customer for the Travis CI Software shall expire immediately and Customer shall cease to use the Travis CI Software.
 
