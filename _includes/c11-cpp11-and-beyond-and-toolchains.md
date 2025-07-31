@@ -4,10 +4,10 @@ If your project requires tools compatible with C11, C++11, or a more recent lang
 
 ### GCC on Linux
 
-* [Precise](/user/reference/precise) ships with GCC 4.6.3
-* [Trusty](/user/reference/trusty) ships with GCC 4.8.2
-* [Xenial](/user/reference/xenial) ships with GCC 5.4.0
-* [Bionic](/user/reference/bionic) ships with GCC 7.4.0
+* [Precise](/user/reference/precise/) ships with GCC 4.6.3
+* [Trusty](/user/reference/trusty/) ships with GCC 4.8.2
+* [Xenial](/user/reference/xenial/) ships with GCC 5.4.0
+* [Bionic](/user/reference/bionic/) ships with GCC 7.4.0
 
 Note that [GCC support for ISO C11 reached a similar level of completeness as ISO C99 in 4.9](https://gcc.gnu.org/wiki/C11Status) and that C++11 is feature-complete in 5.1 (the C++ language support was feature-complete in 4.8.1 but the standard library didn't support all C++11 features until [later](https://gcc.gnu.org/gcc-5/changes.html#libstdcxx), in particular [support for `<regex>` does not exist until 4.9](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53631)).
 
@@ -65,39 +65,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### GCC on macOS
-
-On macOS, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
-So you must set CC and CXX to specific `gcc`/`g++` versions:
-
-```yaml
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc5 && CC=gcc-5 && CXX=g++-5"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc6 && CC=gcc-6 && CXX=g++-6"
-
-    - os: osx
-      osx_image: xcode8
-      env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
-
-before_install:
-    - eval "${MATRIX_EVAL}"
-```
-{: data-file=".travis.yml"}
-
 ### GCC on FreeBSD
 
 Travis CI FreeBSD image ships with GCC 10.0.0 (it's not in the base system by default).
@@ -117,10 +84,10 @@ addons:
 
 ### Clang on Linux
 
-* [Precise](/user/reference/precise) ships with Clang 3.4
-* [Trusty](/user/reference/trusty) ships with Clang 3.5.0
-* [Xenial](/user/reference/xenial) ships with Clang 7
-* [Bionic](/user/reference/bionic) ships with Clang 7
+* [Precise](/user/reference/precise/) ships with Clang 3.4
+* [Trusty](/user/reference/trusty/) ships with Clang 3.5.0
+* [Xenial](/user/reference/xenial/) ships with Clang 7
+* [Bionic](/user/reference/bionic/) ships with Clang 7
 
 Note that [C++11 support is complete starting from Clang 3.3](http://clang.llvm.org/cxx_status.html).
 
@@ -203,23 +170,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Clang on macOS
-
-On macOS, the version of `clang` is controlled by the choice of `osx_image`.
-You can find [here](/user/reference/osx/#macos-version) the list of available `osx_image`.
-
-```yaml
-matrix:
-  include:
-    - os: osx
-      osx_image: xcode10.1
-    
-    - os: osx
-      osx_image: xcode9.4
-```
-{: data-file=".travis.yml"}
-      
-You can find the `clang` version shipped by Xcode [here](https://trac.macports.org/wiki/XcodeVersionInfo).
 
 ### Clang on FreeBSD
 
@@ -244,11 +194,11 @@ addons:
 
 #### CMake
 
-* [Precise](/user/reference/precise) ships with CMake 2.8.7
-* [Trusty](/user/reference/trusty) ships with CMake 3.9.2
-* [Xenial](/user/reference/xenial) ships with CMake 3.12.4
-* [Bionic](/user/reference/bionic) ships with CMake 3.12.4
-* [FreeBSD](/user/reference/freebsd) ships with CMake 3.15.5
+* [Precise](/user/reference/precise/) ships with CMake 2.8.7
+* [Trusty](/user/reference/trusty/) ships with CMake 3.9.2
+* [Xenial](/user/reference/xenial/) ships with CMake 3.12.4
+* [Bionic](/user/reference/bionic/) ships with CMake 3.12.4
+* [FreeBSD](/user/reference/freebsd/) ships with CMake 3.15.5
 
 You can upgrade cmake to 3.2.3 on Precise from the `george-edison55-precise-backports` source (note that the `cmake-data` package contains dependencies which Aptitude does not automatically resolve), c.f.
 
@@ -263,4 +213,4 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-On macOS, the version of `cmake` is controlled by the choice of `osx_image`.
+

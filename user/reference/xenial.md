@@ -3,6 +3,8 @@ title: The Xenial Build Environment
 layout: en
 ---
 
+> Xenial LTS Standard has reached End of Life (EOL) as per Canonical. Consider updating to a newer image. Travis CI has ceased all work on updates to Xenial images as of the end of the 2024 calendar year, and it is now considered deprecated.
+
 ## What This Guide Covers
 
 This guide provides an overview of the packages, tools and settings available in the Xenial environment.
@@ -168,7 +170,7 @@ If you're getting errors about PyPy `pypy is not installed; attempting download`
 ## JVM (Clojure, Groovy, Java, Scala) support
 
 * Pre-installed JVMs: `openjdk8` and `openjdk11` on x86, default
-is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le. 
+is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -210,4 +212,4 @@ To use one in your build, add it to the services key in your `.travis.yml` :
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.

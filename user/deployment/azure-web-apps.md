@@ -24,11 +24,11 @@ It is not recommended that you put your Azure Deployment credentials unencrypted
 To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section. As an alternative to the web interface, you can also use the CLI's [`env`](https://github.com/travis-ci/travis.rb#env) command.
 
 <figure>
-  <img alt="Travis CI Settings" src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
+  <img alt="Travis CI Settings" src="{{ "/images/2019-07-settings-env-vars.png" | prepend: site.baseurl }}">
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-### Fetch Deployment Progress and Logs
+## Fetch Deployment Progress and Logs
 
 The Azure Web App provider can print Azure's deployment progress to your Travis log using the `verbose` option. However, Git will print your password if the authentication fails (it will not if you provide a correct user/password combination).
 
@@ -37,8 +37,9 @@ deploy:
   provider: azure_web_apps
   verbose: true
 ```
+{: data-file=".travis.yml"}
 
-### Branch to deploy from
+## Deployment Branch
 
 By default, Travis CI will only deploy from your **master** branch.
 
@@ -49,6 +50,7 @@ deploy:
   provider: azure_web_apps
   on: production
 ```
+{: data-file=".travis.yml"}
 
 Alternatively, you can also configure it to deploy from all branches:
 
@@ -58,10 +60,11 @@ deploy:
   on:
     all_branches: true
 ```
+{: data-file=".travis.yml"}
 
 Builds triggered from Pull Requests will never trigger a deploy.
 
-### Note on `.gitignore`
+### The .gitignore method
 
 As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
@@ -70,7 +73,7 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-### Running commands before and after deploy
+### Run Commands Before or After Deploy
 
 Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
@@ -84,7 +87,7 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-### Deploying to slots
+## Deploy to slots
 
 You might need to deploy multiple branches to different slots. You can set multiple providers to deploy to specific slots. The following configuration would deploy the `master` branch to the `myapp-staging` slot and the `develop` branch to the `myapp-develop` slot. In order to use slots you'll need to [set up staging environments for web apps in Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
 

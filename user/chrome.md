@@ -10,9 +10,9 @@ This addon supports both, Linux and [macOS](/user/reference/osx/) [build environ
 
 > For Linux, you must be running on [Ubuntu Xenial 16.04](https://docs.travis-ci.com/user/reference/xenial/) or later build environments.
 
-## Selecting a Chrome version
+## Select a Chrome version
 
-You can install the `stable`  or the `beta` version of Chrome but you can't select a specific numeric version.
+You can install the `stable`  or the `beta` version of Chrome, but you can't select a specific numeric version.
 
 ```yaml
 addons:
@@ -35,7 +35,7 @@ In that case, you may see an error message like this:
 
 ```
 30 11 2017 13:35:42.245:ERROR [launcher]: Cannot start Chrome
-  [4315:4315:1130/133541.781662:FATAL:setuid_sandbox_host.cc(157)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /opt/google/chrome/chrome-sandbox is owned by root and has mode 4755.
+  [4315:4315:1130/133541.781662:FATAL:setuid_sandbox_host.cc(157)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing, I'm aborting now. You need to make sure that /opt/google/chrome/chrome-sandbox is owned by root and has mode 4755.
 ```
 
 or like this:

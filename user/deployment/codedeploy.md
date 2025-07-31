@@ -30,7 +30,7 @@ A complete example can be found [here](https://github.com/travis-ci/cat-party/bl
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential). It is recommended to encrypt that key.
 
-If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](/user/deployment/codedeploy#aws-region-to-deploy-to)).
+If your CodeDeploy application lives in any region other than `us-east-1` please add a region field to `.travis.yml` (see [AWS-region-to-deploy-to](/user/deployment/codedeploy/#aws-region-to-deploy-to)).
 
 Assuming you have the Travis CI command line client installed, you can do it like this:
 
@@ -50,7 +50,7 @@ Keep in mind that the above command has to run in your project directory, so it 
 
 This command will also offer to set up [S3 deployment](/user/deployment/s3/), if you want to bundle to be uploaded from the Travis CI build.
 
-## Branch to deploy from
+## Deployment Branch
 
 You can explicitly specify the branch to deploy from with the **on** option:
 
@@ -88,7 +88,7 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a release.
 
-## S3 deployment or GitHub deployment
+## S3 or GitHub Deployment
 
 For a minimal configuration with GitHub, add the following to your `.travis.yml`:
 
@@ -132,9 +132,9 @@ If your `.travis.yml` contains both, and they do not match, set `bundle_type` ex
 ## Conditional deployments
 
 You can deploy only when certain conditions are met.
-See [Conditional Releases with `on:`](/user/deployment#conditional-releases-with-on).
+See [Conditional Releases with `on:`](/user/deployment/#conditional-releases-with-on).
 
-## Note on `.gitignore`
+## The .gitignore method
 
 As this deployment strategy relies on `git`, be mindful that the deployment will
 honor `.gitignore`.
@@ -143,9 +143,9 @@ If your `.gitignore` file matches something that your build creates, use
 [`before_deploy`](#running-commands-before-and-after-deploy) to change
 its content.
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
+Sometimes, you want to run commands before or after deploying. You can use the `before_deploy` and `after_deploy` stages for this. These will only be triggered if Travis CI is actually deploying.
 
 ```yaml
 before_deploy: "echo 'ready?'"
@@ -157,7 +157,7 @@ after_deploy:
 ```
 {: data-file=".travis.yml"}
 
-## AWS region to deploy to
+## Specify an AWS region
 
 You can explicitly specify the AWS region to deploy to with the **region** option:
 

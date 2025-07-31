@@ -13,7 +13,7 @@ The best way to define an environment variable depends on what type of informati
 - if it *does* contain sensitive information, and is the same for all branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
 - if it *does* contain sensitive information, and might be different for different branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
-## Defining Public Variables in .travis.yml
+## Define Public Variables 
 
 Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
@@ -38,9 +38,9 @@ env:
 
 <a id="note-format"/>
 
-> Variables' values are passed to the generated build script verbatim. So make sure to escape any [Bash special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you need to put quotes around that value. E.g. `a long phrase` should be written as `"a long phrase"`.
+> Variables' values are passed to the generated build script verbatim. So make sure to escape any [Bash special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you need to put quotes around that value. E.g., `a long phrase` should be written as `"a long phrase"`.
 
-### Defining Multiple Variables per Item
+### Define Multiple Variables per Item
 
 If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
@@ -83,7 +83,7 @@ USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```
 
-## Defining encrypted variables in .travis.yml
+## Define Encrypted variables
 
 {: #Encrypted-Variables}
 
@@ -106,15 +106,15 @@ env:
 >
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
-### Encrypting environment variables
+### Encrypting Environment variables
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
-1. If you do not have the `travis` gem installed, run `gem install travis` (or `brew install travis` on macOS).
+1. If you do not have the `travis` gem installed, run `gem install travis`.
 
 2. In your repository directory:
 
-   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys#usage).
+   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys/#usage).
    * If you are using https://travis-ci.org, run:
 
        ```bash
@@ -125,9 +125,9 @@ Encrypt environment variables with the public key attached to your repository us
 
 > Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
-The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
+The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys/).
 
-## Defining Variables in Repository Settings
+## Define Variables in Repository Settings
 
 {{ site.data.snippets.environment_variables }}
 
@@ -163,7 +163,7 @@ The following default environment variables are available to all builds.
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
 - `USER=travis`
-- `HOME` is set to `/home/travis` on Linux, `/Users/travis` on MacOS, and
+- `HOME` is set to `/home/travis` on Linux, and
     `/c/Users/travis` on Windows.
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
@@ -180,7 +180,7 @@ to tag the build, or to run post-build deployments.
   + set to `true` if the job is allowed to fail.
   + set to `false` if the job is not allowed to fail.
 - `TRAVIS_APP_HOST`: The name of the server compiling the build script. This server serves certain helper files
-  (such as `gimme`, `nvm`, `sbt`) from `/files` to avoid external network calls; e.g., `curl -O $TRAVIS_APP_HOST/files/gimme`
+  (such as `nvm` or `sbt`) from `/files` to avoid external network calls
 - `TRAVIS_BRANCH`:
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
@@ -195,7 +195,7 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
 - `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
-- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. PLEASE NOTE: This is not the same as *Custom Commit Message*.
+- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. It will contain *Custom Commit Message* if it was provided.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
 - `TRAVIS_COMPILER`: Indicates the compiler used by the current job (e.g., `clang`, `gcc`).
@@ -207,11 +207,9 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
 - `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are currently `linux`, `osx` and `windows` (beta), to be extended in the future.
+  Values are currently `linux` and `windows` (beta), to be extended in the future.
 - `TRAVIS_CPU_ARCH`: On [multi-arch](https://docs.travis-ci.com/user/multi-cpu-architectures/) builds, this value indicates the CPU architecture the job is running on.
-  Values are currently `amd64`, `arm64`, `ppc64le` and `s390x`.
-- `TRAVIS_OSX_IMAGE`: The `osx_image` value configured in `.travis.yml`. If this is not set in `.travis.yml`,
-  it is empty.
+  Values are currently `amd64`, `arm64`, `ppc64le`, and `s390x`.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:
@@ -223,6 +221,10 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_PULL_REQUEST_SLUG`:
   + if the current job is a pull request, the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
+- `TRAVIS_PULL_REQUEST_IS_DRAFT`:
+  + set to `true` if the current job is a pull request and the associated PR is in a draft state
+  + set to `false` if the current job is a pull request and the associated PR is not in a draft state
+  + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the repository currently being built.
 - `TRAVIS_SECURE_ENV_VARS`:
   + set to `true` if there are any encrypted environment variables.
@@ -231,6 +233,10 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
 - `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name, otherwise it is empty (`""`).
 - `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/). If a build does not use build stages, this variable is empty (`""`).
+- `TRAVIS_JOB_RESTARTED`:
+  + set to `true` if the build is restarted.
+  + set to `false` if the build has not been restarted.
+- `TRAVIS_JOB_RESTARTED_BY`: The login of the user triggering the restart.
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set

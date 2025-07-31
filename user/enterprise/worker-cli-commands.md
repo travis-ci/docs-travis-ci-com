@@ -4,13 +4,13 @@ layout: en_enterprise
 
 ---
 
+## Stop and Start the Worker Service
 
+The following section explains how to stop and start the worker service with Ubuntu as the host operating system.  
 
-## Stopping and Starting the Worker
+### With Ubuntu 16.04
 
-### With Ubuntu 16.04 as host operating system
-
-The Travis CI Worker is installed as an systemd service. The following commands can be used to check the status and start/stop the service:
+The Travis CI Worker is installed as a systemd service. The following commands can be used to check the status and start/stop the service:
 
 ```sh
 $ sudo systemctl status travis-worker
@@ -24,7 +24,7 @@ $ sudo systemctl start travis-worker
 $ sudo systemctl stop travis-worker
 ```
 
-### With Ubuntu 14.04 as host operating system
+### With Ubuntu 14.04 
 
 The Travis CI Worker is installed as an upstart service. The following
 commands can be used to check the status of the service and to start or
@@ -49,18 +49,18 @@ When the worker is stopped with `sudo stop travis-worker`, it is shut
 down with a `KILL` signal. This stops all currently running build jobs
 and will enqueue them when the worker starts again. If you'd like to
 wait until some or all jobs are being worked off successfully, you can
-issue a `SIGINT` instead. This together with a `sleep` ensures that
+issue a `SIGINT` instead. This, together with a `sleep`, ensures that
 either some or all active jobs can finish (depending on how
-long your queue is). After `sleep` finished, the worker has to be
+long your queue is). After `sleep` is finished, the worker has to be
 shut down via `sudo stop travis-worker`.
 
-## Example Worker Stop and Start
+## Worker Stop and Start Service Example
 
-travis-worker behaves differently based on the signals it receives. For instance, a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress, but it doesn't accept any new ones.
+The travis-worker behaves differently based on the signals it receives. For instance, a `SIGINT` drains the queue, it gives travis-worker enough time to work off all jobs which are still in progress, but it doesn't accept any new ones.
 
-`SIGKILL` on the other hand shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterwards, all previously enqueued and running jobs are re-queued again so they'll be worked off as usual.
+`SIGKILL`, on the other hand, shuts down travis-worker immediately and cancels all currently running jobs. If you start the worker again afterward, all previously enqueued, and running jobs are re-queued again, so they'll be worked off as usual.
 
-### With Ubuntu 16.04 as host operating system
+### With Ubuntu 16.04 
 
 With Ubuntu 16.04 as the host operating system, travis-works runs inside a Docker container, so starting and stopping the worker now works via `systemctl`:
 
@@ -82,11 +82,11 @@ To send a `SIGINT` signal, please run the following:
 sudo docker kill -s SIGINT travis-worker
 ```
 
-### With Ubuntu 14.04 as host operating system
+### With Ubuntu 14.04
 
 In this example, a `sleep 60` is used to allow jobs to complete before the
 worker is stopped. The actual value depends on how long your current job queue
-is and how long it takes in average for a job to finish, so you may wish to
+is and how long it takes on average for a job to finish, so you may wish to
 adjust accordingly.
 
 ```sh
@@ -99,10 +99,10 @@ travis-worker start/post-stop, process 9405
 $ sudo stop travis-worker
 ```
 
-## Starting Worker Debug Containers
+## Start the Worker Debug Containers
 
 In order to start a build container on a Travis CI Enterprise Worker
-host you can do the following:
+host, you can do the following:
 
 ```sh
 # start a container and grab the port

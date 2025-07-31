@@ -17,7 +17,7 @@ either the [Deploy Key](#deploy-key) or [User Key](#user-key) method.
 
 If the dependency is also on GitHub, there are four different ways of fetching
 the repository from within a Travis CI VM. Each one has advantages and
-disavantages, so read each method carefully and pick the one that applies best
+disadvantages, so read each method carefully and pick the one that applies best
 to your situation.
 
 | Authentication                | Protocol | Dependency URL format | Gives access to              | Notes                               |
@@ -28,8 +28,8 @@ to your situation.
 | **[API token](#api-token)**   | HTTPS    | `https://…`           | all repos user has access to | token can be encrypted              |
 
 You can use a [dedicated CI user account](#dedicated-user-account) for all but
-the deploy key approach. This allows you to limit access to a well defined list
-of repositories, and make sure that access is read only.
+the deploy key approach. This allows you to limit access to a well-defined list
+of repositories, and make sure that access is read-only.
 
 ## Deploy Key
 
@@ -37,11 +37,11 @@ GitHub allows you to set up SSH keys for a repository. These deploy keys have so
 
 - They are not bound to a user account, so they will not get invalidated by removing users from a repository.
 - They do not give access to other, unrelated repositories.
-- The same key can be used for dependencies not stored on GitHub.
+- The same key can be used for dependencies that are not stored on GitHub.
 
-However, using deploy keys is complicated by the fact that GitHub does not allow you to reuse keys. So a single private key cannot access multiple GitHub repositories.
+However, using deploy keys is complicated because GitHub does not allow you to reuse keys. So, a single private key cannot access multiple GitHub repositories.
 
-You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#user-key) instead.
+You could include a different private key for every dependency in the repository, possibly [encrypting them](/user/encrypting-files/). Maintaining complex dependency graphs this way can be complex and hard to maintain. For that reason, we recommend using a [user key](#user-key) instead.
 
 ## User Key
 
@@ -51,7 +51,7 @@ You can add SSH keys to user accounts on GitHub. Most users have probably alread
 
 This way, a single key can access multiple repositories. To limit the list of repositories and type of access, it is recommended to create a [dedicated CI user account](#dedicated-user-account).
 
-### Repository settings - forks
+### Fork Repository settings
 
 {{ site.data.snippets.git_repository_settings_forks_general }}
 
@@ -59,7 +59,7 @@ This way, a single key can access multiple repositories. To limit the list of re
 
 > Please Note: In the [travis-ci.com](https://app.travis-ci.com), secrets may also be stored in encrypted environment variables, available for both public and private repositories. Read more about [encrypted environment variables](/user/environment-variables/).
 
-### Using an existing key
+### Use an existing key
 
 [ ![Adding an SSH key via the web interface.](/images/2019-07-settings-ssh-key.png) ](/images/2019-07-settings-ssh-key.png){:.small}{:.right}
 
@@ -81,7 +81,7 @@ Current SSH key: Key to clone myorg/lib1 and myorg/lib2
 
 You can omit the `-r myorg/main` if your current working directory is a clone of the "myorg/main" repository.
 
-### Generating a new key
+### Generate a new key
 
 Assumptions:
 
@@ -115,7 +115,7 @@ You can omit the `-r myorg/main` if your current working directory is a clone of
 
 At the end of the process, it will ask you whether you want to store the generated key somewhere, usually it is safe to say "no" here. After all, you can just generate a new key as necessary. See [below](#reusing-a-generated-key) for instructions on storing and reusing a generated key.
 
-### Reusing a generated key
+### Reuse a generated key
 
 Assumptions:
 
@@ -184,12 +184,12 @@ To pull in dependencies with a password, you will have to use the user name and 
 
 Alternatively, you can also write the credentials to the `~/.netrc` file:
 
-```
+```bash
 machine github.com
   login ci-user
   password mypassword123
 ```
-
+{: data-file="~/.netrc"}
 
 You can also encrypt the password and then write it to the netrc in a `before_install` step in your `.travis.yml`:
 
@@ -197,10 +197,11 @@ You can also encrypt the password and then write it to the netrc in a `before_in
 $ travis env set CI_USER_PASSWORD mypassword123 --private -r myorg/main
 ```
 
-```bash
+```yaml
 before_install:
 - echo -e "machine github.com\n  login ci-user\n  password $CI_USER_PASSWORD" > ~/.netrc
 ```
+{: data-file=".travis.yml"}
 
 It is also possible to inject the credentials into URLs, for instance, in a Gemfile, it would look like this:
 
@@ -219,6 +220,7 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init recursive` command runs before the `~/.netrc` credentials
@@ -247,10 +249,11 @@ Under the GitHub account settings for the user you want to use, navigate to [Set
 
 Your `~/.netrc` should look like this:
 
-```
+```bash
 machine github.com
   login the-generated-token
 ```
+{: data-file="~/.netrc"}
 
 You can also use it in URLs directly: `https://the-generated-token@github.com/myorg/lib1.git`.
 
@@ -285,6 +288,7 @@ end
 gem 'lib1', github: "myorg/lib1"
 gem 'lib2', github: "myorg/lib2"
 ```
+{: data-file="example.rb"}
 
 > In case of private git submodules, be aware that the `git submodule
 > update --init --recursive` command runs before the `~/.netrc` credentials

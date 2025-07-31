@@ -1,5 +1,5 @@
 ---
-title: Importing Shared Build Configuration
+title: Import Shared Build Configuration
 
 layout: en
 ---
@@ -7,7 +7,7 @@ layout: en
 The main source of configuration for your build is the `.travis.yml` file
 stored in your repository. You can import shared configuration snippets into
 your `.travis.yml` or [API build request payload](https://docs.travis-ci.com/user/triggering-builds/),
-to update your build configuration in multiple repositories making only one
+to update your build configuration in multiple repositories, making only one
 change.
 
 Imported configs can themselves include other configs, making this feature very
@@ -18,16 +18,16 @@ configuration snippets in total.
 > BETA The feature Build Config Imports is currently in beta. Please leave feedback on the [Community forum](https://travis-ci.community/c/early-releases).
 {: .beta }
 
-## Opt-in
+## The opt-in option
 
-In order for this feature to be active you have to enable the feature
-[Build Config Validation](/user/build-config-validation) which will be rolled
+In order for this feature to be active, you have to enable the feature
+[Build Config Validation](/user/build-config-validation/) which will be rolled
 out to all users in the near future.
 
 You can enable Build Config Validation in your repository's settings, or by
 adding `version: ~> 1.0` to your `.travis.yml` file.
 
-## Example
+## Import Shared Build Configuration Example
 
 Instead of specifying which versions of Ruby to test against in multiple files
 across many repositories, you can define them in a shared snippet:
@@ -102,7 +102,7 @@ present in the importing and an imported config, or in multiple imported configs
 You can customize this by specifying the merge mode used for each import.
 See below for more information on [merge modes](#merge-modes).
 
-## Importing configs from the same repository
+## Import configs from the same repository
 
 When importing configurations stored in the same repository as your
 `travis.yml`, you can omit the `<account>/<repository>` part:
@@ -117,12 +117,12 @@ import:
 
 The path is relative to the repository's root.
 
-## Importing specific versions of configs
+## Import specific config versions
 
-For configurations imported from a different repository the latest version of
+For configurations imported from a different repository, the latest version of
 the default branch in the repository will be used by default.
 
-For configurations imported from the same repository the commit you are
+For configurations imported from the same repository, the commit you are
 currently building will be used by default. This is intended to help while you
 are creating and testing the shared configurations.
 
@@ -136,10 +136,10 @@ import:
 ```
 {: data-file=".travis.yml"}
 
-## Importing configs from private repositories
+## Import private repository configs 
 
-In order to share configurations **from** a private repository this needs to
-be allowed on that repository, by enabling the *Allow importing config files from this repository*
+In order to share configurations **from** a private repository, this needs to
+be allowed on that repository by enabling the *Allow importing config files from this repository*
 setting in `More options > Settings > Config Import`.
 
 > Only private repositories owned by the same organization or user account will
@@ -147,7 +147,7 @@ setting in `More options > Settings > Config Import`.
 > from private repositories cannot be imported to configs from public
 > repositories.
 
-## Sharing encrypted secrets
+## Share Encrypted Secrets
 
 Encrypted secrets contained in imported config snippets can be shared and
 decrypted with repositories owned by the same organization or user account.
@@ -192,7 +192,7 @@ There are these merge modes:
 
 The default merge mode is `deep_merge_append`.
 
-### Deep merge append/prepend
+### Deep merge: append and prepend
 
 The merge modes `deep_merge_append` and `deep_merge_prepend` recursively merge
 sections (keys) that hold maps (hashes), and concatenates sequences (arrays) by
@@ -205,6 +205,7 @@ import:
 - source: other.yml
   mode: deep_merge_prepend
 ```
+{: data-file=".travis.yml"}
 
 ### Deep merge
 
@@ -231,13 +232,13 @@ import:
 ```
 {: data-file=".travis.yml"}
 
-This mode first merges your `.travis.yml` contents into the `one.yml` file (overwriting, 
-if required, sections in `one.yml` with content from `.travis.yml`). The results are 
-merged into the `two.yml` file (again, items in the result of the previous merge win 
+This mode first merges your `.travis.yml` contents into the `one.yml` file (overwriting,
+if required, sections in `one.yml` with content from `.travis.yml`). The results are
+merged into the `two.yml` file (again, items in the result of the previous merge win
 over what’s in this one, as the `deep_merge` mode is specified here).
 
-The reasoning behind this is that in many cases when you import something to your 
-`.travis.yml` file, you want to be able to overwrite or customize that imported 
+The reasoning behind this is that, in many cases, when you import something to your
+`.travis.yml` file, you want to be able to overwrite or customize that imported
 configuration with config in your `.travis.yml` file.
 
 ### Merge
@@ -245,7 +246,7 @@ configuration with config in your `.travis.yml` file.
 The merge mode `merge` performs a shallow merge.
 
 This means that root level sections (keys) defined in your `.travis.yml` will
-overwrite root level sections (keys) that are also present in the imported
+overwrite root-level sections (keys) that are also present in the imported
 file.
 
 ```yaml
@@ -253,6 +254,7 @@ import:
 - source: one.yml
   mode: merge # shallow merge
 ```
+{: data-file=".travis.yml"}
 
 ## Import precedence
 
@@ -267,11 +269,11 @@ When triggering a build through the Travis API or the web UI, the order of ascen
 
 ### Can I import a shared build config at a specific job level?
 
-No. The parsed YAML trees must be merged. Thus, the `import` keyword is accepted only at the root level. If it suits your scenario, you can specify your job template in, e.g., `job.yml` and import it into your `.travis.yml` with the `mode: deep_merge`, adding in the `.travis,yml` specifics to be overridden in the imported template. 
+No. The parsed YAML trees must be merged. Thus, the `import` keyword is accepted only at the root level. If it suits your scenario, you can specify your job template in, e.g., `job.yml` and import it into your `.travis.yml` with the `mode: deep_merge`, adding in the `.travis,yml` specifics to be overridden in the imported template.
 
-### Is it possible to create and use anchors via the shared configs mechanism?
+### Can I create and use anchors via the shared configs mechanism?
 
-Unfortunately, it’s not supported. 
+Unfortunately, it’s not supported.
 As much as we encourage [using YAML as a build configuration language](/user/build-config-yaml), anchors and aliases, referring to these anchors must be defined and used within a single `.yml` file and will be expanded before any *import* action (merging parse trees) occurs. For the same reason, attempts to assign an anchor within `.travis.yml` to an *imported* key will not work — both `.travis.yml` and `imported.yml` must be parsed before the merge action can occur.
 
 See also  *native-api* concise [explanation in the Community Forum](https://travis-ci.community/t/imported-anchors-not-working/10035/2)

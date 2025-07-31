@@ -15,17 +15,17 @@ Configuring your Travis CI build to send results to Coveralls always follows the
 
 We'll show you how to do this for Ruby in the following example.
 
-## Using Coveralls with Ruby
+## Use Coveralls with Ruby
 
 Using Coveralls with Ruby on Travis CI is one of the configurations Coveralls support out of the box [have documentation for](https://coveralls.zendesk.com/hc/en-us/articles201769485-Ruby-Rails).
 
-### 1. Add your repository to Coveralls
+### Add your repository to Coveralls
 
 1. [Sign in to Coveralls](https://coveralls.io/authorize/github)  with your *GitHub* account.
 2. Click *ADD REPOS* in the menu.
 3. Click the ![Add your repository to Coveralls](/images/coveralls-button.png) button next to your repository.
 
-### 2. Install the Coveralls Gem
+### Install the Coveralls Gem
 
 Add the Coveralls Gem to your `Gemfile`:
 
@@ -34,12 +34,13 @@ Add the Coveralls Gem to your `Gemfile`:
 
 gem 'coveralls', require: false
 ```
+{: data-file="Gemfile"}
 
 You might need to update your `Gemfile.lock` as well.
 
-### 3. Add Coveralls to your test suite
+### Add Coveralls to your test suite
 
-Add Coveralls to the top your test suite, before you `require` any application code:
+Add Coveralls to the top of your test suite before you `require` any application code:
 
 ```ruby
 # ./spec/spec_helper.rb
@@ -49,10 +50,11 @@ Add Coveralls to the top your test suite, before you `require` any application c
 require 'coveralls'
 Coveralls.wear!
 ```
+{: data-file="Gemfile"}
 
 After those three steps, the next time you push a commit, you'll be able to look up your [code coverage statistics](https://coveralls.io)!
 
-## Coveralls and private repositories
+## Coveralls and Private repositories
 
 If you're using Coveralls with Travis CI for private repositories, edit `.coveralls.yml`:
 
@@ -61,7 +63,7 @@ service_name: travis-pro
 ```
 {: data-file=".coveralls.yml"}
 
-## Using Coveralls with other languages
+## Use Coveralls with other languages
 
 Coveralls have documentation for many other programming languages:
 
@@ -84,9 +86,9 @@ Coveralls have documentation for many other programming languages:
 - [Ruby / Rails](https://docs.coveralls.io/ruby-on-rails)
 - [Swift](https://docs.coveralls.io/swift)
 
-## Using Coveralls with Docker builds
+## Use Coveralls with Docker builds
 
-If you're using Docker in builds, ensure that the necessary [environment variables](https://docs.travis-ci.com/user/environment-variables) are exposed to the container:
+If you're using Docker in builds, ensure that the necessary [environment variables](https://docs.travis-ci.com/user/environment-variables/) are exposed to the container:
 ```sh
 docker exec -e TRAVIS_JOB_ID="$TRAVIS_JOB_ID" -e TRAVIS_BRANCH="$TRAVIS_BRANCH" ...
 ```
