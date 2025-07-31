@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-slim
+FROM ruby:2.6.10-bullseye
 LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 
 # packages required for bundle install
