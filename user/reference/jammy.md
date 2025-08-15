@@ -16,165 +16,126 @@ dist: jammy
 ```
 {: data-file=".travis.yml"}
 
-
-## Differences from the previous release images
-
-Travis CI Ubuntu 22.04, Jammy, includes the following changes and improvements:
-
-### Third party apt-repositories removed
-
-While third party apt-repositories are used during the image provisioning, they are all removed from the build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
-
-To specify a third party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
-
-```yaml
-dist: jammy
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:chris-lea/redis-server'
-    packages:
-    - redis-tools
-    - redis-server
-```
-{: data-file=".travis.yml"}
-
-If you depend on these repositories in your build, you can use the following `source` line to get them back:
-
-| package              | source                       |
-|:---------------------|:-----------------------------|
-| docker               | `deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable`              |
-| google-chrome-stable | `deb http://dl.google.com/linux/chrome/deb/ stable main`              |
-| git-ppa              | `ppa:git-core/ppa`           |
-| haskell              | `ppa:hvr/ghc`                |
-| pollinate            | `ppa:pollinate/ppa`          |
-| redis                | `ppa:chris-lea/redis-server` |
-{: style="width: 80%" }
-
-### Services disabled by default
-
-On the Ubuntu 22.04 based environment, to speed up boot time and improve performance we've disabled all services by default.
-Add any services that you want to start to your `.travis.yml`:
-
-
-```yaml
-services:
-  - mysql
-  - redis
-```
-{: data-file=".travis.yml"}
-
 ## Environment common to all Ubuntu 22.04 images
 
-The following versions of Docker, version control software and compilers are present on all Ubuntu 22.04 builds, along with more language specific software described in more detail in each language section.
-
-All preinstalled software not provided by distro is installed from an official release --
-either a prebuilt binary if available, or a source release built with default options.
+All preinstalled software not provided by the distro is installed from an official release — either a prebuilt binary if available, or a source release built with default options.
 For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
-### Version control
+### Version Control
 
-| package | version  |
-|:--------|:---------|
-| git     | `2.36.1` |
-| git-lfs | `3.0.2`  |
-| hg      | `5.3`    |
-| svn     | `1.14.1` |
+| package  | version   |
+|:---------|:----------|
+| git      | `2.48.1`  |
+| git-lfs  | `3.0.2`   |
+| hg       | `6.5.2`   |
+| svn      | `1.14.1`  |
 {: style="width: 30%" }
 
-### Compilers and Build toolchain
+### Compilers and Build Toolchain
 
-| package | version  |
-|:--------|:---------|
-| clang      | `7.0.0`  |
-| llvm       | `14.0.0` |
-| cmake      | `3.16.8` |
-| gcc        | `11.2.0` |
-| ccache     | `4.5.1`  |
-| shellcheck | `0.7.2`  |
-| shfmt      | `3.2.1`  |
+| package    | version   |
+|:-----------|:----------|
+| clang      | `18.1.8`  |
+| cmake      | `3.29.0`  |
+| gcc        | `11.4.0`  |
+| ccache     | `4.5.1`   |
+| shellcheck | `0.10.0`  |
+| shfmt      | `3.8.0`   |
 {: style="width: 30%" }
 
+### Docker and Container Tools
 
-### Docker
+* Docker `28.0.1` (build 068a01e) is installed.
+* docker-compose `v2.27.1` is also available.
+* Podman `3.4.4` is installed as an alternative container engine.
 
-* Docker `20.10.12` is installed.
-* docker-compose `1.29.2` is also available.
+### Ruby Support
 
-## Ruby support
-
-* Pre-installed Rubies: `3.0.4`, `3.1.2`.
+* Pre-installed Rubies: `3.0.4` and `3.1.2`.
 * The default ruby is `3.1.2`.
 * Other ruby versions can be installed during build time.
 
-## Python support
+### Python Support
 
-* Supported Python version is: `3.7.7` or higher as `2.7` has been sunsetted.
-* Python `3.10.5` will be used by default when no language version is explicitly set.
-* The following Python versions are preinstalled:
+* Supported Python version is: **3.8 or higher** as Python 2.7 has been sunset.
+* The following Python versions are available via pyenv:
 
-| alias  | version  |
-| :----- | :------- |
-| `3.7`  | `3.7.7`  |
-| `3.8`  | `3.8.3`  |
-| `3.9`  | `3.9.13` |
-| `3.10` | `3.10.5` |
+| alias  | version   |
+|:-------|:----------|
+| `3.8`  | `3.8.18`  |
+| `3.12` | `3.12.4`  |
 {: style="width: 30%" }
 
+### JavaScript and Node.js Support
 
-## JavaScript and Node.js support
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time.
+* The default Node.js version available on the machine is:
+  * `v18.20.3`
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is `0.39.1`.
-* The following NodeJS versions are preinstalled: `14.18.1`, `16.13.0` and `17.1.0`.
+### Go Support
 
-## Go support
+* Pre-installed Go:  
+  * `go version go1.23.6 linux/amd64`  
+Additional Go versions can be installed during build time by specifying the language version with the `go:` key.
 
-* Pre-installed Go: `1.18.3`.
+### JVM (Clojure, Groovy, Java, Scala) Support
 
-* Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
-
-## JVM (Clojure, Groovy, Java, Scala) support
-
-* Pre-installed JVMs: `openjdk11`, and `openjdk17` on x86, default is `openjdk11`.
-
+* Pre-installed JVMs:  
+  * Default Java:  
+    * `openjdk version "11.0.21" 2023-10-17 LTS`
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
+* The following JVM tooling is preinstalled:
 
-* The following table summarizes the Pre-installed JVM tooling versions:
-
-| package | version |
-|:--------|:--------|
-| gradle  | `5.1.1` |
-| maven   | `3.6.3` |
-| groovy  | `2.4.21`|
+| package | version   |
+|:--------|:----------|
+| gradle  | `8.3`     |
+| maven   | `3.9.4`   |
+| groovy  | `4.0.15`  |
 {: style="width: 30%" }
 
-## Perl support
+### Perl Support
 
-* Default version on Jammy is `5.34.0`
-* Supported versions `5.33` can be installed by using the `perl:`-key.
+* Default version on Jammy is `5.34.0`.
+* Supported versions (e.g. `5.33`) can be installed using the `perl:` key.
 
-## PHP support
+### PHP Support
 
 * For dynamic runtime selection, `phpenv` is available.
 * The following PHP versions are preinstalled:
 
-| alias  | version  |
-| :----- | :------- |
-| `8.1`  |  `8.1.2` |
+| alias | version  |
+|:------|:---------|
+| `8.1` | `8.1.2`  |
 {: style="width: 30%" }
 
-## Databases and services
+### Databases and Services
 
-The following services and databases are preinstalled but but do not run by default.
-To use one in your build, add it to the services key in your `travis.yml` :
+The following services and databases are preinstalled but do not run by default.
+To use one in your build, add it to the `services` key in your `.travis.yml`:
 
-| service    | version        |
-|:-----------|:---------------|
-| mysql      | `8.0.29`       |
-| redis      | `6.0.6`        |
-| postgresql | `14.3`         |
+| service      | version   |
+|:-------------|:----------|
+| mongodb      | `6.0.20`  |
+| mysql        | `8.0.41`  |
+| redis        | `7.4.2`   |
+| postgresql   | `14.17`   |
 {: style="width: 30%" }
+
+### Android Support
+
+For Android builds, the environment provides comprehensive support with the following pre-installed components:
+
+- **Android SDK Components** – Installed components include:
+  - `tools`
+  - `platform-tools`
+  - `build-tools;30.0.0`
+  - `platforms;android-30`
+  - `extras;google;google_play_services`
+  - `extras;google;m2repository`
+  - `extras;android;m2repository`
+
+To use Android, specify `language: android` in your `.travis.yml` and refer to the [Android Build Environment Guide](/user/languages/android/) for additional configuration details.
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.
+For details on other Ubuntu Linux build environments available on Travis CI, please refer to the [Ubuntu Linux overview page](/user/reference/linux/).

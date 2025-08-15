@@ -45,6 +45,8 @@ The table below sums up the available Ubuntu environments and virtualization typ
 
 | Ubuntu version       | Linux Virtualization Type    |
 | :------------------- | :---------------------       |
+| [Ubuntu Noble 24.04](/user/reference/noble/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
+| [Ubuntu Jammy 22.04](/user/reference/jammy/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
 | [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
@@ -54,11 +56,8 @@ The table below sums up the available Ubuntu environments and virtualization typ
 
 LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures/).
 
-You can select Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
+You can select the Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
 
-### macOS
-
-A [macOS](/user/reference/osx/) environment for Objective-C and other macOS specific projects
 
 ### Windows
 
@@ -68,22 +67,22 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [macOS](/user/reference/osx/) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------------------------------|:-------------------------------------------------------|
-| Name                 | Ubuntu                                                                                                                                                        | macOS                         | Windows                            | Ubuntu                                                 |
-| Status               | Current                                                                                                                                                       | Current                       | Early release                      | Beta                                          |
-| Infrastructure       | Virtual machine on GCE or AWS                                                                                                                                       | Virtual machine               | Virtual machine on GCE             | ARM: LXD container on Packet or AWS<br />IBM Power: LXD container on IBM Cloud<br />IBM Z: LXD container on IBM Cloud                             |
-| CPU architecture     | amd64<br />arm64-graviton2                                                                                                                                                         | amd64                         | amd64                              | arm64 (armv8)<br />arm64-graviton2<br />ppc64le (IBM Power)<br />s390x (IBM Z)                                          |
-| `.travis.yml`        | See [examples](/user/reference/overview/#linux-travisyml-examples)                                                                                         | `os: osx`                     | `os: windows`                      | See [examples](/user/reference/overview/#linux-travisyml-examples)                             |
-| Allows `sudo`        | Yes                                                                                                                                                           | Yes                           | No                                 | Yes                                                    |
-| <a name="approx-boot-time"></a>Approx boot time     | 20-50s                                                                                                                                                        | 60-90s                        | 60-120s                            | <10s                                                   |
-| File system          | EXT4                                                                                                                                                          | HFS+                          | NTFS                               | EXT4                                                   |
-| Operating system     | Ubuntu Linux                                                                                                                                                  | macOS                         | Windows Server 2016                | Ubuntu Linux                                           |
-| Memory               | 7.5 GB                                                                                                                                                        | 4 GB                          | 8 GB                               | ~4 GB                                                  |
-| Cores                | 2                                                                                                                                                             | 2                             | 2                                  | 2                                                      |
-| IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available             | IPv4 is available                  | IPv4 is available                                      |
-| IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available         | IPv6 is not available              | IPv6 is available                                      |
-| Available disk space | approx 50GB                                                                                                                                                   | approx 41GB                   | approx 40 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
+|                      | Ubuntu Linux  ([Noble](/user/reference/noble/), Ubuntu Linux  ([Jammy](/user/reference/jammy/), Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-------------------------------------------------------|
+| Name                 | Ubuntu                                                                                                                                                        | Windows                            | Ubuntu                                                 |
+| Status               | Current                                                                                                                                                       | Early release                      | Beta                                          |
+| Infrastructure       | Virtual machine on GCE or AWS                                                                                                                                  | Virtual machine on GCE             | ARM: LXD container on Packet or AWS<br />IBM Power: LXD container on IBM Cloud<br />IBM Z: LXD container on IBM Cloud                             |
+| CPU architecture     | amd64<br />arm64-graviton2                                                                                                                                      | amd64                              | arm64 (armv8)<br />arm64-graviton2<br />ppc64le (IBM Power)<br />s390x (IBM Z)                                          |
+| `.travis.yml`        | See [examples](/user/reference/overview/#linux-travisyml-examples)                                                                                         | `os: windows`                      | See [examples](/user/reference/overview/#linux-travisyml-examples)                             |
+| Allows `sudo`        | Yes                                                                                                                                                           | No                                 | Yes                                                    |
+| <a name="approx-boot-time"></a>Approx boot time     | 20-50s                                                                                                                         | 60-120s                            | <10s                                                   |
+| File system          | EXT4                                                                                                                                                          | NTFS                               | EXT4                                                   |
+| Operating system     | Ubuntu Linux                                                                                                                                                  | Windows Server 2016                | Ubuntu Linux                                           |
+| Memory               | 7.5 GB                                                                                                                                                        | 8 GB                               | ~4 GB                                                  |
+| Cores                | 2                                                                                                                                                             | 2                                  | 2                                                      |
+| IPv4 network         | IPv4 is available                                                                                                                                             | IPv4 is available                  | IPv4 is available                                      |
+| IPv6 network         | IPv6 is not available                                                                                                                                         | IPv6 is not available              | IPv6 is available                                      |
+| Available disk space | approx 50GB                                                                                                                                                   | approx 40 GB                       | approx 18GB (Arm, IBM Power, IBM Z)                                           |
 
 
 > Available disk space is approximate and depends on the base image and language selection of your project.
@@ -109,7 +108,6 @@ if it contains:
 
 * `aws` → the build ran on Amazon Web Services (AWS).
 * `gce` → the build ran in a virtual machine on Google Compute Engine.
-* `wjb` → the build ran on macOS.
 * `1803-containers` → the build ran on Windows.
 * `lxd-arm64` → the build ran within an LXD container on Arm64-based infrastructure (currently delivered by Equinix Metal, formerly known as Packet).
 * `lxd-ppc64le` → the build ran within an LXD container on Power-based infrastructure (currently delivered by IBM).
@@ -121,13 +119,11 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 * Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `os: osx`, setting a version of Xcode using `osx_image:`, or using a macOS specific language such as `language: objective-c` routes your build to macOS infrastructure.
-
 * Using `os: windows` routes your build to Windows infrastructure.
 
 * Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
-* Using `arch: arm64-graviton2` routs your build to Arm-based infrastructure. You must specify target virtualization environment (virtual machine or LXD container) using `virt` key.
+* Using `arch: arm64-graviton2` routes your build to Arm-based infrastructure. You must specify target virtualization environment (virtual machine or LXD container) using `virt` key.
 
 * Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
 
@@ -150,7 +146,7 @@ With the introduction of a new billing system in Travis CI, the IBM and part of 
 ```yaml
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
-dist: focal          # or bionic | xenial | trusty | precise with xenial as default
+dist: noble          # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
@@ -159,7 +155,7 @@ dist: focal          # or bionic | xenial | trusty | precise with xenial as defa
 ```yaml
 arch: arm64           # LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
@@ -186,14 +182,14 @@ group: edge
 ```yaml
 arch: ppc64le         # The IBM Power LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
 arch: s390x           # The IBM Z LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: focal           # or bionic | xenial with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
 ```
 {: data-file=".travis.yml"}
 

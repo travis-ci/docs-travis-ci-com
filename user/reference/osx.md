@@ -10,7 +10,11 @@ redirect_from:
 This guide explains what packages, tools, and settings are available in the
 Travis macOS CI environment (often referred to as the “CI environment”).
 
-
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 ## Overview
 

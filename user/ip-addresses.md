@@ -3,6 +3,11 @@ title: IP Addresses
 layout: en
 
 ---
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 Knowing the IP addresses of the build machines that Travis CI uses can be helpful
 when you need them safelisted to access your internal resources. Since builds
@@ -11,7 +16,6 @@ on the infrastructure your builds are running on.
 
 | Infrastructure | NAT hostname                                | Current DNS                                                                      | Last recorded IPs                                               |
 |:---------------|:--------------------------------------------|:---------------------------------------------------------------------------------|:----------------------------------------------------------------|
-| OS X           | {{ site.data.macstadium_ip_range['host'] }} | [A recs](https://dnsjson.com/{{ site.data.macstadium_ip_range['host'] }}/A.json) | `{{ site.data.macstadium_ip_range['ip_range'] | join: "` `" }}` |
 | Linux, Windows | {{ site.data.gce_ip_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_range['host'] }}/A.json)        | `{{ site.data.gce_ip_range['ip_range'] | join: "`, `" }}`       |
 | Linux, Windows | {{ site.data.gce_ip_ue1_range['host'] }}        | [A recs](https://dnsjson.com/{{ site.data.gce_ip_ue1_range['host'] }}/A.json)        | `{{ site.data.gce_ip_ue1_range['ip_range'] | join: "`, `" }}`       |
 | (all combined) | {{ site.data.ip_range['host'] }}            | [A recs](https://dnsjson.com/{{ site.data.ip_range['host'] }}/A.json)            | (sum of all above)                                              |

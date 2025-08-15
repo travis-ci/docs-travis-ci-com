@@ -39,9 +39,9 @@ driver = webdriver.Remote(desired_capabilities=capabilities, command_executor="h
 
 The Sauce Connect addon exports the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables, and relays connections to the hub URL back to Sauce Labs.
 
-This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to only use Sauce Labs for Travis CI builds, and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available environment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
+This is all you need to get your Selenium tests running on Sauce Labs. However, you may want to use Sauce Labs only for Travis CI builds and not for local builds. To do this, you can use the `CI` or `TRAVIS` environment variables to conditionally change what driver you're using (see [our list of available environment variables](/user/reference/precise/#environment-variables) for more ways to detect if you're running on Travis CI).
 
-To make the test results on Sauce Labs a little more easy to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
+To make the test results on Sauce Labs a little easier to navigate, you may wish to provide some more metadata to send with the build. You can do this by passing in more desired capabilities:
 
 ```python
 capabilities["build"] = os.environ["TRAVIS_BUILD_NUMBER"]
@@ -56,11 +56,11 @@ For travis-web, our very own website, we use Sauce Labs to run browser tests on 
 To run tests requiring a graphical user interface on Travis CI, use `xvfb` (X
 Virtual Framebuffer) to imitate a display. If you need a browser, you can use
 Firefox (either with the pre-installed version, or the [addon](/user/firefox))
-or Google Chrome (with the [addon](/user/chrome), on Linux Trusty or macOS).
+or Google Chrome (with the [addon](/user/chrome), on Linux Trusty).
 
 ### Use services: on your script
 
-> This only works on Ubuntu 16.04 (Xenial) and later on releases i.e. with `dist: xenial` or `dist: bionic`
+> This only works on Ubuntu 16.04 (Xenial) and later on releases, i.e. with `dist: xenial` or `dist: bionic`
 
 The following will start xvfb and set the right values for the `DISPLAY`
 environment variable:
@@ -150,12 +150,12 @@ Note that <code>sudo</code> is not available for builds that are running on the 
 
 ## Headless mode with the Chrome addon
 
-Starting with version 57 for Linux Trusty and version 59 on macOS, Google Chrome can be used in "headless"
+Starting with version 57 for Linux Trusty, Google Chrome can be used in "headless"
 mode with the [Chrome addon](/user/chrome), which is suitable for driving browser-based tests using Selenium and other tools.
 
-> As of 2017-05-02, this means `stable` or `beta` on Linux builds, and `beta` on macOS builds.
+> As of 2017-05-02, this means `stable` or `beta` on Linux builds.
 
-For example, on Linux
+For example, on Linux:
 
 ```yaml
 dist: xenial
@@ -168,18 +168,6 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-On macOS:
-
-```yaml
-language: objective-c
-addons:
-  chrome: beta
-before_install:
-  - # start your web application and listen on `localhost`
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
-  ⋮
-```
-{: data-file=".travis.yml"}
 
 ### More Documentation
 

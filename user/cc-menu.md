@@ -3,6 +3,11 @@ title: Use CCMenu with Travis CI
 layout: en
 
 ---
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
 
 ![Screenshot of CC menu](/images/Backstop_Menubar_20140305_155352_20140305_155425.jpg "Screenshot of CC menu")
 
