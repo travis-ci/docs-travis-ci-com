@@ -4,6 +4,12 @@ layout: en
 
 ---
 
+<blockquote class="beta">
+  <p>
+    Travis CI will stop support for macOS starting March 31st, 2025.
+  </p>
+</blockquote>
+
 If your code is used on multiple operating systems it probably should be tested on
 multiple operating systems. Travis CI can test on Linux and macOS.
 

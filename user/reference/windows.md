@@ -5,7 +5,7 @@ layout: en
 
 This guide explains what packages, tools, and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
 
-> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or macOS is currently supported.
+> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux is currently supported.
 
 > Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/c/windows) of our Community Forums.
 
@@ -18,7 +18,7 @@ os: windows
 ```
 {: data-file=".travis.yml"}
 
-Travis CI also supports the [Ubuntu Linux Environment](/user/reference/linux/), [macOS Build Environment](/user/reference/osx/) and [FreeBSD Environment](/user/reference/freebsd/).
+Travis CI also supports the [Ubuntu Linux Environment](/user/reference/linux/) and [FreeBSD Environment](/user/reference/freebsd/).
 
 ## Windows Version
 
