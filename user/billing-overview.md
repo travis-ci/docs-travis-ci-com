@@ -68,22 +68,25 @@ In Travis CI, builds are executed singularly without exceeding limitations. Ther
 
 > If a user on the 2 concurrent jobs plan executes a build with 5 build jobs, only the first 2 build jobs are processed, while the remaining 3 of the build jobs wait in line to be processed.
 >
-> If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
+> If a user/organization subscribes to the 5 concurrent jobs plan and executes 2 builds consisting of 5 jobs each, by default, the second build will be sitting in the queue and its jobs waiting to be executed after at least 1 of the 5 build jobs of the first build are done.
 
-The price of these plans includes Linux, Windows, and FreeBSD builds. 
-Purchase only the credits you need and use them until you run out. Please see more in the ['Usage based'](#usage-based-plans) section.
+The price of these plans includes builds for Linux, Windows, and FreeBSD. 
+Purchase only the credits you need and use them until you run out. Please see more in the ['Usage-based'](#usage-based-plans) section.
 
-> If a user/organization on the 2 concurrent jobs Plan executes build with jobs for `os: linux` and `os: freebsd`, it will execute as soon as the concurrency capacity is available for particular build jobs.
-
+> If a user/organization on the 2 concurrent jobs Plan executes a build with jobs for `os: linux` and `os: freebsd`, it will execute as soon as the concurrency capacity is available for the particular build jobs.
 
 
 ### Subscribe to a Concurrency-based Plan
 
 1. Sign in to Travis CI with the [Version Control System of your choice](/user/onboarding/).
 2. Navigate to the [Plan tab](https://app.travis-ci.com/account/plan) and select 'X concurrent jobs Plan'.
-3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are EU based VAT paying company, do not forget to enter your VAT number.
+3. Enter your billing details. **Please note that all prices are provided netto, w/o any VAT or other applicable local taxes**. If you are an EU-based VAT-paying company, do not forget to enter your VAT number.
 4. Confirm the transaction.
 
+### Cancel a Concurrency-based Plan
+Users on a Concurrency-based Subscription must explicitly cancel their subscription; otherwise, the plan renews automatically whenever the current cycle ends. To cancel the current subscription, use the Cancel Subscription button on the Plan page.
+
+Once users request cancellation, the remaining credits will be retained until the cancellation is confirmed and processed. Your plan remains active until the end of the current billing cycle, which begins on the Date of Cancellation. Users cannot purchase new credits unless they rejoin a monthly or annual subscription. Users have one year after canceling the subscription to view or save build data; after one year of cancellation, build data is removed from Travis CI.
 
 ## Usage-based Plans
 
@@ -97,7 +100,7 @@ The Usage-based pricing system charges Travis CI users and Travis CI organizatio
 | :---                            | ---        |
 | **Payment**                     | Credits are paid in advance:<BR />1. Upon purchasing a Plan, an immediate charge is applied depending on the credits allotment coming with a Plan.<BR />2. The additional credit add-ons, if available, can be purchased anytime, and credits are only used when needed. The charge is applied immediately upon transaction.<BR /><BR />The user license cost exceeding the pool included in the price is either covered using credits (Usage-based Plan with subscription) at the build request or charged automatically in arrears at the end of each billing period (Usage-based Plan w/o subscription). The number of unique users triggering a build is tracked and reset monthly.<br /><br />The Free Trial assigned upon sign-up grants you unlimited users for free.<br /><br />**Note**: **Free Trial Plans are currently unavailable**. |
 | **Private/Public repositories** | With Credits, you can build over both private and public repositories. <BR/> With OSS Credits, you can build only over public repositories. |
-| **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40 concurrent jobs limit. |
+| **Build job limits**            | Very high. <BR/><BR/>The Free Plan assigned automatically upon sign-up has a limit of 20 concurrent jobs. The paid usage-based plans start from a 40-concurrent-job limit. |
 
 #### Usage-based Plans Credit Costs
 
@@ -136,8 +139,8 @@ All credit charges are deducted from a credit pool associated with a Usage-based
 All unique user triggering build counting is tracked against a Usage-based plan assigned to the Travis CI User or Organization, which is an 'owner' of a VCS repository enabled in Travis CI.
 
 > The Usage-based pricing model bills based on minutes used (via credits) and the number of unique users triggering those builds (via user licenses). Users subscribe to a plan that allocates a pool of credits to be used towards build minutes and pricing for a specific number of user licenses. The credits are deducted from the user's credit balance as they are used in the Travis CI service.
-Unique users triggering builds within a billing period will constitute a number of actual user licenses used out of allowed pool. If the user-license pool is exceeded by new unique user triggering build, credits for this extra usage will be deducted from available credit pool.
-In custom cases, instead of charge in credits, user licenses will be tracked within month and will be charged at the end of the billing period, according to the rates of their selected plan.
+Unique users triggering builds within a billing period will constitute a number of actual user licenses used out of the allowed pool. If the user-license pool is exceeded by a new unique user triggering a build, credits for this extra usage will be deducted from the available credit pool.
+In custom cases, instead of being charged in credits, user licenses will be tracked within the month and will be charged at the end of the billing period, according to the rates of their selected plan.
 
 #### Plan Usage
 
@@ -160,7 +163,7 @@ Triggering builds is only possible if a user has a positive credit balance. To g
 
 Monthly Usage-based plans are subscriptions, granting a specific credit pool each month and (optionally) user-license allowance included in the price. Once these allowances are depleted, the credits may be refilled via the manual purchase of a credits package or [auto-refilled](/user/billing-autorefill/) and spent on builds and additional user-licenes.
 
-Consumed user-license count is reset each month.
+The consumed user-license count is reset each month.
 
 If not stated or set otherwise, the Monthly Usage-based plan is renewed automatically.
 
@@ -301,15 +304,15 @@ User-licenses in Usage-based plans are consumed by [unique users triggering buil
 
 The count of unique users triggering a build is tracked and reset monthly. Unique users triggering a build are calculated as in the following example:
 
-> If person A triggers a build, and person B triggers a build, the billing system will recognize 2 unique users. Now, if person A or B again triggers a build, the amount of unique users triggering remains 2 (assuming builds are triggered within the same month). Only when user C triggers a build within the same month the number of unique users triggering a build will be increased to 3.
+> If person A triggers a build, and person B triggers a build, the billing system will recognize 2 unique users. Now, if person A or B again triggers a build, the number of unique users triggering remains 2 (assuming builds are triggered within the same month). Only when user C triggers a build within the same month, the number of unique users triggering a build will be increased to 3.
 >
 > By default, all users you've granted write rights to your repository are allowed to trigger a build. You may review Travis CI's particular Repository page and manage which users are allowed to trigger the build in order to give you more control. 
 
 ### User Licenses for Usage-based Plan with subscription
 
-A usage-based plan with subscription charges you immediately upon build start for the new unique user triggering build within a month.
+A usage-based plan with subscription charges you immediately upon build start for the new unique user triggering a build within a month.
 
-Usage-based plans may have or may have not user-license allowance included in the price or available as a pool of user-licenses at a discounted credit cost.
+Usage-based plans may have or may not have user-license allowance included in the price or available as a pool of user-licenses at a discounted credit cost.
 
 #### User License Example - Scenario 1 
 This scenario is an example of a user with Credits. No user allowance is included in the price, and the user license is charged in credits. The user can build with *n* build jobs.
@@ -345,20 +348,23 @@ This scenario is an example of a user with Credits, a pool of 3 discounted user 
 
 Usage-based plan w/o subscription charges you at the end of each month for the number of users who triggered the builds during this month.
 
-With every build started, Travis CI keeps track of how many unique users triggered a build within a current billing period. At the end of the month, the total amount is used to calculate the user license charge.
+With every build started, Travis CI keeps track of how many unique users triggered a build within the current billing period. At the end of the month, the total amount is used to calculate the user license charge.
 
 #### User License without Subscription Example - Scenario 1
 This scenario is an example of a user with Credits, user licenses counted within a month and charged at the end of the period. The user can build with *n* build jobs.
 
-> If a build is triggered, the system will check if this is a new unique user triggering build and if any potential included user-license allowance are exceeded:
+> If a build is triggered, the system will check if this is a new unique user triggering the build and if any potential included user-license allowance are exceeded:
 > 
 > no - count of consumed paid user-licenses is not increased
 > yes - count of consumed paid user-licenses is increased
 > 
-> Depending on whether the plan is monthly or annual, respectively, there will be direct charge to credit card at the end of month or no more new unique users will be allowed to trigger builds this month.
+> Depending on whether the plan is monthly or annual, respectively, there will be a direct charge to the credit card at the end of the month, or no new unique users will be allowed to trigger builds this month.
 > 
 > The respective cost of build jobs execution in credits will be deducted from the available credit pool.
 
+## Delete your Travis CI Account
+
+Please get in touch with [Travis CI Support](mailto:support@travis-ci.com) if you want to delete your Travis CI account according to the GDPR policy.
 
 ## VM Instance Sizes and Credit Cost
 
@@ -397,7 +403,7 @@ GPU builds allow you to choose the instance size the build will run on (for the 
 
 ```yaml
 vm:
- size: [gpu-medium | gpu-xlarge] #new values in the schema for existing key
+ size: [gpu-medium | gpu-xlarge] #new values in the schema for the existing key
 ```
 {: data-file=".travis.yml"}
 
