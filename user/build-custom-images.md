@@ -80,7 +80,7 @@ The process of using a custom image is as follows:
 3. The Worker runs the build normally, using a specific custom image instead of the standard image provided by the job board.
 3. The build job runs using the selected custom image, and the build job log prints out the custom image name.
 
-> Note: In concurrent jobs, if one job creates a custom image and the other job attempts to use it, the outcome may be an error. 
+> **Note**: In concurrent jobs, if one job creates a custom image and the other job attempts to use it, the outcome may be an error. 
 
 A user can create up to three concurrent jobs, each with a different custom image. The only limitations are the user’s allowance and the credits available for excessive storage charges. The following are some example cases for building with custom images.
 
@@ -132,14 +132,14 @@ Log in to your [Travis account](https://app.travis-ci.com/signin) and navigate t
 
 At the top of the page, you can see the number of images created, the amount of GB used, and your credit balance. Also, you can filter the list of custom images by any of the details mentioned above or by the number of times a specific custom image was used since its creation. 
 
-![Multiple Custom Images Tab](/user/images/…)
+![Multiple Custom Images Tab](/user/images/Multiple-Custom-Images.PNG)
 
 For quick use, users can click on a Custom Image ID to copy it. Also, users can select multiple images to perform bulk actions, such as setting custom images as public or private, or deleting the selected ones.
 
 ### Admin Users: More Options
 The **“More Options”** button and the actions menu for each custom image are available only to Travis CI users with account admin permissions. 
 
-![More Options menu](/user/images/..)
+![More Options menu](/user/images/BCI-more-options-menu.PNG)
 
 Clicking the More options button provides users with the following choices:
 * **Select All** - selects all available custom images. 
