@@ -51,10 +51,9 @@ jobs:
     - provider: git_push
       token:
         secure: "YHuTjIGKpG0A8QJ4kmdLfOW1n+62uLakXv0KjCzWExl22qLSn2frip3j8JsaeMfndsmNZBUfGoONVHvDS+PHnkbRMYf21SjgctpVfHRYZQ3pulexOViEQ6azRgCBWuPO8A+vAyxvjlV4e3UDGnt2x/0X/Tdg9iVf/zzBGjM0YX0="
-      branch: auto-dpl-v2-update-docs
-      pull_request: true
-      edge:
-        branch: master
+      on:
+        branch: auto-dpl-v2-update-docs
+      edge: true
 
 notifications:
   slack:
