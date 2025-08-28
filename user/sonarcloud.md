@@ -5,9 +5,9 @@ redirect_from:
   - /user/sonarqube/
 ---
 
-[SonarCloud](https://sonarcloud.io) is the leading online service to catch Bugs and Security Vulnerabilities in your Pull Requests and throughout your code repositories. Totally free for open-source projects (paid plan for private projects), SonarCloud pairs with existing cloud-based CI/CD workflows, and provides clear resolution guidance for any Code Quality or Security issue it detects. With already more than 1 billion lines of code under analysis, SonarCloud empowers development teams of all sizes to write cleaner and safer code, across more than 20 programming languages.
+[SonarQube Cloud](https://sonarcloud.io) is the leading online service to catch Bugs and Security Vulnerabilities in your Pull Requests and throughout your code repositories. Totally free for open-source projects (paid plan for private projects), SonarCloud pairs with existing cloud-based CI/CD workflows, and provides clear resolution guidance for any Code Quality or Security issue it detects. With already more than 1 billion lines of code under analysis, SonarCloud empowers development teams of all sizes to write cleaner and safer code, across more than 20 programming languages.
 
-Please refer to the [SonarCloud documentation](https://sonarcloud.io/documentation) for more details.
+Please refer to the [SonarCloud documentation](https://docs.sonarsource.com/sonarqube-cloud/) for more details.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Before inspecting your code, you need to:
 2. [Create a user authentication token](https://sonarcloud.io/account/security) for your account on SonarCloud.
 3. [Encrypt this token](/user/encryption-keys/#usage) `travis encrypt abcdef0123456789` or define `SONAR_TOKEN` in your [Repository Settings](/user/environment-variables/#defining-variables-in-repository-settings)
 4. [Find which SonarCloud.io organization](https://sonarcloud.io/account/organizations) you want to push your project on and get its key
-5. Create a `sonar-project.properties` file for your project (see the [documentation](http://redirect.sonarsource.com/doc/install-configure-scanner.html)).
+5. Create a `sonar-project.properties` file for your project (see the [documentation](https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/scanners/sonarscanner/).
 
 Then add the following lines to your `.travis.yml` file to trigger the analysis:
 
@@ -110,9 +110,9 @@ If this is the case, you will receive warnings in the log telling you that this 
 
 ## Note for SonarQube users
 
-If you are familiar with SonarQube, you can be tempted to deal with some properties relatives to [Branch Analysis](https://docs.sonarqube.org/display/SONAR/Branch+Analysis) (ex: `sonar.branch.name`) and/or [Pull Request Analysis](https://docs.sonarqube.org/display/SONAR/Pull+Request+Analysis) (ex: `sonar.pullrequest.key`).
+If you are familiar with SonarQube Server, you can be tempted to deal with some properties relatives to [Branch Analysis](https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/branch-analysis/setting-up-the-branch-analysis/) (ex: `sonar.branch.name`) and/or [Pull Request Analysis](https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/pull-request-analysis/setting-up-the-pull-request-analysis/) (ex: `sonar.pullrequest.key`).
 
-These properties are completely useless, the SonarCloud add-on manages them for you depending the analysis type.
+These properties are completely useless, the SonarQube Cloud add-on manages them for you depending on the analysis type.
 
 ## Build Config Reference
 
