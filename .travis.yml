@@ -18,7 +18,6 @@ jobs:
     cache:
       pip: true
       directories:
-        - vendor/bundle
         - node_modules
         - $TRAVIS_BUILD_DIR/tmp/.htmlproofer #https://github.com/gjtorikian/html-proofer/issues/381
     addons:
@@ -27,7 +26,7 @@ jobs:
           - libxml2-utils
     install:
       - rvm use 3.2.9 --install
-      - bundle install --deployment
+      - bundle install
       - sudo apt-get install libcurl4-openssl-dev # required to avoid SSL errors
     script:
       - bundle exec rake test

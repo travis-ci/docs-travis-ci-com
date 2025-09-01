@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '2.6.3'
+ruby '~> 3.2'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
-gem 'jekyll', '>=3.1.6'
+gem 'jekyll', '~> 4.3'
 gem 'jekyll-paginate'
 gem 'jekyll-redirect-from'
 gem 'puma'
 gem 'pry', group: :test
-gem 'rack', '~> 1.0'
-gem 'rack-jekyll'
+gem 'rack', '~> 2.2'
 gem 'rack-ssl-enforcer'
 gem 'rake'
 gem 'rdiscount', '>=2.2.0.1'
