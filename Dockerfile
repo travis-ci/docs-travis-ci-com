@@ -1,5 +1,5 @@
-FROM ruby:2.6.3-slim
-LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
+FROM ruby:3.2-slim
+LABEL maintainer="Travis CI GmbH <support+docs-docker-images@travis-ci.com>"
 
 # packages required for bundle install
 RUN ( \
@@ -10,26 +10,28 @@ RUN ( \
 
 # ------
 # Set the encoding to UTF-8
-ENV LC_ALL C.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL=C.UTF-8 \
+   LANG=en_US.UTF-8 \
+   LANGUAGE=en_US.UTF-8
 # -----
-ENV WEBHOOK_PAYLOAD_GIST_ID 4e317d6e71be6d0278be46bb751b2f78
+ENV WEBHOOK_PAYLOAD_GIST_ID=4e317d6e71be6d0278be46bb751b2f78
 
-# throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+# Configure bundler and avoid slate group in this image
+ENV BUNDLE_WITHOUT=slate
+RUN bundle config set without "$BUNDLE_WITHOUT"
 RUN mkdir -p /app
 
 WORKDIR /app
-COPY Gemfile      /app
-COPY Gemfile.lock /app
+COPY Gemfile.site /app/Gemfile.site
 
-RUN gem install bundler:2.4.22
-RUN bundler install --verbose --retry=3
+ENV BUNDLE_WITHOUT=slate \
+   BUNDLE_GEMFILE=/app/Gemfile.site
+RUN gem install bundler:2.4.22 \
+   && bundle install --verbose --retry=3
 RUN gem install --user-install executable-hooks
 
 COPY . /app
-RUN bundle exec rake build
-COPY . /app
+RUN bundle exec jekyll build --config=_config.yml
 
-CMD bundle exec puma -p 4000
+EXPOSE 4000
+CMD ["bundle", "exec", "puma", "-p", "4000"]
