@@ -24,9 +24,13 @@ jobs:
       apt:
         packages:
           - libxml2-utils
+          - libxml2-dev
+          - libxslt1-dev
+          - pkg-config
     install:
       - rvm use 3.2.9 --install
       - export BUNDLE_GEMFILE=Gemfile.site
+      - bundle config set force_ruby_platform true
       - bundle install
       - sudo apt-get install libcurl4-openssl-dev # required to avoid SSL errors
     script:
