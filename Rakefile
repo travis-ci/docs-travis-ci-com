@@ -42,8 +42,16 @@ task default: :test
 desc 'Runs the tests!'
 task test: %i[build run_html_proofer]
 
-desc 'Builds the site (Jekyll and Slate)'
-task build: %i[regen make_api update_lang_vers] do
+desc 'Builds the site (Jekyll and optionally Slate if Middleman available)'
+task build: %i[regen update_lang_vers] do
+  # Only build API docs if Middleman is available (not in Jekyll-only builds)
+  begin
+    require 'middleman'
+    Rake::Task['make_api'].invoke
+  rescue LoadError
+    puts "Middleman not available, skipping API docs build"
+  end
+
   rm_f '.jekyll-metadata'
   sh 'bundle exec jekyll build --config=_config.yml'
 end
@@ -156,17 +164,40 @@ task :clean do
 end
 
 desc 'Start Jekyll server'
-task serve: [:make_api, :regen] do
+task serve: [:regen] do
+  # Only build API docs if Middleman is available
+  begin
+    require 'middleman'
+    Rake::Task['make_api'].invoke
+  rescue LoadError
+    puts "Middleman not available, skipping API docs build"
+  end
+
   sh 'bundle exec jekyll serve --config=_config.yml'
 end
 
 namespace :assets do
-  task precompile: [:make_api, :build]
+  task :precompile do
+    # Only build API docs if Middleman is available
+    begin
+      require 'middleman'
+      Rake::Task['make_api'].invoke
+    rescue LoadError
+      puts "Middleman not available, skipping API docs build"
+    end
+
+    Rake::Task['build'].invoke
+  end
 end
 
-desc 'make API docs'
+desc 'make API docs (requires Middleman)'
 task :make_api do
-  sh 'bundle exec middleman build --clean'
+  begin
+    require 'middleman'
+    sh 'bundle exec middleman build --clean'
+  rescue LoadError
+    puts "Middleman not available, skipping API docs build"
+  end
 end
 
 LANG_ARCHIVE_HOST='language-archives.travis-ci.com'
