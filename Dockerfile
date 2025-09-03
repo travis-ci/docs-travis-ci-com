@@ -16,22 +16,21 @@ ENV LC_ALL=C.UTF-8 \
 # -----
 ENV WEBHOOK_PAYLOAD_GIST_ID=4e317d6e71be6d0278be46bb751b2f78
 
-# Configure bundler and avoid slate group in this image
-ENV BUNDLE_WITHOUT=slate
-RUN bundle config set without "$BUNDLE_WITHOUT"
+# Configure bundler for production
 RUN mkdir -p /app
 
 WORKDIR /app
-COPY Gemfile.site /app/Gemfile.site
+COPY Gemfile /app
+COPY Gemfile.lock /app
 
-ENV BUNDLE_WITHOUT=slate \
-   BUNDLE_GEMFILE=/app/Gemfile.site
+# Install bundler and gems
 RUN gem install bundler:2.4.22 \
    && bundle install --verbose --retry=3
 RUN gem install --user-install executable-hooks
 
 COPY . /app
-RUN bundle exec jekyll build --config=_config.yml
+RUN bundle install --verbose --retry=3
+RUN bundle exec rake build
 
 EXPOSE 4000
 CMD ["bundle", "exec", "puma", "-p", "4000"]

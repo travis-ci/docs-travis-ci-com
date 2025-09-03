@@ -1,8 +1,7 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'compass';
-@import 'variables';
-@import 'syntax';
+@import 'normalize.css';
+@import 'variables.scss';
+@import 'syntax.css.scss';
 @import 'icon-font';
 
 /*
@@ -77,14 +76,12 @@ html, body {
 
   li {
     color: $nav-text;
-    @include transition-property('background');
-    @include transition-timing-function('linear');
-    @include transition-duration(230ms);
+    transition: background 230ms linear;
   }
 
   // This is the currently selected ToC entry
   .tocify-focus {
-    @include box-shadow(0px 1px 0px $nav-active-shadow);
+    box-shadow: 0px 1px 0px $nav-active-shadow;
     background-color: $nav-active-bg;
     color: $nav-active-text;
   }
@@ -95,13 +92,11 @@ html, body {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
     font-weight: 500;
-    @include background-image(
-      linear-gradient(top,
+    background-image: linear-gradient(to bottom,
                       darken($nav-subitem-bg,2%),
                       $nav-subitem-bg 10%,
                       $nav-subitem-bg 90%,
-                      darken($nav-subitem-bg,2%))
-    );
+                      darken($nav-subitem-bg,2%));
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
       font-size: 12px;
@@ -226,9 +221,9 @@ html, body {
   &>h1, &>h2, &>h3, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
     padding: 0 $main-padding;
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     display: block;
-    @include text-shadow($main-embossed-text-shadow);
+    text-shadow: $main-embossed-text-shadow;
   }
 
   &>ul, &>ol {
@@ -249,9 +244,7 @@ html, body {
     margin-top: 2em;
     margin-bottom: $h1-margin-bottom;
     border-top: 1px solid #ddd;
-    @include background-image(
-      linear-gradient(top, #fff, #f9f9f9)
-    );
+    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
   }
 
   // The header at the very top of the page
@@ -269,9 +262,7 @@ html, body {
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
-    @include background-image(
-      linear-gradient(top, rgba(#fff,0.4), rgba(#fff, 0))
-    );
+    background-image: linear-gradient(to bottom, rgba(#fff,0.4), rgba(#fff, 0));
   }
 
   // h2s right after h1s should bump right up
@@ -414,8 +405,8 @@ html, body {
     float:right;
     clear:right;
 
-    @include box-sizing(border-box);
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.4));
+    box-sizing: border-box;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
 
     &>p { margin: 0; }
 

@@ -32,6 +32,11 @@ gem "middleman-livereload"
 # Needed for Slate / middleman
 gem 'redcarpet'
 
+# Cross-templating language block fix for Ruby 1.8
+platforms :mri_18 do
+  gem "ruby18_source_location"
+end
+
 gem 'mini_racer', :platforms => :ruby
 
 # Remove warnings according to https://github.com/Compass/compass/pull/2088
