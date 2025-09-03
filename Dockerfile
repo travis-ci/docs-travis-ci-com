@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-slim
+FROM ruby:2.6.10-bullseye
 LABEL maintainer Travis CI GmbH <support+docs-docker-images@travis-ci.com>
 
 # packages required for bundle install
@@ -25,7 +25,7 @@ COPY Gemfile      /app
 COPY Gemfile.lock /app
 
 RUN gem install bundler:2.4.22
-RUN bundler install --verbose --retry=3
+RUN bundle install --verbose --retry=3
 RUN gem install --user-install executable-hooks
 
 COPY . /app
