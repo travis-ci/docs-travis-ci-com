@@ -73,33 +73,16 @@ GEM
     fast_blank (1.0.1)
     fastimage (2.4.0)
     ffi (1.17.2-aarch64-linux-gnu)
-    ffi (1.17.2-aarch64-linux-musl)
-    ffi (1.17.2-arm-linux-gnu)
-    ffi (1.17.2-arm-linux-musl)
     ffi (1.17.2-arm64-darwin)
-    ffi (1.17.2-x86_64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
-    ffi (1.17.2-x86_64-linux-musl)
     forwardable-extended (2.6.0)
-    google-protobuf (4.32.0)
-      bigdecimal
-      rake (>= 13)
     google-protobuf (4.32.0-aarch64-linux-gnu)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.32.0-aarch64-linux-musl)
       bigdecimal
       rake (>= 13)
     google-protobuf (4.32.0-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.32.0-x86_64-darwin)
-      bigdecimal
-      rake (>= 13)
     google-protobuf (4.32.0-x86_64-linux-gnu)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.32.0-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     haml (6.3.0)
@@ -153,12 +136,9 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.5)
-    libv8-node (24.1.0.0)
     libv8-node (24.1.0.0-aarch64-linux)
     libv8-node (24.1.0.0-arm64-darwin)
-    libv8-node (24.1.0.0-x86_64-darwin)
     libv8-node (24.1.0.0-x86_64-linux)
-    libv8-node (24.1.0.0-x86_64-linux-musl)
     lint_roller (1.1.0)
     liquid (4.0.4)
     listen (3.9.0)
@@ -221,19 +201,9 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.9-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.9-aarch64-linux-musl)
-      racc (~> 1.4)
-    nokogiri (1.18.9-arm-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.9-arm-linux-musl)
-      racc (~> 1.4)
     nokogiri (1.18.9-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.9-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
-      racc (~> 1.4)
-    nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
     padrino-helpers (0.15.3)
       i18n (>= 0.6.7, < 2)
@@ -252,10 +222,13 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (6.0.2)
-    puma (6.6.1)
+    puma (7.0.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.16)
+    rack-jekyll (0.3.5)
+      jekyll
+      rack
     rack-livereload (0.6.1)
       rack (>= 3.0, < 3.2)
     rack-ssl-enforcer (0.2.9)
@@ -292,19 +265,9 @@ GEM
     sass (3.4.25)
     sass-embedded (1.92.0-aarch64-linux-gnu)
       google-protobuf (~> 4.31)
-    sass-embedded (1.92.0-aarch64-linux-musl)
-      google-protobuf (~> 4.31)
-    sass-embedded (1.92.0-arm-linux-gnueabihf)
-      google-protobuf (~> 4.31)
-    sass-embedded (1.92.0-arm-linux-musleabihf)
-      google-protobuf (~> 4.31)
     sass-embedded (1.92.0-arm64-darwin)
       google-protobuf (~> 4.31)
-    sass-embedded (1.92.0-x86_64-darwin)
-      google-protobuf (~> 4.31)
     sass-embedded (1.92.0-x86_64-linux-gnu)
-      google-protobuf (~> 4.31)
-    sass-embedded (1.92.0-x86_64-linux-musl)
       google-protobuf (~> 4.31)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -336,17 +299,8 @@ GEM
 
 PLATFORMS
   aarch64-linux
-  aarch64-linux-gnu
-  aarch64-linux-musl
-  arm-linux-gnu
-  arm-linux-gnueabihf
-  arm-linux-musl
-  arm-linux-musleabihf
-  arm64-darwin
-  x86_64-darwin
+  arm64-darwin-24
   x86_64-linux
-  x86_64-linux-gnu
-  x86_64-linux-musl
 
 DEPENDENCIES
   cl
@@ -366,6 +320,7 @@ DEPENDENCIES
   pry
   puma
   rack (~> 3.0)
+  rack-jekyll
   rack-ssl-enforcer
   rake
   rdiscount (>= 2.2.0.1)
@@ -377,4 +332,4 @@ RUBY VERSION
    ruby 3.2.9p265
 
 BUNDLED WITH
-   2.7.1
+   2.4.22
