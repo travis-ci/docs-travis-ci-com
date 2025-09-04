@@ -10,6 +10,7 @@ gem 'jekyll-redirect-from'
 gem 'puma'
 gem 'pry', group: :test
 gem 'rack', '~> 3.0'
+gem 'rack-jekyll'
 gem 'rack-ssl-enforcer'
 gem 'rake'
 gem 'rdiscount', '>=2.2.0.1'
