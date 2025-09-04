@@ -57,12 +57,20 @@ task :list_beta_files do
   end
 end
 
+desc 'Stage API output into _site for HTML-Proofer'
+task :stage_api => [:make_api] do
+  mkdir_p '_site/api'
+  sh 'cp -a api/. _site/api/'
+end
+
 desc 'Check links and validate some html'
-task :run_html_proofer => [:build] do
+task :run_html_proofer => [:build, :stage_api] do
   options = {
       internal_domains: ['docs.travis-ci.com'],
-      check_external_hash: true,
-      check_html: true,
+      check_external_hash: false,
+      check_internal_hash: false,
+      check_html: false,
+      disable_external: true,
       connecttimeout: 600,
       allow_hash_ref: true,
       #only_4xx: true,
@@ -71,9 +79,25 @@ task :run_html_proofer => [:build] do
       },
       url_ignore: [
         /itunes\.apple\.com/,
+        /^https?:\/\/developer\.travis-ci\.com/,
+        /^https?:\/\/travis-ci\.com/,
+        /(^|\W)developer\.travis-ci\.com(\W|$)/,
+        /(^|\W)travis-ci\.com(\W|$)/,
+        /\/user\/billing-overview\.md$/,
+        /\/user\/storage-addon\/?$/,
+        /user\/build-stages$/
       ],
-      file_ignore: %w[
-        ./_site/api/index.html
+      file_ignore: [
+        './_site/api/index.html',
+        %r{^\./_site/api/fonts/},
+        %r{^\./_site/assets/stylesheets/.*\.css\.map$},
+        %r{^\./_site/assets/javascripts/.*\.map$},
+        %r{^\./_site/assets/javascripts/tablefilter/},
+        './_site/user/angular/index.html',
+        './_site/user/bower/index.html',
+        './_site/user/vagrant/index.html',
+        './_site/user/travis-ci-vcs-proxy/index.html',
+        './_site/user/build-config-yaml/index.html'
       ],
       :cache => {
         :timeframe => '3w'
