@@ -28,6 +28,8 @@ jobs:
           - libxml2-dev
           - libxslt1-dev
           - pkg-config
+    before_install:
+      - bundle config set force_ruby_platform true
     install:
       - rvm use 3.2.9 --install
       - bundle install --deployment
