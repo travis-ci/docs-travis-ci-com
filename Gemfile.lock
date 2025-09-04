@@ -72,10 +72,14 @@ GEM
       net-http (>= 0.5.0)
     fast_blank (1.0.1)
     fastimage (2.4.0)
+    ffi (1.17.2)
     ffi (1.17.2-aarch64-linux-gnu)
     ffi (1.17.2-arm64-darwin)
     ffi (1.17.2-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
+    google-protobuf (4.32.0)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.32.0-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
@@ -191,12 +195,16 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mime (0.4.4)
+    mini_portile2 (2.8.9)
     minitest (5.25.5)
     multi_json (1.17.0)
     net-http (0.6.0)
       uri
     netrc (0.11.0)
     nio4r (2.7.4)
+    nokogiri (1.18.9)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.18.9-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.9-arm64-darwin)
@@ -261,6 +269,9 @@ GEM
     ruby18_source_location (0.2)
     safe_yaml (1.0.5)
     sass (3.4.25)
+    sass-embedded (1.92.0)
+      google-protobuf (~> 4.31)
+      rake (>= 13)
     sass-embedded (1.92.0-aarch64-linux-gnu)
       google-protobuf (~> 4.31)
     sass-embedded (1.92.0-arm64-darwin)
@@ -302,6 +313,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-24
+  ruby
   x86_64-linux
 
 DEPENDENCIES
