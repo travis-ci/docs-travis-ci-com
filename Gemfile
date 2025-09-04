@@ -20,6 +20,7 @@ gem 'rubocop', group: :test
 # All of this is for Slate / middleman
 
 gem "middleman", '~> 4.6'
+gem 'middleman-sprockets'
 
 # For syntax highlighting
 gem "middleman-syntax"

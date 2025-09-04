@@ -32,7 +32,6 @@ RUN gem install bundler:2.4.22 \
 RUN gem install --user-install executable-hooks
 
 COPY . /app
-RUN bundle install --verbose --retry=3
 RUN bundle exec rake build
 
 EXPOSE 4000
