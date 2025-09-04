@@ -39,8 +39,6 @@ platforms :mri_18 do
   gem "ruby18_source_location"
 end
 
-gem 'mini_racer', :platforms => :ruby
-
 # Remove warnings according to https://github.com/Compass/compass/pull/2088
 git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix', ref: '3861c9d' do
   gem 'compass-core'

@@ -136,9 +136,6 @@ GEM
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.5)
-    libv8-node (24.1.0.0-aarch64-linux)
-    libv8-node (24.1.0.0-arm64-darwin)
-    libv8-node (24.1.0.0-x86_64-linux)
     lint_roller (1.1.0)
     liquid (4.0.4)
     listen (3.9.0)
@@ -194,8 +191,6 @@ GEM
       middleman-core (>= 3.2)
       rouge (~> 3.2)
     mime (0.4.4)
-    mini_racer (0.19.0)
-      libv8-node (~> 24.1.0.0)
     minitest (5.25.5)
     multi_json (1.17.0)
     net-http (0.6.0)
@@ -323,7 +318,6 @@ DEPENDENCIES
   middleman-livereload
   middleman-sprockets
   middleman-syntax
-  mini_racer
   netrc
   pry
   puma
