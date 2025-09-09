@@ -35,6 +35,8 @@
 
     loadScript(CDN + '/components/prism-core.min.js')
       .then(function(){ return loadScript(CDN + '/plugins/autoloader/prism-autoloader.min.js'); })
+      .then(function(){ return loadScript(CDN + '/plugins/toolbar/prism-toolbar.min.js'); })
+      .then(function(){ return loadScript(CDN + '/plugins/show-language/prism-show-language.min.js'); })
       .then(function(){
         window.Prism = window.Prism || {};
         Prism.plugins = Prism.plugins || {};
