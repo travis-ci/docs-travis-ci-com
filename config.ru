@@ -3,7 +3,6 @@ require 'yaml'
 require 'rack-ssl-enforcer'
 require 'rack/static'
 
-
 use Rack::SslEnforcer, :except_environments => 'development'
 
 # Rack 3 requires lower-case header names. Normalize all response headers.
@@ -46,16 +45,14 @@ app = Rack::Builder.app do
   map '/api' do
     run lambda { |env|
       # If the request is exactly /api (no trailing slash), redirect to /api/
-      if env['PATH_INFO'].to_s.empty?
-        return [301, { 'location' => '/api/', 'content-type' => 'text/html' }, ['']]
-      end
-      env['PATH_INFO'] = '/' if env['PATH_INFO'] == ''  # safety
+      return [301, { 'location' => '/api/', 'content-type' => 'text/html' }, ['']] if env['PATH_INFO'].to_s.empty?
+
+      env['PATH_INFO'] = '/' if env['PATH_INFO'] == '' # safety
       root = File.expand_path('api', __dir__)
       static = Rack::Static.new(-> { [404, {}, []] },
-        urls: [''],
-        root: root,
-        index: 'index.html'
-      )
+                                urls: [''],
+                                root: root,
+                                index: 'index.html')
 
       status, headers, body = static.call(env)
 
@@ -83,9 +80,30 @@ app = Rack::Builder.app do
     run lambda { |env|
       root = File.expand_path('api/fonts', __dir__)
       static = Rack::Static.new(-> { [404, {}, []] },
-        urls: [''],
-        root: root
-      )
+                                urls: [''],
+                                root: root)
+      static.call(env)
+    }
+  end
+
+  # Handle images with proper binary serving
+  map '/user/images' do
+    run lambda { |env|
+      root = File.expand_path('_site/user/images', __dir__)
+      static = Rack::Static.new(-> { [404, {}, []] },
+                                urls: [''],
+                                root: root)
+      static.call(env)
+    }
+  end
+
+  # Handle all other images
+  map '/images' do
+    run lambda { |env|
+      root = File.expand_path('_site/images', __dir__)
+      static = Rack::Static.new(-> { [404, {}, []] },
+                                urls: [''],
+                                root: root)
       static.call(env)
     }
   end
