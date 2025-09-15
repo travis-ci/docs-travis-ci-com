@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
-ruby '>= 2.6.3', '< 2.7'
+ruby '~> 3.2'
 
 gem 'faraday'
 gem 'html-proofer', '~> 3.0'
-gem 'jekyll', '>=3.1.6'
+gem 'jekyll', '~> 4.3'
 gem 'jekyll-paginate'
 gem 'jekyll-redirect-from'
 gem 'puma'
 gem 'pry', group: :test
-gem 'rack', '~> 1.0'
+gem 'rack', '~> 3.0'
 gem 'rack-jekyll'
 gem 'rack-ssl-enforcer'
 gem 'rake'
@@ -19,7 +19,8 @@ gem 'rubocop', group: :test
 
 # All of this is for Slate / middleman
 
-gem "middleman", '~> 3.0'
+gem "middleman", '~> 4.6'
+gem 'middleman-sprockets'
 
 # For syntax highlighting
 gem "middleman-syntax"
@@ -37,8 +38,6 @@ gem 'redcarpet'
 platforms :mri_18 do
   gem "ruby18_source_location"
 end
-
-gem 'therubyracer', :platforms => :ruby
 
 # Remove warnings according to https://github.com/Compass/compass/pull/2088
 git 'https://github.com/ably-forks/compass', branch: 'sass-deprecation-warning-fix', ref: '3861c9d' do
