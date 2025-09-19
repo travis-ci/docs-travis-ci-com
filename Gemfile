@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 gem 'faraday'
-gem 'html-proofer', '~> 3.19', '>= 3.19.3'
+gem 'html-proofer', '~> 3.16', '>= 3.16.0'
 gem 'jekyll', '>=3.1.6'
 gem 'jekyll-paginate'
 gem 'jekyll-redirect-from'
@@ -19,7 +19,7 @@ gem 'rubocop', '>= 0.87.0', group: :test
 
 # All of this is for Slate / middleman
 
-gem "middleman", "~> 4.1", ">= 4.1.8"
+gem "middleman", "~> 4.6", ">= 4.6.0"
 
 # For syntax highlighting
 gem "middleman-syntax", ">= 3.3.0"
