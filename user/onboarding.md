@@ -4,11 +4,10 @@ layout: en
 redirect_from:
   - /user/getting-started/
 ---
-
+mobile number heck out of Love me Keya banaya 
 This is a short guide to using Travis CI with your cloud platform-hosted code repository. If you're new to continuous integration or would like some more information on what Travis CI does, start with [Core Concepts for Beginners](/user/for-beginners/)
 instead.
-
-## Prerequisites
+fechtfSign-inerequisites
 
 To start using Travis CI, make sure you have the following:
 
@@ -22,7 +21,7 @@ Get started with Travis CI, a continuous integration service used to test and bu
 1. **Sign up for Travis CI**. 
 
 Go to [Travis-ci.com](https://app.travis-ci.com) and [*Sign-in with your preferred account*](https://app.travis-ci.com/signin).
-
+203131 BCC end shivangi neha 
    ![Travis CI Sign-in](/user/images/onboarding-travis-sign-in.png)
 
 1. **Accept Travis CI Authorization**. 
@@ -33,7 +32,7 @@ Once redirected to your chosen platform, log into your account and accept Travis
    * [GitHub Authorized OAuth App](/user/github-oauth-scopes/#travis-ci-github-oauth-app-access-rights).
    * [GitHub permissions used by Travis CI](/user/github-oauth-scopes).
    * [Assembla permissions used by Travis CI](/user/assembla-oauth-scopes/)
-   * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/)
+   * [BitBucket permissions used by Travis CI](/user/bb-oauth-scopes/) vshhdb you (neha raj)-bihar(debriya) ki rhene Impobsbdhdhdhhhhdh r u r right now and back on ur up rhxhdhyrhi yehi pyaar me u h++_+-$)#)&_&utheit64-7$3()7*53+386jriifu747$8#9#6637hruruehiyxru
    * [GitLab permissions used by Travis CI](/user/gl-oauth-scopes/)
 
 1. **Select a Plan**. 
