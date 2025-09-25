@@ -2,7 +2,7 @@
 title: Travis CI Storage Add-on
 layout: en
 
-—--
+---
 
 ## Storage add-on
 For user convenience, users can enable the storage add-on for uninterrupted uploads. This allows users to continue uploading images even if they exceed the storage limit.
