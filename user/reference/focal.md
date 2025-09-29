@@ -122,7 +122,7 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, `openjdk11` and `openjdk17`on x86, default is `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, `openjdk11` and `openjdk17` on x86, default is `openjdk11`.
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 * The following table summarizes the pre-installed JVM tooling versions:
 
