@@ -27,9 +27,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package  | version   |
 |:---------|:----------|
-| git      | `2.48.1`  |
+| git      | `2.50.1`  |
 | git-lfs  | `2.9.2`   |
-| hg       | `6.5.2`   |
+| hg       | `7.0.3`   |
 | svn      | `1.13.0`  |
 {: style="width: 30%" }
 
@@ -38,11 +38,11 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package      | version   |
 |:-------------|:----------|
 | clang        | `18.1.8`  |
-| cmake        | `3.29.0`  |
+| cmake        | `4.1.0`  |
 | gcc          | `9.4.0`   |
 | ccache       | `3.7.7`   |
-| shellcheck   | `0.10.0`  |
-| shfmt        | `3.8.0`   |
+| shellcheck   | `0.11.0`  |
+| shfmt        | `3.12.0`   |
 {: style="width: 30%" }
 
 To use the IBM Advance Toolchain v14 compilers under `ppc64le` architecture in Focal LXD image, use the following paths in your `.travis.yml`:
@@ -85,13 +85,13 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 ### Docker and Container Tools
 
-* Docker `28.0.1` is installed.
-* docker-compose `v2.27.1` is also available.
+* Docker `28.1.1` is installed.
+* docker-compose `v2.35.1` is also available.
 * Podman `3.4.2` is installed as an alternative container engine.
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.5.9`, `2.7.6` and `3.3.5`.
+* Pre-installed Rubies: `2.7.8` and `3.3.5`.
 * The default ruby is `3.3.5`.
 * Other ruby versions can be installed during build time.
 
@@ -112,30 +112,30 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 ## JavaScript and Node.js support
 
 * For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected.
-* The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.17.0`, `10.24.1`, `12.22.12`, `14.21.3`, `16.15`, `16.20.2`, `18.20.3` and `20.14.0`.
+* The following NodeJS versions are preinstalled: `4.9.1`, `6.17.1`, `8.17.0`, `10.24.1`, `12.22.12`, `14.21.3`, `16.15`, `16.20.2`, `18.20.3` and `20.19.5`.
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`.
+* Pre-installed Go: `1.24.6`.
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:` key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, and `openjdk11` on x86, default is `openjdk11`.
+* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, `openjdk11` and `openjdk17` on x86, default is `openjdk11`.
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 * The following table summarizes the pre-installed JVM tooling versions:
 
 | package | version  |
 |:--------|:---------|
-| gradle  | `8.3`    |
-| maven   | `3.9.4`  |
-| groovy  | `4.0.15` |
+| gradle  | `9.0.0`    |
+| maven   | `3.9.11`  |
+| groovy  | `4.0.27` |
 {: style="width: 30%" }
 
 ## Perl support
 
-* Default version on Focal is `5.32.0`
+* Default version on Focal is `5.30.0`
 * Supported versions `5.32` and `5.33` can be installed by using the `perl:` key.
 * `TAP::Harness` v3.42 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
@@ -156,10 +156,10 @@ To use one in your build, add it to the services key in your `travis.yml`:
 
 | service    | version  |
 |:-----------|:---------|
-| mongodb    | `4.4.29` |
-| mysql      | `8.0.41` |
-| redis      | `7.4.2`  |
-| postgresql | `13.20`  |
+| mongodb    | `8.0.13` |
+| mysql      | `8.0.42` |
+| redis      | `8.0.3`  |
+| postgresql | `13.21`  |
 {: style="width: 30%" }
 
 ### Android Support

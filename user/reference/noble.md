@@ -25,10 +25,10 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.48.1` |
+| git     | `2.51.0` |
 | git-lfs | `3.4.1`  |
 | hg      | `6.7.2`    |
-| svn     | `1.14.1` |
+| svn     | `1.14.3` |
 {: style="width: 30%" }
 
 ### Compilers and Build toolchain
@@ -36,25 +36,25 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package | version  |
 |:--------|:---------|
 | clang      | `18.1.3` |
-| cmake      | `3.30.0` |
+| cmake      | `4.1.0` |
 | gcc        | `13.3.0` |
 | ccache     | `4.9.1`  |
-| shellcheck | `0.10.0`  |
-| shfmt      | `3.9.0`  |
+| shellcheck | `0.11.0`  |
+| shfmt      | `3.12.0`  |
 {: style="width: 30%" }
 
 
 ### Docker
 
-* Docker `27.5.1` is installed.
-* docker-compose `2.32.4` is also available.
+* Docker `28.4.0` is installed.
+* docker-compose `2.39.2` is also available.
 * Podman `3.4.4` is installed as an alternative container engine.
 
 
 ## Ruby Support
 
-* Pre-installed Rubies: `3.3.5`.
-* The default ruby is `3.3.5`.
+* Pre-installed Rubies: `3.3.9`.
+* The default ruby is `3.3.9`.
 * Other ruby versions can be installed during build time.
 
 ## Python Support
@@ -77,13 +77,13 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Go support
 
-* Pre-installed Go version: `1.23.4`.
+* Pre-installed Go version: `1.24.6`.
 
 * Additional Go versions can be installed during build time by specifying the language version with the `go:` key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk17`, `openjdk21` and `openjdk23` on x86, default is `openjdk17`.
+* Pre-installed JVMs: `openjdk17`, `openjdk21` and `openjdk24` on x86, default is `openjdk17`.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -91,9 +91,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version |
 |:--------|:--------|
-| gradle  | `8.3` |
-| maven   | `3.9.4` |
-| groovy  | `4.0.15`|
+| gradle  | `9.0.0` |
+| maven   | `3.9.11` |
+| groovy  | `4.0.27`|
 {: style="width: 30%" }
 
 ## Perl Support
@@ -117,9 +117,9 @@ To use one in your build, add it to the `services` key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mysql      | `8.0.41`       |
-| redis      | `7.4.2`        |
-| postgresql | `16.7`         |
+| mysql      | `8.0.43`       |
+| redis      | `8.2.1`        |
+| postgresql | `16.10`         |
 {: style="width: 30%" }
 
 ## Other Ubuntu Linux Build Environments
