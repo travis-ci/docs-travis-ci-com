@@ -25,9 +25,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package  | version   |
 |:---------|:----------|
-| git      | `2.48.1`  |
+| git      | `2.51.0`  |
 | git-lfs  | `3.0.2`   |
-| hg       | `6.5.2`   |
+| hg       | `7.0.3`   |
 | svn      | `1.14.1`  |
 {: style="width: 30%" }
 
@@ -36,33 +36,34 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package    | version   |
 |:-----------|:----------|
 | clang      | `18.1.8`  |
-| cmake      | `3.29.0`  |
+| cmake      | `4.0.1`  |
 | gcc        | `11.4.0`  |
 | ccache     | `4.5.1`   |
-| shellcheck | `0.10.0`  |
-| shfmt      | `3.8.0`   |
+| shellcheck | `0.11.0`  |
+| shfmt      | `3.12.0`   |
 {: style="width: 30%" }
 
 ### Docker and Container Tools
 
-* Docker `28.0.1` (build 068a01e) is installed.
-* docker-compose `v2.27.1` is also available.
+* Docker `28.4.0` (build 068a01e) is installed.
+* docker-compose `v2.39.2` is also available.
 * Podman `3.4.4` is installed as an alternative container engine.
 
 ### Ruby Support
 
-* Pre-installed Rubies: `3.0.4` and `3.1.2`.
-* The default ruby is `3.1.2`.
+* Pre-installed Rubies: `2.7.8` and `3.3.9`.
+* The default ruby is `3.3.9`.
 * Other ruby versions can be installed during build time.
 
 ### Python Support
 
-* Supported Python version is: **3.8 or higher** as Python 2.7 has been sunset.
+* Supported Python version is: **3.8 or higher**.
 * The following Python versions are available via pyenv:
 
 | alias  | version   |
 |:-------|:----------|
 | `3.8`  | `3.8.18`  |
+| `3.10` | `3.10.14`  |
 | `3.12` | `3.12.4`  |
 {: style="width: 30%" }
 
@@ -72,25 +73,23 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 * The default Node.js version available on the machine is:
   * `v18.20.3`
 
-### Go Support
+## Go support
 
-* Pre-installed Go:  
-  * `go version go1.23.6 linux/amd64`  
-Additional Go versions can be installed during build time by specifying the language version with the `go:` key.
+* Pre-installed Go: `1.24.6`.
 
-### JVM (Clojure, Groovy, Java, Scala) Support
+* Other Go versions can be installed during build time by specifying the language versions with the `go:` key.
 
-* Pre-installed JVMs:  
-  * Default Java:  
-    * `openjdk version "11.0.21" 2023-10-17 LTS`
+## JVM (Clojure, Groovy, Java, Scala) support
+
+* Pre-installed JVMs: `openjdk8`, `openjdk9`, `openjdk10`, `openjdk11` and `openjdk17`on x86, default is `openjdk11`.
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
-* The following JVM tooling is preinstalled:
+* The following table summarizes the pre-installed JVM tooling versions:
 
 | package | version   |
 |:--------|:----------|
-| gradle  | `8.3`     |
-| maven   | `3.9.4`   |
-| groovy  | `4.0.15`  |
+| gradle  | `9.0.0`     |
+| maven   | `3.9.11`   |
+| groovy  | `4.0.27`  |
 {: style="width: 30%" }
 
 ### Perl Support
@@ -115,10 +114,10 @@ To use one in your build, add it to the `services` key in your `.travis.yml`:
 
 | service      | version   |
 |:-------------|:----------|
-| mongodb      | `6.0.20`  |
-| mysql        | `8.0.41`  |
-| redis        | `7.4.2`   |
-| postgresql   | `14.17`   |
+| mongodb      | `8.0.13`  |
+| mysql        | `8.0.43`  |
+| redis        | `8.2.1`   |
+| postgresql   | `14.19`   |
 {: style="width: 30%" }
 
 ### Android Support
