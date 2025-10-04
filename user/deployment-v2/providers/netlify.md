@@ -10,7 +10,7 @@ after a successful build.
 
 {% include deploy/providers/netlify.md %}
 
-## Deploying a specific directory
+## Deploy a specific directory
 
 To deploy a specific directory, use the `dir` key:
 

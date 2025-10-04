@@ -1,10 +1,9 @@
 ---
-title: Building a Clojure project
+title: Build a Clojure project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -27,8 +26,8 @@ language: clojure
 {{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to Clojure
-projects. Please make sure to read our [Tutorial](/user/tutorial/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
 Clojure builds are not available on the macOS environment.
 
@@ -60,7 +59,7 @@ See the [build configuration guide](/user/customizing-the-build/) to learn more.
 
 ## Build Script
 
-### Using Midje
+### Use Midje
 
 If your project uses [Midje](https://github.com/marick/Midje), make sure
 [lein-midje](https://github.com/marick/Midje/wiki/Lein-midje) is on your
@@ -74,7 +73,7 @@ script: lein midje
 
 For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
-```
+```yaml
 :dev-dependencies [[midje "1.4.0"]
                    [lein-midje "1.0.10"]])
 ```
@@ -82,7 +81,7 @@ For Leiningen 1 add `:dev-dependencies` to `project.clj`:
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
-```
+```yaml
 :profiles {:dev {:dependencies [[midje "1.6.3"]]
                  :plugins [[lein-midje "3.0.0"]]}}
 ```
@@ -92,15 +91,15 @@ Please note that for projects that only support Clojure 1.3.0 and later
 versions, you may need to exclude transient `org.clojure/clojure` for Midje in
 project.clj:
 
-```
+```yaml
 :dev-dependencies [[midje "1.4.0" :exclusions [org.clojure/clojure]]
                    [lein-midje "1.0.10"]])
 ```
 {: data-file=".project.clj"}
 
-For real world example, see [Knockbox](https://github.com/reiddraper/knockbox).
+For real-world examples, see [Knockbox](https://github.com/reiddraper/knockbox).
 
-### Using Speclj on Travis CI
+### Use Speclj on Travis CI
 
 If your project uses [Speclj](https://github.com/slagyr/speclj), make sure it is
 listed in your development dependencies in `project.clj`, and include this
@@ -113,19 +112,19 @@ script: lein spec
 
 For Leiningen 1, Speclj should be listed under `:dev-dependencies` in `project.clj`:
 
-```
+```yaml
 :dev-dependencies [[speclj "3.3.1"]]
 ```
 {: data-file=".project.clj"}
 
 Leiningen 2 replaces `:dev-dependencies` with profiles:
 
-```
+```yaml
 :profiles {:dev {:dependencies [[speclj "3.3.1"]]}}
 ```
 {: data-file=".project.clj"}
 
-## Using Leiningen 1
+## Use Leiningen 1
 
 Leiningen 1 is provided side by side with 2.4.x. To use it, specify `lein` key in `.travis.yml`:
 
@@ -153,7 +152,7 @@ script: lein1 do javac, test
 ```
 {: data-file=".travis.yml"}
 
-## Testing Against Multiple JDKs
+## Test against Multiple JDKs
 
 As for any JVM language, it is also possible to [test against multiple JDKs](/user/languages/java/#testing-against-multiple-jdks).
 
@@ -164,9 +163,9 @@ As for any JVM language, it is also possible to [test against multiple JDKs](/us
 - [Langohr](https://github.com/michaelklishin/langohr/blob/master/.travis.yml)
 - [Neocons](https://github.com/michaelklishin/neocons/blob/master/.travis.yml)
 
-## Testing Against Multiple Versions of Clojure
+## Test against Multiple Versions of Clojure
 
-### With Leiningen 1
+### Test with Leiningen 1
 
 Leiningen has an excellent plugin called [lein-multi](https://github.com/maravillas/lein-multi) that lets you effortlessly test against multiple versions of
 Clojure (for example, 1.3, 1.4 and alphas/betas/snapshots of the most recent development version). Because leiningen can run tests against any version of Clojure (not necessary the same version as Leiningen itself uses),
@@ -183,7 +182,7 @@ script: lein1 multi test
 
 For a real world example, see [Monger](https://github.com/michaelklishin/monger).
 
-### With Leiningen 2
+### Test with Leiningen 2
 
 Leiningen 2 has a core feature that replaces `lein-multi`: [Profiles](https://github.com/technomancy/leiningen/blob/master/doc/TUTORIAL.md). To run your tests against
 multiple profiles (and thus, multiple dependency sets or Clojure versions), use `lein with-profile` command like so:
@@ -197,7 +196,7 @@ script: lein with-profile dev:1.4 test
 where `dev:1.4` is a colon-separated list of profiles to run `test` task against. Use `lein profiles` to list your project's profiles
 and `lein help with-profile` to learn more about the `with-profiles` task.
 
-#### Using a more recent versions of Leiningen
+### Test with recent Leiningen versions
 
 If your Clojure project requires a more recent version of Leiningen, you can specify it with:
 
@@ -211,9 +210,7 @@ lein: 2.6.1 # version 2 and up
 The job will install the specified version of Leiningen if it is not pre-installed,
 and move on to install your project's dependencies.
 
-### Example
-
-For a real world example, see [Neocons](https://github.com/michaelklishin/neocons).
+> **Note**: For a real-world example, see [Neocons](https://github.com/michaelklishin/neocons).
 
 ## Examples
 

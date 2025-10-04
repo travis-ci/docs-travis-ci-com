@@ -16,7 +16,7 @@ deploy:
 
 ## Status
 
-Support for deployments to GitHub Pages (API) is in **development**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to GitHub Pages (API) is in **development**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment.
@@ -34,9 +34,9 @@ Use the following options to further configure the deployment.
 
 All options can be given as environment variables if prefixed with `GITHUB_` or `PAGES_`.
 
-For example, `token` can be given as 
+For example, `token` can be given as
 
-* `GITHUB_TOKEN=<token>` or 
+* `GITHUB_TOKEN=<token>` or
 * `PAGES_TOKEN=<token>`
 
 {% include deploy/secrets.md name="token" env_name="GITHUB_TOKEN" %}

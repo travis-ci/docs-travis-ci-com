@@ -1,37 +1,37 @@
 ---
-title: Using BrowserStack with Travis CI
+title: Use BrowserStack with Travis CI
 layout: en
 
 ---
 
-Travis CI integrates with [BrowserStack](https://www.browserstack.com), a cross browser and real device
+Travis CI integrates with [BrowserStack](https://www.browserstack.com/?utm_source=travis&utm_medium=partnered), a cross browser and real device
 web-based testing platform. BrowserStack can be used for interactive as well as automated testing through frameworks
 like Selenium, Karma and others.
 
 This add-on automatically sets up [BrowserStack Local][local-testing] which allows you to test your private servers alongside public URLs, using the BrowserStack cloud. To do this it uses the [BrowserStackLocal binary][local-binary] for your build platform.
 
 [BrowserStack Local][local-testing] establishes a secure connection between your Travis build container/VM
-and BrowserStack servers. Local Testing also has support for firewalls, proxies and Active Directory.
+and BrowserStack servers. Local testing also supports firewalls, proxies, and Active Directory.
 Once the secure connection is setup, all URLs work out of the box, including your webserver, local folders, as well as
 URLs with HTTPS.
 
-[local-testing]: https://www.browserstack.com/local-testing
+[local-testing]: https://www.browserstack.com/local-testing/?utm_source=travis&utm_medium=partnered
 
-[local-binary]: https://www.browserstack.com/local-testing#command-line
+[local-binary]: https://www.browserstack.com/local-testing#command-line/?utm_source=travis&utm_medium=partnered
 
-[open-source-browserstack]: https://www.browserstack.com/pricing
+[open-source-browserstack]: https://www.browserstack.com/open-source/?utm_source=travis&utm_medium=partnered
 
-[account-settings]: https://www.browserstack.com/accounts/settings
+[account-settings]: https://www.browserstack.com/accounts/settings/?utm_source=travis&utm_medium=partnered
 
 [encryption-keys]: https://docs.travis-ci.com/user/encryption-keys/
 
-[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby
+[browserstack-ruby-bindings]: https://www.browserstack.com/automate/ruby/?utm_source=travis&utm_medium=partnered
 
 [travis-matrix-builds]: https://docs.travis-ci.com/user/customizing-the-build/#build-matrix
 
 [browserstack-android-app-travis]: https://github.com/browserstack/browserstack-android-sample-app/blob/master/.travis.yml
 
-## Setting up BrowserStack
+## Setup BrowserStack
 
 Please sign up for a BrowserStack account if you haven't already; it's
 [free][open-source-browserstack] for Open Source projects. Once you have signed up get your username and access key from
@@ -79,7 +79,7 @@ The add-on will **ALWAYS** create a Local Identifier for each local connection t
 testing framework, the Local Identifier must be added to the Selenium capabilities.
 
 The Local Identifier is exposed as an environment variable `BROWSERSTACK_LOCAL_IDENTIFIER`. You can use it to set
-the Selenium capability. See the following example which uses Ruby's [selenium-webdriver][browserstack-ruby-bindings]:
+the Selenium capability. See the following example, which uses Ruby's [selenium-webdriver][browserstack-ruby-bindings]:
 
 ```ruby
 require 'rubygems'
@@ -89,13 +89,14 @@ require 'selenium-webdriver'
 caps = Selenium::WebDriver::Remote::Capabilities.new
 caps['browserstack.local'] = 'true'
 caps['browserstack.localIdentifier'] = ENV['BROWSERSTACK_LOCAL_IDENTIFIER']
-# Add other capabilities like browser name, version and os name, version
+# Add other capabilities like browser name, version, and os name, version
 ...
 
 driver = Selenium::WebDriver.for(:remote,
   :url => "http://USERNAME:ACCESS_KEY@hub-cloud.browserstack.com/wd/hub",
   :desired_capabilities => caps)
 ```
+{: data-file="example.rb"}
 
 Local identifiers are essential for [matrix builds][travis-matrix-builds]. Since matrix builds in travis can be run on
 the same VM, we need to add the Local Identifier when starting the connection to ensure that the correct local tunnel
@@ -122,15 +123,16 @@ Once the app is uploaded to the BrowserStack servers the resulting app id will b
 ```ruby
 caps['app'] = ENV['BROWSERSTACK_APP_ID']
 ```
+{: data-file="example.rb"}
 
-Checkout the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
+Check out the BrowserStack Android Sample App [.travis.yml][browserstack-android-app-travis] file.
 
 
 ## Additional Options
 
 ### Proxy
 
-Local testing also allows you to set the proxy host, port, username and password
+Local testing also allows you to set the proxy host, port, username, and password
 through which all urls will be resolved:
 
 ```yaml
@@ -150,7 +152,7 @@ addons:
 
 Some other options that are supported by the add on are,
 
-- **forcelocal**: If this is set to true then all network traffic will be resolved via the Travis CI container/VM.
+- **forcelocal**: If this is set to true, then all network traffic will be resolved via the Travis CI container/VM.
 - **only**: restricts Local testing access to the specified local servers and/or folders.
 
 Sample usage,

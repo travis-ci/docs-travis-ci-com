@@ -3,7 +3,7 @@ title: Enterprise Customer Worker Queues
 layout: en_enterprise
 ---
 
-Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images).
+Custom queues give your team more granular control over routing jobs to specific workers. This is especially helpful in conjunction with customized [worker configuration](/user/enterprise/worker-configuration/) and/or modified [build environments](/user/enterprise/build-images/).
 
 There are two [feature flags](#enable-queues-on-the-platform) required for custom queues. After setting these flags, you can define the configuration for your queues in the [Management Console settings](#define-custom-queues-in-the-management-console) and [allocate workers to the new queues](#define-custom-queues-settings-on-the-workers)
 
@@ -20,7 +20,7 @@ Travis::Features.enable_for_all(:template_selection); Travis::Features.enable_fo
 
 ## Define Custom Queues in the Management Console
 
-After enabling the feature flags for custom queues, configure the job routing in the management console. This is defined in YAML, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g. `https://<your-travis-ci-enterprise-domain>:8800/settings`.
+Configure the job routing in the management console after enabling the feature flags for custom queues. This is defined in YAML, in the **Advanced Configuration YAML** section at the bottom of the management console **Settings** page, e.g., `https://<your-travis-ci-enterprise-domain>:8800/settings`.
 
 There are a number of options/selectors used to define routing to a custom queue. Repos that match _all_ of the selectors for a custom queue will be built on that custom queue. We recommend using the following selectors:
 
@@ -49,9 +49,9 @@ production:
 
 See the [example](#advanced-configuration-yaml-example) for details on syntax. Click 'Save' on the Management Console Settings when you are ready. Travis CI Enterprise will restart with your new queue settings.
 
-### Advanced Configuration YAML Example
+### Advanced Configuration YAML
 
-The syntax for the **Advanced Configuration YAML** field is very important. Incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
+The syntax for the **Advanced Configuration YAML** field is very important. An incorrect syntax will result in builds being routed to defaults, usually a `builds.linux` queue, depending on if there are any modifications to your installation. Here's an example of a custom queue definition:
 
 ```yaml
 production:

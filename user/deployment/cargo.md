@@ -8,7 +8,7 @@ Travis CI can automatically release your Rust crate to [crates.io][]
 after a successful build. (Alternative registries may be supported in the
 future).
 
-A minimal `.travis.yml` configuration for publishing to [crates.io][] looks like:
+A minimal `.travis.yml` configuration for publishing to [crates.io][] looks as follows:
 
 ```yaml
 language: rust
@@ -18,7 +18,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## crates.io API token
+## Obtain a crates.io API token
 
 An API token can be obtained by logging in to your [crates.io][] account, and
 generating a new token at <https://crates.io/me>.
@@ -69,18 +69,18 @@ deploy:
 
 Builds triggered from Pull Requests will never trigger a release.
 
-## Releasing build artifacts
+## Release build artifacts
 
-After your tests ran and before the release, Travis CI will clean up any
+After your tests run and before the release, Travis CI will clean up any
 additional files and changes you made.
 
 This is necessary because Cargo will refuse to publish crates from a dirty
 working directory (an option to allow this may be added to this provider in the
 future).
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use the
+Sometimes, you want to run commands before or after deploying. You can use the
 `before_deploy` and `after_deploy` stages for this. These will only be triggered
 if Travis CI is actually deploying.
 

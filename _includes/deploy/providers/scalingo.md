@@ -25,7 +25,7 @@ deploy:
 
 ## Status
 
-Support for deployments to Scalingo is in **alpha**. Please see [Maturity Levels](/user/deployment-v2#maturity-levels) for details.
+Support for deployments to Scalingo is in **alpha**. Please see [Maturity Levels](/user/deployment-v2/#maturity-levels) for details.
 ## Known options
 
 Use the following options to further configure the deployment. Either `api_token` or `username` and `password` are required.

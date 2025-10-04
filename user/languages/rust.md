@@ -1,10 +1,8 @@
 ---
-title: Building a Rust Project
+title: Build a Rust Project
 layout: en
 
 ---
-
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,17 +24,17 @@ language: rust
 
 {{ site.data.snippets.all_note }}
 
-The rest of this guide covers configuring Rust projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+This guide covers configuring Rust projects in Travis CI. If you're
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
-## Choosing a Rust version
+## Choose a Rust version
 
 By default, we download and install the latest stable Rust release at the start
 of the build (thanks to `rustup`). The [`minimal` profile][profiles] is used
-and includes the following language tools `cargo`, `rustc`, and `rustup`.
+and includes the following language tools: `cargo`, `rustc`, and `rustup`.
 
-[profiles]: https://github.com/rust-lang/rustup.rs#profiles
+[profiles]: https://github.com/rust-lang/rustup/blob/master/doc/src/concepts/profiles.md
 
 If you want additional language tools like `rustfmt` or `clippy`, please
 install them in `before_install`.
@@ -72,7 +70,7 @@ jobs:
 ```
 {: data-file=".travis.yml"}
 
-This will runs your tests against all three channels, but any breakage in
+This will run your tests against all three channels, but any breakage in
 `nightly` will not fail the rest of build.
 
 ## Dependency Management
@@ -110,6 +108,7 @@ before_cache:
   - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
   ⋮ # rest of your existing "before_cache"
 ```
+{: data-file=".travis.yml"}
 
 ## Default Build Script
 
@@ -122,18 +121,18 @@ cargo test --verbose
 You can always configure different commands if you need to. For example,
 if your project is a
 [workspace](http://doc.crates.io/manifest.html#the-workspace-section), you
-should pass `--all` to the build commands to build and test all of the member
+should pass `--workspace` to the build commands to build and test all of the member
 crates:
 
 ```yaml
 language: rust
 script:
-  - cargo build --verbose --all
-  - cargo test --verbose --all
+  - cargo build --verbose --workspace
+  - cargo test --verbose --workspace
 ```
 {: data-file=".travis.yml"}
 
-## Environment variables
+## Environment Variables
 
 The Rust version that is specified in the `.travis.yml` is available during the
 build in the `TRAVIS_RUST_VERSION` environment variable.

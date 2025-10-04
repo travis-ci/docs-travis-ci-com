@@ -1,10 +1,9 @@
 ---
-title: Building a Python Project
+title: Build a Python Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -25,19 +24,19 @@ Minimal example:
 {: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.linux_note }}
+{{ site.data.snippets.unix_note }}
 
 {: .warning}
-> Python builds are not available on the macOS and Windows environments.
+> Python builds are not available on Windows environments.
 
 The rest of this guide covers configuring Python projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
-## Specifying Python versions
+## Specify Python versions
 
 Specify Python versions using the `python` key. As we update the Python build
-images, aliases like `3.6` will point to different exact versions or patch
+images, aliases like `3.10` will point to different exact versions or patch
 levels.
 
 ```yaml
@@ -46,10 +45,15 @@ python:
   - "2.7"
   - "3.4"
   - "3.5"
-  - "3.6"      # current default Python on Travis CI
+  - "3.6"
   - "3.7"
   - "3.8"
-  - "3.8-dev"  # 3.8 development branch
+  - "3.9"
+  - "3.9-dev"  # 3.9 development branch. similarly 3.10-dev, 3.11-dev, etc.
+  - "3.10" # current default Python in Travis CI, if `language: python` is specified
+  - "3.11"
+  - "3.12"
+  - "3.13"
   - "nightly"  # nightly build
 # command to install dependencies
 install:
@@ -67,14 +71,15 @@ available.
 You can find the list of such versions in [the table below](#python-versions).
 
 {% endif %}
-### Travis CI Uses Isolated virtualenvs
+
+### Use Isolated virtualenvs
 
 The CI Environment uses separate virtualenv instances for each Python
 version. This means that as soon as you specify `language: python` in `.travis.yml` your tests will run inside a virtualenv (without you having to explicitly create it).
 System Python is not used and should not be relied on. If you need
 to install Python packages, do it via pip and not apt.
 
-If you decide to use apt anyway, note that for compatibility reasons, you'll only be able to use the default Python versions that are available in Ubuntu (e.g. for Xenial, this means 2.7.12 and 3.5.1).
+If you decide to use apt anyway, note that for compatibility reasons, you'll only be able to use the default Python versions that are available in Ubuntu (e.g. for Xenial, this means 2.7.12 and 3.5.2).
 To access the packages inside the virtualenv, you will need to specify that it should be created with the `--system-site-packages` option.
 To do this, include the following in your `.travis.yml`:
 
@@ -102,8 +107,8 @@ python:
   - "2.7"
   - "3.8"
   # PyPy versions
-  - "pypy"   # currently Python 2.7.13, PyPy 7.1.1
-  - "pypy3"  # currently Python 3.6.1,  PyPy 7.1.1-beta0
+  - "pypy"   # currently Python 2.7.18, PyPy 7.3.19
+  - "pypy3"  # currently Python 3.10.16,  PyPy 7.3.19
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -123,7 +128,7 @@ a recent development version of [CPython](https://github.com/python/cpython) bui
 From Python 3.5 and later, Python In Development versions are available.
 
 You can specify these in your builds with `3.5-dev`, `3.6-dev`,
-`3.7-dev` or `3.8-dev`.
+`3.7-dev`, `3.8-dev`, `3.9-dev`, `3.10-dev`, `3.11-dev`, `3.12-dev`, `3.13-dev` or `3.14-dev`.
 
 ## Default Build Script
 
@@ -149,31 +154,28 @@ If you do not provide a `script` key in a Python project, Travis CI prints a
 message (_"Please override the script: key in your .travis.yml to run tests."_)
 and fails the build.
 
-## Using Tox as the Build Script
+## Use Tox as the Build Script
 
 Due to the way Travis is designed, interaction with [tox](https://tox.readthedocs.io/en/latest/) is not straightforward.
 As described [above](/user/languages/python/#travis-ci-uses-isolated-virtualenvs), Travis already runs tests inside an isolated virtualenv whenever `language: python` is specified, so please bear that in mind whenever creating more environments with tox. If you would prefer to run tox outside the Travis-created virtualenv, it might be a better idea to use `language: generic` instead of `language: python`.
 
 If you're using tox to test your code against multiple versions of Python, you have two options:
-  * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions - 2.7.12 and 3.5.1 for Xenial)
-  * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and parallelizes your workload.
+  * use `language: generic` and manually install the Python versions you're interested in before running tox (without the manual installation, tox will only have access to the default Ubuntu Python versions in a chosen distribution)
+  * use `language: python` and a build matrix that uses a different version of Python for each branch (you can specify the Python version by using the `python` key). This will ensure the versions you're interested in are installed and will parallelize your workload.
 
-A good example of a `travis.yml` that runs tox using a Travis build matrix is [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml).
+## Run Python tests on multiple Operating Systems
 
-## Running Python tests on multiple Operating Systems
-
-Sometimes it is necessary to ensure that software works the same across multiple Operating Systems.  This following `.travis.yml` file will execute parallel test runs on Linux, macOS, and Windows.
+Sometimes, it is necessary to ensure that software works the same across multiple Operating Systems.  The following `.travis.yml` file will execute parallel test runs on Linux and Windows.
 
 ```yaml
-language: python            # this works for Linux but is an error on macOS or Windows
+language: python            # this works for Linux but is an error on Windows
 jobs:
   include:
     - name: "Python 3.8.0 on Xenial Linux"
-      python: 3.8           # this works for Linux but is ignored on macOS or Windows
-    - name: "Python 3.7.4 on macOS"
-      os: osx
-      osx_image: xcode11.2  # Python 3.7.4 running on macOS 10.14.4
-      language: shell       # 'language: python' is an error on Travis CI macOS
+      python: 3.8           # this works for Linux but is ignored on Windows
+    - name: "Python 3.6.10 on FreeBSD"
+      os: freebsd
+      language: python
     - name: "Python 3.8.0 on Windows"
       os: windows           # Windows 10.0.17134 N/A Build 17134
       language: shell       # 'language: python' is an error on Travis CI Windows
@@ -182,8 +184,8 @@ jobs:
         - python -m pip install --upgrade pip
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
 install: pip3 install --upgrade pip  # all three OSes agree about 'pip3'
-# 'python' points to Python 2.7 on macOS but points to Python 3.8 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
+# 'python' points to Python 3.8 on Linux and Windows
+# 'python3' is a 'command not found' error on Windows, but 'py' works on Windows only
 script: python3 my_app.py || python my_app.py
 ```
 {: data-file=".travis.yml"}
@@ -192,7 +194,7 @@ script: python3 my_app.py || python my_app.py
 
 ### pip
 
-By default Travis CI uses `pip` to manage Python dependencies. If you have a
+By default, Travis CI uses `pip` to manage Python dependencies. If you have a
 `requirements.txt` file, Travis CI runs `pip install -r requirements.txt`
 during the `install` phase of the build.
 
@@ -205,18 +207,33 @@ install: pip install --user -r requirements.txt
 
 Please note that the `--user` option is mandatory if you are not using `language: python`, since no virtualenv will be created in that case.
 
+#### New dependency resolver in pip 20.3
+
+As described in the [PyPa](https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-2-2020) announcement, `pip` version 20.3 will ship with a new dependency resolver.
+This may have unexpected changes in your software; when we deploy new build images with this version at a future date, your builds may break due to the changes related to this version.
+
+To test the new dependency resolver's effects on your software, we advise you to test it with `pip` version 20.2. To do so, modify your build to update `pip` to version 20.2 and to invoke `pip` with `--use-feature=2020-resolver` flag. For example:
+
+```yaml
+before_install:
+  - python -m pip install --upgrade pip
+install:
+  - pip install --user -r requirements.txt --use-feature=2020-resolver
+```
+{: data-file=".travis.yml"}
+
 ### Custom Dependency Management
 
 To override the default `pip` dependency management, alter the `before_install`
 step as described in [general build
 configuration](/user/job-lifecycle/#customizing-the-installation-phase) guide.
 
-### Testing Against Multiple Versions of Dependencies (e.g. Django or Flask)
+### Test against Multiple Versions of Dependencies 
 
-If you need to test against multiple versions of, say, Django, you can instruct
+If you need to test against multiple versions of, say, Django or Flask, you can instruct
 Travis CI to do multiple runs with different sets or values of environment variables.
 
-Use *env* key in your .travis.yml file, for example:
+Use *env* key in your .travis.yml file, below is a Django example:
 
 ```yaml
 env:
@@ -226,7 +243,7 @@ env:
 {: data-file=".travis.yml"}
 
 and then use ENV variable values in your dependencies installation scripts, test
-cases or test script parameter values. Here we use ENV variable value to instruct
+cases or test script parameter values. Here, we use ENV variable value to instruct
 pip to install an exact version:
 
 ```yaml
@@ -254,6 +271,7 @@ You can find more information on the build config format for [Python](https://co
 - [twisted/klein](https://github.com/twisted/klein/blob/master/.travis.yml)
 
 {% if site.data.language-details.python-versions.size > 0 %}
+
 ## Python versions
 
 These archives are available for on-demand installation.

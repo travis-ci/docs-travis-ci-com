@@ -1,19 +1,15 @@
 ---
-title: The Windows Build Environment
+title: Windows Build Environment
 layout: en
 ---
 
-### What This Guide Covers
+This guide explains what packages, tools, and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
 
-This guide explains what packages, tools and settings are available in the Travis Windows CI environment (often referred to as the “CI environment”).
-
-> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux or macOS is currently supported.
-
-## Support
+> Take note that our Windows environment is in early stages and a minimal subset of what's available on Linux is currently supported.
 
 > Early adopters of our Windows environment can ask their questions/report issues in the [Windows category](https://travis-ci.community/c/windows) of our Community Forums.
 
-## Using Windows
+## Use Windows
 
 To use our Windows build infrastructure, add the following to your `.travis.yml`:
 
@@ -21,6 +17,8 @@ To use our Windows build infrastructure, add the following to your `.travis.yml`
 os: windows
 ```
 {: data-file=".travis.yml"}
+
+Travis CI also supports the [Ubuntu Linux Environment](/user/reference/linux/) and [FreeBSD Environment](/user/reference/freebsd/).
 
 ## Windows Version
 
@@ -45,14 +43,20 @@ Powershell can be used by calling `powershell` in your .travis.yml file for now.
 VMs running Windows use the default file system, NTFS.
 
 ## Supported languages
+
+The following is a list of the supported languages.
+
+- Bash `language: bash` or `language: shell`
 - C with `language: c`
 - C++ with `language: cpp`
+- Go with `language: go`
+- Julia with `language: julia`
 - Node.js with `language: node_js`
 - Rust with `language: rust`
-- Go with `language: go`
-- Bash `language: bash` or `language: shell`
 
 ## Pre-installed Chocolatey packages
+
+The following is a list of the pre-installed Chocolatey packages.
 
 - 7zip.install v19.0
 - chocolatey v0.10.15 
@@ -68,7 +72,7 @@ VMs running Windows use the default file system, NTFS.
 - DotNet4.6-TargetPack v4.6.00081.20150925
 - DotNet4.6.1 v4.6.01055.20170308
 - dotnetfx v4.8.0.20190930
-- git.install v2.25.0
+- git.install v2.25.0[^git]
 - hashdeep v4.4
 - jq v1.6
 - KB2919355 v1.0.20160915
@@ -99,7 +103,9 @@ VMs running Windows use the default file system, NTFS.
 
 > A basic Python 2.7.9 interpreter is also included: `/C/ProgramData/chocolatey/bin/python.exe`
 
-## How do I use MSYS2?
+[^git]: Travis uses the system-wide Git for Windows installation in its own machinery, so use an alternative package like [`git.portable`](https://chocolatey.org/packages/git.portable) if you need a custom version of Git.
+
+## Use MSYS2
 
 [MSYS2](https://www.msys2.org/) is a popular development environment for building GCC-based projects with Unix-style build systems. While it isn't included in the Windows image, it is fairly easy to install via [the Chocolatey package](https://chocolatey.org/packages/msys2) using the following additions to the sections of your `.travis.yml`:
 
@@ -142,8 +148,8 @@ cache:
 
 This will download and install MSYS2 the first time, and store both the downloaded initial archive and the MSYS2 installation in your [build cache](/user/caching/#arbitrary-directories). Subsequent builds will avoid re-downloading the initial archive and will update the cached installation before use, and cache the updated installation upon success.
 
-MSYS2 contains two noteworthy [subsystems](https://github.com/msys2/msys2/wiki/MSYS2-introduction#subsystems): "msys2" and "mingw64". The code above prepares the `$msys2` and `$mingw64` prefixes for entering the corresponding shells. As an example, the `$msys2` prefix is used to run `pacman` appropriately. Your build commands should use the `$mingw64` prefix to build native Windows programs, and the `$msys2` prefix to build POSIX-based programs requiring the MSYS2 DLL.
+MSYS2 contains two noteworthy [subsystems](https://www.msys2.org/wiki/MSYS2-introduction/#subsystems): "msys2" and "mingw64". The code above prepares the `$msys2` and `$mingw64` prefixes for entering the corresponding shells. As an example, the `$msys2` prefix is used to run `pacman` appropriately. Your build commands should use the `$mingw64` prefix to build native Windows programs, and the `$msys2` prefix to build POSIX-based programs requiring the MSYS2 DLL.
 
-A point of caution: the pre-installed "mingw" Chocolatey package should **not** be used within any MSYS2 subsystem. (In fact, the above snippet uninstalls the "mingw" Chocolatey package to be safe.) Note that the [MSYS2 wiki](https://github.com/msys2/msys2/wiki/MSYS2-introduction#path) says:
+A point of caution: the pre-installed "mingw" Chocolatey package should **not** be used within any MSYS2 subsystem. (In fact, the above snippet uninstalls the "mingw" Chocolatey package to be safe.) Note that the [MSYS2 wiki](https://www.msys2.org/wiki/MSYS2-introduction/#path) says:
 
 > Be aware that mixing in programs from other MSYS2 installations, Cygwin installations, compiler toolchains or even various other programs is not supported and will probably break things in unexpected ways.

@@ -1,21 +1,19 @@
 ---
-title: Building a Nix Project
+title: Build a Nix Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
-This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Tutorial](/user/tutorial/) and [general build configuration](/user/customizing-the-build/) guides first.
-
+This guide covers build environment and configuration topics specific to Nix projects. Please make sure to read our [Onboarding](/user/onboarding/) and [General Build configuration](/user/customizing-the-build/) guides first.
 
 
-### Community-Supported Warning
+## Community-Supported Warning
 
 Travis CI support for Nix is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:nix)
-and cc [@domenkozar](https://github.com/domenkozar), [@garbas](https://github.com/garbas), [@matthewbauer](https://github.com/matthewbauer), and [@grahamc](https://github.com/grahamc).
+and cc [@garbas](https://github.com/garbas), [@matthewbauer](https://github.com/matthewbauer), and [@grahamc](https://github.com/grahamc).
 
 ## Overview
 
@@ -28,7 +26,7 @@ language: nix
 
 The default channel for `nixpkgs` will be `nixpkgs-unstable`.
 
-## Provided Tools
+## Tools Available
 
 The following command line tools are available in the Nix environment:
 
@@ -46,11 +44,11 @@ The following command line tools are available in the Nix environment:
 
 ## Default Nix Version
 
-This installs Nix 2.0.4 using [https://nixos.org/releases/nix/nix-2.0.4/install](https://nixos.org/releases/nix/nix-2.0.4/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
+This installs Nix 2.3.6 using [https://nixos.org/releases/nix/nix-2.3.6/install](https://nixos.org/releases/nix/nix-2.3.6/install). You may specify a different version of Nix installer with the `nix:` key in your `.travis.yml`:
 
 ```yaml
 language: nix
-nix: 2.0.4
+nix: 2.3.6
 ```
 {: data-file=".travis.yml"}
 

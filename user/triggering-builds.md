@@ -1,31 +1,32 @@
 ---
-title: Triggering builds with API V3
+title: Trigger Builds with API Version 3.0
 
 layout: en
 ---
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use `--org` instead of `--com` in all of the commands shown on this page, and make requests to https://api.travis-ci.org.
+## Travis CI Hosted Solution 
 
-Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
+To use Travis CI as a hosted solution (app.travis-ci.com), trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{slug|id}/requests`:
 
-1. Get an API token from your Travis CI [Profile page](https://travis-ci.com/profile). You'll need the token to authenticate most of these API requests.
+1. Get an API token from your Travis CI [settings page](https://app.travis-ci.com/account/preferences). You'll need the token to authenticate most of these API requests.
 
    You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme)
    to get your API token:
 
    ```
-   travis login --com
+   travis login --com --github-token YOUR_GITHUB_TOKEN
    travis token --com
    ```
 
 2. Send a request to the API. This example shell script sends a POST request to
-   `/repo/travis-ci/travis-core/requests` to trigger a build of the most recent
-   commit of the master branch of the `travis-ci/travis-core` repository:
+   `/repo/travis-ci/travis-core/requests` to trigger a build of a specific
+   commit (omit `sha` for most recent) of the master branch of the `travis-ci/travis-core` repository:
 
    ```bash
    body='{
    "request": {
-   "branch":"master"
+   "branch":"master",
+   "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
    }}'
 
    curl -s -X POST \
@@ -58,8 +59,8 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
     "request": {
     "message": "Override the commit message: this is an api request",
     "branch":"master",
+    "merge_mode": "deep_merge",
     "config": {
-      "merge_mode": "deep_merge",
       "env": {
         "jobs": [
           "TEST=unit"
@@ -118,7 +119,52 @@ Trigger Travis CI builds using the API V3 by sending a POST request to `/repo/{s
 
 {{ site.data.snippets.ghlimit }}
 
-## Customizing the commit message
+## Travis CI Enterprise
+
+Trigger Travis CI builds using the API on your Travis CI Enterprise instance by sending a POST request to `/repo/{slug|id}/requests`:
+
+1. Get an API token from your Travis CI Enterprise at https://PLATFORM_URL/account/preferences. You'll need the token to authenticate most of these API requests.
+
+   You can also use the Travis CI [command line client](https://github.com/travis-ci/travis.rb#travis-ci-and-travis-ci-enterprise)
+   to get your API token:
+
+   ```
+   travis login -X --github-token YOUR_GITHUB_TOKEN
+   travis token -X
+   ```
+
+2. Send a request to the API. This example shell script sends a POST request to
+   `/repo/travis-ci/tcie-demo/requests` to trigger a build of a specific
+   commit (omit `sha` for most recent) of the master branch of the `travis-ci/tcie-demo` repository:
+
+   ```bash
+   body='{
+   "request": {
+   "branch":"master",
+   "sha":"bf944c952724dd2f00ff0c466a5e217d10f73bea"
+   }}'
+
+   curl -s -X POST \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json" \
+      -H "Travis-API-Version: 3" \
+      -H "Authorization: token xxxxxx" \
+      -d "$body" \
+      https://PLATFORM_URL/api/repo/travis-ci%2Ftcie-demo/requests
+   ```
+
+   > The %2F in the request URL is required so that the owner and repository
+     name in the repository slug are interpreted as a single URL segment.
+   > The `PLATFORM_URL` is the endpoint where your Travis CI Enterprise instance is reachable.
+
+
+   The build uses the `.travis.yml` file in the master branch, but you can add to
+   or override configuration, or change the commit message. Overriding any section
+   (like `script` or `env`) overrides the full section, the contents of the
+   `.travis.yml` file present in the repository is *not* merged with the values contained in the request.
+
+
+## Customize Commit Messages
 
 You can specify a commit message in the request body:
 
@@ -145,11 +191,11 @@ There are the following merge modes:
 * `merge`
 * `replace`
 
-The default merge mode is `deep_merge_append` with [Build Config Validation](/user/build-config-validation)
+The default merge mode is `deep_merge_append` with [Build Config Validation](/user/build-config-validation/)
 enabled. With Build Config Validation disabled the default is `deep_merge`,
 which will be discontinued soon.
 
-We recommend to specify the merge mode with your API requests explicitly.
+We recommend specifying the merge mode with your API requests explicitly.
 
 Consider these examples:
 
@@ -181,11 +227,12 @@ addons:
     packages:
     - cmake
 ```
+{: data-file=".travis.yml"}
 
-### Deep merge append/prepend
+### Deep Merge append and prepend modes
 
 The merge modes `deep_merge_append` and `deep_merge_prepend` recursively merge
-sections (keys) that hold maps (hashes), and concatenates sequences (arrays) by
+sections (keys) that hold maps (hashes), and concatenate sequences (arrays) by
 either appending or prepending to the sequence in the importing config.
 
 Given the merge mode `deep_merge_append`, with the example build configs above
@@ -240,7 +287,7 @@ the result will be:
 }
 ```
 
-### Deep merge
+### Deep Merge mode
 
 The merge mode `deep_merge` recursively merges sections (keys) that hold maps (hashes),
 but overwrites sequences (arrays).
@@ -270,7 +317,7 @@ the result will be:
 }
 ```
 
-### Merge
+### Merge mode
 
 The merge mode `merge` performs a shallow merge.
 
@@ -295,7 +342,7 @@ in `.travis.yml`:
   }
 }
 ```
-### Replace
+### Replace mode
 
 The merge mode `replace` instructs Travis CI to simply replace the build config
 in your `.travis.yml` file with the config sent with your API request.

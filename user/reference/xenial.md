@@ -3,6 +3,8 @@ title: The Xenial Build Environment
 layout: en
 ---
 
+> Xenial LTS Standard has reached End of Life (EOL) as per Canonical. Consider updating to a newer image. Travis CI has ceased all work on updates to Xenial images as of the end of the 2024 calendar year, and it is now considered deprecated.
+
 ## What This Guide Covers
 
 This guide provides an overview of the packages, tools and settings available in the Xenial environment.
@@ -82,9 +84,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.21.0` |
-| git-lfs | `2.6.1`  |
-| hg      | `4.8`    |
+| git     | `2.37.3` |
+| git-lfs | `3.2.0`  |
+| hg      | `5.9.3`  |
 | svn     | `1.9.3`  |
 {: style="width: 30%" }
 
@@ -93,44 +95,82 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 * clang and llvm 7
 * cmake 3.12.4
 * gcc 5.4.0
-* ccache 3.2.4
-* shellcheck 0.6.0
-* shfmt 2.6.3
+* ccache 3.2.4-1
+* shellcheck 0.7.2
+* shfmt 3.2.1
+
+To use the IBM Advance Toolchain v12 compilers under `ppc64le` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/gcc`
+  - Command: `/opt/at12.0/bin/gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/g++`
+  - Command: `/opt/at12.0/bin/g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/gccgo`
+  - Command: `/opt/at12.0/bin/gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`.
+  - Python Interpreter Path: `/opt/python380-at12/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
+
+To use the IBM Advance Toolchain v12 compilers under `amd64` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`
+  - Python Interpreter Path: `/opt/python380-amd64/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
 
 ### Docker
 
-* Docker 18.06.0-ce is installed
-* docker-compose 1.23.1.
+* Docker 20.10.7 is installed
+* docker-compose 1.29.2.
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.5` and `2.5.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.7.6`, `3.0.4` and `3.1.2`.
+* The default ruby is `2.7.6p219`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.4` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `3.6.7` will be used when no language version is explicitly set.
+* Supported Python versions: `3.5` or higher.
+* Pre-installed Python versions: `3.7.13`, and `3.8.13`.
+* Python `3.7.13` will be used when no language version is explicitly set.
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
-* The following NodeJS versions are preinstalled: `11.0.0` and `8.12.0`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.39.1.
+* NodeJS version `16.16.0` is preinstalled.
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`
+* Pre-installed Go: `1.18.4`
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
-is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le. 
+* Pre-installed JVMs: `openjdk8` and `openjdk11` on x86, default
+is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -138,26 +178,21 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 
 | package | version |
 |:--------|:--------|
-| gradle  | 5.1.1   |
-| maven   | 3.6.0   |
-| groovy  | 2.4.5   |
+| gradle  | 7.4.2   |
+| maven   | 3.8.6   |
+| groovy  | 4.0.3   |
 {: style="width: 30%" }
 
 ## Perl support
-* Default version on Xenial is `5.22`
-* Supported versions `5.22`, `5.24`, `5.26`, `5.28` and `5.30` can be installed by using the `perl:`-key.
+
+* Default version on Xenial is `5.34.1`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.29`, `5.30`, `5.31`, `5.32`, `5.33` and `5.34` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
 
 * For dynamic runtime selection, `phpenv` is available.
-* The following PHP versions are preinstalled:
-
-| alias  | version  |
-| :----- | :------- |
-| 5.6    | 5.6.40   |
-| 7.1    | 7.1.27   |
-| 7.2    | 7.2.15   |
-{: style="width: 30%" }
+* PHP version `7.4.30` is preinstalled.
 
 ## Databases and services
 
@@ -166,12 +201,15 @@ To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | 4.0            |
-| mysql      | 5.7            |
-| redis      | 5.0            |
+| mongodb    | 4.0.28         |
+| mysql      | 5.7.33         |
+| redis      | 6.0.6          |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 
+* IMPORTANT: Since Xenial LTS is officaly EOL, postgre apt packages are no more available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
+* Currently Xenial is using apt-archive.postgresql.org, unfortunately it lacks ARM and S390x arch packages.
+
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.

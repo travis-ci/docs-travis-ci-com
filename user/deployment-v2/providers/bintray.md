@@ -10,7 +10,7 @@ after a successful build.
 
 {% include deploy/providers/bintray.md %}
 
-## Descriptor file
+## Descriptor File
 
 The descriptor is in JSON file format in three sections:
 
@@ -66,12 +66,12 @@ The descriptor is in JSON file format in three sections:
 
 ### Package Section
 
-Bintray package information. The following information is mandatory on open source projects:
+Bintray package information. The following information is mandatory for open-source projects:
 
-- `name` is the Bintray package name
-- `repo` is the Bintray repository name
-- `subject` is the Bintray subject, which is either a user or an organization
-- `vcs_url` is the Bintray version control system url, such as a github repository url
+- `name` is the Bintray package name.
+- `repo` is the Bintray repository name.
+- `subject` is the Bintray subject, which is either a user or an organization.
+- `vcs_url` is the Bintray version control system URL, such as a GitHub repository URL.
 - `licenses` is the [Bintray licences](https://bintray.com/docs/api/#_licenses){: data-proofer-ignore=""}, which is a list with at least one item.
 
 ### Version Section
@@ -80,7 +80,7 @@ Package version information. In case the version already exists on Bintray, only
 
 ### Files Section
 
-Configure the files you would like to upload to Bintray and their upload path.
+Configure the files you want to upload to Bintray and their upload path.
 
 You can define one or more groups of patterns. Each group contains three patterns:
 
@@ -132,7 +132,7 @@ matrixParams as part of the files closure as shown in the following example:
 ]
 ```
 
-### Overwriting Existing Files
+### Overwrite Existing Files
 
 If an artifact by a given name already exists in the Bintray repository, then
 by default it is not overwritten. If you want to replace the existing file,

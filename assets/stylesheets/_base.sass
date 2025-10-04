@@ -55,6 +55,19 @@ blockquote
     border-color: $oxide-blue
     background-color: transparent
 
+  // Ensure blockquote inline code overrides Prism defaults
+  // Prism targets code[class*="language-"] and :not(pre) > code[class*="language-"]
+  // Add higher-specificity variants so our palette wins inside quotes
+  code[class*="language-"]
+    color: $oxide-blue
+    border-color: $oxide-blue
+    background-color: transparent
+
+  :not(pre) > code[class*="language-"]
+    color: $oxide-blue
+    border-color: $oxide-blue
+    background-color: transparent
+
 ol
   padding: 0 0 0 1.3em
   ol, ul
