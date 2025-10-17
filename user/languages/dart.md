@@ -1,26 +1,43 @@
 ---
-title: Building a Dart Project
+title: Build a Dart Project
 layout: en
 
 ---
 
-### What This Guide Covers
+
+<aside markdown="block" class="ataglance">
+
+| Dart                                        | Default                                   |
+|:--------------------------------------------|:------------------------------------------|
+| [Default `install`](#dependency-management) | `pub get`                                 |
+| [Default `script`](#default-build-script)   | `pub run test`                            |
+| [Matrix keys](#build-matrix)                | `dart`, `dart_task`, `env`                |
+| Support                                     | [Community Support](https://travis-ci.community/c/languages/dart) |
+
+Minimal example:
+
+```yaml
+language: dart
+```
+{: data-file=".travis.yml"}
+
+</aside>
 
 This guide covers build environment and configuration topics specific to
-[Dart](https://www.dartlang.org/) projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Dart](https://dart.dev/) projects. Please make sure to read our
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
 Travis CI support for Dart is contributed by the community and may be removed
 or altered at any time. If you run into any problems, please report them in the
 [Travis CI issue tracker](https://github.com/travis-ci/travis-ci/issues/new?labels=community:dart)
-and cc `@nex3` and `@a14n`.
+and cc [@athomas](https://github.com/athomas) and [@a14n](https://github.com/a14n).
 
-## Choosing Dart versions to test against
+## Test against Dart Versions
 
-Dart workers on travis-ci.org download and install the Dart SDK archives. See
+Dart workers on Travis CI download and install the Dart SDK archives. See
 the [Dart Download Archive](https://www.dartlang.org/install) for the list of
 available archives. By default, the latest stable SDK version is downloaded. To
 explicitly select one or more versions, use the `dart` key. For example:
@@ -30,33 +47,29 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
+# Install the latest beta release
+- beta
 # Install the latest dev release
 - dev
 # Install a specific stable release - 1.15.0
 - "1.15.0"
-# Install a specific dev release, using a partial download URL - 1.16.0-dev.3.0
-- "dev/release/1.16.0-dev.3.0"
+# Install a specific dev release, using a partial download URL - 2.9.0-2.0.dev
+- "dev/release/2.9.0-2.0.dev"
+# Install a specific beta release, using a partial download URL - 2.9.0-2.0.beta
+- "beta/release/2.9.0-2.0.beta"
 ```
 {: data-file=".travis.yml"}
 
-This creates a separate Travis job for each Dart version. It can be used in
-conjunction with `env` or similar fields to create a [build matrix][].
+[build matrix]: /user/customizing-the-build/#build-matrix
 
-[build matrix]: /user/customizing-the-build/#Build-Matrix
-
-## Dependency Management
-
-If your Dart package has a `pubspec.yaml` file, then `pub get` will be run
-before your tests to install any dependencies of the package.
-
-## Running Tests
+## Run Tests
 
 If your package depends on the [`test` package][test], `pub run test` will be
 run by default. This typically only runs tests on the Dart VM, but you can
 [configure it][] to run on additional platforms by default.
 
 [test]: https://pub.dartlang.org/packages/test
-[configure it]: https://github.com/dart-lang/test/blob/master/doc/configuration.md#platforms
+[configure it]: https://github.com/dart-lang/test/blob/master/pkgs/test/doc/configuration.md#platforms
 
 You can also customize the arguments Travis passes to the test runner using the
 `dart_task` field in `.travis.yml`.
@@ -69,17 +82,11 @@ dart_task:
 ```
 {: data-file=".travis.yml"}
 
-Each task creates a separate Travis job. It can be used in conjunction with
-`env`, `dart`, or similar fields to create a [build matrix][].
-
 ### Available Browsers
 
-Travis comes with Firefox and Chrome installed by default on Linux, and Safari
-on OS X. However, if you want to run your tests on [Dartium][], you'll need to
+Travis comes with Firefox and Chrome installed by default on Linux. However, if you want to run your tests on Dartium, you'll need to
 install it by adding `install_dartium: true` either at the top level or for a
 particular task.
-
-[Dartium]: https://webdev.dartlang.org/tools/dartium
 
 ```yaml
 language: dart
@@ -108,7 +115,6 @@ dart_task:
 ```
 {: data-file=".travis.yml"}
 
-XVFB is never used on OS X, since it doesn't use the X windows system.
 
 ## Other Tasks
 
@@ -117,7 +123,7 @@ Several tasks are available in addition to running tests.
 ### Analyzer
 
 To run the [Dart analyzer][] to verify that your code doesn't have any static
-errors, add a task with `dartanalyzer: true`. By default it analyzes all Dart
+errors, add a task with `dartanalyzer: true`. By default, it analyzes all Dart
 files in your repository, but you can configure it by providing arguments
 instead of `true`.
 
@@ -160,3 +166,7 @@ dart_task:
 * `TRAVIS_DART_TEST` will be `true` if the current task uses `test`.
 * `TRAVIS_DART_ANALYZE` will be `true` if the current task uses `dartanalyzer`.
 * `TRAVIS_DART_FORMAT` will be `true` if the current task uses `dartfmt`.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Dart](https://config.travis-ci.com/ref/language/dart) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

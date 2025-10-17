@@ -1,21 +1,20 @@
 ---
-title: Building a Smalltalk Project
+title: Build a Smalltalk Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 This guide covers build environment and configuration topics specific to Smalltalk
 projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
-### Community-Supported Warning
+## Community-Supported Warning
 
 Travis CI support for Smalltalk is provided by [SmalltalkCI](https://github.com/hpi-swa/smalltalkCI) and contributed by the community and may be removed or altered at any time. If you run into any problems, please report them [here](https://github.com/hpi-swa/smalltalkCI/issues).
 
-## Basic configuration
+## Basic configurations
 
 To set up continuous integration for your Smalltalk project, you need a `.travis.yml` and a `.ston` configuration file for SmalltalkCI.
 
@@ -23,12 +22,15 @@ An example `.travis.yml` :
 
 ```yaml
 language: smalltalk
-sudo: false
 
 # Select operating system(s)
 os:
   - linux
-  - osx
+
+# Select virtual machine(s)
+smalltalk_vm:
+  - Squeak-5.0
+  - Pharo-5.0
 
 # Select compatible Smalltalk image(s)
 smalltalk:
@@ -62,7 +64,12 @@ SmalltalkCISpec {
   ]
 }
 ```
+{: data-file=".smalltalk.ston"}
 
 ## Configuration
 
 This documentation is just a minimal example and not as exhaustive as [SmalltalkCI's `README.md`](https://github.com/hpi-swa/smalltalkCI#templates).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Smalltalk](https://config.travis-ci.com/ref/language/smalltalk) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

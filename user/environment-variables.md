@@ -6,17 +6,14 @@ layout: en
 
 A common way to customize the build process is to define environment variables, which can be accessed from any stage in your build process.
 
-<div id="toc"></div>
 
 The best way to define an environment variable depends on what type of information it will contain, and when you need to change it:
 
-- if it does *not* contain sensitive information, might be different for different branches and should be available to forks -- [add it to your .travis.yml](#Defining-Variables-in-travisyml)
-- if it *does* contain sensitive information, and might be different for different branches -- [encrypt it and add it to your .travis.yml](#Encrypted-Variables)
-- if it *does* contain sensitive information, but is the same for all branches -- [add it to your Repository Settings](#Defining-Variables-in-Repository-Settings)
+- if it does *not* contain sensitive information and should be available to forks -- [add it to your .travis.yml](#defining-public-variables-in-travisyml)
+- if it *does* contain sensitive information, and is the same for all branches -- [encrypt it and add it to your .travis.yml](#defining-encrypted-variables-in-travisyml)
+- if it *does* contain sensitive information, and might be different for different branches -- [add it to your Repository Settings](#defining-variables-in-repository-settings)
 
-## Defining public variables in .travis.yml
-
-{: #Defining-Variables-in-travisyml}
+## Define Public Variables 
 
 Public variables defined in `.travis.yml` are tied to a certain commit. Changing them requires a new commit, restarting an old build uses the old values. They are also available automatically on forks of the repository.
 
@@ -26,7 +23,8 @@ Define variables in `.travis.yml` that:
 - differ per branch.
 - differ per job.
 
-Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`):
+Define environment variables in your `.travis.yml` in the `env` key, quoting special characters such as asterisks (`*`).
+One build will be triggered for each line in the `env` array.
 
 ```yaml
 env:
@@ -38,9 +36,13 @@ env:
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
-### Defining Multiple Variables per Item
+<a id="note-format"/>
 
-When you define multiple variables per line in the `env` array (matrix variables), one build is triggered per item.
+> Variables' values are passed to the generated build script verbatim. So make sure to escape any [Bash special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly. In particular, if a value contains spaces, you need to put quotes around that value. E.g., `a long phrase` should be written as `"a long phrase"`.
+
+### Define Multiple Variables per Item
+
+If you need to specify several environment variables for each build, put them all on the same line in the `env` array:
 
 ```yaml
 rvm:
@@ -61,14 +63,14 @@ this configuration triggers **4 individual builds**:
 
 ### Global Variables
 
-Sometimes you may want to use environment variables that are global to the matrix, i.e. they're inserted into each matrix row. That may include keys, tokens, URIs or other data that is needed for every build. In such cases, instead of manually adding such keys to each `env` line in matrix, you can use `global` and `matrix` keys to differentiate between those two cases. For example:
+Sometimes you may want to use environment variables that are global to the matrix, i.e. they're inserted into each matrix row. That may include keys, tokens, URIs or other data that is needed for every build. In such cases, instead of manually adding such keys to each `env` line in matrix, you can use `global` and `jobs` keys to differentiate between those two cases. For example:
 
 ```yaml
 env:
   global:
     - CAMPFIRE_TOKEN=abc123
     - TIMEOUT=1000
-  matrix:
+  jobs:
     - USE_NETWORK=true
     - USE_NETWORK=false
 ```
@@ -81,7 +83,7 @@ USE_NETWORK=true CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 USE_NETWORK=false CAMPFIRE_TOKEN=abc123 TIMEOUT=1000
 ```
 
-## Defining encrypted variables in .travis.yml
+## Define Encrypted variables
 
 {: #Encrypted-Variables}
 
@@ -93,7 +95,7 @@ A `.travis.yml` file containing encrypted variables looks like this:
 env:
   global:
     - secure: mcUCykGm4bUZ3CaW6AxrIMFzuAYjA98VIz6YmYTmM0/8sp/B/54JtQS/j0ehCD6B5BwyW6diVcaQA2c7bovI23GyeTT+TgfkuKRkzDcoY51ZsMDdsflJ94zV7TEIS31eCeq42IBYdHZeVZp/L7EXOzFjVmvYhboJiwnsPybpCfpIH369fjYKuVmutccD890nP8Bzg8iegssVldgsqDagkuLy0wObAVH0FKnqiIPtFoMf3mDeVmK2AkF1Xri1edsPl4wDIu1Ko3RCRgfr6NxzuNSh6f4Z6zmJLB4ONkpb3fAa9Lt+VjJjdSjCBT1OGhJdP7NlO5vSnS5TCYvgFqNSXqqJx9BNzZ9/esszP7DJBe1yq1aNwAvJ7DlSzh5rvLyXR4VWHXRIR3hOWDTRwCsJQJctCLpbDAFJupuZDcvqvPNj8dY5MSCu6NroXMMFmxJHIt3Hdzr+hV9RNJkQRR4K5bR+ewbJ/6h9rjX6Ot6kIsjJkmEwx1jllxi4+gSRtNQ/O4NCi3fvHmpG2pCr7Jz0+eNL2d9wm4ZxX1s18ZSAZ5XcVJdx8zL4vjSnwAQoFXzmx0LcpK6knEgw/hsTFovSpe5p3oLcERfSd7GmPm84Qr8U4YFKXpeQlb9k5BK9MaQVqI4LyaM2h4Xx+wc0QlEQlUOfwD4B2XrAYXFIq1PAEic=
-  matrix:
+  jobs:
     - USE_NETWORK=true
     - USE_NETWORK=false
     - secure: <you can also put encrypted vars inside matrix>
@@ -104,43 +106,39 @@ env:
 >
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence. If you define a variable in `.travis.yml` as both encrypted and unencrypted, the one defined later in the file takes precedence.
 
-### Encrypting environment variables
+### Encrypting Environment variables
 
 Encrypt environment variables with the public key attached to your repository using the `travis` gem:
 
 1. If you do not have the `travis` gem installed, run `gem install travis`.
 
-2. In your repository directory, run:
+2. In your repository directory:
 
-   ```bash
-   travis encrypt MY_SECRET_ENV=super_secret --add env.matrix
-   ```
+   * If you are using https://travis-ci.com, see [Encryption keys -- Usage](https://docs.travis-ci.com/user/encryption-keys/#usage).
+   * If you are using https://travis-ci.org, run:
+
+       ```bash
+       travis encrypt MY_SECRET_ENV=super_secret --add env.global
+       ```
 
 3. Commit the changes to your `.travis.yml`.
 
 > Encryption and decryption keys are tied to the repository. If you fork a project and add it to Travis CI, it will *not* have access to the encrypted variables.
 
-The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys).
+The encryption scheme is explained in more detail in [Encryption keys](/user/encryption-keys/).
 
-## Defining Variables in Repository Settings
+## Define Variables in Repository Settings
 
-{: #Defining-Variables-in-Repository-Settings}
+{{ site.data.snippets.environment_variables }}
 
-Variables defined in repository settings are the same for all builds, and when you restart an old build, it uses the latest values. These variables are not automatically available to forks.
-
-Define variables in the Repository Settings that:
-
-- differ per repository.
-- contain sensitive data, such as third-party credentials.
-
-To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the cog menu, and click on "Add new variable" in the "Environment Variables" section.
+To define variables in Repository Settings, make sure you're logged in, navigate to the repository in question, choose "Settings" from the "More options" menu, and click on "Add new variable" in the "Environment Variables" section. Restrict the environment variable to a specific branch by selecting which branch it should be available to.
 
 <figure>
-  <img alt="Screenshot of environment variables in settings" src="{{ "/images/settings-env-vars.png" | prepend: site.baseurl }}">
+  <img alt="Screenshot of environment variables in settings" src="{{ "/images/2019-07-settings-env-vars.png" | prepend: site.baseurl }}">
   <figcaption>Environment Variables in the Repository Settings</figcaption>
 </figure>
 
-> These values are used directly in your build, so make sure to escape [special characters (for bash)](http://www.tldp.org/LDP/abs/html/special-chars.html) accordingly.
+  > See [the note above](#note-format) on how to format variables' values correctly.
 
 By default, the value of these new environment variables is hidden from the `export` line in the logs. This corresponds to the behavior of [encrypted variables](#Encrypted-Variables) in your `.travis.yml`. The variables are stored encrypted in our systems, and get decrypted when the build script is generated.
 
@@ -150,24 +148,23 @@ As an alternative to the web interface, you can also use the CLI's [`env`](https
 
 > If you define a variable with the same name in `.travis.yml` and in the Repository Settings, the one in `.travis.yml` takes precedence.
 
-## Convenience Variables
+## Build Config Reference
 
-To make using encrypted environment variables easier, the following environment variables are available:
-
-- `TRAVIS_SECURE_ENV_VARS` is set to `true` if you have defined any encrypted variables, including variables defined in the Repository Settings, and `false` if you have not.
-- `TRAVIS_PULL_REQUEST` is set to the pull request number if the current job is a pull request build, or `false` if it's not.
+You can find more information on the build config format for [Environment Variables](https://config.travis-ci.com/ref/env) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Default Environment Variables
 
 The following default environment variables are available to all builds.
 
 - `CI=true`
+- `TZ=UTC`
 - `TRAVIS=true`
 - `CONTINUOUS_INTEGRATION=true`
 - `DEBIAN_FRONTEND=noninteractive`
 - `HAS_JOSH_K_SEAL_OF_APPROVAL=true`
-- `USER=travis` (**do not depend on this value**)
-- `HOME=/home/travis` (**do not depend on this value**)
+- `USER=travis`
+- `HOME` is set to `/home/travis` on Linux, and
+    `/c/Users/travis` on Windows.
 - `LANG=en_US.UTF-8`
 - `LC_ALL=en_US.UTF-8`
 - `RAILS_ENV=test`
@@ -182,6 +179,8 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_ALLOW_FAILURE`:
   + set to `true` if the job is allowed to fail.
   + set to `false` if the job is not allowed to fail.
+- `TRAVIS_APP_HOST`: The name of the server compiling the build script. This server serves certain helper files
+  (such as `nvm` or `sbt`) from `/files` to avoid external network calls
 - `TRAVIS_BRANCH`:
   + for push builds, or builds not triggered by a pull request, this is the name of the branch.
   + for builds triggered by a pull request this is the name of the branch targeted by the pull
@@ -194,19 +193,27 @@ to tag the build, or to run post-build deployments.
   being built has been copied on the worker.
 - `TRAVIS_BUILD_ID`: The id of the current build that Travis CI uses internally.
 - `TRAVIS_BUILD_NUMBER`: The number of the current build (for example, "4").
+- `TRAVIS_BUILD_WEB_URL`: URL to the build log.
 - `TRAVIS_COMMIT`: The commit that the current build is testing.
-- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped.
+- `TRAVIS_COMMIT_MESSAGE`: The commit subject and body, unwrapped. It will contain *Custom Commit Message* if it was provided.
 - `TRAVIS_COMMIT_RANGE`: The range of commits that were included in the push
   or pull request. (Note that this is empty for builds triggered by the initial commit of a new branch.)
+- `TRAVIS_COMPILER`: Indicates the compiler used by the current job (e.g., `clang`, `gcc`).
+- `TRAVIS_DEBUG_MODE`: Set to `true` if the job is running in [debug mode](https://docs.travis-ci.com/user/running-build-in-debug-mode/)
+- `TRAVIS_DIST`: Indicates the distribution the current job is running on.
 - `TRAVIS_EVENT_TYPE`: Indicates how the build was triggered. One of `push`, `pull_request`, `api`, `cron`.
 - `TRAVIS_JOB_ID`: The id of the current job that Travis CI uses internally.
+- `TRAVIS_JOB_NAME`: The [job name](https://docs.travis-ci.com/user/build-stages/#naming-your-jobs-within-build-stages) if it was specified, or `""`.
 - `TRAVIS_JOB_NUMBER`: The number of the current job (for example, "4.1").
+- `TRAVIS_JOB_WEB_URL`: URL to the job log.
 - `TRAVIS_OS_NAME`: On multi-OS builds, this value indicates the platform the job is running on.
-  Values are `linux` and `osx` currently, to be extended in the future.
+  Values are currently `linux` and `windows` (beta), to be extended in the future.
+- `TRAVIS_CPU_ARCH`: On [multi-arch](https://docs.travis-ci.com/user/multi-cpu-architectures/) builds, this value indicates the CPU architecture the job is running on.
+  Values are currently `amd64`, `arm64`, `ppc64le`, and `s390x`.
 - `TRAVIS_PULL_REQUEST`: The pull request number if the current job is a pull
   request, "false" if it's not a pull request.
 - `TRAVIS_PULL_REQUEST_BRANCH`:
-  +  if the current job is a pull request, the name of the branch from which the PR originated.
+  + if the current job is a pull request, the name of the branch from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_PULL_REQUEST_SHA`:
   + if the current job is a pull request, the commit SHA of the HEAD commit of the PR.
@@ -214,13 +221,22 @@ to tag the build, or to run post-build deployments.
 - `TRAVIS_PULL_REQUEST_SLUG`:
   + if the current job is a pull request, the slug (in the form `owner_name/repo_name`) of the repository from which the PR originated.
   + if the current job is a push build, this variable is empty (`""`).
+- `TRAVIS_PULL_REQUEST_IS_DRAFT`:
+  + set to `true` if the current job is a pull request and the associated PR is in a draft state
+  + set to `false` if the current job is a pull request and the associated PR is not in a draft state
+  + if the current job is a push build, this variable is empty (`""`).
 - `TRAVIS_REPO_SLUG`: The slug (in form: `owner_name/repo_name`) of the repository currently being built.
 - `TRAVIS_SECURE_ENV_VARS`:
   + set to `true` if there are any encrypted environment variables.
   + set to `false` if no encrypted environment variables are available.
 - `TRAVIS_SUDO`: `true` or `false` based on whether `sudo` is enabled.
-- `TRAVIS_TEST_RESULT`: is set to **0** if the build [is successful](/user/customizing-the-build/#Breaking-the-Build) and **1** if the build [is broken](/user/customizing-the-build/#Breaking-the-Build).
-- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name.
+- `TRAVIS_TEST_RESULT`: **0** if all commands in the `script` section (up to the point this environment variable is referenced) have exited with zero; **1** otherwise.
+- `TRAVIS_TAG`: If the current build is for a git tag, this variable is set to the tag's name, otherwise it is empty (`""`).
+- `TRAVIS_BUILD_STAGE_NAME`: The [build stage](/user/build-stages/). If a build does not use build stages, this variable is empty (`""`).
+- `TRAVIS_JOB_RESTARTED`:
+  + set to `true` if the build is restarted.
+  + set to `false` if the build has not been restarted.
+- `TRAVIS_JOB_RESTARTED_BY`: The login of the user triggering the restart.
 
 Language-specific builds expose additional environment variables representing
 the current version being used to run the build. Whether or not they're set

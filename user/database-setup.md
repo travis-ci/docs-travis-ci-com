@@ -1,18 +1,18 @@
 ---
-title: Setting up Databases
+title: Setup Databases and Services
 layout: en
 
 redirect_from:
-  - /user/using-postgresql/
+   - /user/using-postgresql/
 ---
 
 This guide covers setting up the most popular databases and other services in the Travis CI environment.
 
-<div id="toc"></div>
+You can check databases and services availability in the build environment you are using [here](https://docs.travis-ci.com/user/reference/overview/).
 
 All services use default settings, with the exception of some added users and relaxed security settings.
 
-## Starting Services
+## Start Services
 
 Travis CI environments do not start services by default, to make more RAM available
 to build scripts. Start services by adding them to the `services:` section of your
@@ -35,8 +35,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-> Note that this feature only works for services we provision in our [CI environment](/user/reference/precise/). If you download Apache Jackrabbit
-> you still have to start it in a `before_install` step.
+> If you download and install a service manually, you also have to start it in a `before_install` step. The `services` key only works for services we provision.
 
 ## MySQL
 
@@ -55,7 +54,14 @@ and a blank password.
 > Note that the `travis` user does not have the heightened privileges that the
 > `root` user does.
 
-### Using MySQL with ActiveRecord
+
+|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic | Ubuntu Focal  | Ubuntu Jammy  |
+|:------|:---------------|:--------------|:--------------|:--------------|:--------------|:--------------|
+|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         | 8.0.x         | 8.0.x         |
+
+You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
+
+### Use MySQL with ActiveRecord
 
 `config/database.yml` example for Ruby projects using ActiveRecord:
 
@@ -66,9 +72,9 @@ test:
   username: travis
   encoding: utf8
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
-You might have to create the `myapp_test` database first, for example in
+You might have to create the `myapp_test` database first, for example, in
 the `before_install` step in `.travis.yml`:
 
 ```yaml
@@ -77,14 +83,14 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### Note on `test` database
+### Note on test database
 
 In older versions of MySQL, the Ubuntu package provided the `test` database by
 default.  This is no longer the case as of version 5.5.37 due to security
 concerns (See [change
 log](http://changelogs.ubuntu.com/changelogs/pool/main/m/mysql-5.5/mysql-5.5_5.5.47-0ubuntu0.12.04.1/changelog)).
 
-The `test` database may be created if needed, for example in the
+The `test` database may be created if needed, for example, in the
 `before_install` step in `.travis.yml`:
 
 ```yaml
@@ -93,10 +99,12 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-### MySQL 5.6
 
-The recommended way to get MySQL 5.6 is switching to our [Trusty CI
-Environment](/user/reference/trusty/).
+### MySQL 5.7
+
+MySQL 5.7 is the default on the Xenial (`dist: xenial`) and Bionic (`dist: bionic`) images.
+
+> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
 
 ## PostgreSQL
 
@@ -108,7 +116,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-### Using PostgreSQL in your Builds
+### Use PostgreSQL
 
 The default user for accessing the local PostgreSQL server is `postgres` with a blank password.
 
@@ -137,9 +145,12 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-### Using a different PostgreSQL Version
+### Use a different PostgreSQL Version
 
-The Travis CI build environments use version 9.1 by default, but other versions from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the **major.minor** version in your `.travis.yml`:
+The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
+from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
+also available. To use a version other than the default, specify only the
+**major.minor** version in your `.travis.yml`:
 
 ```yaml
 addons:
@@ -147,34 +158,41 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-The following versions are available on Linux builds:
+Many PostgreSQL versions have been preinstalled in our build environments, and
+others may be added and activated at build time by using a combination of the
+`postgresql` and `apt` addons along with a global env var override for `PGPORT` and for `PGUSER`:
 
-| PostgreSQL | sudo enabled precise | sudo enabled trusty | container precise | container trusty |
-|:----------:|:--------------------:|:-------------------:|:-----------------:|:----------------:|
-|    9.1     |         yes          |                     |        yes        |                  |
-|    9.2     |         yes          |         yes         |        yes        |       yes        |
-|    9.3     |         yes          |         yes         |        yes        |       yes        |
-|    9.4     |         yes          |         yes         |        yes        |       yes        |
-|    9.5     |         yes          |         yes         |                   |       yes        |
-|    9.6     |                      |         yes         |                   |       yes        |
+``` yaml
+addons:
+  postgresql: "11"
+  apt:
+    packages:
+    - postgresql-11
+    - postgresql-client-11
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
+```
+{: data-file=".travis.yml"}
 
-On OS X, the following versions are installed:
+In the Xenial images, Postgres 9.4 through 9.6 just need the version specified and use the user 
+`postgres` by default and the default port of 5432. 
 
-|     image     | version |
-|:-------------:|:-------:|
-|    xcode61    |   9.3   |
-| beta-xcode6.1 |   9.3   |
-|   xcode6.4    |   9.4   |
-|   xcode7.3    |   9.5   |
-|    xcode8     |   9.5   |
+For PostgreSQL 10, you must specify the packages
+to install it and the user is `postgres` and the port is 5432.  For PostgreSQL 11 and 12 you must
+ specify the packages, but the user is `travis` and the port is 5433 instead. So you must specify the PGPORT
 
-### Using PostGIS
+### Use PostGIS
 
-All installed versions of PostgreSQL include PostGIS.
-
-You need to activate the extension in your `.travis.yml`:
+Install the version of PostGIS that matches your PostgreSQL version, and activate the PostGIS extension using:
 
 ```yaml
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```
@@ -184,9 +202,9 @@ before_script:
 
 The Travis CI build environment comes with a number of pre-installed locales, but you can also install additional ones, should you require them.
 
-#### Installing Locales
+#### Install Locales
 
-The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack. The `sudo` command is not available on [container based infrastructure](/user/workers/container-based-infrastructure) so you currently cannot install locales on it.
+The following example shows the lines you need to add to your `.travis.yml` to install the Spanish language pack.
 
 > Note that you need to remove the PostgreSQL version from the `addons` section of your .travis.yml:
 
@@ -198,6 +216,25 @@ before_install:
   - sudo /etc/init.d/postgresql start 9.3
 ```
 {: data-file=".travis.yml"}
+
+### Use pg_config
+
+If your builds rely on the `pg_config` command, you need to install an additional
+apt package `postgresql-server-dev-X.Y`, where `X.Y` matches the version of PostgreSQL
+you are using.
+
+For example:
+
+```yaml
+addons:
+  postgresql: '9.4'
+  apt:
+    packages:
+      - postgresql-server-dev-9.4
+```
+{: data-file=".travis.yml"}
+
+See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/9011) for additional details.
 
 ## MariaDB
 
@@ -238,7 +275,7 @@ test:
   database: ":memory:"
   timeout: 500
 ```
-{: data-file=".travis.yml"}
+{: data-file="config/database.yml"}
 
 Or if you're not using a `config/database.yml`, connect to the database manually:
 
@@ -269,7 +306,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-### MongoDB does not immediately accept connections
+### Troubleshoot MongoDB accepting connections
 
 A few users have reported that MongoDB does not accept connections when from the build script.
 
@@ -295,7 +332,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-CouchDB binds to 127.0.0.1, uses default configuration and does not require authentication (in CouchDB terms it runs in admin party).
+CouchDB binds to 127.0.0.1, uses default configuration on `dist:xenial` and earlier Linux distributions and does not require authentication (in CouchDB terms it runs in admin party). 
+
+However for `bionic`, authentication is required with username `admin` and password `travis` e.g. `curl -X PUT http://admin:travis@localhost:5984/<db_name>`.
 
 Before using CouchDB you need to create the database as part of your build process:
 
@@ -307,7 +346,7 @@ before_script:
 
 ## RabbitMQ
 
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ on standard, OS X or Trusty infrastructure (ie, your `.travis.yml` must contain `sudo: required`).
+RabbitMQ requires `setuid` flags, so you can only run RabbitMQ as a service on Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -325,7 +364,18 @@ RabbitMQ uses the default configuration:
 
 You can set up more vhosts and roles in the `before_script` section of your `.travis.yml`.
 
+RabbitMQ [can be launched](https://docs.travis-ci.com/user/reference/xenial/#third-party-apt-repositories-removed) on Ubuntu Xenial using the APT addon in `.travis.yml`:
+```yaml
+addons:
+  apt:
+    packages:
+    - rabbitmq-server 
+```
+{: data-file=".travis.yml"}
+
 ## Riak
+
+> Riak is only available in the [Ubuntu Trusty environment](/user/reference/trusty/).
 
 Start Riak in your `.travis.yml`:
 
@@ -335,9 +385,9 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-Riak uses the default configuration apart from the storage backend, which is LevelDB.
+Riak uses the default configuration with Bitcask as storage backend.
 
-Riak Search is enabled.
+Riak Search is deactivated by default.
 
 ## Memcached
 
@@ -365,20 +415,17 @@ Redis uses the default configuration and is available on localhost.
 
 ## Cassandra
 
-Due to its high memory footprint, Cassandra isn't supported in our container-based infrastructure.
 Start Cassandra in your `.travis.yml`:
 
 ```yaml
-sudo: required
-
 services:
   - cassandra
 ```
 {: data-file=".travis.yml"}
 
-Cassandra is provided by [Datastax Community Edition](http://www.datastax.com/products/community) and uses the default configuration. It is available on 127.0.0.1.
+Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
 
-### Installing older versions of Cassandra
+### Install older versions of Cassandra
 
 Use the following example to install a specific older version of Cassandra in your `.travis.yml`:
 
@@ -402,8 +449,6 @@ services:
 
 Neo4j Server uses default configuration and binds to localhost on port 7474.
 
-> Neo4j does not start on container-based infrastructure. See <a href="https://github.com/travis-ci/travis-ci/issues/3243">https&#x3A;//github.com/travis-ci/travis-ci/issues/3243</a>
-
 ## ElasticSearch
 
 Start ElasticSearch in your `.travis.yml`:
@@ -424,36 +469,20 @@ before_script:
 
 ElasticSearch uses the default configuration and is available on 127.0.0.1.
 
-### Installing specific versions of ElasticSearch
+### Install specific ElasticSearch version
 
-You can overwrite the installed ElasticSearch with the version you need (e.g., 2.3.0) with the following:
+You can overwrite the installed ElasticSearch with the version you need (e.g., 7.6.2) with the following:
 
 ```yaml
 before_install:
-  - curl -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.3.0/elasticsearch-2.3.0.deb && sudo dpkg -i --force-confnew elasticsearch-2.3.0.deb && sudo service elasticsearch restart
+  - curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-amd64.deb -o elasticsearch.deb
+  - sudo dpkg -i --force-confnew elasticsearch.deb
+  - sudo chown -R elasticsearch:elasticsearch /etc/default/elasticsearch
+  - sudo service elasticsearch restart
 ```
 {: data-file=".travis.yml"}
 
 We advise verifying the validity of the download URL [on ElasticSearch's website](https://www.elastic.co/downloads/elasticsearch).
-
-> `sudo` is not available on [Container-based infrastructure](/user/reference/overview/#Virtualization-environments).
-
-### Installing ElasticSearch on trusty container-based infrastructure
-
-ElasticSearch is  not installed by default on the [trusty container-based infrastructure](/user/reference/trusty/)
-but you can install it by adding the following steps to your `.travis.yml`.
-
-```yaml
-env:
-  - ES_VERSION=5.1.1 ES_DOWNLOAD_URL=https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${ES_VERSION}.tar.gz
-install:
-  - wget ${ES_DOWNLOAD_URL}
-  - tar -xzf elasticsearch-${ES_VERSION}.tar.gz
-  - ./elasticsearch-${ES_VERSION}/bin/elasticsearch &
-script:
-  - wget -q --waitretry=1 --retry-connrefused -T 10 -O - http://127.0.0.1:9200
-```
-{: data-file=".travis.yml"}
 
 ### Truncated Output in the Build Log
 
@@ -492,7 +521,7 @@ When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
 If you need to run multiple builds using different databases, you can configure environment variables
 and a `before_script` or `before_install` line to create a build matrix.
 
-### Using environment variables and a before_script step
+### Use environment variables and a before_script step
 
 Use the `DB` environment variable to specify the name of the database configuration. Locally you would run:
 
@@ -500,7 +529,7 @@ Use the `DB` environment variable to specify the name of the database configurat
 DB=postgres [commands to run your tests]
 ```
 
-On Travis CI you want to create a [build matrix](/user/customizing-the-build/#Build-Matrix) of three builds each having the `DB` variable exported with a different value, and for that you can use the `env` option in `.travis.yml`:
+On Travis CI you want to create a [build matrix](/user/customizing-the-build/#build-matrix) of three builds each having the `DB` variable exported with a different value, and for that, you can use the `env` option in `.travis.yml`:
 
 ```yaml
 env:
@@ -530,7 +559,7 @@ before_script:
 For a real example, see [doctrine/doctrine2
 .travis.yml](https://github.com/doctrine/doctrine2/blob/master/.travis.yml).
 
-### Using Ruby
+### Use Ruby
 
 Another approach is put all database configuration in one YAML file (`test/database.yml` for example), like ActiveRecord does:
 

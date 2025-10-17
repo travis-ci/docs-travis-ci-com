@@ -3,151 +3,90 @@ title: Conditional Builds, Stages, and Jobs
 layout: en
 ---
 
-## Conditional Builds, Stages, and Jobs
+You can filter out and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
 
-You can filter out, and reject builds, stages, and jobs by specifying conditions in your build configuration (your `.travis.yml` file).
+You can find more information on the build config format in our [Travis CI Build Config Reference](https://config.travis-ci.com/ref/job/if/condition).
 
-### Conditional Builds
+## Conditional Builds
 
-Builds can be included or excluded by specifying a condition as follows:
+You can configure Travis CI to only run builds when certain conditions are met. Any builds that do not meet these conditions are listed in the *Requests* tab of your repository, even though the actual build is not generated.
+
+> Travis CI’s system fetches and processes the .travis.yml config file from the repository and the branch explicitly specified in the build request
+
+For example, this allows builds only to run on the `master` branch:
 
 ```yaml
-# require the branch name to be master
+# require the branch name to be master (note for PRs this is the base branch name)
 if: branch = master
-
-# require the tag name to match a regular expression
-if: tag =~ ^v1
-
-# require the event type to be either `push` or `pull_request`
-if: type IN (push, pull_request)
 ```
+{: data-file=".travis.yml"}
 
-Build requests that are found to be excluded will not generate a build, but will be listed on the "Requests" tab.
+Build requests that do not match the condition will not generate a build, but will be listed on the *Requests* tab.
 
-### Conditional Stages
+## Conditional Stages
 
-Stages can be included or excluded by specifying a condition in the `stages` section:
+You can configure Travis CI to only include stages when certain conditions are met. Stages that do not match the given condition are silently skipped. For example, this allows the deploy stage to run only on the `master` branch:
 
 ```yaml
 stages:
   - name: deploy
-    # require the branch name to be master
+    # require the branch name to be master (note for PRs this is the base branch name)
     if: branch = master
-
-stages:
-  - name: deploy
-    # require the tag name to match a regular expression
-    if: tag =~ ^v1
-
-stages:
-  - name: deploy
-    # require the event type to be either `push` or `pull_request`
-    if: type IN (push, pull_request)
 ```
+{: data-file=".travis.yml"}
 
-At the moment, stages that are found to be excluded will be skipped silently (an improvement to this is on the roadmap, giving more explicit feedback on filtering).
+Stages that do not match the condition will be skipped silently.
 
-### Conditional Jobs
+## Conditional Jobs
 
-Jobs can be included or excluded by specifying a condition on `jobs.include`:
+You can configure Travis CI to only include jobs when certain conditions are met. For example, this includes the listed job only to build on the `master` branch:
 
 ```yaml
 jobs:
   include:
-    - # require the branch name to be master
+    - # require the branch name to be master (note for PRs this is the base branch name)
       if: branch = master
       env: FOO=foo
+```
+{: data-file=".travis.yml"}
 
+Jobs need to be listed explicitly, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#build-matrix) currently cannot have conditions, but they can be conditionally excluded (see [below](/#conditionally-excluding-jobs)).
+
+> Jobs that do not match the condition will be skipped silently.
+
+## Conditionally Excluding Jobs
+
+You can configure Travis CI to exclude jobs when certain conditions are met. For example, this will create two jobs on all branches, but only one job (with the env var `ONE=one`) on the `master` branch:
+
+```yaml
+env:
+  - ONE=one
+  - TWO=two
 jobs:
-  include:
-    - # require the tag name to match a regular expression
-      if: tag =~ ^v1
-      env: FOO=foo
+  exclude:
+    - if: branch = master
+      env: TWO=two
+```
+{: data-file=".travis.yml"}
 
+## Conditionally Allowing Jobs to Fail
+
+You can configure Travis CI to allow jobs to fail only when certain conditions are met. For example, this will allow the job with the env var `TWO=two` to fail when the build runs on the branch `dev`:
+
+```yaml
+env:
+  - ONE=one
+  - TWO=two
 jobs:
-  include:
-    - # require the event type to be either `push` or `pull_request`
-      if: type IN (push, pull_request)
-      env: FOO=foo
+  allow_failures:
+    - if: branch = dev
+      env: TWO=two
 ```
+{: data-file=".travis.yml"}
 
-Jobs need to be listed explicitely, i.e., using `jobs.include` (or its alias `matrix.include`), in order to specify conditions for them. Jobs created via [matrix expansion](/user/customizing-the-build/#Build-Matrix) currently cannot have conditions.
+## Specify and Test Conditions
 
-At the moment, jobs that are found to be excluded will be skipped silently (an improvement to this is on the roadmap).
+Please see [Conditions](/user/conditions-v1) for examples and a specification of the conditions syntax.
 
-### Specifying conditions
-
-The condition can be specified using a boolean language as follows:
-
-```
-(NOT [term] OR [term]) AND [term]
-```
-
-A term is defined as:
-
-```
-[left-hand-side] [operator] [right-hand-side]
-```
-
-All keywords (such as `AND`, `OR`, `NOT`, `IN`, `IS`, attributes, and functions) are case-insensitive.
-
-#### Left hand side
-
-The left hand side part can either be a known attribute or a function call.
-
-Known attributes are:
-
-* `type` (the current event type, known event types are: `push`, `pull_request`, `api`, `cron`)
-* `repo` (the current repository slug `owner_name/name`)
-* `branch` (the current branch name)
-* `tag` (the current tag name)
-* `sender` (the event sender's login name)
-* `fork` (`true` or `false` depending if the repository is a fork)
-* `head_repo` (for pull requests: the head repository slug `owner_name/name`)
-* `head_branch` (for pull requests: the head repository branch name)
-
-Known functions are:
-
-* `env(FOO)` (the value of the environment variable `FOO`)
-
-The function `env` currently only supports environment variables that are given in your build configuration (e.g. on `env` or `env.global`), not environment variables specified in your repository settings.
-
-#### Equality and inequality
-
-This matches a string literally:
-
-```
-branch = master
-env(foo) = bar
-sender != my-bot
-```
-
-#### Match
-
-This matches a string using a regular expression:
-
-```
-branch =~ ^master$
-env(foo) =~ ^bar$
-```
-
-#### Include
-
-This matches against a set (array) of values:
-
-```
-branch IN (master, dev)
-env(foo) IN (bar, baz)
-```
-
-#### Presence
-
-This requires a value to be present or missing:
-
-```
-branch IS present
-branch IS blank
-env(foo) IS present
-env(foo) IS blank
-```
-
+Conditions can be tested using the `travis-conditions` command. Learn how to
+[test your conditions](/user/conditions-testing).

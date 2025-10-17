@@ -2,24 +2,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }} {% unless page.short_title%}- Travis CI{% endunless %}</title>
 <link rel="stylesheet" href="{{ "/assets/stylesheets/main.css" | prepend: site.baseurl }}">
-<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="http://docs.travis-ci.com/feed.build-env-updates.xml">
+<link rel="alternate" type="application/rss+xml" title="Travis CI Build Environment Updates" href="https://docs.travis-ci.com/feed.build-env-updates.xml">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
-<script src="{{ "/assets/javascripts/site.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
+
 <script src="{{ "/assets/javascripts/main.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
-<script src="{{ "/assets/javascripts/prism.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
+<script src="{{ "/assets/javascripts/prism-loader.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8" defer></script>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@travisci" />
+<meta name="twitter:creator" content="@travisci" />
+<meta property="og:title" content="Travis CI Documentation" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={{ page.url | relative_url }} />
+<meta property="og:description" content="{{ page.title }}" />
+<meta property="og:image" content="/images/TravisCI-Full-Color.png" }} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="642" />
+<meta property="og:image:height" content="201" />
+<meta property="og:image:alt" content="Travis CI logo" />
+
+<link rel="icon" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="/images/favicons/favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/images/favicons/favicon-180x180.png">
+<meta name="msapplication-TileImage" content="/images/favicons/favicon-270x270.png">
 
 {% for tag in page.swiftypetags %}
  <meta class="swiftype" name="tags" data-type="string" content="{{tag}}" />
 {% endfor %}
-
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-24868285-6']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>

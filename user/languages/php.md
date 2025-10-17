@@ -1,45 +1,36 @@
 ---
-title: Building a PHP project
+title: Build a PHP project
 layout: en
 
 ---
 
-<div id="toc">
-</div>
 
 <aside markdown="block" class="ataglance">
 
 | PHP                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `phpunit`                                 |
-| [Matrix keys](#Build-Matrix)                | `env`, `php`                              |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `phpunit`                                 |
+| [Matrix keys](#build-matrix)                | `env`, `php`                              |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
 
 ```yaml
 language: php
-php:
-  - '5.6'
-  - '7.1'
-  - hhvm # on Trusty only
-  - nightly
 ```
-
+{: data-file=".travis.yml"}
 </aside>
 
-## What This Guide Covers
-
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 This guide covers build environment and configuration topics specific to PHP
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
-and [build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-PHP builds are not available on the OS X environment.
+PHP builds are not available on the macOS environment.
 
-## Choosing PHP versions to test against
+## Test against PHP versions
 
 Travis CI provides several PHP versions, all of which include XDebug and
 PHPUnit. Travis CI uses [phpenv](https://github.com/CHH/phpenv) to manage the
@@ -70,28 +61,64 @@ php:
 ```
 {: data-file=".travis.yml"}
 
-### PHP 5.2(.x) and 5.3(.x) support is available on Precise only
+{% if site.data.language-details.php-versions.size > 0 %}
 
-We do not suppport these versions on Trusty.
+### PHP Supported versions
+
+The list of PHP versions available for on-demand installation can be found in
+[the table below](#php-versions).
+
+{% else %}
+
+### Support for PHP version 5.2(.x) and 5.3(.x) are available on Precise only
+
+We do not support these versions on Trusty, Xenial, or Bionic.
 If you need to test them, please use Precise.
-See [this page](/user/reference/trusty#PHP-images) for more information.
+See [this page](/user/reference/trusty/#php-images) for more information.
 
+### Support for PHP versions 5.4(.x) - 5.5(.x) are available on Precise and Trusty 
 
-### HHVM versions
+We do not support these versions on Xenial or Bionic.
+If you need to test them, please use Precise or Trusty.
+See [this page](/user/reference/xenial/#php-images) for more information.
+
+### Support for PHP versions 5.6(.x) - 7.0(.x) are available on Precise, Trusty, and Xenial 
+
+We do not support these versions on Bionic.
+If you need to test them, please use Precise, Trusty, or Xenial.
+See [this page](/user/reference/bionic/#php-support) for more information.
+
+### Support for PHP versions 7.4(.x) and onwards are available on Trusty, Xenial, and Bionic 
+
+We do not support these versions on Precise.
+If you need to test them, please use Trusty, Xenial, or Bionic.
+{% endif %}
+
+### Test HHVM versions with Trusty
 
 Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
 
 ```yaml
-php
+php:
   - hhvm-3.18
   - hhvm-nightly
 ```
+{: data-file=".travis.yml"}
+
+
+Please note that if you want to run PHPUnit on HHVM, you have to explicitly install version 5.7 in your `.travis.yml` due to a compatibility issue between HHVM and PHP7:
+
+```yaml
+before_script:
+  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
+```
+{: data-file=".travis.yml"}
 
 ### Nightly builds
 
 Travis CI can test your PHP applications with a nightly
 [PHP](https://github.com/php/php-src/) build, which includes PHPUnit and
-Composer:
+Composer, but does not include third-party PHP extensions:
 
 ```yaml
 language: php
@@ -118,7 +145,7 @@ and uses the first one found.
 
 If your project uses something other than PHPUnit, you can [override the default build script](/user/customizing-the-build/).
 
-### Working with atoum
+### Work with atoum
 
 Instead of PHPunit, you can also use [atoum](https://github.com/atoum/atoum) to test your projects. For example:
 
@@ -149,7 +176,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-### Testing Against Multiple Versions of Dependencies
+### Test against Multiple Versions of Dependencies
 
 If you need to test against multiple versions of, say, Symfony, you can instruct
 Travis CI to do multiple runs with different sets or values of environment
@@ -175,7 +202,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-Here we use DB variable value to pick phpunit configuration file:
+Here, we use DB variable value to pick phpunit configuration file:
 
 ```yaml
     script: phpunit --configuration $DB.phpunit.xml
@@ -184,37 +211,13 @@ Here we use DB variable value to pick phpunit configuration file:
 
 The same technique is often used to test projects against multiple databases and so on.
 
-To see real world examples, see:
+To see real-world examples, see:
 
 - [FOSRest](https://github.com/FriendsOfSymfony/FOSRest/blob/master/.travis.yml)
 - [LiipHyphenatorBundle](https://github.com/liip/LiipHyphenatorBundle/blob/master/.travis.yml)
 - [doctrine2](https://github.com/doctrine/doctrine2/blob/master/.travis.yml)
 
-### Installing PEAR packages
-
-If your dependencies include PEAR packages, the Travis CI PHP environment has the [Pyrus](http://pear2.php.net/) and [pear](http://pear.php.net/) commands available:
-
-```bash
-pyrus install http://phptal.org/latest.tar.gz
-pear install pear/PHP_CodeSniffer
-```
-
-After install you should refresh your path
-
-```bash
-phpenv rehash
-```
-
-For example, if you want to use phpcs, you should execute:
-
-```bash
-pyrus install pear/PHP_CodeSniffer
-phpenv rehash
-```
-
-Then you can use phpcs like the phpunit command
-
-### Installing Composer packages
+### Install Composer packages
 
 <div class="note-box">
 <p>
@@ -239,7 +242,7 @@ You'll find the default configure options used to build the different PHP versio
 
 Please note the following differences among the different PHP versions available on Travis CI:
 
-- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](http://blog.travis-ci.com/upcoming_ubuntu_11_10_migration/).
+- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://travis-ci.com/blog/upcoming_ubuntu_11_10_migration/).
 - Different SAPIs:
 
   - 5.3.3 comes with php-cgi only.
@@ -265,6 +268,7 @@ date.timezone = "Europe/Paris"
 default_socket_timeout = 120
 # some other configuration directives...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command in your `.travis.yml`:
 
@@ -273,7 +277,7 @@ before_script: echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(php
 ```
 {: data-file=".travis.yml"}
 
-## Enabling preinstalled PHP extensions
+## Enable preinstalled PHP extensions
 
 You need to enable them by adding an `extension="<extension>.so"` line to a PHP configuration file (for the current PHP version).
 The easiest way to do this is by using `phpenv` to add a custom config file which enables and eventually configure the extension:
@@ -292,6 +296,7 @@ extension="mongo.so"
 # some other mongo specific configuration directives
 # or general custom PHP settings...
 ```
+{: data-file="myconfig.ini"}
 
 You can also use this one line command:
 
@@ -300,7 +305,7 @@ before_install: echo "extension = <extension>.so" >> ~/.phpenv/versions/$(phpenv
 ```
 {: data-file=".travis.yml"}
 
-## Disabling preinstalled PHP extensions
+## Disable preinstalled PHP extensions
 
 To disable xdebug, add this to your configuration:
 
@@ -310,7 +315,7 @@ before_script:
 ```
 {: data-file=".travis.yml"}
 
-## Installing additional PHP extensions
+## Install additional PHP extensions
 
 It is possible to install custom PHP extensions into the Travis CI environment
 using [PECL](http://pecl.php.net/), but they have to be built against the PHP
@@ -343,15 +348,14 @@ install specific version with the `-f` flag. For example:
 pecl install -f mongo-1.2.12
 ```
 
-### Note on `pecl install`
+### Note on pecl install
 
 Note that `pecl install` can fail if the requested version of the package is already installed.
 
 
-
 ### Apache + PHP
 
-Currently Travis CI does not support `mod_php` for apache, but you can configure
+Currently, Travis CI does not support `mod_php` for apache, but you can configure
 `php-fpm` for your integration tests:
 
 ```yaml
@@ -360,7 +364,6 @@ before_script:
   - sudo apt-get install apache2 libapache2-mod-fastcgi
   # enable php-fpm
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
   - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - sudo sed -i -e "s,www-data,travis,g" /etc/apache2/envvars
@@ -396,7 +399,7 @@ virtual host as usual, the important part for php-fpm is this:
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
-    
+
     <Directory /usr/lib/cgi-bin>
         Require all granted
     </Directory>
@@ -405,12 +408,40 @@ virtual host as usual, the important part for php-fpm is this:
   # [...]
 </VirtualHost>
 ```
+{: data-file="travis-ci-apache"}
 
-## Build Matrix
+## Build Config Reference
 
-For PHP projects, `env` and `php` can be given as arrays
-to construct a build matrix.
+You can find more information on the build config format for [PHP](https://config.travis-ci.com/ref/language/php) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
 - [Drupal](https://github.com/sonnym/travis-ci-drupal-module-example)
+
+{% if site.data.language-details.php-versions.size > 0 %}
+
+## PHP versions
+These archives are available for on-demand installation.
+
+{: #php-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.php-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
+
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
+<script>
+var tf = new TableFilter(document.querySelector('#php-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>

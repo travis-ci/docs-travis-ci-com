@@ -4,28 +4,30 @@ layout: en
 
 ---
 
-**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests#Pull-Requests-and-Security-Restrictions).**
+**Please note that encrypted files are not available for [pull requests from forks](/user/pull-requests/#pull-requests-and-security-restrictions).**
 
-<div id="toc"></div>
+
 
 ## Prerequisites
 
 Before following the examples in this guide, make sure you have already
 
 - installed the Travis CI [Command Line Client](https://github.com/travis-ci/travis.rb#readme) by running `$ gem install travis`
-- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI
-  using `$ travis login` or `$ travis login --pro`
+- [logged in](https://github.com/travis-ci/travis.rb#login) to Travis CI using `$ travis login --com`
 
-See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on system required versions of Ruby and operating systems.
+See the Command Line Client [installation instructions](https://github.com/travis-ci/travis.rb#installation) for more information on the system-required versions of Ruby and operating systems.
+
+> Starting June 2021 [travis-ci.org](http://www.travis-ci.org) is disabled and therefore no longer supported.
 
 ## Automated Encryption
 
 Assumptions:
 
 - The repository is set up on Travis CI
-- You have version **1.7.0** or later of the Travis CI Command Line Client installed and setup up (you are logged in)
+- You have version **1.7.0** or later of the Travis CI Command Line Client installed and set up (you are logged in)
 - You have a local copy of the repository and a terminal open where your current working directory is said copy
 - In the repository is a file, called super_secret.txt, that you need on Travis CI but you don't want to publish its content on GitHub.
+- Encrypting another file later will [overwrite](https://github.com/travis-ci/travis.rb/issues/627) the secure variable, rendering the old file unusable.
 
 The `travis encrypt-file` command will encrypt a file for you using a symmetric encryption (AES-256), and it will store the secret in a secure variable. It will output the command you can use in your build script to decrypt the file.
 
@@ -38,11 +40,10 @@ storing secure env variables for decryption
 
 Please add the following to your build script (before_install stage in your .travis.yml, for instance):
 
-```bash
+```yaml
 openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in super_secret.txt.enc -out super_secret.txt -d
 ```
-
-Pro Tip: You can add it automatically by running with `--add`.
+{: data-file=".travis.yml"}
 
 Make sure to add super_secret.txt.enc to the git repository.
 Make sure not to add super_secret.txt to the git repository.
@@ -61,7 +62,7 @@ Make sure not to add super_secret.txt to the git repository.
 Commit all changes to your .travis.yml.
 ```
 
-### Encrypting multiple files
+### Encrypt Multiple files
 
 The Command Line Client [overrides encrypted entries](https://github.com/travis-ci/travis.rb/issues/239) if you use it to encrypt multiple files.
 
@@ -89,7 +90,7 @@ before_install:
 
 ### Caveat
 
-There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux or OS X machine.
+There is a report of this function not working on a local Windows machine. Please use the WSL (Windows Subsystem for Linux) or a Linux machine.
 
 ## Manual Encryption
 
@@ -102,16 +103,16 @@ Assumptions:
 
 The file might be too large to encrypt it directly via the `travis encrypt` command. However, you can encrypt the file using a passphrase and then encrypt the passphrase. On Travis CI, you can use the passphrase to decrypt the file again.
 
-The set up process looks like this:
+The setup process looks like this:
 
-1. **Come up with a password.** First, you need a password. We recommend generating a random password using a tool like pwgen or 1password. In our example we will use `ahduQu9ushou0Roh`.
+1. **Create a password.** First, you need a password. We recommend generating a random password using a tool like pwgen or 1password. In our example, we will use `ahduQu9ushou0Roh`.
 2. **Encrypt the password and add it to your .travis.yml.** Here we can use the `encrypt` command: `travis encrypt super_secret_password=ahduQu9ushou0Roh --add` - note that if you set this up multiple times for multiple files, you will have to use different variable names so the passwords don't override each other.
 3. **Encrypt the file locally.** Using a tool that you have installed locally and that is also installed on Travis CI (see below).
-4. **Set up decryption command.** You should add the command for decrypting the file to the `before_install` section of your `.travis.yml` (see below).
+4. **Set up the decryption command.** You should add the command for decrypting the file to the `before_install` section of your `.travis.yml` (see below).
 
 Be sure to add `super_secret.txt` to your `.gitignore` list, and to commit both the encrypted file and your `.travis.yml` changes.
 
-### Using GPG
+### Use GPG
 
 Set up:
 
@@ -134,7 +135,7 @@ before_install:
 
 The encrypted file is called `super_secret.txt.gpg` and has to be committed to the repository.
 
-#### Using OpenSSL
+### Use OpenSSL
 
 Set up:
 

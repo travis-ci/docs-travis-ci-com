@@ -1,6 +1,7 @@
 ---
-title: Launchpad deployment
+title: Launchpad Deployment
 layout: en
+deploy: v1
 
 ---
 
@@ -21,7 +22,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-It is recommended to [encrypt both your `oauth_token` and your `oauth_token_secret`](/user/deployment/launchpad/#Encrypting-your-OAUTH-tokens).
+It is recommended to [encrypt both your `oauth_token` and your `oauth_token_secret`](/user/deployment/launchpad/#encrypting-your-oauth-tokens).
 
 The `slug` contains user or team name, project name, and branch name, and is formatted like `~user-name/project-name/branch-name`.  If your project's code is a git repository, the form is `~user-name/project-name/+git/repository-name`. You can find your project's slug in the header (and the url) of its `code.launchpad.net` page.
 
@@ -29,7 +30,7 @@ The `slug` contains user or team name, project name, and branch name, and is for
   <img alt="Launchpad slug" src="/images/launchpad-slug.png"/>
 </figure>
 
-### Encrypting your OAUTH tokens
+## Encrypt OAUTH tokens
 
 It is recommended that you encrypt both OAUTH tokens using the Travis CI command line client by removing them from your `travis.yml` above and running the following commands:
 

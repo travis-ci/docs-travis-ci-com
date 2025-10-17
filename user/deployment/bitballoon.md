@@ -1,10 +1,11 @@
 ---
 title: BitBalloon Deployment
 layout: en
+deploy: v1
 
 ---
 
-<div id="toc"></div>
+
 
 Travis CI can automatically deploy files to
 [BitBalloon](https://www.bitballoon.com/) after a successful build.
@@ -21,7 +22,7 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Deploying a specific directory
+## Deploy a specific directory
 
 To deploy a specific directory to BitBalloon, use the `local-dir` key:
 
@@ -36,9 +37,9 @@ deploy:
 ```
 {: data-file=".travis.yml"}
 
-## Running commands before and after deploy
+## Run Commands Before or After Deploy
 
-Sometimes you want to run commands before or after deploying. You can use
+Sometimes, you want to run commands before or after deploying. You can use
 the `before_deploy` and `after_deploy` stages for this. These will only be
 triggered if Travis CI is actually deploying.
 

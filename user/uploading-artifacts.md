@@ -4,13 +4,10 @@ layout: en
 
 ---
 
-<div id="toc">
-</div>
+Travis CI can automatically upload your build artifacts to Amazon S3 at the
+end of the job, after the [`after_script`](/user/job-lifecycle/) phase.
 
-Travis CI can automatically upload your build artifacts to Amazon S3, after the
-[`after success`](/user/customizing-the-build/#The-Build-Lifecycle) stage of the
-build. Unless you programatically generate unique filenames and folders,
-artifacts are overwritten every build.
+> Note that the artifacts addon is not available for pull request builds.
 
 For a minimal configuration, add the following to your `.travis.yml`:
 
@@ -39,7 +36,7 @@ addons:
 
 You can find your AWS Access Keys [here](https://console.aws.amazon.com/iam/home?#security_credential).
 
-### Deploy specific paths
+## Deploy specific paths
 
 The default paths uploaded to S3 are found via `git ls-files -o` in
 order to find any files in the git working copy that aren't tracked.
@@ -49,7 +46,7 @@ the `addons.artifacts.paths` key like so:
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     paths:
     - $(git ls-files -o | tr "\n" ":")
     - $(ls /var/log/*.log | tr "\n" ":")
@@ -65,22 +62,37 @@ ARTIFACTS_PATHS="./logs:./build:/var/log"
 ```
 
 Please keep in mind that in the example above, colon (`:`) is used as a
-delimiter which means file names cannot contain this character.
+delimiter, which means file names cannot contain this character.
 
-### Working directory
+## Working directory
 
-If you'd like to upload file from a specific directory, you can change your working directory by setting `addons.artifacts.working_dir`.
+If you'd like to upload a file from a specific directory, you can change your working directory by setting `addons.artifacts.working_dir`.
 
 
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     working_dir: out
 ```
 {: data-file=".travis.yml"}
 
-### Debugging
+## Target Paths
+
+By default, artifacts will be uploaded to the path in the bucket
+defined by `/${TRAVIS_REPO_SLUG}/${TRAVIS_BUILD_NUMBER}/${TRAVIS_JOB_NUMBER}`.
+You can change the upload path at build time using the `target_paths`
+key, for example:
+
+```yaml
+addons:
+  artifacts:
+    target_paths:
+    - /$TRAVIS_OS_NAME/$((lsb_release -rs 2>/dev/null || sw_vers -productVersion) | grep --only -E '^[0-9]+\.[0-9]+')
+```
+{: data-file=".travis.yml"}
+
+## Debug
 
 If you'd like to see more detail about what the artifacts addon is
 doing, setting `addons.artifacts.debug` to anything non-empty will turn
@@ -89,7 +101,7 @@ on debug logging.
 ```yaml
 addons:
   artifacts:
-    # ...
+    # ⋮
     debug: true
 ```
 {: data-file=".travis.yml"}
@@ -99,6 +111,11 @@ or define this as a repository settings environment variable, or in the `env.glo
 ```bash
 ARTIFACTS_DEBUG=1
 ```
+{: data-file="env.global"}
 
-### Travis CI Artifact Uploader
-For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts)
+## Travis CI Artifact Uploader
+For more complicated artifact uploads, you can use the [Artifact Uploader Tool](https://github.com/travis-ci/artifacts) which is installed on your build VM by default. 
+
+## Build Config Reference
+
+You can find more information on the build config format for [Artifacts](https://config.travis-ci.com/ref/job/addons/artifacts) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

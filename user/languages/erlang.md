@@ -1,53 +1,46 @@
 ---
-title: Building a Erlang project
+title: Build an Erlang project
 layout: en
 
 ---
 
+
 <aside markdown="block" class="ataglance">
 
-|                   | Default                                   |
-|:------------------|:------------------------------------------|
-| Typical `install` | `rebar get-deps`                          |
+| Erlang            | Default                                       |
+|:------------------|:----------------------------------------------|
+| Typical `install` | `rebar get-deps`                              |
 | Typical `script`  | `rebar compile && rebar skip_deps=true eunit` |
-| Matrix keys       | `env`, `otp_release`                      |
-| Support           | [Travis CI](mailto:support@travis-ci.com) |
+| Matrix keys       | `env`, `otp_release`                          |
+| Support           | [Travis CI](mailto:support@travis-ci.com)     |
 
 Minimal example:
 
 ```yaml
 language: erlang
-otp_release:
-  - 19.0
-  - 18.2.1
 ```
 {: data-file=".travis.yml"}
 
 </aside>
 
-### What This Guide Covers
-
-{{ site.data.snippets.trusty_note_no_osx }}
+{{ site.data.snippets.linux_note }}
 
 The rest of this guide covers build environment and configuration topics
 specific to Erlang projects. Please make sure to read our
-[Getting Started](/user/getting-started/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
-Erlang builds are not available on the OS X environment.
+Erlang builds are not available on the macOS environment.
 
-## Choosing OTP releases to test against
+## Test against OTP releases
 
-Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify OTP releases you want your project to be tested against, use the `otp_release` key:
+Travis CI VMs provide 64-bit [Erlang OTP](http://www.erlang.org/download.html) releases built using [kerl](https://github.com/spawngrid/kerl). To specify the OTP releases you want your project to be tested against, use the `otp_release` key:
 
 ```yaml
 language: erlang
 otp_release:
-  - 18.2.1
-  - 18.1
-  - 18.0
-  - 17.5
-  - R16B03
+  - "23.0.2"
+  - "22.3.4"
 ```
 {: data-file=".travis.yml"}
 
@@ -55,7 +48,7 @@ Get a complete list of the pre-compiled versions available on the VM by adding `
 
 ## Default Test Script
 
-Travis CI by default assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
+Travis CI, by default, assumes your project is built using [Rebar3](https://github.com/erlang/rebar3) and uses EUnit. The exact command Erlang builder will use by default is
 
 ```bash
 rebar3 eunit
@@ -77,7 +70,7 @@ make test
 
 ## Dependency Management
 
-The Erlang builder on travis-ci.org assumes Rebar3 is used for dependency management.
+The Erlang builder on Travis CI assumes Rebar3 is used for dependency management.
 See [Rebar3 documentation](http://www.rebar3.org/docs/dependencies) for further details.
 
 On older images where `rebar3` is not available, we fall back to [`rebar`](https://github.com/rebar/rebar), and run
@@ -88,18 +81,29 @@ rebar3 get-deps
 
 to install [project dependencies](https://github.com/basho/riak/blob/master/rebar.config) as listed in the `rebar.config` file.
 
-## Build Matrix
-
-For Erlang projects, `env` and `otp_release` can be given as arrays
-to construct a build matrix.
-
 ## Environment Variable
 
-The version of OTP release a job is using is available as:
+The version of the OTP release a job is using is available as:
 
 ```
 TRAVIS_OTP_RELEASE
 ```
+
+{% if site.data.language-details.erlang-versions.size > 0 %}
+
+## Build Config Reference
+
+You can find more information on the build config format for [Erlang](https://config.travis-ci.com/ref/language/erlang) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## OTP and Release versions
+
+These archives are available for on-demand installation.
+
+{: #erlang-versions-table}
+| Release | Arch | Name |
+| :------------- | :------------- | :------- |{% for file in site.data.language-details.erlang-versions %}
+| {{ file.release }} | {{ file.arch }} | {{ file.name }} |{% endfor %}
+{% endif %}
 
 ## Examples
 
@@ -107,7 +111,24 @@ TRAVIS_OTP_RELEASE
 - [mochiweb](https://github.com/mochi/mochiweb/blob/master/.travis.yml)
 - [ibrowse](https://github.com/cmullaparthi/ibrowse/blob/master/.travis.yml)
 
-## Tutorial(s)
+## Tutorials
 
 - [(English) Continuous Integration for Erlang With Travis-CI](http://blog.equanimity.nl/blog/2013/06/04/continuous-integration-for-erlang-with-travis-ci/)
 - [(Dutch) Geautomatiseerd testen with Erlang en Travis-CI](http://blog.equanimity.nl/blog/2013/04/25/geautomatiseerd-testen-met-erlang/)
+
+<script src="{{ "/assets/javascripts/tablefilter/dist/tablefilter/tablefilter.js" | prepend: site.baseurl }}" type="text/javascript" charset="utf-8"></script>
+<script>
+var tf = new TableFilter(document.querySelector('#erlang-versions-table'), {
+    base_path: '/assets/javascripts/tablefilter/dist/tablefilter/',
+    col_0: 'select',
+    col_1: 'select',
+    col_2: 'none',
+    col_widths: ['100px', '100px', '250px'],
+    alternate_rows: true,
+    no_results_message: true
+});
+tf.init();
+tf.setFilterValue(0, "16.04");
+tf.setFilterValue(1, "x86_64");
+tf.filter();
+</script>
