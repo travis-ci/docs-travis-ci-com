@@ -133,7 +133,7 @@ In each case, the TCIE Core Services will be deployed as a k8s cluster. Cluster 
      1.  Replicated KOTS [outputs after installation an url including port number](https://docs.replicated.com/vendor/tutorial-installing-without-existing-cluster#create-a-test-server-and-install-the-app-manager) under which Kotsadmin runs. You can also use `kots admin-console -n [your namespace]` to connect
      2. Alternatively, you can just use `kubectl` to verify access to the cluster (sometimes bash shell reload `bash -l` may be required). See the example in [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#verify-kubectl-configuration).
 6. TCIE 3.x installed on **single** virtual machine instance
-    1. On *your new VM instance* run `kurl.sh` via `curl -sSL https://k8s.kurl.sh/tci-enterprise-kots | sudo bash`
+    1. On *your new VM instance* run `kurl.sh` via `curl -sSL https://kurl.sh/tci-enterprise-kots | sudo bash`
     2. Get credentials from the new cluster running on *your new VM instance*. Please view, e.g., [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where kubectl config with credentials is created and can be used afterward.
     3. Refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Make sure to adjust your setup and configuration according to your needs before progressing with TCIE 3.X installation.
 7. TCIE 3.x installed as Kubernetes cluster in the cloud
