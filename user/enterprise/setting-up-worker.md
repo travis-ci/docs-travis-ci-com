@@ -7,7 +7,7 @@ layout: en_enterprise
 The Travis CI Enterprise Worker machine manages build containers, and reports build
 statuses to the platform. It must be installed on a separate machine
 instance from the Platform. We recommend using **compute optimized** instance 
-with 8vCPU and 16GB RAM running with Ubuntu 16.04 or later.
+with 8vCPU and 16GB RAM running with Ubuntu 16.04, Bionic, Focal, Jammy, or later.
 
 ## Prerequisites 
 1. [Enterprise 3.x](/user/enterprise/tcie-3.x-setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform) or [Enterprise 2.x](/user/enterprise/setting-up-travis-ci-enterprise/#1-setting-up-enterprise-platform-virtual-machine) Platform is set up
