@@ -17,13 +17,13 @@ This document describes how to set up and install Travis CI Enterprise Core Serv
 
 ![TCIE Core Services](/images/tcie-3.x-core-services-graph.png)
 
-Travis CI Enterprise 3.x+ Core Services is distributed through a "Kubernetes Off The Shelf" installation package, containing a Helm chart and docker images for component services. We recommend installing Travis CI Enterprise 3.x Core Services into a Kubernetes managed cluster.
+Travis CI Enterprise 3.x+ Core Services is distributed via a "Kubernetes Off The Shelf" installation package that includes a Helm chart and Docker images for component services. We recommend installing Travis CI Enterprise 3.x Core Services into a Kubernetes-managed cluster.
 
 Travis CI Enterprise Worker Images are publicly available and must be installed separately, as described in [Prerequisites](/user/enterprise/prerequisites/).
 
 ## Travis CI Enterprise Core Services components
 
-Travis CI Enterprise Core Services consist of components enlisted below. Each service has its own pod. Please pay attention to the *Comments* section, where you can find a list of services that may require replicating pods to handle higher workloads.
+Travis CI Enterprise Core Services consist of the components listed below. Each service has its own pod. Please pay attention to the *Comments* section, where you can find a list of services that may require replicating pods to handle higher workloads.
 
 | Pod name                | Function                                                          | Comments                                       |
 | ----------------------- | ----------------------------------------------------------------- | ---------------------------------------------- |
@@ -48,10 +48,10 @@ Travis CI Enterprise Core Services consist of components enlisted below. Each se
 | travis-vcs-web          | User and repositories synchronization for cloud-based VCS other than GitHub | Please note:  this is Beta in TCI Enterprise 3.x for Git repositories at Assembla, BitBucket, and GitLab |
 | travis-vcs-listener-worker and travis-vcs-worker | Various background tasks/jobs for vcs-listener and vcs-worker|                                      |
 | travis-web              | Main Travis CI Web UI for the users (talks to API)                |                                                |
-| travis-yml              | Main `.travis.yml` parser upon authorized build request and before scheduling |  Consider scaling when many commits triggering jobs present |
+| travis-yml              | Main `.travis.yml` parser upon authorized build request and before scheduling |  Consider scaling when many commits triggering jobs are present |
 
 
-Please note: certain services will need to run scheduled background jobs, usually as rake tasks - e.g., github-sync. These may require additional throughput depending on the numbers of, e.g., user/repositories/builds in your environment.
+Please note: certain services will need to run scheduled background jobs, usually as rake tasks - e.g., github-sync. These may require additional throughput depending on the number of, e.g., user/repositories/builds in your environment.
 
 ## Prerequisites
 
@@ -60,13 +60,13 @@ Alternatively, you can install it on a single machine using the [Replicated kURL
 
 To set up your Travis CI Enterprise 3.x, you need:
   * A valid Travis CI Enterprise license or [trial license](https://enterprise.travis-ci.com/signup).
-  >Note: The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration. GitOps and Snapshots support need to be separately enabled for each license.
+  >Note: The [High Availability](/user/enterprise/high-availability/) option does not require any additional trial or production license configuration. GitOps and Snapshots support needs to be separately enabled for each license.
   * Infrastructure:
 
 |  Infrastructure scenario  | Requirement | Comment                                   |
 | ------------------- | ---------------------- | ------------------------------------------------------- |
 | not using default k8s service at cloud provider  | **Two virtual machines**  on your private cloud that meet the [system requirements](#system-requirements)    | One vm for Core Services, one for Worker                         |
-| using k8s service at cloud provider (e.g., Google KE, Amazon EKS ) | One Kubernetes (k8s) Cluster, one virtual machine that meets the [system requirements](#system-requirements) | Tke k8s cluster is meant for Core Services, the VM is meant for Worker Image |
+| using k8s service at cloud provider (e.g., Google KE, Amazon EKS ) | One Kubernetes (k8s) Cluster, one virtual machine that meets the [system requirements](#system-requirements) | The k8s cluster is meant for Core Services, the VM is meant for Worker Image |
 
   * If using a GitHub Cloud or GitHub Enterprise Server: Configure the `secret` and `clientid` of a GitHub.com or GitHub Enterprise [OAuth application](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/) with:
 
@@ -79,13 +79,13 @@ To set up your Travis CI Enterprise 3.x, you need:
 ### System Requirements
 
 The standard setup consists of the *Travis CI Enterprise
-Platform* which hosts Kubernetes cluster with each service in separate pods, and one or more
+Platform* which hosts a Kubernetes cluster with each service in separate pods, and one or more
 *Worker hosts* which run the tests/jobs in isolated containers using LXC
 and Docker.
 
-Each dedicated host or hypervisor (VMWare, OpenStack, or EC2) should run **Ubuntu 18.04** and have at least **16 gigs of RAM and 8 CPUs**. If the same host is to run as a Worker host, the minimum requirement would be **16 gigs of RAM and 8 CPUs**.
+Each dedicated host or hypervisor (VMWare, OpenStack, or EC2) should run **Ubuntu 18.04** and have at least **16 GB of RAM and 8 CPUs**. If the same host is to run as a Worker host, the minimum requirement would be **16 gigs of RAM and 8 CPUs**.
 
-If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Core Service (aka Platform)** and **Worker**. We also recommend using an image that uses EBS for the root volume and allocating 80 gigs of space.
+If you're running on EC2, we recommend the **c4.2xlarge** instance type for both **Core Service (aka Platform)** and **Worker**. We also recommend using an image that uses EBS for the root volume and allocating 80 GB of space.
 
 For [high availability (HA)](/user/enterprise/high-availability/) configurations, you will also need to configure appropriately:
 
@@ -97,7 +97,7 @@ For [high availability (HA)](/user/enterprise/high-availability/) configurations
 
 The Travis CI Enterprise Core Services (aka Platform) handles licensing, coordinates Worker
 processes, and maintains the Enterprise user and admin dashboard. It must be
-installed as Kubernetes cluster or on at least one machine instance acting as Kubernetes host
+installed as a Kubernetes cluster or on at least one machine instance acting as a Kubernetes host
 or multiple instances managed by Kubernetes, separate from that of the Travis CI
 Enterprise Worker. We recommend **compute optimized** instance running
 Ubuntu 18.04 LTS or later as the underlying operating system.
@@ -125,21 +125,21 @@ Ubuntu 18.04 LTS or later as the underlying operating system.
 |  Infrastructure scenario                                          | How to set up TCIE Core Services           | How to Set Up TCIE Worker           |
 | ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------------- |
 | not using default k8s service at cloud provider                   | Set up one vm as k8s host using Replicated kURL (see point 5 below) | [Set up vm to run Worker Image (docker or lxd)](/user/enterprise/setting-up-worker/)                        |
-| using k8s service at a cloud provider (e.g., Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](/user/enterprise/setting-up-worker/) at your convenience, depending on infrastructure setup you use |
+| using k8s service at a cloud provider (e.g., Google KE, Amazon EKS ) | See point 6 below                                                   | [Set up Worker Image](/user/enterprise/setting-up-worker/) at your convenience, depending on the infrastructure setup you use |
 
 In each case, the TCIE Core Services will be deployed as a k8s cluster. Cluster must be prepared and started.
 
-4. Install Replicated KOTS on *your local machine*. Make sure that you can connect to the Kubernetes cluster containing Travis CI Enterprise Core Services.
-     1.  Replicated KOTS [outputs after installation an url including port number](https://docs.replicated.com/vendor/tutorial-installing-without-existing-cluster#create-a-test-server-and-install-the-app-manager) under which Kotsadmin runs. You can also use `kots admin-console -n [your namespace]` to connect
-     2. Alternatively, you can just use `kubectl` to verify access to the cluster (sometimes bash shell reload `bash -l` may be required). See the example in [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#verify-kubectl-configuration).
+4. Install Replicated KOTS on *your local machine*. Make sure you can connect to the Kubernetes cluster that hosts Travis CI Enterprise Core Services.
+     1. Replicated KOTS [outputs after installation of a URL including port number](https://docs.replicated.com/vendor/tutorial-installing-without-existing-cluster#create-a-test-server-and-install-the-app-manager) under which Kotsadmin runs. You can also use `kots admin-console -n [your namespace]` to connect
+     2. Alternatively, you can use `kubectl` to verify access to the cluster (sometimes, bash shell reload `bash -l` may be required). See the example in [Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#verify-kubectl-configuration).
 6. TCIE 3.x installed on **single** virtual machine instance
-    1. On *your new VM instance* run `kurl.sh` via `curl -sSL https://k8s.kurl.sh/tci-enterprise-kots | sudo bash`
-    2. Get credentials from the new cluster running on *your new VM instance*. Please view, e.g., [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where kubectl config with credentials is created and can be used afterward.
-    3. Refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Make sure to adjust your setup and configuration according to your needs before progressing with TCIE 3.X installation.
-7. TCIE 3.x installed as Kubernetes cluster in the cloud
+    1. On *your new VM instance*, run `kurl.sh` via `curl -sSL https://kurl.sh/tci-enterprise-kots | sudo bash`.
+    2. Get credentials from the new cluster running on *your new VM instance*. Please view, e.g., [kurl documentation](https://kurl.sh/docs/install-with-kurl/connecting-remotely) where a kubectl config with credentials is created and can be used afterward.
+    3. Refer to various cluster and installation options in [kURL documentation](https://kurl.sh/docs/install-with-kurl/). Please ensure you adjust your setup and configuration to your needs before proceeding with the TCIE 3.X installation.
+7. TCIE 3.x installed as a Kubernetes cluster in the cloud.
     1. Connect to your cluster and generate the kubectl config file. Then, download the kubectl config file to your *local machine*. The exact way to obtain generated credentials depends on your Kubernetes cluster provider (see the GCloud example below).
 8. Run `kubectl kots install tci-enterprise-kots` to install TCIE 3.x. Please note down the administrative password and namespace used during this step.
-9. *In your browser*, navigate to `http://localhost:8800` to complete the setup. The TCIE 3.x admin console will automatically enable the during the first installation:
+9. *In your browser*, navigate to `http://localhost:8800` to complete the setup. The TCIE 3.x admin console will automatically enable it during the first installation:
 
    1. Authorize with a password set during the installation process.
    2. Upload your Travis CI Enterprise license.
@@ -147,7 +147,7 @@ In each case, the TCIE Core Services will be deployed as a k8s cluster. Cluster 
    4. Optionally, configure Email, Metrics, and Caches.
    5. Copy the *RabbitMQ password* for the Worker setup.
 
-> If you have decided to use a self-signed certificate or wish to use the Let's Encrypt certificate, additional configuration steps may be required. For more information, please see our page on [SSL Certificate Management](/user/enterprise/ssl-certificate-management/).
+> If you have decided to use a self-signed certificate or wish to use the Let's Encrypt certificate, additional configuration steps may be required. For more information, please see our [SSL Certificate Management](/user/enterprise/ssl-certificate-management/) page.
 
 
 ### Example: TCIE 3.x installation for GCE on macOSX
@@ -166,7 +166,7 @@ Once the brew is up and running, you'll install Python via:
 brew install python
 ```
 
-Now check if Python is installed via running:
+Now check if Python is installed by running:
 
 ```bash
 python -version
@@ -186,7 +186,7 @@ Restart your shell session before running `gcloud init`:
 exec -l $SHELL
 ```
 
-Make sure gcloud is installed via using the ```version``` argument:
+Make sure gcloud is installed by using the ```version``` argument:
 
 ```bash
 gcloud --version
@@ -195,7 +195,7 @@ gcloud --version
 
 #### Initialize GCloud
 
-> For a provider different than Google, make sure you have your setup ready
+> For a provider other than Google, make sure you have your setup ready.
 
 Now you'll be able to run ```gcloud init```. Once you've put your credentials in the terminal, it should look similar to this:
 
@@ -227,7 +227,7 @@ Y
 10
 ```
 
-In example case and timezone, the next command to run:
+In the example case and timezone, the next command to run:
 
 ```bash
 gcloud container clusters get-credentials tci-test2 --zone us-central1-b --project kubernetes-test-164423
@@ -269,13 +269,13 @@ Once you get the proper permissions, you should have a license file. You'll see 
 
 #### Configure Travis CI Enterprise
 
-Next, map your platform host in example case the platform host is:
+Next, map your platform host in the example case. The platform host is:
 
 ```bash
 montana.travis-ci-enterprise.com
 ```
 
-Example of how this would look like in the localhost UI:
+Example of how this would look in the localhost UI:
 
 ![Port](/images/tcie-3.x-setting-up-Port.png)
 
@@ -293,7 +293,7 @@ Once your ```Client_ID``` and ```Secrets``` are obtained, obtain proper values v
 https://gh-app-setup.travis-ci-enterprise.com
 ```
 
-Be sure that in the GitHub app section to use SSL (Secure Socket Layer) via
+In the GitHub app section, ensure to use SSL (Secure Socket Layer) via
 ```bash
 https://
 ```
@@ -308,7 +308,7 @@ Once you've grabbed your RSA key, enter it via the UI:
 
 ![RSA](/images/tcie-3.x-setting-up-RSA.png)
 
-Now that you have your RSA key, you'll see a variable of settings, including ```RabbitMQ``` and others. Set them to your liking. Once you've done that click "Continue". Now you should verify your GKE pods are running. So run:
+Now that you have your RSA key, you'll see a variety of settings, including ```RabbitMQ``` and others. Set them to your liking. Once done, click "Continue". Now, verify that your GKE pods are running. So run:
 
 ```bash
 kubectl get pods -n [NAMESPACE]
