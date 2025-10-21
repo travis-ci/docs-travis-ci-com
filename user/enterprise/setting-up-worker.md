@@ -4,9 +4,9 @@ layout: en_enterprise
 
 ---
 
-The Travis CI Enterprise Worker machine manages build containers, and reports build
+The Travis CI Enterprise Worker machine manages build containers and reports build
 statuses to the platform. It must be installed on a separate machine
-instance from the Platform. We recommend using **compute optimized** instance 
+instance from the Platform. We recommend using a **compute optimized** instance 
 with 8vCPU and 16GB RAM running with Ubuntu 16.04, Bionic, Focal, Jammy, or later.
 
 ## Prerequisites 
@@ -17,7 +17,7 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04, Bionic, Focal, Jammy, or late
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
-    If you're setting up Worker image for the first time, you will need to create
+    If you're setting up a Worker image for the first time, you will need to create
     a Security Group or Firewall rules. From the management console, create an entry for
     each port in the table below:
 
@@ -34,10 +34,10 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04, Bionic, Focal, Jammy, or late
 
 ### Install Workers behind a web proxy
 
-If you are behind a web proxy and Docker fails to download the image(s), when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
+If you are behind a web proxy and Docker fails to download the image(s) when you run the worker installation script, edit `/etc/default/docker` and set your proxy there.
 Then, rerun the installation script.  
 
-If you need Docker itself to use an HTTP proxy, export it before each docker command:
+If you need Docker itself to use an HTTP proxy, export it before each Docker command:
 
 ```
 export http_proxy="http://proxy.mycompany.corp:8080/" docker <COMMAND>
@@ -57,13 +57,13 @@ After setting up a new instance for the worker, please follow the respective gui
 
 1. *On your virtual machine management platform*, create a Travis CI Worker Security Group
 
-    If you're setting up Worker image for the first time, you will need to create
+    If you're setting up a Worker image for the first time, you will need to create
     a Security Group or Firewall rules. From the management console, create an entry for
     each port in the table below:
 
     | Port | Service | Description |
     |:-----|:--------|:------------|
-    | 22   | SSH     | Allow inbound SSH traffic in order to access the Worker Machine from your local machine. |
+    | 22   | SSH     | Allow inbound SSH traffic to access the Worker Machine from your local machine. |
     
 1. *On your new virtual machine*, download and run the following installation script:
  
@@ -78,7 +78,7 @@ Focal images are installed by default; you can change this by providing a `--tra
 You can change the LXC storage for instances from the default by using a `--travis_storage_for_instances` flag.
 You can change the LXC storage for data from the default by using a `--travis_storate_for_data` flag.
 
-By default, the installer creates an IP4 network for LXC and assigns address 192.168.0.1 to it. The IP6 network is off by default. 
+By default, the installer creates an IP4 network for LXC and assigns the address 192.168.0.1 to it. The IP6 network is off by default. 
 To alter these parameters, use the following installation flags:
  
  |`--travis_network_ipv4_network`|
