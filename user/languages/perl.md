@@ -1,5 +1,5 @@
 ---
-title: Building a Perl Project
+title: Build a Perl Project
 layout: en
 
 ---
@@ -26,17 +26,15 @@ perl:
 
 </aside>
 
-## What This Guide Covers
-
 {{ site.data.snippets.linux_note }}
 
 Perl builds are not available on the OS X environment.
 
 The rest of this guide covers configuring Perl projects in Travis CI. If you're
-new to Travis CI please read our [Getting Started](/user/getting-started/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
-## Specifying Perl versions
+## Specify Perl versions
 
 Travis CI uses [Perlbrew](http://perlbrew.pl/) to provide several Perl versions
 you can test your projects against:
@@ -89,7 +87,7 @@ By default Travis CI use `cpanm` to manage your project's dependencies.
 cpanm --quiet --installdeps --notest .
 ```
 
-### When Overriding Build Commands, Do Not Use `sudo`
+### Override Build Commands; do not use sudo
 
 When overriding `install:` key to tweak dependency installation command (for
 example, to run cpanm with verbosity flags), do not use `sudo`. Travis CI
@@ -105,6 +103,10 @@ to construct a build matrix.
 ## Environment Variables
 
 The version of Perl a job is using is available as `TRAVIS_PERL_VERSION`.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Perl](https://config.travis-ci.com/ref/language/perl) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Examples
 
