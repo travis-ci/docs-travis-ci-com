@@ -31,6 +31,9 @@ with 8vCPU and 16GB RAM running with Ubuntu 16.04, Bionic, Focal, Jammy, or late
     $ curl -sSL -o /tmp/installer.sh https://raw.githubusercontent.com/travis-ci/travis-enterprise-worker-installers/master/installer.sh
     $ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>"
     ```
+    If you wish to use the Xenial, Bionic, Jammy build environment, please pass in the --travis_build_images=xenial || focal || bionic || jammy flag during installation:
+
+    ```$ sudo bash /tmp/installer.sh --travis_enterprise_host="<enterprise host>" --travis_enterprise_security_token="<rabbitmq password>" --travis_build_images= name```
 
 ### Install Workers behind a web proxy
 
