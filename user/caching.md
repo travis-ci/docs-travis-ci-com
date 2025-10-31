@@ -418,7 +418,7 @@ jobs should use.
 These factors are:
 
 1. OS name (currently, `linux` or `windows`)
-2. OS distribution (for Linux, `noble`, `jammy`, `focal`, `bionic`, `xenial`, `trusty`, or `precise`)
+2. OS distribution (for Linux, `noble`, `jammy`, `focal`, `bionic`, `xenial`)
 3. Names and values of visible environment variables set in `.travis.yml` or Settings panel
 4. Language runtime version (for the language specified in the `language` key) if applicable
 5. For Bundler-aware jobs, the name of the `Gemfile` used

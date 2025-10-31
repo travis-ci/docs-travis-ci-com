@@ -25,7 +25,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package  | version   |
 |:---------|:----------|
-| git      | `2.51.0`  |
+| git      | `2.51.1`  |
 | git-lfs  | `3.0.2`   |
 | hg       | `7.0.3`   |
 | svn      | `1.14.1`  |
@@ -36,7 +36,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package    | version   |
 |:-----------|:----------|
 | clang      | `18.1.8`  |
-| cmake      | `4.0.1`  |
+| cmake      | `4.0.2`  |
 | gcc        | `11.4.0`  |
 | ccache     | `4.5.1`   |
 | shellcheck | `0.11.0`  |
@@ -45,14 +45,14 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ### Docker and Container Tools
 
-* Docker `28.4.0` (build 068a01e) is installed.
-* docker-compose `v2.39.2` is also available.
+* Docker `28.5.1` (build 068a01e) is installed.
+* docker-compose `v2.40.2` is also available.
 * Podman `3.4.4` is installed as an alternative container engine.
 
 ### Ruby Support
 
-* Pre-installed Rubies: `2.7.8` and `3.3.9`.
-* The default ruby is `3.3.9`.
+* Pre-installed Rubies: `2.7.8` and `3.3.10`.
+* The default ruby is `3.3.10`.
 * Other ruby versions can be installed during build time.
 
 ### Python Support
@@ -62,9 +62,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | alias  | version   |
 |:-------|:----------|
-| `3.8`  | `3.8.18`  |
-| `3.10` | `3.10.14`  |
-| `3.12` | `3.12.4`  |
+| `3.8`  | `3.8.20`  |
+| `3.10` | `3.10.19`  |
+| `3.12` | `3.12.12`  |
 {: style="width: 30%" }
 
 ### JavaScript and Node.js Support
@@ -75,7 +75,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 ## Go support
 
-* Pre-installed Go: `1.24.6`.
+* Pre-installed Go: `1.25.3`.
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:` key.
 
@@ -87,9 +87,9 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | package | version   |
 |:--------|:----------|
-| gradle  | `9.0.0`     |
+| gradle  | `9.1.0`     |
 | maven   | `3.9.11`   |
-| groovy  | `4.0.27`  |
+| groovy  | `5.0.0-rc-1`  |
 {: style="width: 30%" }
 
 ### Perl Support
@@ -104,7 +104,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 
 | alias | version  |
 |:------|:---------|
-| `8.1` | `8.1.2`  |
+| `8.3` | `8.3.27`  |
 {: style="width: 30%" }
 
 ### Databases and Services
@@ -114,9 +114,9 @@ To use one in your build, add it to the `services` key in your `.travis.yml`:
 
 | service      | version   |
 |:-------------|:----------|
-| mongodb      | `8.0.13`  |
+| mongodb      | `8.2.1`  |
 | mysql        | `8.0.43`  |
-| redis        | `8.2.1`   |
+| redis        | `8.2.2`   |
 | postgresql   | `14.19`   |
 {: style="width: 30%" }
 

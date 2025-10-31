@@ -189,7 +189,7 @@ Deploy keys are not currently supported by LFS, so you should use a Assembla OAu
 
 ### Linux
 
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty, Xenial, and Bionic images.
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu images.
 
 ### Git LFS Skip Smudge
 
