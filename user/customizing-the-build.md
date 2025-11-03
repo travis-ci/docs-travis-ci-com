@@ -1,5 +1,5 @@
 ---
-title: Customizing the Build
+title: Customize the Build
 layout: en
 
 redirect_from:
@@ -7,6 +7,24 @@ redirect_from:
   - /user/how-to-skip-a-build/
   - /user/repository-providers/
 ---
+
+## Travis CI Build Configuration and Settings
+
+Builds on Travis CI are configured mostly through the build configuration
+stored in the file `.travis.yml` in your repository. This allows your
+configuration to be version-controlled and flexible.
+
+For advanced use cases, the main build configuration file `.travis.yml` can
+import other, shared config sources using the [Build Config Imports](/user/build-config-imports/)
+feature.
+
+Detailed information about Travis CI's build config format can be found in our
+[Travis CI Build Config Reference](https://config.travis-ci.com/). Additional
+information about Travis CI's use of YAML as a language to describe build
+configuration can be found [here](/user/build-config-yaml).
+
+Other features can be controlled through the repository's settings either
+through the Travis CI UI, or the Travis CI [command line client](https://github.com/travis-ci/travis.rb#readme).
 
 
 ## Build Timeouts
@@ -21,18 +39,18 @@ Travis CI has specific time limits for each job, and will stop the build and add
 Some common reasons why builds might hang:
 
 - Waiting for keyboard input or other kind of human interaction
-- Concurrency issues (deadlocks, livelocks and so on)
-- Installation of native extensions that take very long time to compile
+- Concurrency issues (deadlocks, livelocks, and so on)
+- Installation of native extensions that take a very long time to compile
 
 > There is no timeout for a build; a build will run as long as needed to complete all the jobs, but will stop immediately if any job hits a timeout limit.
 
 ## Build Lifecycle
 
-The [Build Lifecycle documentation](/user/job-lifecycle) now has its own page.
+The [Build Lifecycle documentation](/user/job-lifecycle/) now has its own page.
 {: #Build-Lifecycle}
 
 
-## Limiting Concurrent Jobs
+## Limit Concurrent Jobs
 
 {{ site.data.snippets.concurrent_jobs }}
 
@@ -41,15 +59,15 @@ each repository.
 
 ![Settings -> Limit concurrent builds](/images/screenshots/concurrent-builds-how-to.png)
 
-Or using the command line client:
+Or, using the command line client:
 
 ```bash
 $ travis settings maximum_number_of_builds --set 1
 ```
 
-## Building Only the Latest Commit
+## Build the Latest Commit only
 
-If you are only interested in building the most recent commit on each branch you can use this new feature to automatically cancel older builds in the queue that are *not yet running*. Existing builds will be allowed to finish.
+If you are only interested in building the most recent commit on each branch, you can use this new feature to automatically cancel older builds in the queue that are *not yet running*. Existing builds will be allowed to finish.
 
 The *Auto Cancellation Setting* is in the *Settings* tab of each repository, and you can enable it separately to:
 * *Auto cancel branch builds* - cancels queued builds in your branch and appears in the *Build History* tab of your repository.
@@ -58,14 +76,12 @@ The *Auto Cancellation Setting* is in the *Settings* tab of each repository, and
 
 ![Auto cancellation setting](/images/autocancellation.png "Auto cancellation setting")
 
-For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically cancelled:
+For example, in the following screenshot, we pushed commit `ca31c2b` to the branch `MdA-fix-notice` while builds #226 and #227 were queued. With the auto cancellation feature on, the builds #226 and #227 were automatically canceled:
 
 ![Auto cancellation example](/images/autocancellation-example.png "Auto cancellation example")
 
 
 ## Git Clone Depth
-
-Travis CI can clone repositories to a maximum depth of 50 commits, which is only really useful if you are performing git operations.
 
 > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won't build commits that are in the queue when you push a new commit.
 
@@ -85,7 +101,7 @@ git:
 ```
 {: data-file=".travis.yml"}
 
-> Some operations on the repository, such as common automated code review scripts (e.g. Pronto for Ruby), may fail due to the limited git clone depth, not being able to access all the objects in the repository. Removing the depth flag, or running `git fetch --unshallow` might solve the issue.
+> Some operations on the repository, such as common automated code review scripts (e.g., Pronto for Ruby), may fail due to the limited git clone depth, not being able to access all the objects in the repository. Removing the depth flag, or running `git fetch --unshallow` might solve the issue.
 
 ## Git Clone Quiet
 
@@ -101,7 +117,7 @@ git:
 
 ## Git Submodules
 
-Travis CI clones Git submodules by default, to avoid this set:
+Travis CI clones Git submodules by default. To avoid this set:
 
 ```yaml
 git:
@@ -111,9 +127,7 @@ git:
 
 ## Git LFS
 
-
-### Authentication
-
+### GitHub Authentication
 
 We recommend using a read-only GitHub OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
 
@@ -128,25 +142,54 @@ This authentication is required when connecting to private repositories, and pre
 
 Deploy keys are not currently supported by LFS, so you should use a GitHub OAuth token to authenticate as in the example above.
 
+### Bitbucket Authentication
 
-### Linux
-
-[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu Trusty and Xenial images.
-
-### macOS
-
-Installing `git-lfs` via brew is the recommended way to get Git LFS in [macOS](/user/reference/osx/).
+We recommend using a read-only Bitbucket OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
 
 ```yaml
-os: osx
-
 before_install:
-- brew install git-lfs
-
-before_script:
+- echo -e "machine bitbucket.com\n  login $BITBUCKET_TOKEN" > ~/.netrc
 - git lfs pull
 ```
 {: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Bitbucket OAuth token to authenticate as in the example above.
+
+### GitLab Authentication
+
+We recommend using a read-only GitLab OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine gitlab.com\n  login $GITLAB_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a GitLab OAuth token to authenticate as in the example above.
+
+### Assembla Authentication
+
+We recommend using a read-only Assembla OAuth token to authenticate when using [Git LFS](https://git-lfs.github.com/):
+
+```yaml
+before_install:
+- echo -e "machine assembla.com\n  login $ASSEMBLA_TOKEN" > ~/.netrc
+- git lfs pull
+```
+{: data-file=".travis.yml"}
+
+This authentication is required when connecting to private repositories, and prevents rate-limiting when connecting to open source repositories.
+
+Deploy keys are not currently supported by LFS, so you should use a Assembla OAuth token to authenticate as in the example above.
+
+### Linux
+
+[Git LFS](https://git-lfs.github.com/) is supported by default on our Ubuntu images.
 
 ### Git LFS Skip Smudge
 
@@ -175,26 +218,56 @@ git:
 where `skip-worktree-map-file` is a path to the existing file in the current repository with data you'd like to put into `$GIT_DIR/info/sparse-checkout` file of [format described in Git documentation](https://git-scm.com/docs/git-read-tree#_sparse_checkout).
 
 
-## Disabling git clone
+## Git End-of-Line Conversion Control
+
+Travis CI clones repositories with platform-dependent [core.autocrlf](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf) behavior.
+This behavior can be modified via the autocrlf attribute in `.travis.yml`. Valid values are `true`, `false` and `input`.
+
+To clone your repository without end-of-line conversion, add:
+
+```yaml
+git:
+  autocrlf: input
+```
+{: data-file=".travis.yml"}
+
+This is equivalent to [`git config --global core.autocrlf input`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf) prior to cloning the repository.
+
+
+## Disable git clone
 
 In some workflows, like [build stages](https://docs.travis-ci.com/user/build-stages/#what-are-build-stages), it might be beneficial to skip the automatic `git clone` step.
 
-You can do this by adding:  
+You can do this by adding:
 
 ```yaml
 git:
   clone: false
 ```
+{: data-file=".travis.yml"}
 
 > Note that if you use this option, the `TRAVIS_COMMIT_MESSAGE` environment variable will not be defined.
 
-## Building Specific Branches
+## Set the symlinks option
+
+In some cases, when a repository is used for both Linux and Windows, it may be desirable to set
+[core.symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) option.
+
+To do this:
+
+```yaml
+git:
+  symlinks: true
+```
+{: data-file=".travis.yml"}
+
+## Build Specific Branches
 
 Travis CI uses the `.travis.yml` file from the branch containing the Git commit that triggers the build. Include branches using a safelist, or exclude them using a blocklist.
 
-> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests#double-builds-on-pull-requests) when deciding to safelist or blocklist certain branches.
+> Note that you also need to take into account automatic [Pull Request Builds](/user/pull-requests/#double-builds-on-pull-requests) when deciding to safelist or blocklist certain branches.
 
-### Safelisting or Blocklisting Branches
+### Safelist or Blocklist Branches
 
 Specify which branches to build using a safelist, or blocklist branches that you do not want to be built:
 
@@ -229,7 +302,7 @@ branches:
 
 > Note that for historical reasons `.travis.yml` needs to be present *on all active branches* of your project.
 
-### Using Regular Expressions
+### Regular Expressions
 
 You can use regular expressions to safelist or blocklist branches:
 
@@ -246,7 +319,7 @@ Any name surrounded with `/` in the list of branches is treated as a regular exp
 Options that are specified after the last `/` (e.g., `i` for case insensitive matching) are not supported but can be given inline instead.  For example, `/^(?i:deploy)-.*$/` matches `Deploy-2014-06-01` and other
 branches and tags that start with `deploy-` in any combination of cases.
 
-## Skipping a Build
+## Skip a Build
 
 If you don't want to run a build for a particular commit for any reason, you may instruct Travis CI
 to skip building this commit via a command in the commit message.
@@ -267,12 +340,12 @@ For example,
 Note that in case multiple commits are pushed together, the skip command is effective only if present in the commit message of the HEAD commit.
 
 
-## Build matrix
+## Build Matrix
 
 You can also define exclusions to the build matrix:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 1.9.3
     gemfile: gemfiles/Gemfile.rails-2.3.x
@@ -285,7 +358,7 @@ matrix:
 
 > All build matrixes are currently limited to a maximum of **200 jobs** for both private and public repositories. If you are on an open-source plan, please remember that Travis CI provides this service free of charge to the community. So please only specify the matrix you *actually need*.
 
-### Naming Jobs within Matrices
+### Name Jobs within Matrices
 
 You can define names for specific jobs within a matrix. We recommend unique job names, but
 do not enforce it (though this may change in the future). Jobs defined in the `matrix.include`
@@ -293,7 +366,7 @@ section can be given a job name as follows:
 
 ```yaml
 language: python
-matrix:
+jobs:
   include:
   - name: "3.5 Unit Test"
     python: "3.5"
@@ -310,7 +383,7 @@ script: ./test.py $TEST_SUITE
 
 Jobs that are generated by matrix expansion cannot be given name attributes.
 
-### Excluding Jobs
+### Exclude Jobs
 
 If the jobs you want to exclude from the build matrix share the same matrix
 parameters, you can specify only those and omit the varying parts.
@@ -339,7 +412,7 @@ This results in a 3×3×4 build matrix. To exclude all jobs which have `rvm` val
 `gemfile` value `Gemfile`, you can write:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -349,7 +422,7 @@ matrix:
 Which is equivalent to:
 
 ```yaml
-matrix:
+jobs:
   exclude:
   - rvm: 2.0.0
     gemfile: Gemfile
@@ -363,7 +436,7 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-#### Excluding Jobs with `env` Value
+#### Exclude Jobs with the env Value
 
 When excluding jobs with `env` values, the value must match
 _exactly_.
@@ -381,7 +454,7 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
       env: DB=mongodb
@@ -404,7 +477,7 @@ env:
 - DB=mongodb SUITE=compact
 - DB=redis
 - DB=mysql
-matrix:
+jobs:
   exclude:
     - rvm: 1.9.3
       env: DB=mongodb SUITE=all # not 'env: DB=mongodb  SUITE=all' or 'env: SUITE=all DB=mongodb'
@@ -413,12 +486,12 @@ matrix:
 ```
 {: data-file=".travis.yml"}
 
-### Explicitly Including Jobs
+### Explicitly Included Jobs
 
 It is also possible to include entries into the matrix with `matrix.include`:
 
 ```yaml
-matrix:
+jobs:
   include:
   - rvm: ruby-head
     gemfile: gemfiles/Gemfile.rails-3.2.x
@@ -435,12 +508,12 @@ For example, the following creates a build matrix with 3 jobs, which runs a test
 
 ```yaml
 language: python
-matrix:
+jobs:
   include:
   - python: "2.7"
     env: TEST_SUITE=suite_2_7
-  - python: "3.3"
-    env: TEST_SUITE=suite_3_3
+  - python: "3.8"
+    env: TEST_SUITE=suite_3_8
   - python: "pypy"
     env: TEST_SUITE=suite_pypy
 script: ./test.py $TEST_SUITE
@@ -453,50 +526,66 @@ The jobs which are explicitly included inherit the first value of the expansion
 keys defined.
 
 In this example with a 3-job Python build matrix, each job in `matrix.include`
-has the `python` value set to `'3.5'`.
-You can explicitly set the python version for a specific entry:
+has the `python` value set to `'3.8'`.
+You can explicitly set the Python version for a specific entry:
 
 ```yaml
 language: python
 python:
-  - '3.5'
-  - '3.4'
+  - '3.8'
+  - '3.7'
   - '2.7'
-matrix:
+jobs:
   include:
-    - python: '3.5' # this is not strictly necessary
+    - python: '3.8' # this is not strictly necessary
       env: EXTRA_TESTS=true
-    - python: '3.4'
+    - python: '3.7'
       env: EXTRA_TESTS=true
 script: env $EXTRA_TESTS ./test.py $TEST_SUITE
 ```
 {: data-file=".travis.yml"}
 
-### Rows That Are Allowed to Fail
+### Intentionally allow Jobs to Fail 
 
-You can define rows that are allowed to fail in the build matrix. Allowed
-failures are items in your build matrix that are allowed to fail without causing
-the entire build to fail. This lets you add in experimental and
-preparatory builds to test against versions or configurations that you are not
-ready to officially support.
+You can define jobs that are allowed to fail in the build matrix.
+
+Allowed failures are jobs in your build matrix that are allowed to fail without
+causing the entire build to fail. This lets you add in experimental and
+preparatory builds, for example, to test against runtime versions or
+configurations that you are not ready to officially support.
 
 Define allowed failures in the build matrix as key/value pairs:
 
 ```yaml
-matrix:
+jobs:
   allow_failures:
   - rvm: 1.9.3
 ```
 {: data-file=".travis.yml"}
 
-#### Matching Jobs with `allow_failures`
+#### Conditionally allow Jobs to Fail
+
+Allowed failures can include a [condition](/user/conditional-builds-stages-jobs/#conditionally-allowing-jobs-to-fail) using the key `if`.
+
+For example, the following would allow the job using `rvm: 1.9.3` to fail
+only on the `master` branch:
+
+```yaml
+jobs:
+  allow_failures:
+  - rvm: 1.9.3
+    if: branch = master
+```
+{: data-file=".travis.yml"}
+
+#### Matching Jobs with the allow_failures attribute
 
 When matching jobs against the definitions given in `allow_failures`, _all_
-conditions in `allow_failures` must be met exactly, and
-all the keys in `allow_failures` element must exist in the
-top level of the build matrix (i.e., not in `matrix.include`).
+attributes specified on an entry in `allow_failures` must be met exactly, and all
+the keys in `allow_failures` element must exist in the top level of the build
+matrix (i.e., not in `matrix.include`).
 
-##### `allow_failures` Examples
+#### allow_failures Examples
 
 Consider
 
@@ -510,10 +599,10 @@ rvm:
 env:
   global:
   - SECRET_VAR1=SECRET1
-  matrix:
+  jobs:
   - SECRET_VAR2=SECRET2
 
-matrix:
+jobs:
   allow_failures:
     - env: SECRET_VAR1=SECRET1 SECRET_VAR2=SECRET2
 ```
@@ -529,7 +618,7 @@ language: php
 php:
 - 5.6
 - 7.0
-matrix:
+jobs:
   include:
   - php: 7.0
     env: KEY=VALUE
@@ -541,21 +630,21 @@ matrix:
 
 Without the top-level `env`, no job will be allowed to fail.
 
-### Fast Finishing
+### Use a Fast Finish
 
-If some rows in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
+If some jobs in the build matrix are allowed to fail, the build won't be marked as finished until they have completed.
 
 To mark the build as finished as soon as possible, add `fast_finish: true` to the `matrix` section of your `.travis.yml` like this:
 
 ```yaml
-matrix:
+jobs:
   fast_finish: true
 ```
 {: data-file=".travis.yml"}
 
 Now, the build result will be determined as soon as all the required jobs finish, based on these results, while the rest of the `allow_failures` jobs continue to run.
 
-## Installing a Second Programming Language
+## Install a Second Programming Language
 
 If you need to install a second programming language in your current build environment, you can do so in the `before_install` stage of the build.
 
@@ -568,7 +657,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-You can also insall a custom PHP version in a Node.js build like this:
+You can also install a custom PHP version in a Node.js build like this:
 ```yaml
 language: node_js
 
@@ -579,12 +668,12 @@ before_install:
 
 It's also possible to use other language installation methods such as `apt-get`, `pyenv` for Python, `nvm` for Node.js, etc.
 
-## Implementing Complex Build Steps
+## Implement Complex Build Steps
 
 If you have a complex build environment that is hard to configure in the `.travis.yml`, consider moving the steps into a separate shell script.
 The script can be a part of your repository and can easily be called from the `.travis.yml`.
 
-See [Complex Build Commands](/user/job-lifecycle#complex-build-commands) for more information on how to do this.
+See [Complex Build Commands](/user/job-lifecycle/#complex-build-commands) for more information on how to do this.
 
 ## Custom Hostnames
 
@@ -600,13 +689,13 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## What Repository Providers or Version Control Systems Can I Use?
+## Repository Providers and Version Control Systems
 
-Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/).
+Build and test your open source and private repositories hosted on GitHub on [travis-ci.com](https://travis-ci.com/). Travis CI can also integrates with Atlassian [Bitbucket](https://bitbucket.org/), [GitLab](https://about.gitlab.com/) and Assembla (https://www.assembla.com/).
 
-Travis CI currently does not support git repositories hosted on Bitbucket or GitLab, or other version control systems such as Mercurial.
+Travis CI currently does not support git repositories hosted on other version control systems such as Mercurial.
 
-## What YAML Version Can I Use in `.travis.yml`
+## YAML Versions for a .travis.yml file
 
 Travis CI uses the Ruby libYAML library, which means that your `.travis.yml` must be valid [YAML 1.1](http://yaml.org/spec/1.1/).
 
