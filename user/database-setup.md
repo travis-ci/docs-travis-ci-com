@@ -55,9 +55,9 @@ and a blank password.
 > `root` user does.
 
 
-|       | Ubuntu Precise | Ubuntu Trusty | Ubuntu Xenial | Ubuntu Bionic | Ubuntu Focal  | Ubuntu Jammy  |
-|:------|:---------------|:--------------|:--------------|:--------------|:--------------|:--------------|
-|  MySQL | 5.5.x          | 5.6.x         | 5.7.x        | 5.7.x         | 8.0.x         | 8.0.x         |
+|       | Ubuntu Xenial | Ubuntu Bionic | Ubuntu Focal  | Ubuntu Jammy  | Ubuntu Noble  |
+|:------|:--------------|:--------------|:--------------|:--------------|:--------------|
+|  MySQL| 5.7.x         | 8.0.x         | 8.0.x         | 8.0.x         | 8.0.x         |
 
 You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
@@ -98,13 +98,6 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 ```
 {: data-file=".travis.yml"}
-
-
-### MySQL 5.7
-
-MySQL 5.7 is the default on the Xenial (`dist: xenial`) and Bionic (`dist: bionic`) images.
-
-> Since July 21st 2019, MySQL 5.7 is not supported on Ubuntu Trusty (14.04) anymore. See [MySQL Product Support EOL Announcements](https://www.mysql.com/support/eol-notice.html) and [this post](https://forums.mysql.com/read.php?11,677237,677268#msg-677268) in the MySQL Forums.
 
 ## PostgreSQL
 
@@ -147,9 +140,7 @@ before_script:
 
 ### Use a different PostgreSQL Version
 
-The Travis CI build environments use version 9.2 by default on Trusty images, but other versions
-from the official [PostgreSQL APT repository](http://apt.postgresql.org) are
-also available. To use a version other than the default, specify only the
+Other versions apart from the default ones from the official [PostgreSQL APT repository](http://apt.postgresql.org) are also available. To use a version other than the default, specify only the
 **major.minor** version in your `.travis.yml`:
 
 ```yaml

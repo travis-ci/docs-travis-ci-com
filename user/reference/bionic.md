@@ -4,6 +4,7 @@ layout: en
 ---
 
 > Bionic LTS Standard is EOL by Canonical, try updating to a newer image. It will be in use in Travis CI for some time more, but it's time to consider migration of your builds to a newer build environment image.
+Additionally, Bionic won't be receiving any new updates.
 
 ## What This Guide Covers
 

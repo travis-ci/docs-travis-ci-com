@@ -38,7 +38,7 @@ For preinstalled language interpreters, a standard version manager like `rvm` is
 | package      | version   |
 |:-------------|:----------|
 | clang        | `18.1.8`  |
-| cmake        | `4.1.0`  |
+| cmake        | `4.2.0`  |
 | gcc          | `9.4.0`   |
 | ccache       | `3.7.7`   |
 | shellcheck   | `0.11.0`  |
@@ -92,21 +92,20 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 ## Ruby support
 
 * Pre-installed Rubies: `2.7.8` and `3.3.5`.
-* The default ruby is `3.3.5`.
+* The default ruby is `3.3.10`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python version is: `3.7` or higher as `2.7` has been sunset.
+* Supported Python version is: `3.8` or higher as `2.7` has been sunset.
 * Python `3.7.17` will be used by default when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version   |
 | :----- | :-------- |
-| `3.7`  | `3.7.17`  |
-| `3.8`  | `3.8.10`  |
-| `3.9`  | `3.9.18`  |
-| `3.12` | `3.12.4`  |
+| `3.8`  | `3.8.20`  |
+| `3.9`  | `3.9.24`  |
+| `3.12` | `3.12.12`  |
 {: style="width: 30%" }
 
 ## JavaScript and Node.js support
@@ -116,7 +115,7 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 ## Go support
 
-* Pre-installed Go: `1.24.6`.
+* Pre-installed Go: `1.25.3`.
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:` key.
 
@@ -128,9 +127,9 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 | package | version  |
 |:--------|:---------|
-| gradle  | `9.0.0`    |
+| gradle  | `9.1.0`    |
 | maven   | `3.9.11`  |
-| groovy  | `4.0.27` |
+| groovy  | `4.0.28` |
 {: style="width: 30%" }
 
 ## Perl support
@@ -146,7 +145,7 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 
 | alias  | version  |
 | :----- | :------- |
-| `7.4`  | `7.4.6`  |
+| `8.3`  | `8.3.27`  |
 {: style="width: 30%" }
 
 ## Databases and services
@@ -156,7 +155,7 @@ To use one in your build, add it to the services key in your `travis.yml`:
 
 | service    | version  |
 |:-----------|:---------|
-| mongodb    | `8.0.13` |
+| mongodb    | `8.2.1` |
 | mysql      | `8.0.42` |
 | redis      | `8.0.3`  |
 | postgresql | `13.21`  |
