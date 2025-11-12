@@ -172,25 +172,6 @@ When pushing to a private registry, be sure to specify the hostname in the
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.example.com
 ```
 
-## Use the Docker Compose
-
-The [Docker Compose](https://docs.docker.com/compose/) tool is also [installed in the Docker enabled environment](/user/reference/trusty/#docker).
-
-If needed, you can easily replace this preinstalled version of `docker-compose`
-by adding the following `before_install` step to your `.travis.yml`:
-
-```yaml
-env:
-  - DOCKER_COMPOSE_VERSION=v2.17.3
-
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-```
-{: data-file=".travis.yml"}
-
 ## Install a newer Docker version
 
 You can upgrade to the latest version and use any new Docker features by manually

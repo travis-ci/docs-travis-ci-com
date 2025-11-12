@@ -29,7 +29,6 @@ To start several services:
 
 ```yaml
 services:
-  - riak
   - rabbitmq
   - memcached
 ```
@@ -59,7 +58,6 @@ and a blank password.
 |:------|:--------------|:--------------|:--------------|:--------------|:--------------|
 |  MySQL| 5.7.x         | 8.0.x         | 8.0.x         | 8.0.x         | 8.0.x         |
 
-You can also [install MySQL 5.7](#mysql-57) on Ubuntu Trusty.
 
 ### Use MySQL with ActiveRecord
 
@@ -180,10 +178,9 @@ Install the version of PostGIS that matches your PostgreSQL version, and activat
 
 ```yaml
 addons:
-  postgresql: 9.6
   apt:
     packages:
-    - postgresql-9.6-postgis-2.3
+    - postgresql-postgis
 before_script:
   - psql -U postgres -c "create extension postgis"
 ```
@@ -323,9 +320,7 @@ services:
 ```
 {: data-file=".travis.yml"}
 
-CouchDB binds to 127.0.0.1, uses default configuration on `dist:xenial` and earlier Linux distributions and does not require authentication (in CouchDB terms it runs in admin party). 
-
-However for `bionic`, authentication is required with username `admin` and password `travis` e.g. `curl -X PUT http://admin:travis@localhost:5984/<db_name>`.
+CouchDB binds to 127.0.0.1. Authentication is required with username `admin` and password `travis` e.g. `curl -X PUT http://admin:travis@localhost:5984/<db_name>`.
 
 Before using CouchDB you need to create the database as part of your build process:
 
@@ -336,8 +331,6 @@ before_script:
 {: data-file=".travis.yml"}
 
 ## RabbitMQ
-
-RabbitMQ requires `setuid` flags, so you can only run RabbitMQ as a service on Ubuntu Trusty infrastructure.
 
 Start RabbitMQ in your `.travis.yml`:
 
@@ -364,22 +357,6 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-## Riak
-
-> Riak is only available in the [Ubuntu Trusty environment](/user/reference/trusty/).
-
-Start Riak in your `.travis.yml`:
-
-```yaml
-services:
-  - riak
-```
-{: data-file=".travis.yml"}
-
-Riak uses the default configuration with Bitcask as storage backend.
-
-Riak Search is deactivated by default.
-
 ## Memcached
 
 Start Memcached service in your `.travis.yml`:
@@ -403,30 +380,6 @@ services:
 {: data-file=".travis.yml"}
 
 Redis uses the default configuration and is available on localhost.
-
-## Cassandra
-
-Start Cassandra in your `.travis.yml`:
-
-```yaml
-services:
-  - cassandra
-```
-{: data-file=".travis.yml"}
-
-Cassandra is downloaded from the [Apache apt repository](http://www.apache.org/dist/cassandra/debian) and uses the default configuration. It is available on 127.0.0.1.
-
-### Install older versions of Cassandra
-
-Use the following example to install a specific older version of Cassandra in your `.travis.yml`:
-
-```yaml
-before_install:
-  - sudo rm -rf /var/lib/cassandra/*
-  - wget http://www.us.apache.org/dist/cassandra/1.2.18/apache-cassandra-1.2.18-bin.tar.gz && tar -xvzf apache-cassandra-1.2.18-bin.tar.gz && sudo sh apache-cassandra-1.2.18/bin/cassandra
-```
-{: data-file=".travis.yml"}
-
 
 ## Neo4j
 
@@ -494,11 +447,11 @@ To use RethinkDB with Travis CI, list it as an addon in the `.travis.yml` config
 
 ```yaml
 addons:
-  rethinkdb: '2.3.4'
+  rethinkdb: '2.4.4'
 ```
 {: data-file=".travis.yml"}
 
-If you specify a partial version number, the addon will install and run the latest version that matches. For example, `'2.3'` will match the latest RethinkDB version in the `2.3.x` line.
+If you specify a partial version number, the addon will install and run the latest version that matches. For example, `'2.4'` will match the latest RethinkDB version in the `2.4.x` line.
 
 Two environment variables are exported:
 
@@ -506,6 +459,7 @@ Two environment variables are exported:
 - `TRAVIS_RETHINKDB_PACKAGE_VERSION` is the full version of the package that was installed (e.g., `'2.3.4+1~0precise'`).
 
 When enabled, RethinkDB will start on `localhost` at the default port (`28015`).
+Available versions can be checked here: https://download.rethinkdb.com/#browse/browse
 
 ## Multiple Database Builds
 
