@@ -52,8 +52,10 @@ node_js:
 More specific information on what versions of Node.js are available is in
 the Environment Reference pages:
 
-* [Precise](/user/reference/precise/#javascript-and-nodejs-images)
-* [Trusty](/user/reference/trusty/#javascript-and-nodejs-images)
+* [Bionic](/user/reference/bionic/#javascript-and-nodejs-support)
+* [Focal](/user/reference/focal/#javascript-and-nodejs-support)
+* [Jammy](/user/reference/jammy/#javascript-and-nodejs-support)
+* [Noble](/user/reference/noble/#javascript-and-nodejs-support)
 
 If you need more specific control of Node.js versions in your build, use any
 version that is installable by `nvm`. If your `.travis.yml` contains a version of
@@ -229,7 +231,7 @@ is [`Qunit`](http://qunitjs.com/). The following example shows how to build and
 test against different Ember versions.
 
 ```yaml
-dist: trusty
+dist: focal
 addons:
   apt:
     sources:
@@ -310,34 +312,6 @@ before_script:
 {: data-file=".travis.yml"}
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
-
-## Node.js v4 (or io.js v3) compiler requirements
-
-To compile native modules for io.js v3 or Node.js v4 or later, a [C++11
-standard](https://en.wikipedia.org/wiki/C%2B%2B11)-compliant compiler is
-required. More specifically, either gcc 4.8 (or later), or clang 3.5 (or later)
-works.
-
-Our Trusty images have gcc and clang that meet this requirement, but the Precise
-image does not.
-
-To update these compilers to a newer version, for example, `gcc/g++` to version
-4.8, add the following in your `.travis.yml`:
-
-```yaml
-language: node_js
-node_js:
-  - "4"
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-```
-{: data-file=".travis.yml"}
 
 ## Build Config Reference
 

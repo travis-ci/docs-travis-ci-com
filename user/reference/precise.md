@@ -7,7 +7,7 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
-> Precise is EOL by Canonical, try updating to a newer image. It is considered as deprecated build envrionment in Travis CI and not supportted with any updates.
+> Please note that support for Precise build environment is discontinued. This is a **legacy** document left for reference.
 > Past guides, for reference: [Precise to Trusty Migration Guide](/user/precise-to-trusty-migration-guide) and [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide).
 
 ### What This Guide Covers

@@ -104,4 +104,3 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-{% include c11-cpp11-and-beyond-and-toolchains.md %}

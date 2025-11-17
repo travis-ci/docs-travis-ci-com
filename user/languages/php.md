@@ -44,7 +44,6 @@ php:
   - '5.4'
   - '5.6'
   - '7.0'
-  - hhvm # on Trusty only
   - nightly
 ```
 {: data-file=".travis.yml"}
@@ -70,49 +69,9 @@ The list of PHP versions available for on-demand installation can be found in
 
 {% else %}
 
-### Support for PHP version 5.2(.x) and 5.3(.x) are available on Precise only
+### Support for PHP versions 7.4(.x) and onwards are available on all of the images
 
-We do not support these versions on Trusty, Xenial, or Bionic.
-If you need to test them, please use Precise.
-See [this page](/user/reference/trusty/#php-images) for more information.
-
-### Support for PHP versions 5.4(.x) - 5.5(.x) are available on Precise and Trusty 
-
-We do not support these versions on Xenial or Bionic.
-If you need to test them, please use Precise or Trusty.
-See [this page](/user/reference/xenial/#php-images) for more information.
-
-### Support for PHP versions 5.6(.x) - 7.0(.x) are available on Precise, Trusty, and Xenial 
-
-We do not support these versions on Bionic.
-If you need to test them, please use Precise, Trusty, or Xenial.
-See [this page](/user/reference/bionic/#php-support) for more information.
-
-### Support for PHP versions 7.4(.x) and onwards are available on Trusty, Xenial, and Bionic 
-
-We do not support these versions on Precise.
-If you need to test them, please use Trusty, Xenial, or Bionic.
 {% endif %}
-
-### Test HHVM versions with Trusty
-
-Travis CI can test your PHP applications with HHVM on Ubuntu Trusty:
-
-```yaml
-php:
-  - hhvm-3.18
-  - hhvm-nightly
-```
-{: data-file=".travis.yml"}
-
-
-Please note that if you want to run PHPUnit on HHVM, you have to explicitly install version 5.7 in your `.travis.yml` due to a compatibility issue between HHVM and PHP7:
-
-```yaml
-before_script:
-  - curl -sSfL -o ~/.phpenv/versions/hhvm/bin/phpunit https://phar.phpunit.de/phpunit-5.7.phar
-```
-{: data-file=".travis.yml"}
 
 ### Nightly builds
 
@@ -239,15 +198,6 @@ To ensure that everything works, use http(s) URLs on [Packagist](http://packagis
 ## PHP installation
 
 You'll find the default configure options used to build the different PHP versions used on Travis CI [here](https://github.com/travis-ci/travis-cookbooks/blob/precise-stable/ci_environment/phpbuild/templates/default/default_configure_options.erb), it will give you an overview of Travis CI's PHP installation.
-
-Please note the following differences among the different PHP versions available on Travis CI:
-
-- The OpenSSL extension is switched off on php 5.3.3 because of [compilation problems with OpenSSL 1.0](https://travis-ci.com/blog/upcoming_ubuntu_11_10_migration/).
-- Different SAPIs:
-
-  - 5.3.3 comes with php-cgi only.
-  - 5.3.x (5.3.29) comes with php-fpm only (see this [issue](https://bugs.php.net/bug.php?id=53271:)).
-  - 5.4.x, 5.5.x, and 5.6.x come with php-cgi *and* php-fpm.
 
 ## Custom PHP configuration
 

@@ -3,7 +3,7 @@ title: The Xenial Build Environment
 layout: en
 ---
 
-> Xenial LTS Standard has reached End of Life (EOL) as per Canonical. Consider updating to a newer image. Travis CI has ceased all work on updates to Xenial images as of the end of the 2024 calendar year, and it is now considered deprecated.
+> Please note that support for Xenial build environment is discontinued. This is a **legacy** document left for reference.
 
 ## What This Guide Covers
 

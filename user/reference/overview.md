@@ -47,11 +47,11 @@ The table below sums up the available Ubuntu environments and virtualization typ
 | :------------------- | :---------------------       |
 | [Ubuntu Noble 24.04](/user/reference/noble/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
 | [Ubuntu Jammy 22.04](/user/reference/jammy/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
-| [Ubuntu Focal 20.04](/user/reference/focal/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
-| [Ubuntu Bionic 18.04](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
-| [Ubuntu Xenial 16.04](/user/reference/xenial/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
-| [Ubuntu Trusty 14.04](/user/reference/trusty/) | `arch: amd64`: full VM only, default option  |
-| [Ubuntu Precise 12.04](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
+| [Ubuntu Focal 20.04](/user/reference/focal/) **default** | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD and full VM<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only |
+| [Ubuntu Bionic 18.04 - deprecation warning](/user/reference/bionic/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
+| [Ubuntu Xenial 16.04 - deprecated](/user/reference/xenial/) | `arch: amd64`: full VM only, default option<br />`arch: arm64`: LXD only<br />`arch: arm64-graviton2`: LXD only<br/>`arch: ppc64le`: LXD only<br/>`arch: s390x`: LXD only  |
+| [Ubuntu Trusty 14.04 - deprecated](/user/reference/trusty/) | `arch: amd64`: full VM only, default option  |
+| [Ubuntu Precise 12.04 - deprecated](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
 
 
 LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures/).
@@ -67,7 +67,7 @@ A [Windows](/user/reference/windows/) environment running Windows Server, versio
 
 The following table summarizes the differences across virtual environments and operating systems:
 
-|                      | Ubuntu Linux  ([Noble](/user/reference/noble/), Ubuntu Linux  ([Jammy](/user/reference/jammy/), Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) , [Trusty](/user/reference/trusty/), [Precise](/user/reference/precise/)) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
+|                      | Ubuntu Linux  ([Noble](/user/reference/noble/), Ubuntu Linux  ([Jammy](/user/reference/jammy/), Ubuntu Linux  ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/) | [Windows](/user/reference/windows/) | Ubuntu Linux / LXD container ([Noble](/user/reference/noble/), ([Jammy](/user/reference/jammy/), ([Focal](/user/reference/focal/), [Bionic](/user/reference/bionic/), [Xenial](/user/reference/xenial/)) |
 |:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-------------------------------------------------------|
 | Name                 | Ubuntu                                                                                                                                                        | Windows                            | Ubuntu                                                 |
 | Status               | Current                                                                                                                                                       | Early release                      | Beta                                          |
@@ -146,7 +146,7 @@ With the introduction of a new billing system in Travis CI, the IBM and part of 
 ```yaml
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
-dist: noble          # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
+dist: noble          # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
 
@@ -155,7 +155,7 @@ dist: noble          # or jammy | focal | bionic | xenial | trusty | precise wit
 ```yaml
 arch: arm64           # LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
 
@@ -182,14 +182,14 @@ group: edge
 ```yaml
 arch: ppc64le         # The IBM Power LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
 arch: s390x           # The IBM Z LXD container based build for OSS only
 os: linux             # required for arch different than amd64
-dist: noble           # or jammy | focal | bionic | xenial | trusty | precise with xenial as default
+dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
 
@@ -282,6 +282,8 @@ Please note that the usage of GPU VM instance sizes requires available credits i
 
 Historically, Travis CI has provided the following virtualization environments.
 
+- **Bionic Container-based environment**: will no longer receive updates
+- **Xenial Container-based environment**
 - **Trusty Container-based environment**: was available between [July, 2017](https://travis-ci.com/blog/2017-07-11-trusty-as-default-linux-is-coming) and [December, 2018](https://travis-ci.com/blog/2018-10-04-combining-linux-infrastructures).
 - **Precise Container-based environment**: was available between [December, 2014](https://travis-ci.com/blog/2014-12-17-faster-builds-with-container-based-infrastructure/) and [September, 2017](https://travis-ci.com/blog/2017-08-31-trusty-as-default-status).
 - **Legacy Linux environment**: was available until [December, 2015](https://travis-ci.com/blog/2015-11-27-moving-to-a-more-elastic-future).

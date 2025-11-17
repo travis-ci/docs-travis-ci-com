@@ -161,30 +161,12 @@ ant test
 
 To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
-### Use Ant on Ubuntu Xenial (16.04)
-
-Unfortunately, `ant` currently doesn't come pre-installed on our Xenial image. You'll need to install it manually by adding the following recipe to your .travis.yml file:
-
-```yaml
-dist: xenial
-language: java
-addons:
-  apt:
-    packages:
-      - ant
-```
-{: data-file=".travis.yml"}
-
-
 The list of available JVMs for different dists are at:
 
   * [JDKs installed for **Noble**](/user/reference/noble/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Jammy**](/user/reference/jammy/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Focal**](/user/reference/focal/#jvm-clojure-groovy-java-scala-support)
   * [JDKs installed for **Bionic**](/user/reference/bionic/#jvm-clojure-groovy-java-scala-support)
-  * [JDKs installed for **Xenial**](/user/reference/xenial/#jvm-clojure-groovy-java-scala-support)
-  * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
-  * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
 
 ### Switch JDKs (Java 8 and lower) within one Job
 
@@ -199,31 +181,6 @@ script:
 {: data-file=".travis.yml"}
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
-
-## Use Java 10 and higher
-
-> Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
-> See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html){: data-proofer-ignore=""}.
->
-> `openjdk` is now the default jdk available on our VMs as `install-jdk` no longer installs `oraclejdk`. Please see this [Github Issue](https://github.com/sormuras/bach/issues/56) for context.
-
-### Switch JDKs (to Java 10 and higher) within one Job
-
-If your build needs to switch JDKs (Java 10 and up) during a job, you can do so with
-[`install-jdk.sh`](https://sormuras.github.io/blog/2017-12-08-install-jdk-on-travis.html).
-
-```yaml
-jdk: openjdk10
-script:
-  - jdk_switcher use openjdk10
-  - # do stuff with OpenJDK 10
-  - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-  - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
-  - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
-  - # do stuff with open OpenJDK 11
-```
-{: data-file=".travis.yml"}
 
 ## Current JDK providers
 

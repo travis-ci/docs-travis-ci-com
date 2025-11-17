@@ -9,7 +9,7 @@ redirect_from:
 
 ## Install Packages on Standard Infrastructure
 
-To install Ubuntu packages that are not included in the standard [precise](/user/reference/precise/), [trusty](/user/reference/trusty/), [xenial](/user/reference/xenial/), or [bionic](/user/reference/bionic/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
+To install Ubuntu packages that are not included in the standard [bionic](/user/reference/bionic/), [focal](/user/reference/focal/), [jammy](/user/reference/jammy/) or [noble](/user/reference/noble/) distribution, use apt-get in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -58,17 +58,6 @@ before_install:
 For repositories not hosted on Launchpad, you need to add a GnuPG key as well.
 
 If you're installing packages this way, make sure you download the correct version for your environment.
-
-This example adds the APT repository for Varnish 3.0 for Ubuntu 12.04 to the locally available list of APT sources and then installs the `varnish` package.
-
-```yaml
-before_script:
-  - curl http://repo.varnish-cache.org/debian/GPG-key.txt | sudo apt-key add -
-  - echo "deb http://repo.varnish-cache.org/ubuntu/ precise varnish-3.0" | sudo tee -a /etc/apt/sources.list
-  - sudo apt-get -qq update
-  - sudo apt-get -y install varnish
-```
-{: data-file=".travis.yml"}
 
 ### Install Packages without an APT Repository
 
@@ -139,26 +128,13 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> Note: If `apt-get install` fails, the build is marked an error.
+> Note: If `apt-get install` fails, the build is marked as an errored one.
 
 > You can also have a look at the [Apt](https://config.travis-ci.com/ref/job/addons/apt) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ### Install Snap Packages with the Snaps Addon
 
-You can install [snap](http://snapcraft.io/) packages using our Xenial or
-Bionic images:
-
-```yaml
-dist: xenial
-```
-{: data-file=".travis.yml"}
-
-or 
-
-```yaml
-dist: bionic
-```
-{: data-file=".travis.yml"}
+You can install also [snap](http://snapcraft.io/) packages.
 
 The Ubuntu Snap store offers many packages directly maintained by upstream
 developers, often with newer versions than the ones available in the Apt archive.
@@ -170,7 +146,7 @@ of the two possible forms:
   additional flags. For example,
 
       ```yaml
-      dist: xenial
+      dist: noble
       addons:
         snaps:
           - hugo
@@ -190,7 +166,7 @@ of the two possible forms:
    For example,
 
       ```yaml
-      dist: xenial
+      dist: noble
       addons:
         snaps:
           - name: aws-cli

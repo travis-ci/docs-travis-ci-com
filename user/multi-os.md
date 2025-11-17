@@ -6,7 +6,7 @@ layout: en
 
 <blockquote class="beta">
   <p>
-    Travis CI will stop support for macOS starting March 31st, 2025.
+    Travis CI is no longer supporting macOS.
   </p>
 </blockquote>
 
