@@ -1,6 +1,6 @@
 ## C11/C++11 (and Beyond) and Toolchain Versioning
 
-If your project requires tools compatible with C11, C++11, or a more recent language standard, then it is likely that you will have to upgrade your compiler and/or build tools. This section covers specifically how to upgrade GCC, clang, and cmake; for other dependencies please see [Installing Dependencies](/user/installing-dependencies/).
+If your project requires tools compatible with C11, C++11, or a more recent language standard, you will likely need to upgrade your compiler and/or build tools. This section covers specifically how to upgrade GCC, clang, and cmake; for other dependencies, please see [Installing Dependencies](/user/installing-dependencies/).
 
 ### GCC on Linux
 
@@ -87,7 +87,7 @@ addons:
 * [Jammy](/user/reference/jammy/) ships with Clang 18.1.8
 * [Noble](/user/reference/noble/) ships with Clang 18.1.3
 
-To upgrade Clang to a more recent version, you will have to install the appropriate version from a `llvm-toolchain-*` source (the `ubuntu-toolchain-r-test` source must also be pulled in for dependency resolution); see below for a Focal example:
+To upgrade Clang to a more recent version, it is necessary to install the appropriate version from a `llvm-toolchain-*` source (the `ubuntu-toolchain-r-test` source must also be pulled in for dependency resolution); see below for a Focal example:
 
 ```yaml
 matrix:
@@ -108,9 +108,9 @@ matrix:
 
 ### Clang on FreeBSD
 
-> Clang is the default compiler on FreeBSD
+> Clang is the default compiler on FreeBSD.
 
-FreeBSD ships with Clang 8.0.1
+FreeBSD ships with Clang 8.0.1.
 
 To upgrade Clang to a more recent version, install the appropriate version from packages; see below for examples:
 
@@ -125,7 +125,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> Clang is the default compiler on FreeBSD
+> Clang is the default compiler on FreeBSD.
 
 #### CMake
 
