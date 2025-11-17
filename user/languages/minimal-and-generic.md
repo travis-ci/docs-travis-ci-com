@@ -7,11 +7,11 @@ layout: en
 ## What This Guide Covers
 
 
-Travis CI supports many popular programming languages but can never hope to support them all. This guide covers how to use minimal and generic images.
+Travis CI supports many popular programming languages, but it can never hope to support them all. This guide covers how to use minimal and generic images.
 
-`language: minimal` and `language: generic` are images available in the currently used Ubuntu distributions, that are not tailored to any particular programming language. As their names suggest, `language: minimal` is optimized to be faster and use less disk space, and `language: generic` has more languages and services available.
+`language: minimal` and `language: generic` are images available in the currently used Ubuntu distributions that are not tailored to any particular programming language. As their names suggest, `language: minimal` is optimized for speed and disk space, while `language: generic` offers more languages and services.
 
-> Note that `language: minimal` is not the same as omitting the `language` key, if you do that the default language is set to Ruby.
+> Note that `language: minimal` is not the same as omitting the `language` key; if you do that, the default language is set to Ruby.
 
 <aside markdown="block" class="ataglance">
 
@@ -39,7 +39,7 @@ language: generic
 
 ## Defaults
 
-As neither `minimal` or `generic` are tailored to one particular language, there are no default `install` or `script` commands, so remember to configure these in your `.travis.yml`.
+As neither `minimal` nor `generic` is tailored to one particular language, there are no default `install` or `script` commands, so remember to configure these in your `.travis.yml`.
 
 ## Minimal
 
@@ -53,7 +53,7 @@ The `minimal` image contains:
 
 ## Generic
 
-The `generic` image contains everything from `minimal`, and also the usual databases, services and language runtimes:
+The `generic` image contains everything from `minimal`, and also the usual databases, services, and language runtimes:
 
 * [version control tools](/user/reference/focal/#version-control)
 * [essential build tools such as gcc and make](/user/reference/focal/#compilers--build-toolchain)
@@ -66,9 +66,9 @@ The `generic` image contains everything from `minimal`, and also the usual datab
 * [php](/user/reference/focal/#php-images)
 * [ruby](/user/reference/focal/#ruby-images)
 
-For specific details of what is on the image consult the [build update](https://headwayapp.co/travis-ci-changelog).
+For specific details of what is on the image, consult the [build update](https://headwayapp.co/travis-ci-changelog).
 
 
 ## Aliases
 
-Setting the `language` key to `bash`, `sh` or `shell` is equivalent to `language: minimal`.
+Setting the `language` key to `bash`, `sh`, or `shell` is equivalent to `language: minimal`.
