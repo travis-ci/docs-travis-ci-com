@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-This guide provides an overview on the different environments in which Travis CI can run your builds, and why you might want to pick one over another.
+This guide provides an overview of the environments in which Travis CI can run your builds and explains why you might want to pick one over another.
 
 ## Virtualization environments
 
@@ -20,7 +20,7 @@ Travis CI supports two virtualization types for Linux builds: ‘full VM’ and 
 
 #### Full VM
 
-This is sudo enabled, full virtual machine per build, that runs Linux
+This is sudo enabled, full virtual machine per build that runs Linux.
 
 * Slow spin-up (increased build time compared to LXD container) yet without any [limitations](/user/reference/overview/#linux-security-and-lxd-container).
 * It has a fixed amount of vCPUs and RAM assigned.
@@ -30,13 +30,13 @@ This is sudo enabled, full virtual machine per build, that runs Linux
 This is a sudo-enabled LXD container build environment, as close to a virtual machine as you can get in the container world. A Linux environment is run within an unprivileged LXD container.
 
 * Fast spin-up (decreased build time when compared to full VM), yet some [limitations](/user/reference/overview/#linux-security-and-lxd-container) do apply
-* It starts with min 2 vCPUs, and if there is more computing time available, the host can dynamically assign it to speed up your build
+* It starts with a minimum of 2 vCPUs, and if there is more computing time available, the host can dynamically assign it to speed up your build
 
 #### Choose a Virtualization type
 
 For the majority of cases, whenever available, we recommend using LXD-based containers.
 
-Use full VM only if LXD is not available or you need
+Use a full VM only if LXD is not available or you need
 * privileged fs access
 * specific system call interception
 * hugepages support (subject to changes on short notice)
@@ -54,7 +54,7 @@ The table below sums up the available Ubuntu environments and virtualization typ
 | [Ubuntu Precise 12.04 - deprecated](/user/reference/precise/) | `arch: amd64`: full VM only, default option  |
 
 
-LXD compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and in [Packet](https://www.packet.com/). LXD compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures/).
+LXD-compliant OS images for arm64 are run on [AWS](https://aws.amazon.com/) and [Packet](https://www.packet.com/). LXD-compliant OS images for IBM Power and Z are run in [IBM Cloud](https://www.ibm.com/cloud). For more information, see [Building on Multiple CPU Architectures](/user/multi-cpu-architectures/).
 
 You can select the Linux virtualization type by setting a `virt` tag to either `vm` or `lxd`. See relevant `.travis.yml` examples [below](/user/reference/overview/#for-a-particular-travisyml-configuration).
 
@@ -91,12 +91,12 @@ The following table summarizes the differences across virtual environments and o
 
 ## Define the Environment's Infrastructure
 
-Usually, knowing the virtualization environment characteristics from the [table above](#virtualisation-environment-vs-operating-system) is sufficient.
+Usually, knowing the characteristics of the virtualization environment from the [table above](#virtualisation-environment-vs-operating-system) is sufficient.
 
 But, if you do need more detail, you have one of these two questions:
 
-* you want to see what infrastructure a [finished build](#for-a-finished-build) ran on.
-* you want to determine what infrastructure a [particular `.travis.yml` configuration](#for-a-particular-travisyml-configuration) will run on.
+* You want to see what infrastructure a [finished build](#for-a-finished-build) ran on.
+* You want to determine what infrastructure a [particular `.travis.yml` configuration](#for-a-particular-travisyml-configuration) will run on.
 
 ### For finished builds
 
@@ -117,35 +117,35 @@ If *instance*, right under the *hostname* contains `ec2` → the build ran withi
 
 ### For particular .travis.yml file configurations
 
-* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu using the `dist` key.
+* Our default infrastructure is an Ubuntu Linux (`os: linux`) virtual machine running on AMD64 architecture (`arch: amd64`), on Google Compute Engine. You can specify which version of Ubuntu to use with the `dist` key.
 
 * Using `os: windows` routes your build to Windows infrastructure.
 
-* Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+* Using `arch: arm64` routes your build to Arm-based LXD containers. You can specify which version of Ubuntu to use with the `dist` key.
 
-* Using `arch: arm64-graviton2` routes your build to Arm-based infrastructure. You must specify target virtualization environment (virtual machine or LXD container) using `virt` key.
+* Using `arch: arm64-graviton2` routes your build to Arm-based infrastructure. You must specify the target virtualization environment (virtual machine or LXD container) using the `virt` key.
 
-* Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+* Using `arch: ppc64le` routes your build to IBM Power-based LXD containers. You can specify which version of Ubuntu to use with the `dist` key.
 
-* Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu using the `dist` key.
+* Using `arch: s390x` routes your build to IBM Z-based LXD containers. You can specify which version of Ubuntu to use with the `dist` key.
 
 * Using `arch: arm64-graviton2` routes you to the AWS environment powered by Arm64 Graviton2 CPUs. Available Ubuntu versions depend on the virtualization type (lxd/vm).
 
-* If you have set `os:` key to target Linux environment, you can further specify the environment type using the `virt:` key.
+* If you have set the `os:` key to target a Linux environment, you can further specify the environment type using the `virt:` key.
 
-> To avoid mistreated keys you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation/).
+> To avoid mistreated keys, you can validate your `.travis.yml` file using the [Build Config Validation](/user/build-config-validation/).
 
 ### Partner Queue Solution
 
-With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
+With the introduction of a new billing system in Travis CI, the IBM and part of the ARM64 infrastructures are kept available free of charge for OSS as a part of the Partner Queue Solution. For more details, see [Billing Overview - Usage based Plans - Credits](/user/billing-overview/#usage---credits).
 
 ### Linux Examples
 
 #### AMD64 builds
 
 ```yaml
-arch: amd64          # optional, this is default, routes to a full VM
-os: linux            # optional, this is default
+arch: amd64          # optional, this is the default, routes to a full VM
+os: linux            # optional, this is the default
 dist: noble          # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
@@ -153,7 +153,7 @@ dist: noble          # or jammy | focal | bionic | xenial with focal as default
 #### Arm64 builds
 
 ```yaml
-arch: arm64           # LXD container based build for OSS only
+arch: arm64           # LXD container-based build for OSS only
 os: linux             # required for arch different than amd64
 dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
@@ -180,14 +180,14 @@ group: edge
 #### The IBM Power and Z builds
 
 ```yaml
-arch: ppc64le         # The IBM Power LXD container based build for OSS only
+arch: ppc64le         # The IBM Power LXD container-based build for OSS only
 os: linux             # required for arch different than amd64
 dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
 {: data-file=".travis.yml"}
 
 ```yaml
-arch: s390x           # The IBM Z LXD container based build for OSS only
+arch: s390x           # The IBM Z LXD container-based build for OSS only
 os: linux             # required for arch different than amd64
 dist: noble           # or jammy | focal | bionic | xenial with focal as default
 ```
@@ -196,7 +196,7 @@ dist: noble           # or jammy | focal | bionic | xenial with focal as default
 
 ### Linux: Security and LXD Container
 
-> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start slower and have fixed computing power assigned compared to containers (LXD).
+> These limitations are not applicable if your builds are run on `virt: vm` (virtual machine) environment. However, please note that VMs start more slowly and have fixed computing power assigned compared to containers (LXD).
 
 #### Access Privileged File Systems
 
@@ -210,7 +210,7 @@ sudo docker run --privileged --rm -t -v /sys/kernel/debug:/sys/kernel/debug:rw
 
 would result in an error.
 
-Also have a look at the [Github issue relevant to the topic](https://github.com/canonical/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/canonical/lxd/blob/main/lxd/apparmor/apparmor.go) for more details.
+Also, have a look at the [Github issue relevant to the topic](https://github.com/canonical/lxd/issues/2661) and the [LXD apparmor setup](https://github.com/canonical/lxd/blob/main/lxd/apparmor/apparmor.go) for more details.
 
 #### System Calls Interception
 
@@ -218,19 +218,19 @@ If you run into a message like:
 
 > System doesn't support syscall interception
 
-It most probably means a system call interception is outside of the list of the ones considered to be safe (LXD can allow system call interception [if it's considered to be safe](https://github.com/canonical/lxd/blob/main/doc/syscall-interception.md)).
+It most probably means a system call interception is outside the list of those considered safe (LXD can allow system call interception [if it's considered safe](https://github.com/canonical/lxd/blob/main/doc/syscall-interception.md)).
 
 ### Linux: Hugepages Support 
 
 As of now, Travis CI is not configured to allow hugepages within unprivileged containers. This may change on short notice.
 
-The unprivileged containers access to hugepages is added by the great Linux and LXD teams. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
+The unprivileged containers' access to hugepages is added by the great Linux and LXD teams. To understand what needs to be addressed in order to avoid memory issues with LXD containers, please look at the resources below:
 * [LXD 3.22 release notes](https://discuss.linuxcontainers.org/t/lxd-3-22-has-been-released/7027)
 
 
 ## VM Instance Size
 
-If you need more than the default 2vCPU and RAM, you can run a build on a larger instance size. Variable instance sizes are available only for 'full-vm' build jobs. All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+If you need more than the default 2vCPU and RAM, you can run a build on a larger instance size. Variable instance sizes are available only for 'full-vm' build jobs. All you need to do is type the appropriate instance size in your `.travis.yml` using the following tags and one of the available values:
 
 ```yaml
 vm:
@@ -240,14 +240,14 @@ vm:
 
 Available instance sizes can be selected for the following build jobs:
 
-* OS is Linux, FreeBSD or Windows
+* OS is Linux, FreeBSD, or Windows
 * CPU architecture is amd64
 
-In other cases you may find your job rerouted to the default Linux queue in Google Cloud. The support for larger instances of arm64 Graviton2 is on the way.
+In other cases, you may find your job rerouted to the default Linux queue in Google Cloud. Support for larger arm64 Graviton2 instances is on the way.
 
-Please note, that the usage of VM instance sizes requires some credits to be available in the user's account. Read more in our [billing overview](/user/billing-overview/).
+Please note that the usage of VM instance sizes requires credits to be available in the user's account. Read more in our [billing overview](/user/billing-overview/).
 
-Each tier of instance size delivers more vCPU and RAM resources available at your discretion. The default one is 'medium', which is mapped to any basic instance in our infrastructure providers, usually being 2vCPU and around 4 or 8 GB of RAM. One does not need to call it out explicitly, the 'medium' is assigned automatically to your build job.
+Each tier of instance size delivers more vCPU and RAM resources available at your discretion. The default one is 'medium', which is mapped to any basic instance in our infrastructure providers, usually being 2vCPU and around 4 or 8 GB of RAM. One does not need to call it out explicitly; the 'medium' is assigned automatically to your build job.
 
 | size      | vCPU        | Memory GiB  | Comment                                                 |
 |:---------:|:-----------:|:-----------:|:-------------------------------------------------------:|
@@ -258,7 +258,7 @@ Each tier of instance size delivers more vCPU and RAM resources available at you
 
 ## GPU VM Instance Size
 
-You can choose to run your GPU builds on various GPU "sizes". All you need to do is type the appropriate instance size to your `.travis.yml` using the following tags and one of the available values:
+You can choose to run your GPU builds on various GPU "sizes". All you need to do is type the appropriate instance size in your `.travis.yml` using the following tags and one of the available values:
 
 ```yaml
 vm:
@@ -288,7 +288,7 @@ Historically, Travis CI has provided the following virtualization environments.
 - **Precise Container-based environment**: was available between [December, 2014](https://travis-ci.com/blog/2014-12-17-faster-builds-with-container-based-infrastructure/) and [September, 2017](https://travis-ci.com/blog/2017-08-31-trusty-as-default-status).
 - **Legacy Linux environment**: was available until [December, 2015](https://travis-ci.com/blog/2015-11-27-moving-to-a-more-elastic-future).
 
-If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend you remove them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
+If you're trying to use `sudo: false` or `dist: precise` keys in your `travis.yml`, we recommend removing them and switch to our current [Xenial Linux infrastructure](/user/reference/xenial/).
 
 ## Build Config Reference
 
