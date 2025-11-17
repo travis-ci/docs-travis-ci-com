@@ -17,7 +17,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-By default, `apt-get update` does not get run automatically. If you want to update `apt-get update` automatically on every build, there are two ways to do this. The first is by running `apt-get update` explicitly in the `before_install` step:
+By default, `apt-get update` does not run automatically. If you want `apt-get update` to run automatically on every build, there are two ways to do so. The first is by running `apt-get update` explicitly in the `before_install` step, like shown below:
 
 ```yaml
 before_install:
@@ -37,7 +37,7 @@ addons:
 ```
 {: data-file=".travis.yml"}
 
-> Do not run `apt-get upgrade` in your build as it downloads up to 500MB of packages and significantly extends your build time. Additionally, some packages may fail to update, which will lead to a failed build.
+> Do not run `apt-get upgrade` in your build, as it downloads up to 500MB of packages and significantly extends your build time. Additionally, some packages may fail to update, resulting in a failed build.
 >
 > Use the `-y` parameter with apt-get to assume yes to all queries by the apt tools.
 
@@ -86,7 +86,7 @@ To add APT sources, you can use one of the following three types of entries:
 
 1. aliases defined in [source safelist](https://github.com/travis-ci/apt-source-safelist)
 2. `sourceline` key-value pairs which will be added to `/etc/apt/sources.list`
-3. when APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
+3. When APT sources require GPG keys, you can specify this with `key_url` pairs in addition to `sourceline`.
 
 The following snippet shows these three types of APT sources.
 
@@ -134,7 +134,7 @@ addons:
 
 ### Install Snap Packages with the Snaps Addon
 
-You can install also [snap](http://snapcraft.io/) packages.
+You can also install [snap](http://snapcraft.io/) packages.
 
 The Ubuntu Snap store offers many packages directly maintained by upstream
 developers, often with newer versions than the ones available in the Apt archive.
@@ -186,7 +186,7 @@ of the two possible forms:
 
 ## Install Packages on FreeBSD
 
-To install packages that are not included in the default FreeBSD environment use `pkg` in the `before_install` step of your `.travis.yml`:
+To install packages that are not included in the default FreeBSD environment, use `pkg` in the `before_install` step of your `.travis.yml`:
 
 ```yaml
 before_install:
@@ -194,7 +194,7 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-For convenience, you can use the `pkg` addon in your `.travis.yml`. For example, to install go and curl:
+For convenience, you can use the `pkg` addon in your `.travis.yml`. For example, to install Go and curl:
 
 ```yaml
 addons: 
@@ -243,7 +243,7 @@ before_script:
 
 > Note that when you're updating the `$PATH` environment variable, that part can't be moved into a shell script, as it will only update the variable for the sub-process that's running the script.
 
-To install something from source, you can follow similar steps. Here's an example to download, compile and install the protobufs library.
+To install something from source, you can follow similar steps. Here's an example to download, compile, and install the protobufs library.
 
 ```yaml
 install:
