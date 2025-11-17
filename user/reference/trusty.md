@@ -6,13 +6,13 @@ redirect_from:
   - /user/workers/standard-infrastructure/
 ---
 
-> Please note that support for Trusty build environment is discontinued. This is a **legacy** document left for reference.
+> Please note that Travis CI discontinued support for the Trusty build environment. The following is a **legacy** document left for reference.
 
-> You may see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide) as an interim step in update, yet please note Xenial LTS is also EOL already. More up to date image is strongly recommended.
+> You may see our [Trusty to Xenial Migration Guide](/user/trusty-to-xenial-migration-guide) as an interim step in the update, yet please note Xenial LTS is also EOL already. Travis CI strongly recommends using a more up-to-date image.
 
 ## What This Guide Covers
 
-This guide provides a general overview of which packages, tools and settings are
+This guide provides a general overview of which packages, tools, and settings are
 available in the Trusty environment.
 
 ## Using Trusty
@@ -35,11 +35,11 @@ can install anything that's required for them to run.
 
 ## Linux infrastructure
 
-Travis CI runs each build in an isolated Google Compute Engine virtual machine that offer a vanilla build environment for every build.
+Travis CI runs each build in an isolated Google Compute Engine virtual machine that offers a vanilla build environment for every build.
 
 This has the advantage that no state persists between builds, offering a clean slate and making sure that your tests run in an environment built from scratch.
 
-Your build is routed to this infrastructure automatically, you don't need make any modifications to your `.travis.yml`.
+Your build is routed to this infrastructure automatically, you don't need to make any modifications to your `.travis.yml`.
 
 ## Container-based infrastructure
 
@@ -48,10 +48,10 @@ Your build is routed to this infrastructure automatically, you don't need make a
 
 ## Image differences from Precise
 
-In our Precise based environments, we've traditionally built a library of images
+In our Precise-based environments, we've traditionally built a library of images
 based on common language runtimes like `ruby`, `go`, `php`, `python`, etc.
 
-For our Trusty based environments, we're making a smaller set of images that
+For our Trusty-based environments, we're making a smaller set of images that
 includes:
 
 - A [minimal image](/user/languages/minimal-and-generic/#minimal) which contains a small subset of interpreters, as well as
@@ -98,7 +98,7 @@ See our [Using Docker in Builds](/user/docker/) section for more details.
 
 ## Ruby images
 
-[rvm](https://rvm.io/rvm/about) is installed and we pre-install at least two of
+[rvm](https://rvm.io/rvm/about) is installed, and we pre-install at least two of
 the latest point releases. These are the currently pre-installed Ruby versions:
 
 - `2.2.7`
@@ -137,15 +137,15 @@ On all Python versions except pypy and pypy3, `numpy` is available as well.
 ## JavaScript and Node.js images
 
 [nvm](https://github.com/creationix/nvm) is installed and we
-pre-install at least two of the latest point releases such as `6.9.4` and
+pre-install at least two of the latest point releases, such as `6.9.4` and
 `7.4.0`.
 
-You can specify other versions which will be dynamically installed using `nvm`.
+You can specify other versions that will be dynamically installed using `nvm`.
 
 ## Go images
 
-[gimme](https://github.com/travis-ci/gimme#gimme) is installed and we
-pre-install at least two of the latest point releases such as `1.7.3` and
+[gimme](https://github.com/travis-ci/gimme#gimme) is installed, and we
+pre-install at least two of the latest point releases, such as `1.7.3` and
 `1.8.3`.  Any versions that are not pre-installed will be dynamically installed
 by `gimme`.
 
@@ -197,7 +197,7 @@ Leiningen 2.7.1.
 
 ### SBT version
 
-Travis CI potentially provides any version of Simple Build Tool (sbt or SBT)
+Travis CI potentially provides any version of the Simple Build Tool (sbt or SBT)
 thanks to the very powerful [sbt-extras](https://github.com/paulp/sbt-extras)
 alternative. `sbt` can dynamically detect and install the sbt version required
 by your Scala projects.
@@ -217,8 +217,7 @@ The default version of Perl is 5.14.
 
 ## PHP images
 
-[phpenv](https://github.com/phpenv/phpenv) is installed and we pre-install at
-least two of the latest point releases such as `7.0.7` and `5.6.24`, as well as
+[phpenv](https://github.com/phpenv/phpenv) is installed, and we pre-install it at least two of the latest point releases, such as `7.0.7` and `5.6.24`, as well as
 `5.5.9`, the version shipped by default with Ubuntu 14.04 LTS. Any versions that
 are not pre-installed will be dynamically installed from a local cache, or built
 via `phpenv` if unavailable.
@@ -272,7 +271,7 @@ The following extensions are preinstalled for PHP 7.0 and nightly builds:
 - [xdebug.so](http://xdebug.org)
 - [redis.so](http://pecl.php.net/package/redis)
 
-Please note that these extensions are not enabled by default with the exception
+Please note that these extensions are not enabled by default, with the exception
 of xdebug.
 
 #### PHP 5.6 and below
@@ -287,17 +286,17 @@ For PHP versions up to 5.6, the following extensions are available:
 - [xdebug.so](http://xdebug.org)
 - [redis.so](http://pecl.php.net/package/redis)
 
-Please note that these extensions are not enabled by default with the exception
+Please note that these extensions are not enabled by default, with the exception
 of xdebug.
 
 ## Other software
 
-Install other Ubuntu packages using `apt-get`, or add third party PPAs or custom scripts.
+Install other Ubuntu packages using `apt-get`, or add third-party PPAs or custom scripts.
 For further details, please see the document on [installing dependencies](/user/installing-dependencies/).
 
 ## Databases and services
 
-We pre-install the following services which may be activated with the built-in
+We pre-install the following services, which may be activated with the built-in
 [services](/user/database-setup/) support.
 
 - Apache Cassandra
@@ -316,7 +315,7 @@ We pre-install the following services which may be activated with the built-in
 
 Firefox is installed by default.
 
-If you need a specific version of Firefox, use the Firefox addon to install
+If you need a specific version of Firefox, use the Firefox add-on to install
 it during the `before_install` stage of the build.
 
 For example, to install version 50.0, add the following to your
@@ -350,7 +349,7 @@ using both `DEBIAN_FRONTEND` env variable and apt configuration file. This means
 The user executing the build (`$USER`) belongs to one primary group derived from
 that user.
 
-If you need to modify group membership follow these steps:
+If you need to modify group membership, follow these steps:
 
 1. Set up the environment. This can be done any time during the build lifecycle
    prior to the build script execution.
@@ -366,7 +365,7 @@ If you need to modify group membership follow these steps:
 script: sudo -E su $USER -c 'COMMAND1; COMMAND2; COMMAND3'
 ```
 
-This will pass the environment variables down to a `bash` process which runs as
+This will pass the environment variables down to a `bash` process, which runs as
 `$USER`, while retaining the environment variables defined and belonging to
 secondary groups given above in `usermod`.
 
@@ -377,4 +376,4 @@ versions) are shown in the "Build system information" section.
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments available.
