@@ -49,8 +49,7 @@ node_js:
 ```
 {: data-file=".travis.yml"}
 
-More specific information on what versions of Node.js are available is in
-the Environment Reference pages:
+More specific information on what versions of Node.js are available is in the Environment Reference pages:
 
 * [Bionic](/user/reference/bionic/#javascript-and-nodejs-support)
 * [Focal](/user/reference/focal/#javascript-and-nodejs-support)
@@ -69,7 +68,7 @@ system information" in the build log.
 Optionally, your repository can contain a `.nvmrc` file in the repository root
 to specify which *single* version of Node.js to run your tests against.
 
-The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files
+The `.nvmrc` file is *only read* when the `node_js` key in your `.travis.yml` files
 does *not* specify a nodejs version. When the `.nvmrc` file is read,
 `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm
 documentation](https://github.com/creationix/nvm#usage) for more information on
@@ -145,7 +144,7 @@ as specified in your lock file.
 
 #### Cache with npm
 
-`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
+`npm` is now cached by default. In case you want to disable it, please add the following to your `.travis.yml`:
 
 ```yaml
 cache:
@@ -160,12 +159,11 @@ cache: npm
 ```
 {: data-file=".travis.yml"}
 
-1. This caches `$HOME/.npm` precisely when `npm ci` is the default `script` command.
+1. This cache's $HOME/.npm` precisely when `npm ci` is the default `script` command.
 (See above.)
 
 1. In all other cases, this will cache `node_modules`.
-Note that `npm install` will still run on every build and will update/install
-any new packages added to your `package.json` file.
+Note that `npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
 
 Even when `script` is overridden, this shortcut is effective.
 
@@ -221,8 +219,7 @@ For more information, refer to [Caching](/user/caching/) documentation.
 
 ### Use shrinkwrapped git dependencies
 
-Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a
-branch has its HEAD changed.
+Note that `npm install` can fail if a shrink-wrapped git dependency pointing to a branch has its HEAD changed.
 
 ## Ember Apps
 
