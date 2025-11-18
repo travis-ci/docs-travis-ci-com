@@ -98,7 +98,7 @@ To use the IBM Advance Toolchain v14 compilers under `amd64` architecture in Foc
 ## Python support
 
 * Supported Python version is: `3.8` or higher as `2.7` has been sunset.
-* Python `3.7.17` will be used by default when no language version is explicitly set.
+* Python `3.8.20` will be used by default when no language version is explicitly set.
 * The following Python versions are preinstalled:
 
 | alias  | version   |
@@ -179,3 +179,4 @@ To use Android, specify `language: android` in your `.travis.yml` and refer to t
 ## Other Ubuntu Linux Build Environments
 
 For details on other Ubuntu Linux build environments available on Travis CI, please refer to the [Ubuntu Linux overview page](/user/reference/linux/).
+
