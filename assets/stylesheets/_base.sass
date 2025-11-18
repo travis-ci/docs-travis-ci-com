@@ -55,6 +55,19 @@ blockquote
     border-color: $oxide-blue
     background-color: transparent
 
+  // Ensure blockquote inline code overrides Prism defaults
+  // Prism targets code[class*="language-"] and :not(pre) > code[class*="language-"]
+  // Add higher-specificity variants so our palette wins inside quotes
+  code[class*="language-"]
+    color: $oxide-blue
+    border-color: $oxide-blue
+    background-color: transparent
+
+  :not(pre) > code[class*="language-"]
+    color: $oxide-blue
+    border-color: $oxide-blue
+    background-color: transparent
+
 ol
   padding: 0 0 0 1.3em
   ol, ul
@@ -77,7 +90,8 @@ table
   width: 100%
 
   td, th
-    padding: 0.8em 0.6em 0.5em
+    padding: 0.8em 1.2em 0.8em 0
+    vertical-align: top
 
   tr
     border-bottom: 1px solid $cream-dark
@@ -102,3 +116,6 @@ table
 .warning
   color: $grey-light
   background-color: $red-light
+
+#config-validation-message-types + table td:nth-child(n+2)
+  width: 45%

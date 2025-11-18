@@ -4,33 +4,38 @@ layout: en
 
 ---
 
-The Google Chrome addon allows Travis CI builds to install Google Chrome at run time. To use the addon you need to be running builds on either the [Trusty build environment](/user/reference/trusty/) or the [OS X build environment](/user/reference/osx/).
+The Google Chrome addon allows Travis CI builds to install Google Chrome at runtime.
 
-## Selecting a Chrome version
+This addon supports both, Linux and [macOS](/user/reference/osx/) [build environments](https://docs.travis-ci.com/user/reference/overview/).
 
-You can install the `stable`  or the `beta` version of Chrome but you can't select a specific numeric version.
+> For Linux, you must be running on [Ubuntu Xenial 16.04](https://docs.travis-ci.com/user/reference/xenial/) or later build environments.
+
+## Select a Chrome version
+
+You can install the `stable`  or the `beta` version of Chrome, but you can't select a specific numeric version.
 
 ```yaml
-sudo: required
 addons:
   chrome: stable
 ```
 {: data-file=".travis.yml"}
 
+> Take note that the underlying Chrome version can change from one build to another when Google updates the `stable` or `beta` version.
+
 ## Headless mode
 
-You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#Using-the-Chrome-addon-in-the-headless-mode).
+You can use Google Chrome in [headless mode](/user/gui-and-headless-browsers/#using-the-chrome-addon-in-the-headless-mode).
 
 ## Sandboxing
 
 For security reasons, Google Chrome is unable to provide sandboxing when it is running in the
-[container-based environment](https://docs.travis-ci.com/user/reference/overview/#Virtualization-environments).
+[container-based environment](/user/reference/overview/#virtualization-environments).
 
 In that case, you may see an error message like this:
 
 ```
 30 11 2017 13:35:42.245:ERROR [launcher]: Cannot start Chrome
-  [4315:4315:1130/133541.781662:FATAL:setuid_sandbox_host.cc(157)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /opt/google/chrome/chrome-sandbox is owned by root and has mode 4755.
+  [4315:4315:1130/133541.781662:FATAL:setuid_sandbox_host.cc(157)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing, I'm aborting now. You need to make sure that /opt/google/chrome/chrome-sandbox is owned by root and has mode 4755.
 ```
 
 or like this:
@@ -73,7 +78,7 @@ When using [Capybara](https://github.com/teamcapybara/capybara) with Ruby, you w
 require 'capybara'
 Capybara.register_driver :chrome do |app|
 	options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
-	
+
 	Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
@@ -99,4 +104,4 @@ default:
               - "--no-sandbox"
       javascript_session: selenium2
       browser_name: chrome
-``` 
+```

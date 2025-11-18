@@ -1,26 +1,26 @@
 ---
-title: Apps, Clients and Tools
+title: Apps, Clients, and Tools
 layout: en
 
 ---
 
 There is a wide range of tools you can use to interact with Travis CI:
 
-- **[Websites](#websites)**: [Full Web Clients](#Full-Web-Clients), [Dashboards](#Dashboards), [Tools](#Tools)
-- **[Mobile Applications](#mobile)**: [Android](#Android), [iOS](#iOS), [Windows Phone](#Windows-Phone)
-- **[Desktop](#desktop)**: [Mac OS X](#Mac-OS-X), [Linux](#Linux), [Cross Platform](#Cross-Platform)
-- **[Command Line Tools](#commandline)**: [Full Clients](#Full-Clients), [Build Monitoring](#Build-Monitoring), [Generators](#Generators)
-- **[Plugins](#plugins)**: [Google Chrome](#Google-Chrome), [Mozilla Firefox](#Mozilla-Firefox), [Opera](#Opera), [Editors](#Editors), [Other](#Other)
-- **[Libraries](#libraries)**: [Ruby](#Ruby), [JavaScript](#JavaScript), [PHP](#PHP), [Python](#Python), [Elixir](#Elixir), [R](#R), [Go](#Go)
+- **[Websites](#websites)**: [Full Web Clients](#full-web-clients), [Dashboards](#dashboards), [Tools](#tools)
+- **[Mobile Applications](#mobile)**: [Android](#android), [iOS](#ios), [Windows Phone](#windows-phone)
+- **[Desktop](#desktop)**: [Linux](#linux), [Cross Platform](#cross-platform)
+- **[Command Line Tools](#commandline)**: [Full Clients](#full-clients), [Build Monitoring](#build-monitoring), [Generators](#generators)
+- **[Plugins](#plugins)**: [Google Chrome](#google-chrome), [Opera](#opera), [Editors](#editors), [Other](#other)
+- **[Libraries](#libraries)**: [Ruby](#ruby), [JavaScript](#javascript), [PHP](#php), [Python](#python), [Elixir](#elixir), [R](#r), [Go](#go)
   {: .toc-list}
 
 And if you don't find anything that fits your needs, you can also interact with our [API](/api/) directly.
 
-Note however that Travis CI can not take any responsibility of for third-party tools you might use.
-
-# Websites {#websites}
+However, Travis CI cannot take any responsibility for third-party tools you might use.
 
 ## Full Web Clients
+
+This section shows the full web client apps that are available.
 
 ### Travis CI Web Client
 
@@ -34,6 +34,8 @@ Our official web interface, written in [Ember.js](http://www.emberjs.com)
 
 ## Dashboards
 
+This section shows the different available dashboard apps.
+
 ### TravisLight
 
 ![travis-light](/images/apps/travis-light.jpg){:.app}
@@ -43,16 +45,6 @@ By William Durand
 
 - [website](http://williamdurand.fr/TravisLight/)
 - [source code](https://github.com/willdurand/TravisLight)
-
-### TravisWall
-
-![travis-wall](/images/apps/travis-wall.jpg){:.app}
-
-Online build monitoring tool for public/private repos<br>
-By Eric Geloen
-
-- [website](http://egeloen.fr/travis-wall/)
-- [source code](https://github.com/egeloen/travis-wall)
 
 ### Team Dashboard
 
@@ -92,8 +84,37 @@ By Ahmed El-Sayed
 
 - [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
 
+### buildmonitor.io
+
+![buildmonitor.io](/images/apps/buildmonitor.png){:.app}
+
+Extensible and plugin-based build monitor.<br>
+By CyanCor
+
+- [website](https://buildmonitor.io/)
+- [source code](https://gitlab.com/BuildMonitor/TravisConnector)
+
+### Meercode CI Build Dashboard
+
+![meercode.io](/images/apps/meercodeio.png){:.app}
+
+Meercode is the ultimate monitoring dashboard for your CI/CD builds.<br>
+By Meercode.io
+
+- [website](https://meercode.io/)
+
+### BuildPulse Flaky Test Dashboard
+
+![buildpulse.io](/images/apps/buildpulse.png){:.app}
+
+Automatically detect, track, and rank flaky tests.<br>
+By Workshop 64
+
+- [website](https://buildpulse.io/)
 
 ## Tools
+
+This section shows available tools.
 
 ### Travis Web Encrypter
 
@@ -107,11 +128,9 @@ By Konstantin Haase
 
 <a name='mobile'></a>
 
-# Mobile Applications
+## Android Mobile Applications
 
-## Android
-
-### Siren of Shame (Android)
+### Siren of Shame 
 
 ![Siren of Shame](/images/apps/siren-android.jpg){:.app}
 
@@ -121,7 +140,7 @@ By Automated Architecture
 - [website](http://sirenofshame.com/)
 - [play store](https://play.google.com/store/apps/details?id=com.automatedarchitecture.sirenofshame2)
 
-## iOS
+## iOS Mobile Applications
 
 ### Jarvis
 
@@ -143,7 +162,7 @@ By Dimitri Roche
 - [app store](https://itunes.apple.com/us/app/project-monitor/id857272990)
 - [source code](https://github.com/dimroc/iOS.ProjectMonitor)
 
-### Siren of Shame (iOS)
+### Siren of Shame 
 
 ![Siren of Shame](/images/apps/siren-ios.jpg){:.app}
 
@@ -153,7 +172,7 @@ By Automated Architecture
 - [website](http://sirenofshame.com/)
 - [app store](https://itunes.apple.com/us/app/siren-of-shame/id637677118)
 
-## Windows Phone
+## Windows Mobile Applications
 
 ### Travis7
 
@@ -164,24 +183,9 @@ By Tim Felgentreff
 
 - [website](http://travis7.codeplex.com/)
 
-# Desktop
+## Desktop
 
 If you are looking for **desktop notifications**, our command line client [supports them](https://github.com/travis-ci/travis.rb#monitor).
-
-## Mac OS X
-
-### CCMenu
-
-![CCMenu](/images/apps/ccmenu.jpg){:.app}
-
-OS X status bar app<br>
-By ThoughtWorks Inc.
-
-- [website](http://ccmenu.org/)
-- [app store](https://itunes.apple.com/us/app/ccmenu/id603117688)
-- [tutorial](/user/cc-menu/)
-
-![Travis CI in Screensaver Ninja with Custom CSS](/images/apps/screensaver-ninja.gif){:.app}
 
 ## Linux
 
@@ -217,9 +221,7 @@ By catlight.io
 
 <a name='commandline'></a>
 
-# Command Line Tools
-
-## Full Clients
+## Command Line Tools - Full Clients
 
 ### Travis CLI
 
@@ -235,7 +237,7 @@ Command line client for PowerShell
 
 - [website](https://github.com/felixfbecker/PSTravis#readme)
 
-## Build Monitoring
+## Command Line Tools - Build Monitoring
 
 ### Bickle
 
@@ -282,7 +284,7 @@ By Henry Ruhs
 
 - [website](https://github.com/redaxmedia/chroma-feedback)
 
-## Generators
+## Command Line Tools - Generators
 
 ### travis-encrypt
 
@@ -320,9 +322,7 @@ By James Halliday
 
 - [website](https://github.com/substack/travisify)
 
-# Plugins
-
-## Google Chrome
+## Google Chrome Plugins
 
 ### My Travis
 
@@ -347,31 +347,11 @@ By Tomas Carnecky
 ![chrome-github-status](/images/apps/chrome-github-status.jpg){:.app}
 
 Display build status next to project name on GitHub<br>
-By excellenteasy
+By excellent easy
 
 - [website](https://chrome.google.com/webstore/detail/github-status/mgbkbopoincdiimlleifbpfjfhcndahp)
 
-## Mozilla Firefox
-
-### GitHub+Travis
-
-![chrome-github-travis](/images/apps/chrome-github-travis.jpg){:.app}
-
-Display build status next to project name on GitHub<br>
-By David Burns
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/githubtravis/)
-
-### Link to Travis Lite
-
-![firefox-travis-lite](/images/apps/firefox-travis-lite.jpg){:.app}
-
-Add a links to corresponding Travis Lite page<br>
-By Nigel Babu
-
-- [website](https://addons.mozilla.org/en-US/firefox/addon/link-to-travis-lite/)
-
-## Opera
+## Opera Plugins
 
 ### GitHub+Travis
 
@@ -382,7 +362,7 @@ By smasty
 
 - [website](https://addons.opera.com/en/extensions/details/travisgithub/)
 
-## Editors
+## Editor Plugins
 
 ### Atom Plugin
 
@@ -421,7 +401,7 @@ By Keith Smiley
 
 - [website](https://github.com/Keithbsmiley/travis.vim)
 
-## Other
+## Other Plugins
 
 ### git-travis
 
@@ -441,17 +421,29 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 
 - [website](https://github.com/node-gh/gh-travis)
 
-# Libraries
+### Travis CI 🡒 Discord Webhook
 
-## Ruby
+![TravisCI Discord Webhook](https://github.com/DiscordHooks.png){:.app}
+
+Serverless solution for sending build status from Travis CI to Discord as webhooks.<br>
+By Sankarsan Kampa
+
+- [website](https://github.com/DiscordHooks/travis-ci-discord-webhook)
+
+## Libraries
+
+The following section shows the different available libraries.
+
+### Ruby
 
 - [travis.rb](https://github.com/travis-ci/travis.rb) **(official)**
+- [trav3](https://github.com/danielpclark/trav3) by Daniel P. Clark
 - [TravisMiner](https://github.com/smcintosh/travisminer) by Shane McIntosh
 - [hoe-travis](https://github.com/drbrain/hoe-travis) by Eric Hodel
 - [Knapsack](https://github.com/ArturT/knapsack) by Artur Trzop
 
 
-## JavaScript
+### JavaScript
 
 - [travis-ci](https://github.com/pwmckenna/node-travis-ci) by Patrick Williams
 - [node-travis-ci](https://github.com/mmalecki/node-travis-ci) by Maciej Małecki
@@ -460,25 +452,25 @@ By Eduardo Antonio Lundgren Melo and Zeno Rocha Bueno Netto
 - [ee-travis](https://github.com/eventEmitter/ee-travis) by Michael van der Weg
 - [Favis CI](https://github.com/jaunesarmiento/favis-ci) by Jaune Sarmiento
 
-## PHP
+### PHP
 
 - [php-travis-client](https://github.com/l3l0/php-travis-client) by Leszek Prabucki
 
-## Python
+### Python
 
 - [TravisPy](http://travispy.readthedocs.org/en/latest/) by Fabio Menegazzo
 
-## PowerShell
+### PowerShell
 
 - [PSTravis](https://github.com/felixfbecker/PSTravis) by Felix Becker
 
-## Elixir
+### Elixir
 
 - [travis.ex](https://github.com/localytics/travis.ex) by Kevin Deisz
 
-## R
+### R
 
 - [travis](https://github.com/ropenscilabs/travis) by Kirill Müller
 
-## Go
+### Go
 - [go-travis](https://github.com/shuheiktgw/go-travis) by Shuhei Kitagawa

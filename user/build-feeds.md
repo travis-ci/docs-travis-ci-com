@@ -9,7 +9,7 @@ One way to get updates on your builds is an Atom feed.
 You can read it in your favorite RSS reader, or programmatically consume it
 with scripts.
 
-### Atom Feeds
+## Atom Feeds
 
 Every repository on Travis CI has its own Atom feed, which includes all builds that were run on it, with both pull requests and normal commits.
 
@@ -27,14 +27,14 @@ This URL returns a JSON representation by default, but you can get the Atom feed
 https://api.travis-ci.org/repos/travis-ci/travis-ci/builds.atom
 ```
 
-### Private Repositories
+## Private Repositories
 
-For private repositories you need a token to subscribe to
+For private repositories, you need a token to subscribe to
 the feed. The API endpoint is different too: `https://api.travis-ci.com`
 
 1. The token is the same as is used to fetch a build status image, which can be
    found on the repository page. See the related
-   [documentation](/user/cc-menu/#Using-the-CC-feed-with-repositories)
+   [documentation](/user/cc-menu/#using-the-cc-feed-with-repositories)
    for more details on how to access the token.
 
 2. Once you have the token, append it as the `token` parameter to the URL:
