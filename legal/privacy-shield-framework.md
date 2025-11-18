@@ -6,9 +6,7 @@ no_toc: true
 ---
 
 
-## Effective for Idera, Inc. and its subsidiaries on April 23, 2018.
-
-Modified and Effective on April 1, 2019
+## Modified and Effective for Idera, Inc. and its subsidiaries on April 1, 2019
 
 Idera, Inc. together with its United States subsidiaries, Assembla, Inc., AquaFold, Inc., CodeGear
 LLC, Embarcadero Technologies, Inc., Lansa, Inc., Precise Software Solutions, Inc., Ranorex,

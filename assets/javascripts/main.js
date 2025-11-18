@@ -2,16 +2,17 @@ $(document).ready(function () {
 
   $('#toggle-menu').on('click', function () {
     $('#sidebar').toggleClass('is-open');
-    $('.wrapper').toggleClass('is-fixed')
+    $('.wrapper').toggleClass('is-fixed');
     if ($('#sidebar').hasClass('is-open')) {
       $(this).text('Close');
     } else {
       $(this).text('Menu');
     }
-
   });
 
-
+  $('.searchtoggle').on('click', function () {
+    $('.searchbox').toggleClass('is-open');
+  });
 
   var sidebarToggle = function () {
     $('.sidebar-navigation').addClass('has-js');

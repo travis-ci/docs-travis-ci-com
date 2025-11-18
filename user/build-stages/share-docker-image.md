@@ -12,7 +12,7 @@ This example has 2 build stages:
 Here's what the `.travis.yml` config could look like:
 
 ```yaml
-dist: trusty
+dist: noble
 
 jobs:
   include:

@@ -3,9 +3,11 @@ title: The Xenial Build Environment
 layout: en
 ---
 
+> Please note that Travis CI discontinued support for the Xenial build environment. The following is a **legacy** document left for reference.
+
 ## What This Guide Covers
 
-This guide provides an overview of the packages, tools and settings available in the Xenial environment.
+This guide provides an overview of the packages, tools, and settings available in the Xenial environment.
 
 ## Using Xenial
 
@@ -16,7 +18,7 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-Please note that Xenial is available on our hosted fully virtualized
+Please note that Xenial is available on our hosted, fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Xenial) to see how you can use the Xenial Docker images.
 
@@ -26,9 +28,9 @@ Xenial includes the following changes and improvements:
 
 ### Third party apt-repositories removed
 
-While third party apt-repositories are used during the Xenial image provisioning, they are all removed from the Xenial build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
+While third-party apt-repositories are used during the Xenial image provisioning, they are all removed from the Xenial build image. This has two benefits: a) reduced risk of unrelated interference and b) faster apt-get updates.
 
-To specify a third party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
+To specify a third-party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
 
 ```yaml
 dist: xenial
@@ -59,7 +61,7 @@ If you depend on these repositories in your build, you can use the following `so
 
 ### Services disabled by default
 
-On our Xenial infrastructure, to speed up boot time and improve performance we've disabled all services, including the ones that are started by default on Trusty.
+On our Xenial infrastructure, to speed up boot time and improve performance, we've disabled all services, including those started by default on Trusty.
 Add any services that you want to start by default to your `.travis.yml`:
 
 
@@ -72,16 +74,19 @@ services:
 
 ## Environment common to all Xenial images
 
-The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
+The following versions of Docker, version control software, and compilers are present on all builds, along with more language specific software described in more detail in each language section.
 
+All preinstalled software not provided by the distro is installed from an official release --
+either a prebuilt binary if available, or a source release built with default options.
+For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
 ### Version control
 
 | package | version  |
 |:--------|:---------|
-| git     | `2.21.0` |
-| git-lfs | `2.6.1`  |
-| hg      | `4.8`    |
+| git     | `2.37.3` |
+| git-lfs | `3.2.0`  |
+| hg      | `5.9.3`  |
 | svn     | `1.9.3`  |
 {: style="width: 30%" }
 
@@ -90,44 +95,82 @@ The following versions of Docker, version control software and compilers are pre
 * clang and llvm 7
 * cmake 3.12.4
 * gcc 5.4.0
-* ccache 3.2.4
-* shellcheck 0.6.0
-* shfmt 2.6.3
+* ccache 3.2.4-1
+* shellcheck 0.7.2
+* shfmt 3.2.1
+
+To use the IBM Advance Toolchain v12 compilers under `ppc64le` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/gcc`
+  - Command: `/opt/at12.0/bin/gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/g++`
+  - Command: `/opt/at12.0/bin/g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/gccgo`
+  - Command: `/opt/at12.0/bin/gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`.
+  - Python Interpreter Path: `/opt/python380-at12/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
+
+To use the IBM Advance Toolchain v12 compilers under `amd64` architecture in Xenial LXD image, use the following paths in your `.travis.yml`:
+
+- GCC compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gcc hello_world.c -o hello_world`
+
+- g++ compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-g++ hello_world.cpp -o hello_world`
+
+- Go compiler
+  - Path: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo`
+  - Command: `/opt/at12.0/bin/powerpc64le-linux-gnu-gccgo hello_world.go -o hello_world`
+
+- Python
+  - First, compile Python 3.8.0 using the `python_interpreter.sh script`
+  - Python Interpreter Path: `/opt/python380-amd64/python3.8`
+  - Build Python Command: `sudo sh python_interpreter.sh`
 
 ### Docker
 
-* Docker 18.06.0-ce is installed
-* docker-compose 1.23.1.
+* Docker 20.10.7 is installed
+* docker-compose 1.29.2.
 
 ## Ruby support
 
-* Pre-installed Rubies: `2.4.5` and `2.5.3`.
-* The default ruby is `2.5.3p105`.
+* Pre-installed Rubies: `2.7.6`, `3.0.4` and `3.1.2`.
+* The default ruby is `2.7.6p219`.
 * Other ruby versions can be installed during build time.
 
 ## Python support
 
-* Supported Python versions: `2.7`, `3.4` or higher.
-* Pre-installed Python versions: `2.7.15`, `3.6.7`, and `3.7.1`.
-* Python `2.7.15` will be used when no language version is explicitly set.
+* Supported Python versions: `3.5` or higher.
+* Pre-installed Python versions: `3.7.13`, and `3.8.13`.
+* Python `3.7.13` will be used when no language version is explicitly set.
 
-If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions such as `pypy2.7-6.0` or `pypy3.5-6.0`.
+If you're getting errors about PyPy `pypy is not installed; attempting download`, use one of the more recent python versions.
 
 ## JavaScript and Node.js support
 
-* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.33.11.
-* The following NodeJS versions are preinstalled: `11.0.0` and `8.12.0`.
+* For builds specifying `language: node_js`, `nvm` is automatically updated to the latest version at build time. For other builds, the stable version at image build time has been selected, which is 0.39.1.
+* NodeJS version `16.16.0` is preinstalled.
 
 ## Go support
 
-* Pre-installed Go: `1.11.1`
+* Pre-installed Go: `1.18.4`
 
 * Other Go versions can be installed during build time by specifying the language versions with the `go:`-key.
 
 ## JVM (Clojure, Groovy, Java, Scala) support
 
-* Pre-installed JVMs: `openjdk8`, `openjdk10`, and `openjdk11` on x86, default
-is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le. 
+* Pre-installed JVMs: `openjdk8` and `openjdk11` on x86, default
+is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le.
 
 * Other JDKs, including Oracle's, can be acquired if available by specifying `jdk`.
 
@@ -135,32 +178,38 @@ is `openjdk8`; `openjdk7` and `openjdk8` on ppc64le.
 
 | package | version |
 |:--------|:--------|
-| gradle  | 5.1.1   |
-| maven   | 3.6.0   |
-| groovy  | 2.4.5   |
+| gradle  | 7.4.2   |
+| maven   | 3.8.6   |
+| groovy  | 4.0.3   |
 {: style="width: 30%" }
+
+## Perl support
+
+* Default version on Xenial is `5.34.1`
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.29`, `5.30`, `5.31`, `5.32`, `5.33`, and `5.34` can be installed by using the `perl:`-key.
+* `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
 
 * For dynamic runtime selection, `phpenv` is available.
-* The following PHP versions are preinstalled:
-
-| alias  | version  |
-| :----- | :------- |
-| 5.6    | 5.6.40   |
-| 7.1    | 7.1.27   |
-| 7.2    | 7.2.15   |
-{: style="width: 30%" }
+* PHP version `7.4.30` is preinstalled.
 
 ## Databases and services
 
-The following services and databases are preinstalled but but do not run by default.
-To use one in your build, add it to the services key in your `travis.yml` :
+The following services and databases are preinstalled but do not run by default.
+To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
 |:-----------|:---------------|
-| mongodb    | 4.0            |
-| mysql      | 5.7            |
-| redis      | 5.5            |
+| mongodb    | 4.0.28         |
+| mysql      | 5.7.33         |
+| redis      | 6.0.6          |
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
+
+* IMPORTANT: Since Xenial LTS is officially EOL, postgre apt packages are no longer available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
+* Currently Xenial is using apt-archive.postgresql.org, unfortunately it lacks ARM and S390x arch packages.
+
+## Other Ubuntu Linux Build Environments
+
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments available.
