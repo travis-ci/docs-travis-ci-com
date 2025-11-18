@@ -49,11 +49,12 @@ node_js:
 ```
 {: data-file=".travis.yml"}
 
-More specific information on what versions of Node.js are available is in
-the Environment Reference pages:
+More specific information on what versions of Node.js are available is in the Environment Reference pages:
 
-* [Precise](/user/reference/precise/#javascript-and-nodejs-images)
-* [Trusty](/user/reference/trusty/#javascript-and-nodejs-images)
+* [Bionic](/user/reference/bionic/#javascript-and-nodejs-support)
+* [Focal](/user/reference/focal/#javascript-and-nodejs-support)
+* [Jammy](/user/reference/jammy/#javascript-and-nodejs-support)
+* [Noble](/user/reference/noble/#javascript-and-nodejs-support)
 
 If you need more specific control of Node.js versions in your build, use any
 version that is installable by `nvm`. If your `.travis.yml` contains a version of
@@ -67,7 +68,7 @@ system information" in the build log.
 Optionally, your repository can contain a `.nvmrc` file in the repository root
 to specify which *single* version of Node.js to run your tests against.
 
-The `.nvmrc` file is *only read* when `node_js` key in your `.travis.yml` files
+The `.nvmrc` file is *only read* when the `node_js` key in your `.travis.yml` files
 does *not* specify a nodejs version. When the `.nvmrc` file is read,
 `$TRAVIS_NODE_VERSION` is set to the nodejs version. See [nvm
 documentation](https://github.com/creationix/nvm#usage) for more information on
@@ -143,7 +144,7 @@ as specified in your lock file.
 
 #### Cache with npm
 
-`npm` is now cached by default, in case you want to disable it, please add the following to your `.travis.yml`:
+`npm` is now cached by default. In case you want to disable it, please add the following to your `.travis.yml`:
 
 ```yaml
 cache:
@@ -158,12 +159,11 @@ cache: npm
 ```
 {: data-file=".travis.yml"}
 
-1. This caches `$HOME/.npm` precisely when `npm ci` is the default `script` command.
+1. This cache's $HOME/.npm` precisely when `npm ci` is the default `script` command.
 (See above.)
 
 1. In all other cases, this will cache `node_modules`.
-Note that `npm install` will still run on every build and will update/install
-any new packages added to your `package.json` file.
+Note that `npm install` will still run on every build and will update/install any new packages added to your `package.json` file.
 
 Even when `script` is overridden, this shortcut is effective.
 
@@ -219,8 +219,7 @@ For more information, refer to [Caching](/user/caching/) documentation.
 
 ### Use shrinkwrapped git dependencies
 
-Note that `npm install` can fail if a shrinkwrapped git dependency pointing to a
-branch has its HEAD changed.
+Note that `npm install` can fail if a shrink-wrapped git dependency pointing to a branch has its HEAD changed.
 
 ## Ember Apps
 
@@ -229,7 +228,7 @@ is [`Qunit`](http://qunitjs.com/). The following example shows how to build and
 test against different Ember versions.
 
 ```yaml
-dist: trusty
+dist: focal
 addons:
   apt:
     sources:
@@ -310,34 +309,6 @@ before_script:
 {: data-file=".travis.yml"}
 
 Find the source code at [travis-ci-meteor-packages](https://github.com/arunoda/travis-ci-meteor-packages).
-
-## Node.js v4 (or io.js v3) compiler requirements
-
-To compile native modules for io.js v3 or Node.js v4 or later, a [C++11
-standard](https://en.wikipedia.org/wiki/C%2B%2B11)-compliant compiler is
-required. More specifically, either gcc 4.8 (or later), or clang 3.5 (or later)
-works.
-
-Our Trusty images have gcc and clang that meet this requirement, but the Precise
-image does not.
-
-To update these compilers to a newer version, for example, `gcc/g++` to version
-4.8, add the following in your `.travis.yml`:
-
-```yaml
-language: node_js
-node_js:
-  - "4"
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-```
-{: data-file=".travis.yml"}
 
 ## Build Config Reference
 

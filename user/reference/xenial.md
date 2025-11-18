@@ -3,11 +3,11 @@ title: The Xenial Build Environment
 layout: en
 ---
 
-> Xenial LTS Standard has reached End of Life (EOL) as per Canonical. Consider updating to a newer image. Travis CI has ceased all work on updates to Xenial images as of the end of the 2024 calendar year, and it is now considered deprecated.
+> Please note that Travis CI discontinued support for the Xenial build environment. The following is a **legacy** document left for reference.
 
 ## What This Guide Covers
 
-This guide provides an overview of the packages, tools and settings available in the Xenial environment.
+This guide provides an overview of the packages, tools, and settings available in the Xenial environment.
 
 ## Using Xenial
 
@@ -18,7 +18,7 @@ dist: xenial
 ```
 {: data-file=".travis.yml"}
 
-Please note that Xenial is available on our hosted fully virtualized
+Please note that Xenial is available on our hosted, fully virtualized
 infrastructure. If you are running an Enterprise installation, please reach out
 to [enterprise@travis-ci.com](mailto:enterprise@travis-ci.com?subject=Try%20out%20Xenial) to see how you can use the Xenial Docker images.
 
@@ -28,9 +28,9 @@ Xenial includes the following changes and improvements:
 
 ### Third party apt-repositories removed
 
-While third party apt-repositories are used during the Xenial image provisioning, they are all removed from the Xenial build image. This has two benefits; a) reduced risk of unrelated interference and b) faster apt-get updates.
+While third-party apt-repositories are used during the Xenial image provisioning, they are all removed from the Xenial build image. This has two benefits: a) reduced risk of unrelated interference and b) faster apt-get updates.
 
-To specify a third party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
+To specify a third-party apt-repository, you can [add the source with the apt addon](/user/installing-dependencies/#adding-apt-sources) and specify the packages. For example:
 
 ```yaml
 dist: xenial
@@ -61,7 +61,7 @@ If you depend on these repositories in your build, you can use the following `so
 
 ### Services disabled by default
 
-On our Xenial infrastructure, to speed up boot time and improve performance we've disabled all services, including the ones that are started by default on Trusty.
+On our Xenial infrastructure, to speed up boot time and improve performance, we've disabled all services, including those started by default on Trusty.
 Add any services that you want to start by default to your `.travis.yml`:
 
 
@@ -74,9 +74,9 @@ services:
 
 ## Environment common to all Xenial images
 
-The following versions of Docker, version control software and compilers are present on all builds, along with more language specific software described in more detail in each language section.
+The following versions of Docker, version control software, and compilers are present on all builds, along with more language specific software described in more detail in each language section.
 
-All preinstalled software not provided by distro is installed from an official release --
+All preinstalled software not provided by the distro is installed from an official release --
 either a prebuilt binary if available, or a source release built with default options.
 For preinstalled language interpreters, a standard version manager like `rvm` is used if available for the language.
 
@@ -186,7 +186,7 @@ is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le.
 ## Perl support
 
 * Default version on Xenial is `5.34.1`
-* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.29`, `5.30`, `5.31`, `5.32`, `5.33` and `5.34` can be installed by using the `perl:`-key.
+* Supported versions `5.22`, `5.24`, `5.26`, `5.28`, `5.29`, `5.30`, `5.31`, `5.32`, `5.33`, and `5.34` can be installed by using the `perl:`-key.
 * `TAP::Harness` v3.35 and `cpanm` (App::cpanminus) version 1.7044 are also pre-installed.
 
 ## PHP support
@@ -196,7 +196,7 @@ is `openjdk11`; `openjdk7` and `openjdk8` on ppc64le.
 
 ## Databases and services
 
-The following services and databases are preinstalled but but do not run by default.
+The following services and databases are preinstalled but do not run by default.
 To use one in your build, add it to the services key in your `.travis.yml` :
 
 | service    | version        |
@@ -207,9 +207,9 @@ To use one in your build, add it to the services key in your `.travis.yml` :
 | postgresql | 9.4 9.5 9.6 10 |
 {: style="width: 30%" }
 
-* IMPORTANT: Since Xenial LTS is officaly EOL, postgre apt packages are no more available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
+* IMPORTANT: Since Xenial LTS is officially EOL, postgre apt packages are no longer available from apt.postgresql.org repository: https://wiki.postgresql.org/wiki/Apt
 * Currently Xenial is using apt-archive.postgresql.org, unfortunately it lacks ARM and S390x arch packages.
 
 ## Other Ubuntu Linux Build Environments
 
-You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments you can use.
+You can have a look at the [Ubuntu Linux overview page](/user/reference/linux/) for the different Ubuntu Linux build environments available.
