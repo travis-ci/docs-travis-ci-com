@@ -1,0 +1,26 @@
+threading: |
+  Some Perls have been compiled with threading support. They have been compiled
+  with the additional compile flags `-Duseshrplib` and `-Duseithreads`:
+
+  ```
+  5.26-shrplib
+  5.24-shrplib
+  5.22-shrplib
+  5.20-shrplib
+  5.18-shrplib
+  ```
+modules: |
+  ```
+  cpanm (App::cpanminus)
+  Dist::Zilla
+  Dist::Zilla::Plugin::Bootstrap::lib
+  ExtUtils::MakeMaker
+  LWP
+  Module::Install
+  Moose
+  Test::Exception
+  Test::Kwalitee
+  Test::Most
+  Test::Pod
+  Test::Pod::Coverage
+  ```

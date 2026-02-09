@@ -1,5 +1,5 @@
 ---
-title: Using Code Climate with Travis CI
+title: Use Code Climate with Travis CI
 layout: en
 
 ---
@@ -15,16 +15,18 @@ integrates neatly with Travis CI.
 As a Travis CI customer, [you get 20% off for your first three
 months](https://codeclimate.com/partners/travisci)!
 
-## Measuring Test Coverage with Code Climate
+## Measure Test Coverage with Code Climate
 
-Test coverage integration can be used on both private and open source projects,
+Test coverage integration can be used on both private and open-source projects,
 and is free for open source.
 
-Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v1.0/docs/getting-started-test-coverage). In that guide you'll find: 
+Follow their guide on [Configuring Test Coverage](https://docs.codeclimate.com/v1.0/docs/getting-started-test-coverage). In that guide, you'll find: 
 * links to [parallel tests
   support](https://docs.codeclimate.com/v1.0/docs/configuring-test-coverage#section-parallel-tests-and-multiple-test-suites) setup,
 * [troubleshooting
   tips](https://docs.codeclimate.com/v1.0/docs/test-coverage-troubleshooting-tips),
 * and a [sample .travis.yml](https://docs.codeclimate.com/docs/travis-ci-test-coverage).
 
+## Build Config Reference
 
+You can find more information on the build config format for [Code Climate](https://config.travis-ci.com/ref/job/addons/code_climate) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
