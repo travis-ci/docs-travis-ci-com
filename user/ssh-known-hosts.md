@@ -1,5 +1,5 @@
 ---
-title: Adding to SSH Known Hosts
+title: Add to SSH Known Hosts
 layout: en
 
 ---
@@ -43,7 +43,7 @@ Note that the `ssh_known_hosts` option may introduce a risk of man-in-the-middle
 For example, it may prevent a build from detecting that an illegitimate 3rd party attempts to inject a modified git repository or submodule into the build.
 This possibility might be of particular relevance where Travis CI build outputs are used for release packages or production deployments.
 
-### Mitigations and Workarounds
+## Mitigations and Workarounds
 
 Currently, Travis CI only detects the above attacks out-of-the-box for repositories on `github.com`, `gist.github.com`, or `ssh.github.com`.
 If you host your code on other domains, there is currently no straightforward alternative to using the `ssh_known_hosts` option and its security implications.

@@ -1,10 +1,9 @@
 ---
-title: Building a Java project
+title: Build a Java project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,13 +25,13 @@ Minimal example:
 {{ site.data.snippets.unix_note }}
 
 The rest of this guide covers configuring Java projects in Travis CI. If you're
-new to Travis CI please read our [Tutorial](/user/tutorial/) and
-[build configuration](/user/customizing-the-build/) guides first.
+new to Travis CI, please read our [Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ## Overview
 
-The Travis CI environment contains various versions of OpenJDK, Oracle JDK,
-Gradle, Maven and Ant.
+The Travis CI environment contains various versions of OpenJDK,
+Gradle, Maven, and Ant.
 
 To use the Java environment, add the following to your `.travis.yml`:
 
@@ -41,7 +40,7 @@ language: java
 ```
 {: data-file=".travis.yml"}
 
-## Projects Using Maven
+## Maven Projects
 
 ### Maven Dependency Management
 
@@ -83,7 +82,7 @@ Travis CI uses that instead:
 
 To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
-## Projects Using Gradle
+## Gradle Projects
 
 ### Gradle Dependency Management
 
@@ -138,7 +137,7 @@ cache:
 
 > Note that if you use Gradle with `sudo` (i.e. `sudo ./gradlew assemble`), the caching configuration above will have no effect, since the depencencies will be in `/root/.gradle` which the `travis` user account does not have write access to.
 
-## Projects Using Ant
+## Ant Projects
 
 ### Ant Dependency Management
 
@@ -162,38 +161,20 @@ ant test
 
 To use a different `script` command, customize the [build step](/user/job-lifecycle/#customizing-the-build-phase).
 
-## Testing Against Multiple JDKs
+The list of available JVMs for different dists are at:
 
-To test against multiple JDKs, use the `jdk:` key in `.travis.yml`. For example,
-to test against Oracle JDKs 8 and 9, as well as OpenJDK 8:
+  * [JDKs installed for **Noble**](/user/reference/noble/#jvm-clojure-groovy-java-scala-support)
+  * [JDKs installed for **Jammy**](/user/reference/jammy/#jvm-clojure-groovy-java-scala-support)
+  * [JDKs installed for **Focal**](/user/reference/focal/#jvm-clojure-groovy-java-scala-support)
+  * [JDKs installed for **Bionic**](/user/reference/bionic/#jvm-clojure-groovy-java-scala-support)
 
-```yaml
-jdk:
-  - oraclejdk8
-  - oraclejdk9
-  - openjdk8
-```
-{: data-file=".travis.yml"}
-
-> Note that testing against multiple Java versions is not supported on macOS. See
-the [macOS Build Environment](/user/reference/osx/#jdk-and-macos) for more
-details.
-
-The list of available JVMs for different dists are at
-
-  * [JDKs installed for **Xenial**](/user/reference/xenial/#jvm-clojure-groovy-java-scala-images)
-  * [JDKs installed for **Trusty**](/user/reference/trusty/#jvm-clojure-groovy-java-scala-images)
-  * [JDKs installed for **Precise**](/user/reference/precise/#jvm-clojure-groovy-java-scala-vm-images)
-
-### Switching JDKs (Java 8 and below) Within One Job
+### Switch JDKs (Java 8 and lower) within one Job
 
 If your build needs to switch JDKs (Java 8 and below) during a job, you can do so with
-`jdk_switcher use …`.
+[`jdk_switcher`](https://github.com/michaelklishin/jdk_switcher#what-jdk-switcher-is).
 
 ```yaml
 script:
-  - jdk_switcher use oraclejdk8
-  - # do stuff with Java 8
   - jdk_switcher use openjdk8
   - # do stuff with open Java 8
 ```
@@ -201,55 +182,16 @@ script:
 
 Use of `jdk_switcher` also updates `$JAVA_HOME` appropriately.
 
-### Updating Oracle JDK 8 to a recent release
+## Current JDK providers
 
-Your repository may require a newer release of Oracle JDK than the pre-installed
-version.
-(You can consult [the list of published Oracle JDK packages](https://launchpad.net/~webupd8team/+archive/ubuntu/java).)
-
-The following example will use the latest Oracle JDK 8:
-
+Currently, our builds are using Bellsoft and Adoptium JDK providers - they are switched based on the distribution and architecture you are using in your build. Additionally, we've added IBM's Semeru JDK - to use it, instead of using jdk: jdkX or jdk: openjdkX syntax, simply use jdk: semeruX like here:
 ```yaml
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
+language: java
+jdk: semeru11
 ```
 {: data-file=".travis.yml"}
 
-## Using Java 10 and later
-
-> Take note that `oraclejdk10` is EOL since October 2018 and as such it's not supported anymore on Travis CI.
-> See [https://www.oracle.com/technetwork/java/javase/eol-135779.html](https://www.oracle.com/technetwork/java/javase/eol-135779.html){: data-proofer-ignore=""}.
-
-OracleJDK 11 and later are supported on Linux, and
-OpenJDK 10 and later are supported on Linux and macOS using
-[`install-jdk.sh`](https://github.com/sormuras/bach#install-jdksh).
-
-```yaml
-jdk:
-  - oraclejdk8
-  - oraclejdk11
-  - openjdk10
-  - openjdk11
-```
-{: data-file=".travis.yml"}
-
-### Switching JDKs (to Java 10 and up) Within One Job
-
-If your build needs to switch JDKs (Java 8 and up) during a job, you can do so with
-`install-jdk.sh`.
-
-```yaml
-jdk: openjdk10
-script:
-  - jdk_switcher use openjdk10
-  - # do stuff with OpenJDK 10
-  - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh --install openjdk11 --target $JAVA_HOME
-  - # do stuff with open OpenJDK 11
-```
-{: data-file=".travis.yml"}
+Available semeru JDKs for AMD, S390X, PPC64LE, and ARM architectures: 8, 11, 16, 17, 18, 19, 20, 21, 22
 
 ## Examples
 
@@ -259,3 +201,7 @@ script:
 - [Symfony 2 Eclipse plugin](https://github.com/pulse00/Symfony-2-Eclipse-Plugin/blob/master/.travis.yml)
 - [RESThub](https://github.com/resthub/resthub-spring-stack/blob/master/.travis.yml)
 - [Joni](https://github.com/jruby/joni/blob/master/.travis.yml), JRuby's regular expression implementation
+
+## Build Config Reference
+
+You can find more information on the build config format for [Java](https://config.travis-ci.com/ref/language/java) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

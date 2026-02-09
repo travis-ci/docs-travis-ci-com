@@ -1,14 +1,14 @@
 ---
-title: Using SourceClear with Travis CI
+title: Use SourceClear with Travis CI
 layout: en
 
 ---
 
-[SourceClear](https://www.sourceclear.com) is security for open-source code.
+[SourceClear](https://www.sourceclear.com) is a security for open-source code.
 
 When you add SourceClear to your TravisCI projects you'll get automated security analysis inside every build. You’ll get complete analysis of your open-source dependencies, including security vulnerabilities, out-of-date libraries, and license reports.
 
-## Creating your Authentication Token
+## Create an Authentication Token
 
 In order to set up the SourceClear agent for Travis-CI, you must be logged into [SourceClear](https://app.sourceclear.io/login), and then perform the following steps:
 
@@ -18,9 +18,9 @@ In order to set up the SourceClear agent for Travis-CI, you must be logged into 
 
 **3.** Select **Create Authentication Token**, and copy it to your clipboard. You will use this to authenticate with SourceClear during scans.
 
-## Setting the Environment Variable
+## Setup the Environment Variable
 
-Setting an environment variable in Travis-CI occurs on a per repository basis:
+Setting an environment variable in Travis-CI occurs on a per-repository basis:
 
 **1.** Select the repository you wish to scan from your Travis-CI environment >
 **More Options** > **Settings**
@@ -29,7 +29,7 @@ Setting an environment variable in Travis-CI occurs on a per repository basis:
 
 <img src="/images/srcclr-travis.png" alt="SourceClear" width="100%"/>
 
-## Configuring your Travis-CI repository
+## Configure the Travis-CI repository
 
 In order to scan using SourceClear, add the following to your `.travis.yml` file:
 

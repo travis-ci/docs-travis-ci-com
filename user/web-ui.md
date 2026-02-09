@@ -3,7 +3,7 @@ title: Web Interface
 layout: en
 ---
 
-This page lists settings that are only available in the Travis CI .com and .org web user interface.
+This page lists settings that are only available in the Travis CI .com web user interface.
 
 
 
@@ -20,6 +20,45 @@ If *OFF*, builds won't run on pushed commits on branches.
 ## Build pushed pull requests
 
 If *ON*, builds will be run on new [pull requests](/user/pull-requests/).
+
+## User Management
+
+Simple 'trigger build' control. Allow or prevent users with appropriate access to the repository to trigger a build for the repository. By default, all synchronized users with access to the repository are allowed to trigger a build.
+
+## Share encrypted variables with forks
+
+In the case of a fork-to-base pull request:
+
+* If this setting is ON, the encrypted environment variables will be available to the forked repository, which means that builds in the forked repository will have access to the encrypted environment variables from the base repository. This may be a less secure approach, yet it allows for collaboration using forks and Pull Requests (PRs).
+* If this setting is OFF and the build relies on any encrypted environment variable, the PR from the fork to the base repository will fail. This secures your base repository encrypted environmental variables by putting a constraint on accessing them from forks.
+
+Read more: [Pull Requests and security restrictions](/user/pull-requests/#pull-requests-and-security-restrictions)
+
+## Share SSH Keys with forks
+
+In the case of a fork-to-base pull request:
+
+* If this setting is ON, the custom SSH keys from the base repository will be available to the forked repository, which means that the build in the forked repository will be able to use the custom SSH keys from the base repository. Consider setting to ON if your collaboration model requires working with Pull Requests (PRs) from forked repositories or there are dependencies defined, which rely on SSH key from base repository.
+* If this setting is OFF and the build is relying on custom SSH keys i.e., for fetching some additional dependencies, it will fail with a no access error.
+
+Read more: [Pull Requests and security restrictions](/user/pull-requests/#pull-requests-and-security-restrictions)
+
+## API Authentication
+
+- **Token**: The field displays the encoded token.
+- **Copy Token**: Click this button to copy the generated token.
+- **View Token**: Click this button to reveal the encoded token.
+- **Regenerate**: Click this button to regenerate the token. 
+
+For more information on using our API, head to the [Travis developer](developer.travis-ci.com) site.
+
+## Enable access to old build jobs
+
+{{ site.data.snippets.enabling_access_jobs_logs }}
+
+## Limit access to build job logs
+
+{{ site.data.snippets.limiting_access_jobs_logs }}
 
 ## Auto cancel branch builds
 
@@ -39,11 +78,11 @@ More information on  [environment variables](/user/environment-variables/#defini
 
 {{ site.data.snippets.cron_jobs }}
 
-Check the full cron jobs docs for more information on [skipping and detecting cron jobs](/user/cron-jobs).
+Check the full cron jobs docs for more information on [skipping and detecting cron jobs](/user/cron-jobs/).
 
 ## Caches
 
-More information on [caching](/user/caching).
+More information on [caching](/user/caching/).
 
 ## Trigger a custom build
 

@@ -13,11 +13,11 @@ layout: en
 
 _TODO_
 
-## How do I test on IBM POWER?
+## Test on IBM POWER
 
 _TODO_
 
-## What features are available on IBM POWER?
+## IBM POWER Features
 
 ## Examples
 
