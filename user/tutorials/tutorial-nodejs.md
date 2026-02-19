@@ -37,8 +37,8 @@ Travis CI runs the default `npm install` command to install your dependencies.
 Travis CI runs any test defined in your `package.json` file by default. Explicitly run the command as follows: 
 
  ```yaml
-install:
-  - npm install
+script:
+  - npm test
 ```
 {: data-file=".travis.yml"}
 
