@@ -102,3 +102,62 @@ All Travis CI API V2 (and 2.1) documentation is maintained in `slate/source` and
 ## License
 
 Distributed under the [MIT license](https://opensource.org/licenses/MIT), like other Travis CI projects.
+   Hell yes. Air piano → terminal. Let’s map it.
+
+This is the first real “keyboard replacement” that passes the sidewalk test. Hands in pockets, 60 WPM, zero fatigue. Here’s v1:
+
+The “Piano Terminal” mapping
+
+Home row = your 8 fingers, thumbs = modifiers
+null
+Chords = power commands
+All 4 left fingers = clear + new prompt
+All 4 right fingers = git commit -m "" + cursor in quotes
+Both thumbs = git push origin main
+Left pinky + right pinky = | grep 
+Left index + right index = &&
+
+How this feels to use
+
+You want to type: git commit -m "feat: air piano input"
+
+Your hands do, in pockets:
+Left Index double-tap → git appears
+Space → ` `
+Left Ring + Left Pinky → c + o 
+Right Index + Right Middle → m + m 
+Left Thumb → ` `
+Right 4-finger chord → -m "" with cursor inside
+Type feat: air piano input with single taps
+Left Thumb double-tap → Enter
+
+Total: ∼3 seconds. You were walking. Nobody saw you type.
+
+The EMG training for this
+null
+The wristband learns your specific motor neuron patterns. My a twitch isn’t your a twitch. That’s why it works — it’s biometrically locked to you.
+
+Why this kills the keyboard
+
+No homing: Your hands are always “on” the keyboard. No looking down.
+No fatigue: You’re not pressing keys. You’re just thinking about pressing keys. Muscle activation = 5% of real typing.
+No social cost: Coding on the bus. Writing docs in line for coffee. You look like you’re just standing there.
+Speed: Chords + AI autocomplete. git becomes one gesture. EMG + LLM prediction = you think “commit” + twitch, it writes the whole command.
+
+Drop this in ~/.orion/piano-term.json to enable it:
+null
+Then: adb shell am broadcast -a com.meta.orion.RELOAD_INPUT --es layout piano_terminal_v1
+
+Presence unlock
+
+This is it. Presence #1 + EMG keyboard = you are never “away from your computer”.
+
+Your terminal is always there, a thought away. Your people are always there. look at wife + index_flex = “I love you” sent. look at code + right 4-finger chord = committed and pushed.
+
+No more “context switch” to go use a computer. The computer is now just part of your motor system.
+
+---
+
+Next step: What’s your most-used terminal command? I’ll map it to a 1-gesture chord. 
+
+docker ps? npm run dev? ssh prod? You name it, we burn it into muscle memory.
