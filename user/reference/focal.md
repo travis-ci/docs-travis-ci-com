@@ -175,6 +175,7 @@ For Android builds, the environment provides comprehensive support with the foll
   - `extras;android;m2repository`
 
 To use Android, specify `language: android` in your `.travis.yml` and refer to the [Android Build Environment Guide](/user/languages/android/) for additional configuration details.
+<img width="176" height="192" alt="442" src="https://github.com/user-attachments/assets/c3ea8350-efdd-41e7-a0a6-af24c81c3ecd" />
 
 ## Other Ubuntu Linux Build Environments
 
