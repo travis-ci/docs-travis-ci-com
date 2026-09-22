@@ -1,18 +1,17 @@
 ---
-title: Building a C++ Project
+title: Build a C++ Project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
 | C++                                         | Default                                   |
 |:--------------------------------------------|:------------------------------------------|
-| [Default `install`](#Dependency-Management) | N/A                                       |
-| [Default `script`](#Default-Build-Script)   | `./configure && make && make test`        |
-| [Matrix keys](#Build-Matrix)                | `env`, `compiler`                         |
+| [Default `install`](#dependency-management) | N/A                                       |
+| [Default `script`](#default-build-script)   | `./configure && make && make test`        |
+| [Matrix keys](#build-matrix)                | `env`, `compiler`                         |
 | Support                                     | [Travis CI](mailto:support@travis-ci.com) |
 
 Minimal example:
@@ -20,16 +19,17 @@ Minimal example:
 ```yaml
 language: cpp
 ```
-
+{: data-file=".travis.yml"}
 </aside>
 
-{{ site.data.snippets.trusty_note }}
+{{ site.data.snippets.all_note }}
 
 This guide covers build environment and configuration topics specific to C++
-projects. Please make sure to read our [Getting Started](/user/getting-started/)
-and [general build configuration](/user/customizing-the-build/) guides first.
+projects. Please make sure to read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-## CI environment for C++ Projects
+
+## CI Environment for C++ Projects
 
 Travis CI VMs are 64-bit and provide versions of:
 
@@ -56,31 +56,7 @@ install: make get-deps
 
 See [build configuration guide](/user/customizing-the-build/) to learn more.
 
-## Default Build Script
-
-The default build command is:
-
-
-```bash
-./configure && make && make test
-```
-
-Projects that find this sufficient can use a very minimalistic `.travis.yml` file:
-
-```yaml
-language: cpp
-```
-{: data-file=".travis.yml"}
-
-You can change the build script as described in the [build
-configuration](/user/customizing-the-build/) guide:
-
-```yaml
-script: scons
-```
-{: data-file=".travis.yml"}
-
-## Choosing compilers to test against
+## Test against Compilers
 
 You can test projects against either GCC or Clang, or both. To do so,
 specify the compiler to use using the `compiler:` key in `.travis.yml`. For
@@ -101,28 +77,22 @@ compiler:
 {: data-file=".travis.yml"}
 
 Testing against two compilers will create (at least) 2 rows in your build
-matrix. For each row, the Travis CI C++ builder will export the `CXX` env
-variable to point to either `g++` or `clang++` and `CC` to either `gcc` or
-`clang`.
+matrix. For each row, the Travis CI C++ builder will export the `CXX` and
+`CXX_FOR_BUILD` env variables to point to either `g++` or `clang++`, and
+correspondingly export the `CC` and `CC_FOR_BUILD` env variables to point
+to either `gcc` or `clang`.
 
-On OS X, `gcc` is an alias for `clang`, and `g++` is an alias for `clang++`.
-Set a specific [GCC version](#gcc-on-os-x) to use GCC on OS X.
-
-## Build Matrix
-
-For C++ projects, `env` and `compiler` can be given as arrays
-to construct a build matrix.
 
 ## Examples
 
 - [Rubinius](https://github.com/rubinius/rubinius/blob/master/.travis.yml)
 
-## OpenMP projects
+## OpenMP Projects
 
 OpenMP projects should set the environment variable `OMP_NUM_THREADS` to a reasonably small value (say, 4).
 OpenMP detects the cores on the hosting hardware, rather than the VM on which your tests run.
 
-## MPI projects
+## MPI Projects
 
 The default environment variables `$CC` and `$CXX` are known to interfere with MPI projects.
 In this case, we recommend unsetting it:
@@ -134,4 +104,3 @@ before_install:
 ```
 {: data-file=".travis.yml"}
 
-{% include c11-cpp11-and-beyond-and-toolchains.md %}
