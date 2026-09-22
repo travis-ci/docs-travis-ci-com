@@ -1,10 +1,9 @@
 ---
-title: Building an Elixir Project
+title: Build an Elixir Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -28,8 +27,8 @@ language: elixir
 
 The rest of this guide covers build environment and configuration topics
 specific to Elixir projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 Elixir builds are not available on the macOS environment.
 
@@ -42,7 +41,7 @@ language: elixir
 ```
 {: data-file=".travis.yml"}
 
-### Specify which Elixir version to build with
+### Specify an Elixir version
 
 You can specify Elixir version to build with by the `elixir` key.
 
@@ -66,7 +65,7 @@ has latest patches but may be occasionally be broken.
 See [this GitHub issue comment](https://github.com/elixir-lang/elixir/issues/6618#issuecomment-333374372)
 for more details.
 
-### Specifying OTP Release version
+### Specify the OTP Release version
 
 Note that Elixir has requirements regarding the underlying
 Erlang OTP Release version.
@@ -96,7 +95,7 @@ elixir:
   - '1.0.5'
 otp_release: '17.4'
 
-matrix:
+jobs:
   include:
     - elixir: '1.2'
       otp_release: '18.0'
@@ -116,3 +115,7 @@ As with the Erlang VM, the version of OTP release a job is using is available as
 ```
 TRAVIS_OTP_RELEASE
 ```
+
+## Build Config Reference
+
+You can find more information on the build config format for [Elixir](https://config.travis-ci.com/ref/language/elixir) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).

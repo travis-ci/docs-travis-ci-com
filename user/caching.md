@@ -1,5 +1,5 @@
 ---
-title: Caching Dependencies and Directories
+title: Cache Dependencies and Directories
 layout: en
 
 ---
@@ -20,14 +20,14 @@ Travis CI can cache content that does not often change, to speed up your build p
 > When creating the cache, symbolic links are not followed.
 > Consider caching the normal files and directories instead.
 
-## Caching directories (Bundler, dependencies)
+## Cache directories 
 
-Caches lets Travis CI store directories between builds, which is useful for storing
+Caches lets Travis CI store directories (Bundler, dependencies) between builds, which is useful for storing
 dependencies that take longer to compile or download.
 
-Note that if a third party project, such as Bundler, changes the location where they store dependencies you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
+Note that if a third-party project, such as Bundler, changes the location where they store dependencies, you might need to specify the [directory manually](#arbitrary-directories) instead of using that particular [caching shortcut](#bundler). Please [contact us](mailto:support@travis-ci.com?subject=Caching) with any questions, issues or feedback.
 
-### Build phases
+### Build Phases
 
 Travis CI uploads the cache after the `script` phase of the build, but before
 either `after_success` or `after_failure`.
@@ -38,7 +38,7 @@ either `after_success` or `after_failure`.
 
 On Ruby and Objective-C projects, installing dependencies via [Bundler](http://bundler.io/) can make up a large portion of the build duration. Caching the bundle between builds drastically reduces the time a build takes to run.
 
-#### Enabling Bundler caching
+#### Enable Bundler caching
 
 To enable Bundler caching in your `.travis.yml`:
 
@@ -50,21 +50,21 @@ cache: bundler
 
 Whenever you update your bundle, Travis CI will also update the cache.
 
-#### Determining the bundle path
+#### Determine the bundle path
 
-Travis CI tries its best at determining the path bundler uses for storing dependencies.
+Travis CI tries its best to determine the path bundler uses for storing dependencies.
 
 If you have [custom Bundler arguments](/user/languages/ruby/#custom-bundler-arguments-and-gemfile-locations), and these include the `--path` option, Travis CI will use that path. If `--path` is missing but `--deployment` is present, it will use `vendor/bundle`.
 
-Otherwise it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
+Otherwise, it will automatically add the `--path` option. In this case it will either use the value of the environment variable `BUNDLE_PATH` or, if it is missing, `vendor/bundle`.
 
-#### Caching and overriding `install` step
+#### Cache and override the install step
 
 Overriding the `install` step may cause the directive `cache: bundler` to miss the directory.
 In this case, observe where Bundler is installing the gems, and cache that directory using
 [cache.directories](#arbitrary-directories).
 
-#### Cleaning up bundle
+#### Bundle Clean up
 
 When you use
 
@@ -79,11 +79,11 @@ In the cases where this is not desirable, you can use specify the [arbitrary dir
 to get around it.
 See [this GitHub issue](https://github.com/travis-ci/travis-ci/issues/2518) for more information.
 
-### cache RVM Ruby version for non Ruby projects
+### Cache RVM Ruby version for non-Ruby projects
 
 There are projects using machines not based on Ruby but having some Ruby executions. For example, a NodeJS application that has a Ruby functional test suite.
 
-For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases you can cache the ruby installation.
+For these cases installing a version of ruby with `rvm install 2.3.1` may take more than 3 minutes. For these cases, you can cache the ruby installation.
 
 ```yaml
  cache:
@@ -96,7 +96,7 @@ For these cases installing a version of ruby with `rvm install 2.3.1` may take m
 
 On Objective-C projects, installing dependencies via [CocoaPods](http://cocoapods.org) can take up a good portion of your build. Caching the compiled Pods between builds helps reduce this time.
 
-#### Enabling CocoaPods caching
+#### Enable CocoaPods caching
 
 You can enable CocoaPods caching for your repository by adding this to your
 *.travis.yml*:
@@ -113,15 +113,15 @@ them both:
 ```yaml
 language: objective-c
 cache:
-  - bundler
-  - cocoapods
+  bundler: true
+  cocoapods: true
 ```
 {: data-file=".travis.yml"}
 
 Note that CocoaPods caching won't have any effect if you are already vendoring
 the Pods directory in your Git repository.
 
-#### Determining the Podfile path
+#### Determine the Podfile path
 
 By default, Travis CI will assume that your Podfile is in the root of the
 repository. If this is not the case, you can specify where the Podfile is like
@@ -135,7 +135,17 @@ podfile: path/to/Podfile
 
 ### npm cache
 
-For caching with `npm`, use:
+> Please note that as of July 2019, npm is cached by default on Travis CI
+
+To disable npm caching, use:
+
+```yaml
+cache:
+  npm: false
+```
+{: data-file=".travis.yml"}
+
+To explicitly cache `npm`, use:
 
 ```yaml
 language: node_js
@@ -192,19 +202,6 @@ cache: ccache
 
 to cache `$HOME/.ccache` and automatically add `/usr/lib/ccache` to your `$PATH`.
 
-#### ccache on macOS
-
-ccache is not installed on macOS environments but you can install it by adding
-
-```yaml
-install:
-  - brew install ccache
-  - export PATH="/usr/local/opt/ccache/libexec:$PATH"
-```
-{: data-file=".travis.yml"}
-
-> Note that this creates wrappers around your default gcc and g++ compilers.
-
 ### R package cache
 
 For caching R packages, use:
@@ -233,7 +230,7 @@ This caches `$HOME/.cargo` and `$TRAVIS_BUILD_DIR/target`.
 
 ### Arbitrary directories
 
-You can cache arbitrary directories, such as Gradle, Maven, Composer and npm cache directories, between builds by listing them in your `.travis.yml`:
+You can cache arbitrary directories, such as Gradle, Maven, Composer, and npm cache directories, between builds by listing them in your `.travis.yml`:
 
 ```yaml
 cache:
@@ -266,10 +263,10 @@ Large files that are quick to install but slow to download do not benefit from c
 
 Docker images are not cached, because we provision a brand new virtual machine for every build.
 
-## Fetching and storing caches
+## Fetch and store caches
 
 - Travis CI fetches the cache for every build, including branches and pull requests.
-- There is one cache per branch and language version / compiler version / JDK version / Gemfile location, etc. See [Caches and build matrices](#caches-and-build-matrices) for details.
+- There is one cache per branch and language version/compiler version/JDK version/ Gemfile location, etc. See [Caches and build matrices](#caches-and-build-matrices) for details.
 - If a branch does not have its own cache, Travis CI fetches the default branch cache.
 - Only modifications made to the cached directories from normal pushes are stored.
 
@@ -309,9 +306,9 @@ before_cache:
 
 Failure in this phase does not mark the job as failed.
 
-### Clearing Caches
+### Clear Caches
 
-Sometimes you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
+Sometimes, you spoil your cache by storing bad data in one of the cached directories, or your cache can become invalid when language runtimes change.
 
 Use one of the following ways to access your cache and delete it if necessary:
 
@@ -325,15 +322,19 @@ Use one of the following ways to access your cache and delete it if necessary:
 
 - The [API](https://api.travis-ci.com/#/repos/:owner_name/:name/caches)
 
-> Note that if you're still using [travis-ci.org](http://www.travis-ci.org) you need to use the .org url to reach your settings page and in the API request.
 
 ### Caches expiration
 
-Cache archives are currently set to expire after 28 days for open source projects and 45 days for private projects. This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
+Cache archives are currently set to expire after 45 days for repositories on https://app.travis-ci.com. 
+This means a specific cache archive will be deleted if it wasn't changed after its expiration delay.
+
+## Build Config Reference
+
+You can find more information on the build config format for [Caching](https://config.travis-ci.com/ref/job/cache) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
 
 ## Configuration
 
-### Enabling multiple caching features
+### Enable multiple caching features
 
 When you want to enable multiple caching features and the language supports them, you can list them as an array:
 
@@ -373,7 +374,7 @@ install:
 ```
 {: data-file=".travis.yml"}
 
-### Explicitly disabling caching
+### Explicitly disable caching
 
 You can explicitly disable all caching by setting the `cache` option to `false` in your *.travis.yml*:
 
@@ -416,12 +417,11 @@ jobs should use.
 
 These factors are:
 
-1. OS name (currently, `linux`, `osx`, or `windows`)
-2. OS distribution (for Linux, `xenial`, `trusty`, or `precise`)
-3. macOS image name (e.g., `xcode7.2`)
-4. Names and values of visible environment variables set in `.travis.yml` or Settings panel
-5. Language runtime version (for the language specified in the `language` key) if applicable
-6. For Bundler-aware jobs, the name of the `Gemfile` used
+1. OS name (currently, `linux` or `windows`)
+2. OS distribution (for Linux, `noble`, `jammy`, `focal`, `bionic`, `xenial`)
+3. Names and values of visible environment variables set in `.travis.yml` or Settings panel
+4. Language runtime version (for the language specified in the `language` key) if applicable
+5. For Bundler-aware jobs, the name of the `Gemfile` used
 
 If these characteristics are shared by more than one job in a build matrix,
 they will share the same URL on the network.
@@ -430,7 +430,7 @@ usable in all jobs using it.
 In this case, we advise you to add a public environment variable
 name to each job to create a unique cache entry:
 
-```
+```yaml
 CACHE_NAME=JOB1
 ```
 {: data-file=".travis.yml"}
@@ -465,10 +465,10 @@ FAILED: tar -Pzcf /Users/travis/.casher/push.tgz /path/to/unreadable/directory
 tar: /path/to/unreadable/directory: Cannot stat: No such file or directory
 ```
 
-## How does caching work?
+## How does caching work
 
 Travis CI saves an archive of all the directories listed in the configuration and uploads
-it to a storage provider, using a secure and protected URL, ensuring security and privacy of
+it to a storage provider, using a secure and protected URL, ensuring the security and privacy of
 the uploaded archives.
 
 Note that this makes our cache not network-local, it is still bound to network

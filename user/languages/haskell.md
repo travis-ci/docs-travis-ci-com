@@ -1,10 +1,9 @@
 ---
-title: Building a Haskell Project
+title: Build a Haskell Project
 layout: en
 
 ---
 
-## What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,11 +25,11 @@ language: haskell
 
 {{ site.data.snippets.linux_note }}
 
-The rest of this guide covers configuring Haskell projects on Travis CI. If
-you're new to Travis CI please read our [Tutorial](/user/tutorial/)
-and [build configuration](/user/customizing-the-build/) guides first.
+This guide covers configuring Haskell projects on Travis CI. If
+you're new to Travis CI. Please read our [Onboarding](/user/onboarding/)
+and [General Build configuration](/user/customizing-the-build/) guides first.
 
-## Specifying Haskell compiler versions
+## Specify Haskell compiler versions
 
 The Haskell environment on Travis CI has recent versions of GHC (Glasgow Haskell
 Compiler) pre-installed. For a detailed list of pre-installed versions, please
@@ -51,11 +50,23 @@ ghc:
 
 ## Dependency Management
 
-By default Travis CI uses `cabal` to manage your project's dependencies:
+By default, Travis CI uses `cabal` to manage your project's dependencies:
 
 ```bash
 cabal install --only-dependencies --enable-tests
 ```
+
+### Specify cabal-install version
+
+You can specify the version of `cabal` used:
+
+```yaml
+language: haskell
+cabal: "2.4"
+ghc:
+  - "8.6.4"
+```
+{: data-file=".travis.yml"}
 
 ### Multiple Packages in Subdirectories
 
@@ -81,3 +92,11 @@ The build matrix is then constructed such that each package is compiled with eac
 
 Travis can automatically upload your package to [Hackage](https://hackage.haskell.org/).
 See [Hackage Deployment](/user/deployment/hackage/).
+
+## Build Config Reference
+
+You can find more information on the build config format for [Haskell](https://docs.travis-ci.com/user/languages/haskell/) in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
+
+## Build with Stack
+
+Check out [Travis CI on Stack](https://docs.haskellstack.org/en/stable/travis_ci/) if you want to use Stack to build your project.

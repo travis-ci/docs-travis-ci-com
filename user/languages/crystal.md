@@ -1,10 +1,9 @@
 ---
-title: Building a Crystal Project
+title: Build a Crystal Project
 layout: en
 
 ---
 
-### What This Guide Covers
 
 <aside markdown="block" class="ataglance">
 
@@ -26,8 +25,8 @@ language: crystal
 
 This guide covers build environment and configuration topics specific to [Crystal](http://crystal-lang.org)
 projects. Please make sure to read our
-[Tutorial](/user/tutorial/) and
-[general build configuration](/user/customizing-the-build/) guides first.
+[Onboarding](/user/onboarding/) and
+[General Build configuration](/user/customizing-the-build/) guides first.
 
 ### Community-Supported Warning
 
@@ -42,10 +41,10 @@ and cc [@asterite](https://github.com/asterite),
 
 ## Configuration options
 
-By default Travis CI will use the latest Crystal release. It is also possible
-to test projects against the nightly build of Crystal. To do so, set the
-`crystal` key in `.travis.yml`. For example, to test against both nightly and
-the latest release:
+By default, Travis CI will use the latest Crystal stable release. It is also possible
+to test projects against the nightly or specific version build of Crystal. To do so, set the
+`crystal` key in `.travis.yml`. For example, to test against the latest stable release, the
+most recent nightly, and a specific version stable release:
 
 ```yaml
 dist: xenial
@@ -53,7 +52,10 @@ language: crystal
 crystal:
   - latest
   - nightly
+  - 0.35.1. # example of specific version
 ```
 {: data-file=".travis.yml"}
 
-Note that the nightly build will only be available on Xenial and later releases 
+> Note that the nightly build will only be available on Linux environments
+
+> You can also have a look at the [Crystal](https://config.travis-ci.com/ref/language/crystal) section in our [Travis CI Build Config Reference](https://config.travis-ci.com/).
