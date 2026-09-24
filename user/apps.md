@@ -84,14 +84,14 @@ By Ahmed El-Sayed
 
 - [source code](https://github.com/ahmedelsayed-93/ci-dashboard)
 
-### buildmonitor.io
+### CyanCor BuildMonitor
 
-![buildmonitor.io](/images/apps/buildmonitor.png){:.app}
+![buildmonitor.cyancor.com](/images/apps/buildmonitor.png){:.app}
 
 Extensible and plugin-based build monitor.<br>
 By CyanCor
 
-- [website](https://buildmonitor.io/)
+- [website](https://buildmonitor.cyancor.com/)
 - [source code](https://gitlab.com/BuildMonitor/TravisConnector)
 
 ### Meercode CI Build Dashboard
